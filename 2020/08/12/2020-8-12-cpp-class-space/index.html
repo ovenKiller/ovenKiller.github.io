@@ -328,24 +328,24 @@
 </ul>
 <p>可以分为基类和派生类两种情况来查看一个类占用的内存空间大小。<br><a id="more"></a></p>
 <p>原文链接：<a href="https://blog.csdn.net/u011012049/article/details/48767917" target="_blank" rel="noopener">https://blog.csdn.net/u011012049/article/details/48767917</a></p>
-<h2 id="基类"><a href="#基类" class="headerlink" title="基类"></a>基类</h2><h3 id="一"><a href="#一" class="headerlink" title="(一)"></a>(一)</h3><pre><code class="cpp">class CBase 
+<h2 id="基类"><a href="#基类" class="headerlink" title="基类"></a>基类</h2><h3 id="一"><a href="#一" class="headerlink" title="(一)"></a>(一)</h3><pre><code class="lang-cpp">class CBase 
 { 
-}; 
+};
 </code></pre>
-<pre><code class="cpp">sizeof(CBase)=1；
+<pre><code class="lang-cpp">sizeof(CBase)=1；
 </code></pre>
 <p>c++要求每个实例在内存中都有独一无二的地址，空类也会被实例化，所以编译器会给空类隐含的添加一个字节，这样空类实例化之后就有了独一无二的地址了。所以空类的sizeof为1。</p>
-<h3 id="二"><a href="#二" class="headerlink" title="(二)"></a>(二)</h3><pre><code class="cpp">class CBase 
+<h3 id="二"><a href="#二" class="headerlink" title="(二)"></a>(二)</h3><pre><code class="lang-cpp">class CBase 
 { 
 private:
     int a; 
     char p; 
-}; 
+};
 </code></pre>
-<pre><code class="cpp">sizeof(CBase)=8;
+<pre><code class="lang-cpp">sizeof(CBase)=8;
 </code></pre>
 <p>记得<strong>对齐</strong>的问题。int 占4字节，char占一字节，补齐3字节。</p>
-<h3 id="三"><a href="#三" class="headerlink" title="(三)"></a>(三)</h3><pre><code class="cpp">class CBase 
+<h3 id="三"><a href="#三" class="headerlink" title="(三)"></a>(三)</h3><pre><code class="lang-cpp">class CBase 
 { 
 private:
     int a; 
@@ -353,22 +353,22 @@ private:
     static int b;
 }
 </code></pre>
-<pre><code class="cpp">sizeof(CBase)=8;
+<pre><code class="lang-cpp">sizeof(CBase)=8;
 </code></pre>
 <p>静态成员变量属于整个类，不单独属于某个对象。</p>
-<h3 id="四"><a href="#四" class="headerlink" title="(四)"></a>(四)</h3><pre><code class="cpp">class CBase 
+<h3 id="四"><a href="#四" class="headerlink" title="(四)"></a>(四)</h3><pre><code class="lang-cpp">class CBase 
 { 
 public:
     void func();
 private:
     int a; 
     char p; 
-}; 
+};
 </code></pre>
-<pre><code class="cpp">sizeof(CBase)=8;
+<pre><code class="lang-cpp">sizeof(CBase)=8;
 </code></pre>
 <p>成员函数只是在名义上是类里的。其实成员函数的大小不在类的对象里面，同一个类的多个对象共享函数代码。而我们访问类的成员函数是通过类里面的一个指针实现，而这个指针指向的是一个table，table里面记录的各个成员函数的地址.</p>
-<h3 id="五"><a href="#五" class="headerlink" title="(五)"></a>(五)</h3><pre><code class="cpp">class CBase 
+<h3 id="五"><a href="#五" class="headerlink" title="(五)"></a>(五)</h3><pre><code class="lang-cpp">class CBase 
 { 
 public: 
     CBase(void); 
@@ -376,13 +376,13 @@ public:
 private: 
     int a; 
     char *p; 
-}; 
+};
 </code></pre>
-<pre><code class="cpp">sizeof(CBase)=12
+<pre><code class="lang-cpp">sizeof(CBase)=12
 </code></pre>
 <p>C++类中有虚函数的时候有一个指向虚函数表的指针（vptr），在32位系统分配指针大小为4字节。一个基类对象无论有多少个虚函数，只有这一个指针，4字节。在内存布局中，C++的编译器应该是保证虚函数表的指针存在于对象实例中最前面的位置（这是为了保证取到虚函数表的有最高的性能——如果有多层继承或是多重继承的情况下）。</p>
 <h2 id="派生类"><a href="#派生类" class="headerlink" title="派生类"></a>派生类</h2><p>派生类的大小是本身成员变量的大小加上基类的大小。如果派生类继承了多个基类的虚函数，那个这个派生类的所有虚函数所占用的内存空间等于4*（基类个数），即为每个拥有虚函数的基类维护一张虚函数表。</p>
-<pre><code class="cpp">class B1
+<pre><code class="lang-cpp">class B1
 {
 public:
     int x;

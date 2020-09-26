@@ -321,29 +321,29 @@
         
         <div class="entry-content">
           <p>参考自: <a href="https://www.runoob.com/" target="_blank" rel="noopener"> www.runoob.com </a></p>
-<h2 id="格式："><a href="#格式：" class="headerlink" title="格式："></a>格式：</h2><pre><code class="cpp">Exp1 ? Exp2 : Exp3;
+<h2 id="格式："><a href="#格式：" class="headerlink" title="格式："></a>格式：</h2><pre><code class="lang-cpp">Exp1 ? Exp2 : Exp3;
 </code></pre>
 <a id="more"></a>
 <p>其中，Exp1、Exp2 和 Exp3 是表达式。请注意冒号的使用和位置。? : 表达式的值取决于 Exp1 的计算结果。如果 Exp1 为真，则计算 Exp2 的值，且 Exp2 的计算结果则为整个 ? : 表达式的值。如果 Exp1 为假，则计算 Exp3 的值，且 Exp3 的计算结果则为整个 ? : 表达式的值。</p>
 <p>? 被称为三元运算符，因为它需要三个操作数，可以用来代替如下所示的 if-else 语句：</p>
-<pre><code class="cpp">if(condition){
+<pre><code class="lang-cpp">if(condition){
    var = X;
 }else{
    var = Y;
 }
 </code></pre>
 <p>例如，请看下面这段代码：</p>
-<pre><code class="cpp">if(y &lt; 10){ 
+<pre><code class="lang-cpp">if(y &lt; 10){ 
    var = 30;
 }else{
    var = 40;
 }
 </code></pre>
 <p>上面的代码可以写成以下语句：</p>
-<pre><code class="cpp">var = (y &lt; 10) ? 30 : 40;
+<pre><code class="lang-cpp">var = (y &lt; 10) ? 30 : 40;
 </code></pre>
 <p>在这里，如果 y 小于 10，则 var 被赋值为 30，如果 y 不小于 10，则 var 被赋值为 40。请看下面的实例：</p>
-<pre><code class="cpp">#include &lt;iostream&gt;
+<pre><code class="lang-cpp">#include &lt;iostream&gt;
 using namespace std;
 
 int main ()
@@ -359,11 +359,11 @@ int main ()
 }
 </code></pre>
 <p>当上面的代码被编译和执行时，它会产生下列结果：</p>
-<pre><code class="cpp">value of x: 40;
+<pre><code class="lang-cpp">value of x: 40;
 </code></pre>
 <h2 id="注意点：-表达式返回值是变量本身，而不是变量的副本。"><a href="#注意点：-表达式返回值是变量本身，而不是变量的副本。" class="headerlink" title="注意点： ?: 表达式返回值是变量本身，而不是变量的副本。"></a>注意点： ?: 表达式返回值是变量本身，而不是变量的副本。</h2><p>也就是说，被选择的变量不止可以返回一个值，也可以直接修改这个值</p>
 <p>如以下代码：</p>
-<pre><code class="cpp">    int a = 1, b = 2；
+<pre><code class="lang-cpp">    int a = 1, b = 2；
     ++((a &gt; b)? a : b);
 </code></pre>
 <p>执行以后，a = 1, b = 3;</p>

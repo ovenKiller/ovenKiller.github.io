@@ -332,7 +332,7 @@
 <li>了解正则表达式</li>
 </ul>
 <h1 id="一、获取html文件"><a href="#一、获取html文件" class="headerlink" title="一、获取html文件"></a>一、获取html文件</h1><p><font size="5">直接上代码</font></p>
-<pre><code class="python">import urllib.error, urllib.request
+<pre><code class="lang-python">import urllib.error, urllib.request
 def askURL(url):
     head1 = {&quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&quot;}
     reque = urllib.request.Request(url,headers = head1);
@@ -346,7 +346,6 @@ def askURL(url):
         if hasattr(e,&quot;reason&quot;):
             print(e.reason)
     return html
-
 </code></pre>
 <p>逐行解释：<br></p>
 <ul>
@@ -358,7 +357,7 @@ def askURL(url):
 <li>4、该函数返回值为网页信息的字符串</li>
 </ul>
 <p>此时返回的字符串内容如下：<br></p>
-<pre><code class="html">&lt;!doctype html&gt;
+<pre><code class="lang-html">&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt; &lt;meta charset=&quot;UTF-8&quot; /&gt;
 &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
@@ -401,7 +400,7 @@ def askURL(url):
 &lt;meta property=&quot;og:description&quot; content=&quot;一起来玩耍呀 部落Q群683185709 捐卡500授长老 积极参加部落战 月亮不睡我不睡我是秃头小宝贝(⊙o⊙)！&quot;&gt;
 </code></pre>
 <p><strong>（以上显示的是一小部分）</strong><br><br><br></p>
-<h1 id="二、将得到的数据进行处理"><a href="#二、将得到的数据进行处理" class="headerlink" title="二、将得到的数据进行处理"></a>二、将得到的数据进行处理</h1><pre><code class="python">from bs4 import BeautifulSoup
+<h1 id="二、将得到的数据进行处理"><a href="#二、将得到的数据进行处理" class="headerlink" title="二、将得到的数据进行处理"></a>二、将得到的数据进行处理</h1><pre><code class="lang-python">from bs4 import BeautifulSoup
 import re
 
 findPlayerTag = re.compile(r&#39;data-tag=(.*)&quot;&#39;)
@@ -429,7 +428,7 @@ def cutName(str):
 </code></pre>
 <p>我需要提取到的信息：玩家标签(以变量名tag进行保存)、玩家游戏昵称（以变量名name进行保存）、玩家的捐赠量（以变量名donate进行保存）。<br>逐行解释：<br>1、需要使用bs4和re库<br>2、soup = BeautifulSoup(html,”html.parser”) ，BeautifulSoup执行解析工作，可以将网页处理成树形结构，而html.parser是专门用于html文件的解析器</p>
 <p>3、wholedata = soup.select(‘tbody &gt; tr’)， select执行搜索工作。这里使用的是css选择器模式，为什么是”tbody &gt; tr“呢？这里需要查看html文件的结构</p>
-<pre><code class="html">&lt;tbody&gt;
+<pre><code class="lang-html">&lt;tbody&gt;
 &lt;tr data-tag=&quot;28PVL00L2&quot; data-role=&quot;Member&quot; class=&quot;role-Member tr_member&quot;&gt;
 &lt;td data-sort-value=&quot;1&quot;&gt;1&lt;/td&gt;
 &lt;td data-sort-value=神奇哟&gt;
@@ -504,10 +503,9 @@ Member
 &lt;/tr&gt;
 &lt;tr data-tag=&quot;29LV0UYYR&quot; data-role=&quot;Co-Leader&quot; class=&quot;role-Co-Leader tr_member&quot;&gt;
 &lt;td data-sort-value=&quot;2&quot;&gt;2&lt;/td&gt;
-
 </code></pre>
 <p>可以看到，我想要的信息全部都处在&lt;tbody&gt;下的&lt;tr&gt;标签中,使用tbody &gt; tr便能提取到我想要的信息<br>4、re是一个正则搜索库,这里主要是用到了它的findall函数，至于它的参数findPlayerTag等其实是定义为全局变量了（关于怎样定义这些变量，请百度“正则表达式”）。观察html文件，标签保存在：data-tag=”28PVL00L2”（28PVL00L2是标签），findPlayerTag = re.compile(r’data-tag=(.*)”‘)就能找到类似的字段。</p>
-<h1 id="三、完整代码："><a href="#三、完整代码：" class="headerlink" title="三、完整代码："></a>三、完整代码：</h1><pre><code class="python">
+<h1 id="三、完整代码："><a href="#三、完整代码：" class="headerlink" title="三、完整代码："></a>三、完整代码：</h1><pre><code class="lang-python">
 import urllib.error, urllib.request
 from bs4 import BeautifulSoup
 import re
@@ -559,7 +557,7 @@ def main():
 main()
 </code></pre>
 <p>输出结果：<br><br></p>
-<pre><code class="xml">28PVL00L2
+<pre><code class="lang-xml">28PVL00L2
 [&#39;神奇哟&#39;, &#39;[\&#39;&quot;58&quot;\&#39;, \&#39;&quot;160&quot;\&#39;]&#39;]
 
 
@@ -581,7 +579,6 @@ Q9UY98L
 
 2QRRR2JGV
 [&#39;吉吉思密达&#39;, &#39;[\&#39;&quot;288&quot;\&#39;, \&#39;&quot;256&quot;\&#39;]&#39;]
-
 </code></pre>
 <p>(内容过长，仅展示一小部分)</p>
 

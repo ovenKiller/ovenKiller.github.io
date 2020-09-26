@@ -325,7 +325,7 @@
 <p><a href="https://www.luogu.com.cn/problem/P1127" target="_blank" rel="noopener">原题传送门-&gt;-&gt;</a><br><br></p>
 <p>另外还有一些例子：<br>•    dog.gopher<br>•    gopher.rat<br>•    rat.tiger<br>•    aloha.aloha<br>•    arachnid.dog<br>连接成的词可以与其他单词相连，组成更长的词链，例如：<br>aloha.arachnid.dog.gopher.rat.tiger<br>注意到，. 两边的字母一定是相同的。<br>现在给你一些单词，请你找到字典序最小的词链，使得这些单词在词链中出现且仅出现一次。</p>
 <p>输入格式：<br>第一行是一个正整数 n（1≤n≤1000），代表单词数量。<br>接下来共有 n 行，每行是一个由 1 到 20 个小写字母组成的单词。</p>
-<p>输出格式：<br>只有一行，表示组成字典序最小的词链，若不存在则只输出三个星号 ***。</p>
+<p>输出格式：<br>只有一行，表示组成字典序最小的词链，若不存在则只输出三个星号 <em>*</em>。</p>
 <p>输入输出样例<br>输入 #1<br>6<br>aloha<br>arachnid<br>dog<br>gopher<br>rat<br>tiger<br>输出 #1<br>aloha.arachnid.dog.gopher.rat.tiger</p>
 <p>说明/提示<br>•    对于 40% 的数据，有 n≤10；<br>•    对于 100% 的数据， n≤1000。</p>
 <h2 id="分析："><a href="#分析：" class="headerlink" title="分析："></a><strong>分析：</strong></h2><p>每个单词都有头字母和尾字母，不难发现，每条词链都有这样的特点：<br>除第一个单词外，其余单词的头字母必然有一个尾字母与其对应。<br>除最后一个单词外，其余单词的尾字母必然有一个头字母与其对应。<br>显然是一个欧拉路问题。</p>
@@ -336,7 +336,7 @@
 <p>问题3：如何快速找到某个点的后继边？<br>最好建立一个索引集。在按字典序将所有字母排序之后，以某个字母为首字母的所有单词都在一个固定区间上</p>
 <p>问题4：如何遍历？类似深度优先搜索，每次尽量选择字典序最小的边进行递归。</p>
 <p>伪代码：</p>
-<pre><code class="cpp">/*伪代码：*/
+<pre><code class="lang-cpp">/*伪代码：*/
 int main()
 {
     Input();//输入数据
@@ -351,11 +351,9 @@ int main()
     Output();//输出
     return 0;
 }
-
-
 </code></pre>
 <p>完整AC代码：</p>
-<pre><code class="cpp">#include&lt;iostream&gt;
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;string&gt;
 #include&lt;algorithm&gt;
 #include&lt;list&gt;

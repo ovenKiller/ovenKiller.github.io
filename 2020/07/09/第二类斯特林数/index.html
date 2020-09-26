@@ -320,16 +320,16 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p><strong>第二类Stirling数</strong>实际上是集合的一个拆分，表示将n个不同的元素拆分成m个集合的方案数，<a id="more"></a>本文将其记为$$S(n,m)={n\brace m}$$</p>
+          <p><strong>第二类Stirling数</strong>实际上是集合的一个拆分，表示将n个不同的元素拆分成m个集合的方案数，<a id="more"></a>本文将其记为<script type="math/tex">S(n,m)={n\brace m}</script></p>
 <p>求解S(n,m)的问题可以等价为解决以下问题：<br>将n个不同的球放入m个无差别的盒子中，要求盒子非空，有几种方案？</p>
-<p>容易得到以下式子：<br><br>1、$${n \brace 0}=0$$<br>2、$${n \brace 1}=1$$<br>3、$${n \brace n} = 1$$<br>4、$${n \brace 2}= 2^{n-1} - 1$$<br>5、$${n \brace n-1}= C  _n^2 $$</p>
-<p>这五个式子不足以求解，还需要下面的递推公式：$${n\brace r} = r {n-1 \brace r} + {n-1\brace r-1}$$</p>
+<p>容易得到以下式子：<br><br>1、<script type="math/tex">{n \brace 0}=0</script><br>2、<script type="math/tex">{n \brace 1}=1</script><br>3、<script type="math/tex">{n \brace n} = 1</script><br>4、<script type="math/tex">{n \brace 2}= 2^{n-1} - 1</script><br>5、<script type="math/tex">{n \brace n-1}= C  _n^2</script></p>
+<p>这五个式子不足以求解，还需要下面的递推公式：<script type="math/tex">{n\brace r} = r {n-1 \brace r} + {n-1\brace r-1}</script></p>
 <p>如何理解这个公式呢？</p>
 <p>1、我们先将n个球随机标记为1、2、3…n。</p>
-<p>2、先将前n-1个球放入r个盒子。放置完成后有两种情况：<br>①每个盒子都有球$${n-1\brace r}$$<br>②只有一个盒子没有球。$${n-1\brace r-1}$$</p>
-<p>3、再放第n个球<br>①每个盒子已经有球了，由于每个球都是不同的，这r个盒子每个都是独一无二的，所以需要乘以r$$r {n-1 \brace r}$$<br> ②有一个空盒，那么第n个球只能放在这个空盒里 ，不需要再作运算$${n-1\brace r-1}$$<br>因此得出最后结果$${n\brace r} = r {n-1 \brace r} + {n-1\brace r-1}$$<br>我觉得需要注意的点是：第n个球是随机得来的，没有任何特殊性，所以取球的过程是不需要运算的。</p>
+<p>2、先将前n-1个球放入r个盒子。放置完成后有两种情况：<br>①每个盒子都有球<script type="math/tex">{n-1\brace r}</script><br>②只有一个盒子没有球。<script type="math/tex">{n-1\brace r-1}</script></p>
+<p>3、再放第n个球<br>①每个盒子已经有球了，由于每个球都是不同的，这r个盒子每个都是独一无二的，所以需要乘以r<script type="math/tex">r {n-1 \brace r}</script><br> ②有一个空盒，那么第n个球只能放在这个空盒里 ，不需要再作运算<script type="math/tex">{n-1\brace r-1}</script><br>因此得出最后结果<script type="math/tex">{n\brace r} = r {n-1 \brace r} + {n-1\brace r-1}</script><br>我觉得需要注意的点是：第n个球是随机得来的，没有任何特殊性，所以取球的过程是不需要运算的。</p>
 <p>C语言实现：</p>
-<pre><code class="c">long long Stirling2(int n,int m)
+<pre><code class="lang-c">long long Stirling2(int n,int m)
 {
     if(n &lt; m)
         return 0;

@@ -344,13 +344,14 @@
 <p>对于 100%100\%100% 的数据，1 ≤ M ≤ $10^4$<br>1 ≤ N ≤ $10^3$ 。</p>
 <p>每篇短文长度（含相邻单词之间的空格）≤ $5×10^3$字符，每个单词长度 ≤  20 字符。</p>
 <p>每个测试点时限 2 秒。</p>
-<p>—————————分割线——————————-</p>
+<p>—————————————-分割线———————————————-</p>
 <p>第一反应是用桶排，如果能把单词表示成一个编码，直接用int数组就可以做了，但是显然，20个字母组成的单词编码的数据会很大。</p>
 <p>但我可以想到可以退而求其次：对字母的前两个字母进行编码，编码相同的单词存储到同一个map&lt; string , list&gt;中,string记录单词，list记录单词在哪几个文章中出现。这样的由于前两个字母都一样的单词很少，查找几乎是线性时间就能结束。</p>
-<p>建立一个这样的数组存储所有的单词。<br>map&lt;string,list<int> &gt;article[27][27];<br>编码使用如下规则<br>$$编码 = 字符ASCII码 - ‘a’ + 1$$<br>如何存储呢？假如是单词是“abc”，’a’ - ‘a’ + 1 = 1；‘b’ - ‘a’ + 1 = 2把它存在article[1][2]里。<br>特别的，仅有一个字母的单词，比如”a” 存储在article[1][0]中。</int></p>
+<p>建立一个这样的数组存储所有的单词。<br>map<string,list<int> &gt;article[27][27];<br>编码使用如下规则</string,list<int></p>
+<script type="math/tex; mode=display">编码 = 字符ASCII码 - 'a' + 1</script><p>如何存储呢？假如是单词是“abc”，’a’ - ‘a’ + 1 = 1；‘b’ - ‘a’ + 1 = 2把它存在article[1][2]里。<br>特别的，仅有一个字母的单词，比如”a” 存储在article[1][0]中。</p>
 <p>查找单词时按照同样的规则。</p>
 <p>AC代码：</p>
-<pre><code class="cpp">#include&lt;iostream&gt;
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;string&gt;
 #include&lt;map&gt;
 #include&lt;list&gt;

@@ -320,7 +320,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>原题传送门<a href="https://leetcode-cn.com/problems/gray-code/" target="_blank" rel="noopener">–&gt;&gt;</a><br><br><br><br>题目描述：</p>
+          <p>原题传送门<a href="https://leetcode-cn.com/problems/gray-code/" target="_blank" rel="noopener">—&gt;&gt;</a><br><br><br><br>题目描述：</p>
 <blockquote>
 <p>格雷编码是一个二进制数字系统，在该系统中，两个连续的数值仅有一个位数的差异。<br>给定一个代表编码总位数的非负整数 n，打印其格雷编码序列。即使有多个不同答案，你也只需要返回其中一种。<br>格雷编码序列必须以 0 开头。</p>
 </blockquote>
@@ -338,7 +338,7 @@
 <li>第二步，改变右起第一个为1的位元的左边位元；<br></li>
 <li>第三步，第四步重复第一步和第二步，直到所有的格雷码产生完毕（换句话说，已经走了(2^n) - 1 步）。<br></li>
 </ul>
-<pre><code class="cpp">class Solution {
+<pre><code class="lang-cpp">class Solution {
 public:
     vector&lt;int&gt; grayCode(int n) {
         vector&lt;int&gt; ans;
@@ -373,7 +373,7 @@ public:
 </code></pre>
 <p>该方案仅仅击败了40% ,看到题解中有套更好的算法:<br>原文链接:<a href="https://leetcode-cn.com/problems/gray-code/solution/gray-code-jing-xiang-fan-she-fa-by-jyd/" target="_blank" rel="noopener">Gray Code （镜像反射法，图解）</a></p>
 <p>所以用这种思想我又重写了代码:</p>
-<pre><code class="cpp">class Solution {
+<pre><code class="lang-cpp">class Solution {
 public:
     vector&lt;int&gt; grayCode(int n) {
         vector&lt;int&gt; ans;

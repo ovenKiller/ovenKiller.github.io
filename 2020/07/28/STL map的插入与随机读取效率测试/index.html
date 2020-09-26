@@ -324,7 +324,7 @@
 <p>map的随机读取很特殊：可以通过中括号访问。 比如map&lt;int,int&gt;sample中有一个元素为pair&lt;4,6&gt;，则可以通过sample[4]的形式访问到这个元素<br><a id="more"></a><br>但由于map为用AVL树存储的关联容器，而不是顺序容器，它的随机读取效率应该只有O(logn),下面进行验证。</p>
 <p>下列测试比较了以int和string类型作key值时，插入与随机读取效率。</p>
 <p>测试代码：</p>
-<pre><code class="cpp">#include&lt;iostream&gt;
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;map&gt;
 #include&lt;string&gt;
 #include&lt;ctime&gt;
@@ -423,7 +423,7 @@ int main()
 }
 </code></pre>
 <p>程序运行结果：</p>
-<pre><code class="cpp">string插入时间72.000
+<pre><code class="lang-cpp">string插入时间72.000
 int插入时间23.000
 map:string读取时间30.000
 map:Int读取时间12.000

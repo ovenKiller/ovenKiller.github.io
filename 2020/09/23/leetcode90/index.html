@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">leetcode 79. Word Search | DayDream</title>
+  <title itemprop="name">leetcode 90 Subsets II 求所有子集 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -294,7 +294,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      leetcode 79. Word Search</h1>
+      leetcode 90 Subsets II 求所有子集</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -306,7 +306,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-9-17<span class="bull">
+        2020-9-23<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -320,102 +320,80 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>原题传送门<a href="https://leetcode-cn.com/problems/word-search/" target="_blank" rel="noopener">—&gt;</a><br><br><strong>题目描述：</strong><br>Given a 2D board and a word, find if the word exists in the grid.</p>
-<p>The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
-<p><strong>示例</strong></p>
+          <p>原题传送门<a href="https://leetcode-cn.com/problems/subsets-ii/" target="_blank" rel="noopener">-&gt;&gt;&gt; </a><br></p>
+<p>题目描述：</p>
+<blockquote>
+<p>Given a collection of integers that might contain duplicates, nums, return all possible subsets (the power set).<br>Note: The solution set must not contain duplicate subsets.</p>
+</blockquote>
+<p>示例：</p>
 <ul>
-<li>board =</li>
+<li>Input: [1,2,2]</li>
+<li>Output:</li>
 <li>[</li>
-<li>[‘A’,’B’,’C’,’E’],</li>
-<li>[‘S’,’F’,’C’,’S’],</li>
-<li>[‘A’,’D’,’E’,’E’]</li>
-<li><p>]</p>
-</li>
-<li><p>Given word = “ABCCED”, return true.</p>
-</li>
-<li>Given word = “SEE”, return true.</li>
-<li>Given word = “ABCB”, return false.</li>
+<li>[2],</li>
+<li>[1],</li>
+<li>[1,2,2],</li>
+<li>[2,2],</li>
+<li>[1,2],</li>
+<li>[]</li>
+<li>]</li>
 </ul>
-<p>标准的深搜题，直接上代码<br><br></p>
+<p>简单的回溯题，但是自己解决时遇到很多问题，记录一下。</p>
+<p>AC代码</p>
 <pre><code class="lang-cpp">class Solution {
 public:
-    int **mark;
-    bool exist(vector&lt;vector&lt;char&gt;&gt;&amp; board, string word) {
-        if(board.empty())
-            return false;
-        mark = new int*[board.size()];
-        for(int i = 0; i &lt; board.size(); ++i)
-        {
-            mark[i] = new int[board[0].size()];
-            memset(mark[i], 0, board[0].size()*4);
-        }
-        bool ans = false;
-        for(int i = 0; i &lt; board.size(); ++i)
-        {
-            for(int j = 0; j &lt; board[0].size(); ++j)
-            {
-                   if(find(board, word, i, j, 0))
-                {
-                    for(int k = 0; k &lt; board.size(); ++k)
-                 {
-                    delete []mark[k];
-                 }
-                     delete []mark; 
-                       return true;
-                }
-            }
-        }
-            for(int k = 0; k &lt; board.size(); ++k)
-                 {
-                    delete []mark[k];
-                 }
-                     delete []mark; 
-
-        return false;
+    vector&lt;vector&lt;int&gt;&gt;ans;
+    vector&lt;int&gt; tmp;
+    int* mark;
+    vector&lt;vector&lt;int&gt;&gt; subsetsWithDup(vector&lt;int&gt;&amp; nums) {
+        sort(nums.begin(), nums.end());
+        mark = new int[nums.size()];
+        memset(mark, 0, 4 * nums.size());
+        for (int i = 0; i &lt; nums.size(); ++i)
+            select(nums, i);
+        delete[]mark;
+        ans.push_back(vector&lt;int&gt;());
+        return ans;
     }
-    bool find(vector&lt;vector&lt;char&gt;&gt; &amp; board, string &amp; word,int row, int column, int pos)
+    void select(vector&lt;int&gt;&amp; nums, int pos)//将要取pos元素
     {
-        if((row &lt; 0)||(column &lt; 0)||(row == board.size())||(column == board[0].size()))
-            return false;
-        if((mark[row][column])||(board[row][column] != word[pos]))
-            return false;
-        if(pos == word.size() - 1)
-            return true;
-        bool ans = false;
-        mark[row][column] = 1;
-            if(find(board, word, row - 1, column, pos + 1)||
-               find(board, word, row, column - 1, pos + 1)||
-               find(board, word, row + 1, column, pos + 1)||
-               find(board, word, row, column + 1, pos + 1))
-                return true;
-        mark[row][column] = 0;
-           return ans;
+        if (pos == nums.size())
+            return;
+        if (pos &amp;&amp; (nums[pos] == nums[pos - 1]) &amp;&amp; (!mark[pos - 1]))
+            return;
+        else
+        {
+            tmp.push_back(nums[pos]);
+            ans.push_back(tmp);
+            mark[pos] = 1;
+            for (int i = pos + 1; i &lt; nums.size(); ++i)
+            select(nums, i);
+            tmp.pop_back();
+            mark[pos] = 0;
+
+        }
     }
+
 };
 </code></pre>
-<p>不过这道题有一点需要注意：第47行之后这一段：<br><br>AC版本:</p>
-<pre><code class="lang-cpp">        bool ans = false;
-        mark[row][column] = 1;
-            if(find(board, word, row - 1, column, pos + 1)||
-               find(board, word, row, column - 1, pos + 1)||
-               find(board, word, row + 1, column, pos + 1)||
-               find(board, word, row, column + 1, pos + 1))
-                return true;
-        mark[row][column] = 0;
-           return ans;
+<p>去重的规则比较清楚：先进行排序。<br>取规则：当多个相同数字连续出现，这几个相同数字必须从左到右取，不能有间隔。<br><br>比如：array = [1，2，3，3，3] 假如不取array[2]，那么array[3],array[4]也不可以取。<br><br>问题在于搜索上。</p>
+<p>WA代码版本1</p>
+<pre><code class="lang-cpp">//           for (int i = pos + 1; i &lt; nums.size(); ++i)
+//          select(nums, i);
+select(nums, pos + 1);
 </code></pre>
-<p>原本我是这样写的，会超时：<br>TLE版本：<br></p>
-<pre><code class="lang-cpp">        bool ans = false;
-        mark[row][column] = 1;
-        ans |= find(board, word, row - 1, column, pos + 1);
-        ans |= find(board, word, row, column - 1, pos + 1);
-        ans |= find(board, word, row + 1, column, pos + 1);
-        ans |= find(board, word, row, column + 1, pos + 1);
-                return true;
-        mark[row][column] = 0;
-           return ans;
+<p>这个版本是深搜时仅仅探测下一格。它不允许连续取元素。比如array = [1，2，3，3，3]，[1,3]不会出现在答案中</p>
+<p>WA代码版本2</p>
+<pre><code class="lang-cpp">//if (pos &amp;&amp; (nums[pos] == nums[pos - 1]) &amp;&amp; (!mark[pos - 1]))
+//    return;
+if (pos &amp;&amp; (nums[pos] == nums[pos - 1]) &amp;&amp; (!mark[pos - 1]))
+ {
+    for (int i = pos + 1; i &lt; nums.size(); ++i)
+       select(nums, i);
+return;
+ }
 </code></pre>
-<p>这两段代码我之前以为是一样的，但其实效率差很多，看TLE版本的代码：假如ans在第一步之后就变成true，那么之后的递归已经没有意义了，直接return就可以了。<br><br>而使用if判断时，对于||条件，当前一个条件值为1，便不会再执行之后的语句了，相当于直接return,所以效率要高很多。</p>
+<p>这种情况，当发现重复元素不符合取规则时,会对后面的所有元素进行探测。问题在于，当return之后，该点之后的所有元素会再被探测一遍，结果答案会有大量重复。</p>
 
         </div>
         <!-- .entry-content -->
@@ -434,36 +412,19 @@ public:
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/09/18/leetcode 89.Gray Code/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                leetcode 89.Gray Code（格雷码）</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/09/17/py爬虫 皇室战争玩家信息获取/" rel="next">
+            <a href="/2020/09/22/鱼书笔记 第二章 NumPy库和Matplotlib库的使用/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-20-1/2.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-20-1/2.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                爬虫实战 皇室战争部落管理 第一步：数据获取</h3>
+                鱼书笔记 第二章 NumPy和Matplotlib的使用</h3>
                 <hr>
               </div>
             </a>
