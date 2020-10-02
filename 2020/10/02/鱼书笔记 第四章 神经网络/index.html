@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">leetcode91 解码方法 | DayDream</title>
+  <title itemprop="name">鱼书笔记 第四章 神经网络 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -294,7 +294,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      leetcode91 解码方法</h1>
+      鱼书笔记 第四章 神经网络</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -320,97 +320,99 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>原题传送门<a href="https://leetcode-cn.com/problems/decode-ways/" target="_blank" rel="noopener">—&gt;&gt;</a></p>
-<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p> A message containing letters from A-Z is being encoded to numbers using the following mapping:</p>
+          <p>上一章谈到感知机。理论上感知机能表示任意的复杂函数，但是它有很明显的缺点：权重必须手动设定。<br>而本章介绍的神经网络，它的一个重要性质就是可以自动地从数据中学习到合适的权重参数。<br></p>
+<h1 id="一、从感知机到神经网络"><a href="#一、从感知机到神经网络" class="headerlink" title="一、从感知机到神经网络"></a>一、从感知机到神经网络</h1><h2 id="1-神经网络的例子"><a href="#1-神经网络的例子" class="headerlink" title="1)神经网络的例子"></a>1)神经网络的例子</h2><p>神经网络分为三层：分别为输入层、中间层、输出层。由于中间层是不可见的，也被称为“隐藏层”。本书把这三层依次称为第0层、第一层、第二层。<br>在连接方式上，神经网络与感知机没有区别。</p>
+<h2 id="2-再论感知机"><a href="#2-再论感知机" class="headerlink" title="2)再论感知机"></a>2)再论感知机</h2><p>感知机的函数可以表达为<script type="math/tex">z = \begin{cases}1, ux + vy + b > 0 \\0, ux + vy + b \leq 0\end{cases}</script></p>
+<p>其中x、y为输入,b为偏置。这样的感知机在实现时便需要对x、 y、 b分开处理。<br><br>其实我们可以将x、y、b 统一处理。假设b也是一个输出、并且它的值恒为b，权重恒为1。<br>另外，我们可以引入函数h(x),<script type="math/tex">h(x) = \begin{cases}1, x > 0 \\ 0, x \leq 0 \end{cases}</script>, 这样，上面的函数可以表示为$h(ux + vy + b)$.</p>
+<h2 id="3-激活函数登场"><a href="#3-激活函数登场" class="headerlink" title="3)激活函数登场"></a>3)激活函数登场</h2><p>上面提到的$h(x)$,它可以将输入信号的总和处理成输出信号，这个函数便称为<strong>激活函数</strong>。<br>激活函数的计算过程也就可以拆分为：<br></p>
 <ul>
-<li>‘A’ -&gt; 1</li>
-<li>‘B’ -&gt; 2</li>
-<li>…</li>
-<li>‘Z’ -&gt; 26</li>
+<li>计算 c = ux + vy + b. c 计算所有输入信号的加权和</li>
+<li>计算 $h(c)$</li>
 </ul>
-<p>Given a non-empty string containing only digits, determine the total number of ways to decode it.</p>
-<p>The answer is guaranteed to fit in a 32-bit integer.</p>
-<h2 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h2><ul>
-<li>Input: s = “12”</li>
-<li>Output: 2</li>
-<li>Explanation: It could be decoded as “AB” (1 2) or “L” (12).</li>
-</ul>
-<h2 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h2><ul>
-<li>Input: s = “226”</li>
-<li>Output: 3</li>
-<li>Explanation: It could be decoded as “BZ” (2 26), “VF” (22 6), or “BBF” (2 2 6).</li>
-</ul>
-<h2 id="示例3："><a href="#示例3：" class="headerlink" title="示例3："></a>示例3：</h2><ul>
-<li>Input: s = “0”</li>
-<li>Output: 0</li>
-<li>Explanation: There is no character that is mapped to a number starting with ‘0’. We cannot ignore a zero when we face it while decoding. So, each ‘0’ should be part of “10” —&gt; ‘J’ or “20” —&gt; ‘T’.</li>
-</ul>
-<h2 id="示例4："><a href="#示例4：" class="headerlink" title="示例4："></a>示例4：</h2><ul>
-<li>Input: s = “1”</li>
-<li>Output: 1</li>
-</ul>
-<h2 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h2><ul>
-<li>&lt;= s.length &lt;= 100</li>
-<li>s contains only digits and may contain leading zero(s).</li>
-</ul>
-<p>入门级的dp+分治。但这方面的题我做的确实不太多…</p>
-<p><strong>dp:</strong><br>对于仅包含’1’ ‘2’ 的字符串:<br>“1” : 1种编码方式<br>“12”：2种编码方式<br>“111”：3种编码方式<br>其实就是dp的入门题“爬楼梯”.假设长度为n的12串为steps[n] 则steps[n] = steps[n - 1] + steps[n - 2];</p>
-<p>为方便描述，现规定:对于编码“5”,5被称为“单”，对于编码“12”，1称作“头”，2称作“尾”。<br>显然，1、2可作单、可做头、可作尾，因而1、2字符串可以直接dp</p>
-<p><strong>分治:</strong><br>当字符串中出现0、3、4…7、8这些字符时，可以发现，0只能作尾,其他字符只能作尾或作单。<br>也就是说，当字符串是“121312”，3是不可能和后面的1混合编码的，那么可以将”1213”和”12”分开考虑，实际上”121312”的答案是”1213”与”12”的乘积。类推：”171921012319101”可以看成”17” “19” “210” “123” “19” “101”几个子串。<br>而对于子串而言，末尾数字也需要分三种情况：”0”自成一类，”3~6”是一类，”7~9”是一类。</p>
-<p>100%kill代码：</p>
-<pre><code class="lang-cpp">class Solution {
-public:
-    int steps[102];
-    int numDecodings(string s) {
-        if(s[0] == &#39;0&#39;)
-            return 0;
-        steps[0] = 1;
-        steps[1] = 1;
-        steps[2] = 2;
-        for(int i = 3; i &lt; 46; ++i)//为什么是46呢，因为47就超过int型上限了。。。按理，题目给的长度其实最大是100,这个只能自己试了
-        {
-            steps[i] = steps[i - 1] + steps[i - 2];
-        }//建立dp数组
-        vector&lt;char&gt; tmp;
-        int ans = 1;
-    for(int i = 0; i &lt; s.size(); ++i)
-    {
-        tmp.push_back(s[i]);
-        if((s[i] &lt; &#39;1&#39;)||(s[i] &gt; &#39;2&#39;))
-        {
-            ans *= count(tmp);
-            tmp.clear();
-        }
-    }
-
-        return ans*steps[tmp.size()];
-    }
-    int count(vector&lt;char&gt;&amp; str)//这是处理子串的函数
-    {
-        int sum = 0;
-        if(str.back() == &#39;0&#39;)//对于0
-        {
-            if(str.size() == 1)
-                return 0;
-            else
-                return steps[str.size() - 2];
-
-        }
-        if(str.back() &gt; &#39;6&#39;)//d对于7、8、9
-        {
-            if(str.size() == 1)
-                return 1;
-            if(str[str.size()-2] == &#39;1&#39;)
-                return steps[str.size()];
-            return steps[str.size()-1];//只能单着了
-        }
-        //剩下3、4、5、6
-        return steps[str.size()];
-
-    }
-};
+<h1 id="二、激活函数"><a href="#二、激活函数" class="headerlink" title="二、激活函数"></a>二、激活函数</h1><p>前面介绍的激活函数，以某个阈值为界，当输入超过阈值后就改变输出，这种函数称为<strong>阶跃函数</strong>，激活函数还有其他的类型<br></p>
+<h2 id="1-sigmoid函数"><a href="#1-sigmoid函数" class="headerlink" title="1)sigmoid函数"></a>1)sigmoid函数</h2><p>神经网络中经常用到sigmiod函数</p>
+<script type="math/tex; mode=display">h(x) = \frac{1}{1+e^{-x}}</script><p>e即是自然对数的底数。感知机和神经元的主要区别就在于激活函数</p>
+<h2 id="2）阶跃函数的实现"><a href="#2）阶跃函数的实现" class="headerlink" title="2）阶跃函数的实现"></a>2）阶跃函数的实现</h2><p>前面的阶跃函数只能处理数组。下面我们写一个能处理矩阵的阶跃函数:</p>
+<pre><code class="lang-python">import numpy as np
+def step_function(x):
+    y = x &gt; 0
+    return y.astype(np.int)
+x = np.array([-1.0, 1.0, 2.0])
+print(step_function(x))
 </code></pre>
+<p>输出为</p>
+<pre><code class="lang-xml">[0 1 1]
+</code></pre>
+<p>astyped()的方法可以将矩阵元素转换为期望的类型。上面是将bool型转换为np.int型</p>
+<h2 id="3）阶跃函数的图像"><a href="#3）阶跃函数的图像" class="headerlink" title="3）阶跃函数的图像"></a>3）阶跃函数的图像</h2><p>运用matplotlib</p>
+<pre><code class="lang-python">import numpy as np
+import matplotlib.pylab as plt
+def step_function(x):
+    return np.array(x &gt; 0, dtype=np.int)
+x = np.array([-1.0, 1.0, 2.0])
 
+x = np.arange(-5.0,5.0,0.1)
+y = step_function(x)
+plt.plot(x, y)
+plt.ylim(-0.1, 1.1) # 指定y轴范围
+plt.show()
+</code></pre>
+<p>得到的图像如图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/1.png"></p>
+<p>它的函数值呈阶梯形变化，故称阶跃函数</p>
+<h2 id="4-sigmoid函数的实现"><a href="#4-sigmoid函数的实现" class="headerlink" title="4) sigmoid函数的实现"></a>4) sigmoid函数的实现</h2><pre><code class="lang-python">import numpy as np
+import matplotlib.pylab as plt
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x)) 
+x = np.arange(-5.0,5.0,0.1)
+y = sigmoid(x)
+plt.plot(x, y)
+plt.ylim(-0.1, 1.1) # 指定y轴范围
+plt.show()
+</code></pre>
+<p>函数图像如图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/2.png"></p>
+<h2 id="5）sigmoid函数和阶跃函数的比较"><a href="#5）sigmoid函数和阶跃函数的比较" class="headerlink" title="5）sigmoid函数和阶跃函数的比较"></a>5）sigmoid函数和阶跃函数的比较</h2><ul>
+<li>不同点：阶跃函数是“间断”的，sigmoid函数是连续变化的。</li>
+<li>相同点：两者的函数值均在0和1之间</li>
+</ul>
+<h2 id="6）线性函数与非线性函数"><a href="#6）线性函数与非线性函数" class="headerlink" title="6）线性函数与非线性函数"></a>6）线性函数与非线性函数</h2><p>阶跃函数和sigmoid函数还有一个共同点：两者均是非线性函数。神经网络的激活函数必须是非线性函数。否则，加深神经网络的层数就没有意义了。线性函数无论如何叠加，其效果均为线性</p>
+<h2 id="7-ReLU函数"><a href="#7-ReLU函数" class="headerlink" title="7) ReLU函数"></a>7) ReLU函数</h2><p>ReLU函数最近被广泛用作激活函数，其表达式为：</p>
+<script type="math/tex; mode=display">h(x) =  \begin{cases} x, (x > 0) \\0, ( x \leq 0)\end{cases}</script><p>其代码实现：</p>
+<pre><code class="lang-python">def relu(x):
+    return np.maximum(0,x)
+</code></pre>
+<h1 id="三、多维数组的运算"><a href="#三、多维数组的运算" class="headerlink" title="三、多维数组的运算"></a>三、多维数组的运算</h1><h2 id="1-多维数组"><a href="#1-多维数组" class="headerlink" title="1)多维数组"></a>1)多维数组</h2><pre><code class="lang-python">import numpy as np
+A = np.array([[1,2],[1,4],[8,9]])
+print(A)
+print(np.ndim(A)) # A的维数
+print(A.shape) # A的形状
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="lang-xml">[[1 2]
+ [1 4]
+ [8 9]]
+2
+(3, 2)
+</code></pre>
+<h2 id="2）矩阵的点积（内积）运算："><a href="#2）矩阵的点积（内积）运算：" class="headerlink" title="2）矩阵的点积（内积）运算："></a>2）矩阵的点积（内积）运算：</h2><pre><code class="lang-python">import numpy as np
+A = np.array([[1,2],[1,4],[8,9]])
+B = np.array([[1,2,3],[1,3,4]])
+print(np.dot(A,B))
+</code></pre>
+<p>输出为：</p>
+<pre><code class="lang-xml">[[ 3  8 11]
+ [ 5 14 19]
+ [17 43 60]]
+</code></pre>
+<p>而矩阵运算在神经网络中有什么意义？<br>以上面这段代码为例：A 相当于输入信号， B相当于权重<br><br>A 有三组输入数据，每组分别有两个量（即为x, y）<br>B 有三个神经元，第一个神经元的权重分别为1、1第二个神经元的权重分别为 2、3。<br>而最后得到的是三个神经元的三次数据。</p>
+<p>矩阵运算可以简洁地表示多个神经元、多组输入数据的结果</p>
+<h1 id="四、3层神经网络的实现"><a href="#四、3层神经网络的实现" class="headerlink" title="四、3层神经网络的实现"></a>四、3层神经网络的实现</h1><p>我们要实现下图中的三层神经网络：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/3.png"></p>
+<h2 id="1-符号确认"><a href="#1-符号确认" class="headerlink" title="1) 符号确认"></a>1) 符号确认</h2><p>我们先导入<script type="math/tex">w_{12}^{(1)}  、 a_{1}^{(1)}</script> 等符号。这些符号仅在本节中使用<br>右上角的(1)表示这是第1层的神经元、第一层的权重 <script type="math/tex">w_{12}^{(3)}</script> 表示从第2层（即第3层的前一层）第1个神经元到第(3)层第2个神经元的权重。</p>
+<script type="math/tex; mode=display">a_{2}^{(1)}$$ 表示第1层第2个神经元
+
+## 各层间信号传递的实现
+<img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/4.png">
+其中注意偏置神经元“1”，而表示偏置的b右下角的索引号只有一个数字，因为偏置神经元是人为添加的。此时
+$$a_{1}^{(1)} = w_{11}^{(1)}+w_{12}^{(1)}</script>
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
@@ -428,28 +430,11 @@ public:
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/10/02/鱼书笔记 第四章 神经网络/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                鱼书笔记 第四章 神经网络</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/09/27/鱼书笔记 第三章 感知机/" rel="next">
+            <a href="/2020/10/02/leetcode91/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
               </div>
@@ -457,7 +442,7 @@ public:
               Next Post</span>
               <div class="info">
                 <h3>
-                鱼书笔记 第三章 感知机</h3>
+                leetcode91 解码方法</h3>
                 <hr>
               </div>
             </a>
@@ -496,6 +481,11 @@ public:
   </div><!-- #primary -->
 </div>
 
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
 
 
     </div>    

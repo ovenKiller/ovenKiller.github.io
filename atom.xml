@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-10-02T11:55:04.801Z</updated>
+  <updated>2020-10-02T13:46:27.627Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>鱼书笔记 第四章 神经网络</title>
+    <link href="/2020/10/02/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    <id>/2020/10/02/鱼书笔记 第四章 神经网络/</id>
+    <published>2020-10-02T13:13:58.950Z</published>
+    <updated>2020-10-02T13:46:27.627Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;上一章谈到感知机。理论上感知机能表示任意的复杂函数，但是它有很明显的缺点：权重必须手动设定。&lt;br&gt;而本章介绍的神经网络，它的一个重要性质就是可以自动地从数据中学习到合适的权重参数。&lt;br&gt;&lt;/p&gt;
+&lt;h1 id=&quot;一、从感知机到神经网络&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="鱼书笔记" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode91 解码方法</title>
@@ -125,9 +158,9 @@
     
       <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
   </entry>
   
@@ -175,9 +208,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
   </entry>
   
@@ -205,9 +238,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
   </entry>
   
@@ -501,28 +534,6 @@
       <category term="随想" scheme="/tags/%E9%9A%8F%E6%83%B3/"/>
     
       <category term="音乐" scheme="/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BBC news 2020/7/12 国安法颁布 离开的香港人</title>
-    <link href="/2020/07/12/BBC%20news%207%E6%9C%8812%E6%97%A5%20%E5%9B%BD%E5%AE%89%E6%B3%95%E9%A2%81%E5%B8%83%20%E7%A6%BB%E5%BC%80%E7%9A%84%E9%A6%99%E6%B8%AF%E4%BA%BA/"/>
-    <id>/2020/07/12/BBC news 7月12日 国安法颁布 离开的香港人/</id>
-    <published>2020-07-12T13:55:24.000Z</published>
-    <updated>2020-08-25T14:44:14.591Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;em&gt;The UK now wants to offer &lt;strong&gt;BNO passport holders citizenship rights&lt;/strong&gt; after six years of stay, arguing that China has breached the Sino-British Joint Declaration by enacting the national security law, which violates the city’s high degree of autonomy and infringes the civil liberties of Hong Kong residents.&lt;br&gt;&lt;/em&gt;&lt;br&gt;&lt;em&gt;英国现在希望给予英国护照持有者在居留六年后的公民权利，解释称香港国安法违反了“中英联合声明”，破坏了城市的高度自治，侵犯了香港公民自由。&lt;/em&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="英语新闻" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="BBC" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/BBC/"/>
-    
-    
-      <category term="英语新闻" scheme="/tags/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
     
   </entry>
   
