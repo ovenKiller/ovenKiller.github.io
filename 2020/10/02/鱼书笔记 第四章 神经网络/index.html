@@ -77,7 +77,7 @@
         </a>
       </div>
       <div class="header-info">
-        <p>just for fun!</p>
+        <p>我脚踩着云朵迎着风</p>
         <div class="top-social_v2">
           <li id="bg-pre">
             <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
@@ -290,7 +290,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/3.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/3.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -406,13 +406,241 @@ print(np.dot(A,B))
 <p>而矩阵运算在神经网络中有什么意义？<br>以上面这段代码为例：A 相当于输入信号， B相当于权重<br><br>A 有三组输入数据，每组分别有两个量（即为x, y）<br>B 有三个神经元，第一个神经元的权重分别为1、1第二个神经元的权重分别为 2、3。<br>而最后得到的是三个神经元的三次数据。</p>
 <p>矩阵运算可以简洁地表示多个神经元、多组输入数据的结果</p>
 <h1 id="四、3层神经网络的实现"><a href="#四、3层神经网络的实现" class="headerlink" title="四、3层神经网络的实现"></a>四、3层神经网络的实现</h1><p>我们要实现下图中的三层神经网络：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/3.png"></p>
-<h2 id="1-符号确认"><a href="#1-符号确认" class="headerlink" title="1) 符号确认"></a>1) 符号确认</h2><p>我们先导入<script type="math/tex">w_{12}^{(1)}  、 a_{1}^{(1)}</script> 等符号。这些符号仅在本节中使用<br>右上角的(1)表示这是第1层的神经元、第一层的权重 <script type="math/tex">w_{12}^{(3)}</script> 表示从第2层（即第3层的前一层）第1个神经元到第(3)层第2个神经元的权重。</p>
-<script type="math/tex; mode=display">a_{2}^{(1)}$$ 表示第1层第2个神经元
+<h2 id="1-符号确认"><a href="#1-符号确认" class="headerlink" title="1) 符号确认"></a>1) 符号确认</h2><p>我们先导入<script type="math/tex">w_{12}^{(1)}  、 a_{1}^{(1)}</script> 等符号。这些符号仅在本节中使用右上角的(1)表示这是第1层的神经元、第一层的权重<script type="math/tex">w_{12}^{(3)}</script> 表示从第2层（即第3层的前一层）第1个神经元到第(3)层第2个神经元的权重.<script type="math/tex">a_{2}^{(1)}</script>表示第1层第2个神经元</p>
+<h2 id="2-各层间信号传递的实现"><a href="#2-各层间信号传递的实现" class="headerlink" title="2)各层间信号传递的实现"></a>2)各层间信号传递的实现</h2><h3 id="输入层到第一层"><a href="#输入层到第一层" class="headerlink" title="输入层到第一层"></a>输入层到第一层</h3><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/4.png"><br>其中注意偏置神经元“1”，而表示偏置的b右下角的索引号只有一个数字。此时</p>
+<script type="math/tex; mode=display">a_{1}^{(1)} = w_{11}^{(1)}x_1+w_{12}^{(1)}x_2+b_{1}^{(1)}</script><p>表示成矩阵运算则为：</p>
+<script type="math/tex; mode=display">A^{(1)}=XW^{(1)}+B^{(1)}</script><p>其中：<script type="math/tex">A^{(1)}=\begin{pmatrix} a_{1}^{(1)} & a_{2}^{(1)} & a_{3}^{(1)}\end{pmatrix}\quad</script>,<script type="math/tex">X^=\begin{pmatrix} x_{1} & x_{2} & x_{3}\end{pmatrix}\quad</script>,<script type="math/tex">B^{(1)}=\begin{pmatrix} b_{1}^{(1)} & b_{2}^{(1)} & b_{3}^{(1)} \end{pmatrix}\quad</script>,<script type="math/tex">W^{(1)}=\begin{pmatrix} w_{11}^{(1)} & w_{21}^{(1)} & w_{31}^{(1)} \\  w_{12}^{(1)} & w_{22}^{(1)} & w_{32}^{(1)}\end{pmatrix}\quad</script></p>
+<p>下面我们用Numpy数组来实现</p>
+<pre><code class="lang-python">import numpy as np
 
-## 各层间信号传递的实现
-<img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/4.png">
-其中注意偏置神经元“1”，而表示偏置的b右下角的索引号只有一个数字，因为偏置神经元是人为添加的。此时
-$$a_{1}^{(1)} = w_{11}^{(1)}+w_{12}^{(1)}</script>
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x)) 
+
+X = np.array([1.0, 0.5])
+W1 = np.array([[0.1,0.3,0.5],[0.2,0.4,0.6]])
+B1 = np.array([0.1, 0.2, 0.3])
+A1 = np.dot(X, W1) + B1
+print(A1)
+print(sigmoid(A1))
+</code></pre>
+<p>输出：</p>
+<ul>
+<li>[0.3 0.7 1.1]</li>
+<li>[0.57444252 0.66818777 0.75026011]</li>
+</ul>
+<p>上面的代码中用到了先前的激活函数，实际上代码的过程如下图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/5.png"></p>
+<h3 id="第1层到第2层"><a href="#第1层到第2层" class="headerlink" title="第1层到第2层"></a>第1层到第2层</h3><pre><code class="lang-python"># 继续使用前面的代码
+W2 = np.array([[0.1, 0.4],[0.2, 0.5], [0.3, 0.6]])
+B2 = np.array([0.1,0.2])
+A2 = np.dot(Z1,W2) + B2
+Z2 = sigmoid(A2)
+print(Z2)
+</code></pre>
+<p>输出：</p>
+<ul>
+<li>[0.3 0.7 1.1]</li>
+</ul>
+<h3 id="第2层到输出层"><a href="#第2层到输出层" class="headerlink" title="第2层到输出层"></a>第2层到输出层</h3><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/6.png"></p>
+<pre><code class="lang-python">def identity_function(x):
+    return x
+W3 = np.array([[0.1, 0.3],[0.2, 0.4]])
+B3 = np.array([0.1, 0.2])
+A3 = np.dot(Z2, W3) + B3
+Y = identity_function(A3)
+</code></pre>
+<p>这里用到了船新的激活函数：identity_function，它其实啥也不干，单纯为了和前面格式统一<br>另外，输出层的激活函数用 <script type="math/tex">\sigma</script>表示，而不是<script type="math/tex">h</script></p>
+<h2 id="3-代码小结"><a href="#3-代码小结" class="headerlink" title="3)代码小结"></a>3)代码小结</h2><pre><code class="lang-python">import numpy as np
+
+def identity_function(x):
+    return x
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+def init_network():
+    network = {}
+    network[&#39;W1&#39;] = np.array([[0.1, 0.3, 0.5], [0.2, 0.4, 0.6]])
+    network[&#39;b1&#39;] = np.array([0.1, 0.2, 0.3])
+    #W1是第一层权重，b1是第一层偏置，可以看出第一层共有三个神经元，每个神经元接受两个输入信号
+    network[&#39;W2&#39;] = np.array([[0.1, 0.4],[0.2, 0.5], [0.3, 0.6]])
+    network[&#39;b2&#39;] = np.array([0.1, 0.2])
+    network[&#39;W3&#39;] = np.array([[0.1, 0.3], [0.2, 0.4]])
+    network[&#39;b3&#39;] = np.array([0.1, 0.2])
+    return network
+def forward(network, x):
+    W1, W2, W3 = network[&#39;W1&#39;], network[&#39;W2&#39;], network[&#39;W3&#39;]
+    b1, b2, b3 = network[&#39;b1&#39;], network[&#39;b2&#39;], network[&#39;b3&#39;]
+
+    a1 = np.dot(x,W1) + b1
+    z1 = sigmoid(a1)
+    a2 = np.dot(z1,W2) + b2
+    z2 = sigmoid(a2)
+    a3 = np.dot(z2,W3) + b3
+    y = identity_function(a3)
+
+    return y
+
+network = init_network()
+x = np.array([1.0, 0.5])
+y = forward(network, x)
+print(y)
+</code></pre>
+<ul>
+<li>输出结果为：[0.31682708 0.69627909]</li>
+</ul>
+<p>这里出现了“forward”函数，它表示从输入到输出方向的传递处理。之后会介绍后向（backward,从输出到输入方向的处理）</p>
+<h1 id="五、输出层的设计"><a href="#五、输出层的设计" class="headerlink" title="五、输出层的设计"></a>五、输出层的设计</h1><p>神经网络可以用在分类和回归问题上。一般而言，回归问题用恒等函数，分类问题用softmax函数。</p>
+<blockquote>
+<p>补充：机器学习大致分为分类问题和回归问题<br>分类问题举例：给一张图像，区分图像中的人是男性还是女性<br>回归问题举例：给一张图像，估测图像中人的体重</p>
+</blockquote>
+<h2 id="1-恒等函数和softmax函数"><a href="#1-恒等函数和softmax函数" class="headerlink" title="1)恒等函数和softmax函数"></a>1)恒等函数和softmax函数</h2><p>恒等函数前面已经接触到了，就是上面的identity_function函数。</p>
+<p>softmax函数可以如下式这样表示</p>
+<script type="math/tex; mode=display">y_{k}=\frac{e^{(a_{k})}}{\sum_{i=1}^ne^{(a_{i})}}</script><p>e是自然对数的底数。假设有n个神经元，计算第k个神经元的输出<script type="math/tex">y_{k}</script>.<br>注意式子里面的a均为输入信号。softmax函数与之前的激活函数最大的不同在于它的输出受到所有输入信号的影响。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/5.png"></p>
+<h2 id="2-softmax函数的实现"><a href="#2-softmax函数的实现" class="headerlink" title="2)softmax函数的实现"></a>2)softmax函数的实现</h2><p>下面用python对softmax函数进行实现：</p>
+<pre><code class="lang-python">import numpy as np
+
+def softmax(a):
+    exp_a = np.exp(a)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+
+    return y
+</code></pre>
+<p>不过，当使用指数运算时会面临数据溢出的问题。上面的的函数，尽管最后的返回值y数字不会太大，但运算过程中的中间量sum_exp_a可能会非常非常大，比如输入中某个值为1000……这样很容易不能正确得到结果，所有需要改进<br>可以证明：</p>
+<script type="math/tex; mode=display">\frac{e^{(a_{k})}}{\sum_{i=1}^ne^{(a_{i})}}=\frac{e^{(a_{k}+C)}}{\sum_{i=1}^ne^{(a_{i}+C)}}</script><p>所以，输入矩阵中所有元素加/减某一常数，不影响最后的结果</p>
+<p>改进如下：</p>
+<pre><code class="lang-python">import numpy as np
+
+def softmax(a):
+    c = np.max(a)
+    exp_a = np.exp(a - c)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+
+    return y
+</code></pre>
+<h2 id="3）softmax函数的特征"><a href="#3）softmax函数的特征" class="headerlink" title="3）softmax函数的特征"></a>3）softmax函数的特征</h2><pre><code class="lang-python">import numpy as np
+
+def softmax(a):
+    exp_a = np.exp(a)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+
+    return y
+
+a = np.array([0.3, 2.9, 4.0])
+y = softmax(a)
+print(y)#输出：[0.01821127 0.24519181 0.73659691]
+print(np.sum(y))#输出： 1.0
+</code></pre>
+<p>我直观的感觉：softmax是统计概率的函数，只不过这里面的概率利用了指数运算。<br>依照上面函数的输出结果，可以认为y[2]的概率最大（达到了0.73）</p>
+<h1 id="六、手写数字识别"><a href="#六、手写数字识别" class="headerlink" title="六、手写数字识别"></a>六、手写数字识别</h1><p>假设学习工作已经全部完成，我们通过得到的参数实现神经网络的“推理处理”，推理处理也被称为神经网络的“前向传播”(forward propagation)。</p>
+<h2 id="1）MINIST数据集"><a href="#1）MINIST数据集" class="headerlink" title="1）MINIST数据集"></a>1）MINIST数据集</h2><p>关于MINIST数据集的介绍，请移步<a href="https://www.baidu.com/s?ie=UTF-8&wd=MINIST%E6%95%B0%E6%8D%AE%E9%9B%86" target="_blank" rel="noopener">百度</a></p>
+<h3 id="加载："><a href="#加载：" class="headerlink" title="加载："></a>加载：</h3><p>这里需要用到书中的源码。仅需要理解加载的结果是：60000张训练图，10000张测试图</p>
+<pre><code class="lang-python">import sys, os
+sys.path.append(os.pardir)
+from dataset.mnist import load_mnist
+(x_train, t_train),(x_test, t_test) = load_mnist(flatten=True,normalize=False，one_hot_label=False)
+print(x_train.shape) #(60000, 784) 60000张28×28像素的训练图
+print(t_train.shape) #(60000,)训练图的标签
+print(x_test.shape) #(10000, 784)10000张测试图
+print(t_test.shape) #(10000,)测试图的标签
+</code></pre>
+<p>load_minist的参数：</p>
+<ul>
+<li>flatten：是否将图像表示为一维数组。若flatten=False,则图像是1×28×28的三维数组，flatten=True,图像是784个元素的一维数组</li>
+<li>normalize：是否将图像正规化。若normalize=False，则数据的值为0~225，若normalize=True，则数据的值为0~1.0</li>
+<li>one_hot_label: 当one_hot_label=True时，会将正确解的标签设为1，错误解设为0。</li>
+</ul>
+<h3 id="图像显示"><a href="#图像显示" class="headerlink" title="图像显示"></a>图像显示</h3><pre><code class="lang-python">import sys, os
+sys.path.append(os.pardir)
+import numpy as np
+from dataset.mnist import load_mnist
+
+from PIL import Image
+
+
+def img_show(img):
+    pil_img = Image.fromarray(np.uint8(img))
+    pil_img.show()
+
+(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+
+img = x_train[0]
+label = t_train[0]
+print(label)  # 5
+
+print(img.shape)  # (784,)
+img = img.reshape(28, 28)  # 把图像恢复为原来的尺寸
+print(img.shape)  # (28, 28)
+
+img_show(img)
+</code></pre>
+<p>这里用到PIL库。它的作用是将矩阵显示为图像<br>可以看到，x_train[0]保存的是图像“5”，t_train[0]保存的是整数5</p>
+<h2 id="2-神经网络的推理处理"><a href="#2-神经网络的推理处理" class="headerlink" title="2) 神经网络的推理处理"></a>2) 神经网络的推理处理</h2><p>任务分析：我们要将MINIST数据集中的照片进行分类工作。<br>神经网络的输入层有784个单元（28×28像素的图片），输出层有10个单元（数字共有0到9，10个类别）。</p>
+<p>而神经网络的很多参数是通过训练得到的。这里直接使用训练完的参数:</p>
+<pre><code class="lang-python">import sys, os
+sys.path.append(os.pardir)
+import numpy as np
+import pickle
+from dataset.mnist import load_mnist
+from common.functions import sigmoid, softmax
+def get_data():
+    (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, flatten=True, one_hot_label=False)
+    return x_test, t_test
+
+
+def init_network():
+    with open(&quot;sample_weight.pkl&quot;, &#39;rb&#39;) as f:
+        network = pickle.load(f)
+    return network
+
+
+def predict(network, x):
+    W1, W2, W3 = network[&#39;W1&#39;], network[&#39;W2&#39;], network[&#39;W3&#39;]
+    b1, b2, b3 = network[&#39;b1&#39;], network[&#39;b2&#39;], network[&#39;b3&#39;]
+
+    a1 = np.dot(x, W1) + b1
+    z1 = sigmoid(a1)
+    a2 = np.dot(z1, W2) + b2
+    z2 = sigmoid(a2)
+    a3 = np.dot(z2, W3) + b3
+    y = softmax(a3)
+
+    return y
+
+
+x, t = get_data()
+network = init_network() # 建立神经网络
+accuracy_cnt = 0
+for i in range(len(x)):
+    y = predict(network, x[i]) #进行预测
+    p= np.argmax(y) # 获得概率最高的元素的索引，完成预测
+    if p == t[i]:
+        accuracy_cnt += 1 #统计有多少张图片分类正确
+
+print(&quot;Accuracy:&quot; + str(float(accuracy_cnt) / len(x))) # 0.9352 即该神经网络的精度是93.52%
+</code></pre>
+<h2 id="3-批处理"><a href="#3-批处理" class="headerlink" title="3)批处理"></a>3)批处理</h2><p>前面的代码进行了10000张784像素图片的分类工作。每张图片是逐个处理的。实际上完全可以把输入数据处理成10000×784的矩阵，这样就可以一次处理得到全部结果。<br>这种打包式的输入数据称为<strong>批</strong>(batch)<br>批处理可以节约计算机的运算成本<br>批处理的代码：</p>
+<pre><code class="lang-python">#x, t = get_data()
+#network = init_network() # 建立神经网络
+#accuracy_cnt = 0
+#for i in range(len(x)):
+#    y = predict(network, x[i]) #进行预测
+#    p= np.argmax(y) # 获得概率最高的元素的索引，完成预测
+#    if p == t[i]:
+#        accuracy_cnt += 1 #统计有多少张图片分类正确
+x, t = get_data()
+network = init_network() # 建立神经网络
+accuracy_cnt = 0
+batch_size = 100 #设定批的大小
+
+for i in range(0,len(x),batcg_size):
+    x_batch = x[i : i + batch_size]
+    y_batch = predict(network, x_batch)
+    p = np.argmax(y_batch, axis=1)
+    accuracy_cnt += np.sum(p == t[i:i+batch_size])
+</code></pre>
+<p>书中源码把批的大小设定为100。</p>
+
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
@@ -520,7 +748,7 @@ $$a_{1}^{(1)} = w_{11}^{(1)}+w_{12}^{(1)}</script>
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 Max.L<br>
+      &copy; 2020 断梦三生<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
