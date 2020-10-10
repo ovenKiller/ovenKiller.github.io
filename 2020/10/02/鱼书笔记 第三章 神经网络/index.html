@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">鱼书笔记 第四章 神经网络 | DayDream</title>
+  <title itemprop="name">鱼书笔记 第三章 神经网络 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -294,7 +294,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      鱼书笔记 第四章 神经网络</h1>
+      鱼书笔记 第三章 神经网络</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -493,7 +493,7 @@ print(y)
 </blockquote>
 <h2 id="1-恒等函数和softmax函数"><a href="#1-恒等函数和softmax函数" class="headerlink" title="1)恒等函数和softmax函数"></a>1)恒等函数和softmax函数</h2><p>恒等函数前面已经接触到了，就是上面的identity_function函数。</p>
 <p>softmax函数可以如下式这样表示</p>
-<script type="math/tex; mode=display">y_{k}=\frac{e^{(a_{k})}}{\sum_{i=1}^ne^{(a_{i})}}</script><p>e是自然对数的底数。假设有n个神经元，计算第k个神经元的输出<script type="math/tex">y_{k}</script>.<br>注意式子里面的a均为输入信号。softmax函数与之前的激活函数最大的不同在于它的输出受到所有输入信号的影响。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/5.png"></p>
+<script type="math/tex; mode=display">y_{k}=\frac{e^{(a_{k})}}{\sum_{i=1}^ne^{(a_{i})}}</script><p>e是自然对数的底数。假设有n个神经元，计算第k个神经元的输出<script type="math/tex">y_{k}</script>.<br>注意式子里面的a均为输入信号。softmax函数与之前的激活函数最大的不同在于它的输出受到所有输入信号的影响。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/7.png"></p>
 <h2 id="2-softmax函数的实现"><a href="#2-softmax函数的实现" class="headerlink" title="2)softmax函数的实现"></a>2)softmax函数的实现</h2><p>下面用python对softmax函数进行实现：</p>
 <pre><code class="lang-python">import numpy as np
 
