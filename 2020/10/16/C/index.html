@@ -1,0 +1,4187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">JLU C语言课设：医院管理系统 源码 | DayDream</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "DayDream";
+  mashiro_option.author_name = "DayDream";
+  mashiro_option.site_url = "http://x-quest.xyz";
+  mashiro_option.v_appId = "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz";
+  mashiro_option.v_appKey = "AaDo6LOfCdsKQyWVT8bzUnml";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/cover/(3).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="http://x-quest.xyz">
+          <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>我脚踩着云朵迎着风</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="mailto:maxliu7@outlook.com" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/wechat.png">
+                  </div>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://du.163.com/share/user/caa5d60f49f44f4d96ede3dd669c91ec?user=caa5d60f49f44f4d96ede3dd669c91ec" target="_blank" class="social-github" title="snailreader">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/snailreader.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">DayDream</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/编程/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/英语新闻/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          英语
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/book">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      JLU C语言课设：医院管理系统 源码</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-10-16<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="实验说明："><a href="#实验说明：" class="headerlink" title="实验说明："></a>实验说明：</h1><p>《程序设计基础课程设计》（2019级）</p>
+<h2 id="1、编写一个C语言程序，实现一个医院的诊疗管理系统，能够管理至少30位患者，每位患者至多30条诊疗记录。其中："><a href="#1、编写一个C语言程序，实现一个医院的诊疗管理系统，能够管理至少30位患者，每位患者至多30条诊疗记录。其中：" class="headerlink" title="1、编写一个C语言程序，实现一个医院的诊疗管理系统，能够管理至少30位患者，每位患者至多30条诊疗记录。其中："></a>1、编写一个C语言程序，实现一个医院的诊疗管理系统，能够管理至少30位患者，每位患者至多30条诊疗记录。其中：</h2><p>1）每条诊疗记录包括患者信息、医生信息、诊疗情况三部分。请自行组织相关信息的存储方式（冗余信息可不存储）和显示格式。<br>2）患者信息包括：姓名、年龄、挂号；挂号唯一。<br>3）医生信息包括：姓名、级别、科室、工号、出诊时间；工号唯一；每位医生只在规定时间出诊（如每周一、周三，默认出诊即全天出诊）。<br>4）诊疗情况分为3类信息：检查、开药、住院。对于检查，仅记录每种检查费用，以及所有检查的总费用；对于开药，仅记录每种药品名称、单价、数量，以及所有药品的总价；对于住院，仅记录住院开始日期、预计出院日期、住院押金。<br>5）住院费用按实际天数计算。在办理住院时（即开始日期）需要交纳住院押金，住院押金要求为100元的整数倍，且不低于200*N（N为拟住院天数）元。特殊约定：在00:00-08:00之间办理出院不收取当天的住院费。对于拟继续住院的患者则系统会自动在08:00从患者的住院押金中扣除当天的住院费用，患者住院期间需随时保证住院押金一直不低于1000元。</p>
+<h2 id="为了简化，特做如下约定："><a href="#为了简化，特做如下约定：" class="headerlink" title="为了简化，特做如下约定："></a>为了简化，特做如下约定：</h2><p>1）如涉及时间，仅包括月、日、时、分（默认为当年）。<br>2）患者最多100位，医生最多30位；药品最多30种，药品充足；患者每次开药最多100盒（或其它合适的数量单位）。<br>3）医生的级别限定为：主任医师、副主任医师、主治医师、住院医师1，尽可能符合实际情况。医生仅隶属于某个科室。提醒：医生之间、患者之间、医生患者之间均可能重名。<br>4）每天，医院可最多受理500个号，每位医生可最多受理20个号，每位患者可最多挂5个号、同一科室最多挂1个号；需自行设计挂号的编码规则，可隐含挂号日期、挂号当天的顺序号、对应的医生等信息，保证每条诊疗记录的挂号唯一。<br>5）金额要精确到元、角、分，不允许有误差，最高额度不超过10万；最大数量不超过int允许最大整数。</p>
+<h2 id="具体功能要求如下："><a href="#具体功能要求如下：" class="headerlink" title="具体功能要求如下："></a>具体功能要求如下：</h2><p>0）开始时，管理系统默认医院的运营资金为0元。<br>1）【增加】能够从文件中录入多条诊疗记录，也能够随时录入1条诊疗记录。注意：需要考虑各种类型的不规范、不合理或错误数据，如：数据位数不对、格式不对等。【重点考察】<br>2）【修改】能够随时修改1条诊疗记录。按照财务规范，如需修改错误的诊疗记录，应将当前错误的诊疗记录予以撤销后，再补充添加正确的诊疗记录。【重点考察】<br>3）【删除】能够随时删除1条诊疗记录。<br>1 住院医师只是医生的一种级别，并不表示诊疗情况中的住院只能与住院医师对应。<br>4）【查询】能够按照合理顺序打印某个科室的诊疗信息（按照科室检索）。<br>5）【查询】能够按照合理顺序打印某位医生的诊疗信息（按照医生的工号检索）。<br>6）【查询】能够按照合理顺序打印某位患者的历史诊疗信息（按照患者的相关信息检索）。<br>7）【统计】能够统计医院目前的营业额（检查费用+药品费用+住院费用，不含住院押金）；能够生成目前的住院患者报表。【重点考察】<br>8）【统计】能够统计每位医生的出诊情况和工作繁忙程度。<br>9）【某段时间范围】能够打印某段时间范围内的所有诊疗信息。【重点考察】<br>10）【存储】能够将当前系统中的所有信息保存到文件中。<br>11）其它你认为有用的附加功能，可酌情添加。</p>
+<h2 id="2、课程设计要求"><a href="#2、课程设计要求" class="headerlink" title="2、课程设计要求"></a>2、课程设计要求</h2><p>《程序设计基础课程设计》最终成绩（五分制）=《程序设计基础课程设计》超星MOOC成绩×10% + 育信OJ在线评测成绩×10% + 分组报告答辩成绩×80%。<br>《程序设计基础课程设计》超星MOOC：由教师导入学生名单，学生无需注册；学生在规定时间内登录并独立完成在线任务（视频学习、单元测验和PBL提交）。<br>育信OJ在线评测：学生独立在实验室在线评测。<br>分组报告答辩：学生分组在实验室现场评测。<br>1）自由分组，每组3人（特殊情况以指导教师安排为准），每组1份实验报告（请严格按照模板撰写）。<br>2）答辩前在超星平台上以PBL形式提交材料（源代码、相关测试文件和实验报告等），所提交的C语言源程序需要含有必要的代码注释。<br>3）答辩时现场提交实验报告的打印版。<br>4）指导教师按照平时考核、代码和实验报告质量、任务分工和完成比例、界面美观和人性化、个人和团队答辩情况等环节综合评定成绩。<br>重要说明1：全程链表实现。<br>重要说明2：请按照人性化的方式设计具体功能，如：增加的诊疗信息仅含有部分数据，灵活的数据输入方式，软件使用人员操作失误，用户希望的多样化的查询和统计方式，清晰美观的输出方式，合理划分为多个源文件。<br>重要说明3：请自行构造原始数据文件用于测试，文件类型为txt，每个文件至少包含30条诊疗记录。<br>3、成绩说明<br>五分制：<br>优秀15%左右；<br>良好35%左右；<br>中等35%左右；<br>及格和不及格15%左右。<br>旷课比例达到20%（2次），最高成绩为中等；<br>旷课比例达到30%（3次），最高成绩为及格；<br>旷课比例达到50%（4次），取消答辩资格，成绩为不及格。<br>4、特殊说明<br>1）对于计算机科学与技术学院、软件学院的2019级学生，所有事宜以具体指导教师安排为准。<br>2）对于软件学院2019级荣誉班，除此文件外，另有一个命名为“《程序设计基础课程设计》（软2019级补充材料）”的附件。<br>3）对于计算机科学与技术学院、软件学院的重修、转专业学生，请尽快加入QQ群：<strong>**</strong>，主动联系任课教师（<em>**</em>），所有事宜以任课教师安排为准。</p>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><p>注：该源码脱离资源文件不能运行,运行请下载附件中的工程文件</p>
+<pre><code class="lang-c">//文件basic.h
+#ifndef OPEN_H_INCLUDED
+#define OPEN_H_INCLUDED
+struct Doctor{
+    int number;//工号
+    char name[20];//姓名
+    int level; //级别
+    int department;//科室
+    int workingHours[7];//工作时间。索引值0~6对应周日~周六,存储值为1则为上班，0则为不上班
+    struct Doctor *next;
+    int registed;//今日挂号量统计
+    int w_registed;//周挂号量统计
+};
+struct ExaminationFee{
+        char name[20];
+        int cost;
+        struct ExaminationFee *next;
+    };
+struct Medicine{
+        int number;
+        char name[20];
+        int price;
+        struct Medicine *next;
+    };
+struct Hospitalization{
+        int zhuyuanyajin;//住院押金
+        int ruyuanshijian;//入院时间：月、日、时、分
+        int chuyuanshijian;//出院时间：月、日、时、分
+    };
+struct Treatment{
+    int total;
+    int totalExaminationFee; //总检查费
+    struct ExaminationFee exminationFee;
+
+    int totalMedicineCharge; //总药费
+    struct Medicine medicine;
+    struct Hospitalization hospitalization;
+};
+/*数据类*/
+struct Data{
+    int number;        //挂号序列  需是唯一值
+    int ID;//患者ID，对于每位患者来说是唯一值
+    char name[20]; //患者姓名
+    int age;        //患者年龄
+    struct Doctor doctor;        //医生
+    struct Treatment treatment; //治疗方法
+    struct Data *next;//链
+};
+int clearMedList();//回收药品链表内存
+int clearDoctorList();//回收医生链表
+int clearExamList();//回收诊疗项目链表内存
+
+void saveData(char *location);//在location路径下将dataHead链表的所有数据存储到文件中
+int registe();//挂号模块
+void inputMedData();//从文件中读取并加载药品仓库数据
+void buildDoctorList();//加载医生值班数据
+int compStr(char *s1, int len1, char *s2, int len2);//字符串比对函数，用于检索
+void buyMedicine(struct Data* newnode);//购药函数
+int printDeparList(int n);//输出某个科室的情况
+void hospitalize(struct Data* newNode);//住院模块
+void selectExaminations(struct Data * newnode);//选择检查项目
+void menu();//主菜单
+int viewData();//浏览数据模块
+
+void inputExamData();//加载所有的检查项目
+void clearList1(struct Medicine *base);//回收base链表内存
+void clearList2(struct ExaminationFee * base);//回收base链表内存
+int findExamStart(int left, int right, FILE *pf_exam, int target); //二分查找，在文件中寻找对应的购药数据
+int findMedStart(int left, int right, FILE *pf_med, int target); //二分查找，在文件中寻找对应的检查项目数据
+int buildMedList(struct Medicine *base, FILE *pf_med, int start, int end);//建立诊疗记录中的购药单链表
+int buildExamList(struct ExaminationFee *base, FILE *pf_exam, int start, int end);//建立诊疗记录中的检查项目链表
+void clearList(struct Data *base);//回收base链表内存
+struct Data* input(const char *dir);//建立链表的主函数，文件路径为dir，返回值为哨兵节点
+void openUTDfile();//打开最新的数据文件
+int preDay(char *ori);//输入为&quot;data/1009/&quot;型字符串，输出为前一天的字符串，如“data/1008/”
+int nextDay(char *ori);//输入为&quot;data/1009/&quot;型字符串，输出为后一天的字符串，如“data/1010/”
+int scanInt(int *num, int length);//输入整型变量，回车键结束输入，非法字符会被忽略,输入过长返回-2，无输入返回-1；
+int scanStrNum(char *num,int length);//输入数字的字符串，回车键结束输出，非法字符会被忽略，若无符合要求的输入则返回1，长度过长返回-2.
+int scanName(char *s, int length);//输入姓名,返回-2为输入过长
+void loadHospitalizeData();//加载住院数据
+void saveHosData();//存储主链表数据
+int inputDate(int *month, int *day);//输入日期的函数
+struct Data* reInput(const char* dir);//从路径为dir的文件中倒序建立链表
+int viewUTDdata(int n);//浏览最新的n条数据
+int showDepartStatus();//显示挂号情况模块
+void showDocRegisted(struct Doctor *head);//显示科室中所有医生的情况
+int leaveHospital(struct Data *p);//出院模块
+int timeSpan(int start, int end);//日期不合法返回0
+int printfMoneyStatus();//打印医院的营业额
+void w_countAllDoc();//统计所有医生近一周的挂号量
+int scanStr(char *s, int length);//安全读取字符串的函数
+int dataChangeMenu();//数据修改菜单
+int changeDataMenu();//修改数据的主界面
+int setPassWord();//加密函数
+char * deCode();//解密函数
+int dataViewMenu(); //数据浏览模块
+int inpatientDapart();//住院部模块
+int patientAdminMenu();//住院病人管理菜单
+int delayTime(struct Data *p);//延期出院模块
+int  printMargin(int n) ;//用于排版
+void loading() ;//加载动效
+int printSingleData(struct Data *p);//打印单条数据
+int saveMedData();
+int reSeek(FILE *pf);
+
+#endif // OPEN_H_INCLUDED
+</code></pre>
+<pre><code class="lang-c">//文件basic.c
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include&lt;string.h&gt;
+#include&lt;time.h&gt;
+#include &lt;io.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include&lt;windows.h&gt;
+#include&quot;basic.h&quot;
+#include&quot;view.h&quot;
+#include&quot;change.h&quot;
+
+/*
+设定：每个医生一天最多挂10个号
+每个科室最多挂20个号
+*/
+const char DoctorLevel[5][12] = {&quot;&quot;,&quot;住院医师&quot;,&quot;主治医师&quot;,&quot;副主任医师&quot;,&quot;主任医师&quot;};
+struct Medicine * mediStorage;//医院药品仓库
+struct ExaminationFee * examlists; //医院所有可检查的项目
+struct Data* dataHead;//链表头结点.有哨兵
+struct Data* dataRear;//链表尾结点
+struct Data* inHospital;//所有正在住院的病人，无哨兵
+struct Data* inHospitalRear;
+struct Doctor doctor_departments[5];//设置5个科室,每个科室都是一个医生链表，有哨兵结点
+char departments[7][20] = {&quot;内科&quot;,&quot;外科&quot;,&quot;儿科&quot;,&quot;五官科&quot;,&quot;传染病科&quot;};
+int countDepartment[7];//记录每个科室挂了多少号
+int sequence = 1;//挂号序列
+
+/*考虑：几种模式的浏览：*/
+
+int viewData()
+{
+    system(&quot;cls&quot;);
+    printf(&quot;\n\n\n\n\n&quot;);
+    printMargin(40);
+    printf(&quot;1、浏览最新数据\n\n&quot;);
+    printMargin(40);
+    printf(&quot;2、浏览历史数据\n\n&quot;);
+    printMargin(40);
+    printf(&quot;0、返回上一层\n\n\n\n\n&quot;);
+    printf(&quot;请选择：&quot;);
+    int command;
+    for(;;)
+    {
+            scanInt(&amp;command, 3);
+            if((command &lt; 0)||(command &gt; 3))
+            {
+                printf(&quot;输入非法!\n请重新输入:&quot;);
+            }
+            else
+                break;
+
+    }
+    if(!command)
+        return 0;
+    if(command == 1)
+    {
+        printf(&quot;请输入要查看多少条数据（最多100条）:&quot;);
+        for(;;)
+        {
+            scanInt(&amp;command, 4);
+            if((command &lt; 0)||(command &gt; 100))
+            {
+                printf(&quot;输入非法\n请重新输入:&quot;);
+            }
+            else
+                break;
+        }
+        viewUTDdata(command);
+    }
+    else
+        viewDataSpan();
+    return 0;
+}
+
+
+struct Data* input(const char* dir)//打开以路径“dir”为参数的所有文件,路径格式：“data/1001/”
+{
+    FILE *pf, *pf_med, *pf_exam;
+    char position[40];
+    strcpy(position,dir);
+    strcpy(position+10,&quot;data.txt&quot;);
+    sequence = 0;
+    struct Data *  base =  (struct Data*)malloc(sizeof(struct Data));
+    base-&gt;next = NULL;
+    if(pf = fopen(position,&quot;r&quot;),pf==NULL)
+    {
+
+        dataRear = base;
+        dataHead = base;
+        return base;
+    }
+    strcpy(position+10,&quot;examination.txt&quot;);
+    pf_exam = fopen(position,&quot;r&quot;);
+    strcpy(position+10,&quot;medicine.txt&quot;);
+    pf_med = fopen(position,&quot;r&quot;);
+    struct Data *p1, *p2 = NULL;
+    p1 = base;
+    struct Data *ptmp = NULL;
+    while(!feof(pf))
+    {
+        p2 = (struct Data *)malloc(sizeof(struct Data));
+        p2-&gt;next = NULL;
+        p1-&gt;next = p2;
+        fscanf(pf,&quot;%d%d%s%d%d%s&quot;,&amp;(p2-&gt;number),&amp;(p2-&gt;ID),p2-&gt;name,&amp;(p2-&gt;age),&amp;(p2-&gt;doctor.number),p2-&gt;doctor.name);
+        fscanf(pf,&quot;%d%d&quot;,&amp;p2-&gt;doctor.level,&amp;p2-&gt;doctor.department);
+        int i;
+        for(i = 0; i &lt; 7; ++i)
+        fscanf(pf,&quot;%d&quot;,&amp;(p2-&gt;doctor.workingHours[i]));
+        fscanf(pf,&quot;%d&quot;,&amp;(p2-&gt;treatment.total));
+        int med_start,med_end,exam_start,exam_end;
+        fscanf(pf,&quot;%d%d%d%d&quot;,&amp;med_start,&amp;med_end,&amp;exam_start,&amp;exam_end);
+        fscanf(pf,&quot;%d%d&quot;,&amp;(p2-&gt;treatment.hospitalization.ruyuanshijian),&amp;(p2-&gt;treatment.hospitalization.chuyuanshijian));
+        p2-&gt;treatment.medicine.next = NULL;
+
+        fgetc(pf);
+        p2-&gt;treatment.totalMedicineCharge = buildMedList(&amp;(p2-&gt;treatment.medicine),pf_med,med_start,med_end);
+        p2-&gt;treatment.totalExaminationFee = buildExamList(&amp;(p2-&gt;treatment.exminationFee), pf_exam,exam_start,exam_end);
+        ptmp = p1;
+        sequence = (ptmp-&gt;number)%10000;
+        p1 = p2;
+    }
+    dataRear = ptmp;
+    ptmp-&gt;next = NULL;
+
+    free(p2);
+    fclose(pf);
+    fclose(pf_exam);
+    fclose(pf_med);
+    return base;
+
+}
+
+
+
+/*建立购药单链表*/
+int buildMedList(struct Medicine *base, FILE *pf_med, int start, int end)//建立药品链表(需要读取购药单所在的文件)
+{
+    base-&gt;next = NULL;
+    if(start &gt; end)
+    return 0;
+    if(!start)
+    return 0;
+    int totalcost = 0;
+    int right;
+    fseek(pf_med,-38,SEEK_END);//共有right条数据
+    fscanf(pf_med,&quot;%d&quot;,&amp;right);
+    --right;
+    struct Medicine *p1, *p2;
+    p1 = (struct Medicine *)malloc(sizeof(struct Medicine)); //文件尾记录了总共有多少条数据，8字节
+    base-&gt;next = p1;
+    p1-&gt;next = NULL;
+    int s;
+    s = findMedStart(0, right, pf_med,start);//二分查找开始的记录
+    fseek(pf_med,s * 38, SEEK_SET);
+    int tmp;
+    fscanf(pf_med,&quot;%d%s%d%d&quot;,&amp;(tmp),p1-&gt;name,&amp;(p1-&gt;price),&amp;(p1-&gt;number));
+    totalcost += ((p1-&gt;price) * (p1-&gt;number));
+    if(start &gt; end)
+        return 0;
+    while((tmp &lt; end)&amp;&amp;(!feof(pf_med)))
+    {
+        p2 = (struct Medicine*)malloc(sizeof(struct Medicine));
+        p2-&gt;next = NULL;
+        p1-&gt;next = p2;
+        p1 = p2;
+        fscanf(pf_med,&quot;%d%s%d%d&quot;,&amp;tmp,p1-&gt;name,&amp;(p1-&gt;price),&amp;(p1-&gt;number));
+        totalcost += ((p1-&gt;price) * (p1-&gt;number));
+    }
+    return totalcost;
+}
+/*寻找购药单起点*/
+int findMedStart(int left, int right, FILE *pf_med, int target)
+{
+    int mid = (left + right) / 2;
+    fseek(pf_med,mid * 38, SEEK_SET);
+    int tmp;
+    fscanf(pf_med,&quot;%d&quot;,&amp;tmp);
+    if(tmp == target)
+    return mid;
+    if(left &gt; right)
+    return -1;
+    if(tmp &gt; target)
+        return findMedStart(left,mid - 1, pf_med,target);
+    else
+        return findMedStart(mid + 1,right , pf_med, target);
+}
+
+/*建立检查项目链表*/
+int buildExamList(struct ExaminationFee *base, FILE *pf_exam, int start, int end)
+{
+    base-&gt;next = NULL;
+    int total = 0;
+    if(end &lt; start)
+        return total;
+    if(!end)
+        return total;
+    int right;
+    fseek(pf_exam,-29,SEEK_END);
+    fscanf(pf_exam,&quot;%d&quot;,&amp;right);
+    --right;
+    struct ExaminationFee *p1, *p2;
+    p1 = (struct ExaminationFee *)malloc(sizeof(struct ExaminationFee)); //文件尾记录了总共有多少条数据，8字节
+    base-&gt;next = p1;
+    int s;
+    s = findExamStart(0, right, pf_exam,start);//二分查找开始的记录
+    fseek(pf_exam,s * 30, SEEK_SET);
+    int tmp;
+    fscanf(pf_exam,&quot;%d%s%d&quot;,&amp;tmp,p1-&gt;name,&amp;(p1-&gt;cost));
+    total += (p1-&gt;cost);
+    p1-&gt;next = NULL;
+    while((tmp &lt; end)&amp;&amp;(!feof(pf_exam)))
+    {
+        p2 = (struct ExaminationFee*)malloc(sizeof(struct ExaminationFee));
+        p1-&gt;next = p2;
+        p1 = p2;
+        fscanf(pf_exam,&quot;%d%s%d&quot;,&amp;(tmp),p1-&gt;name,&amp;(p1-&gt;cost));
+        total += (p1-&gt;cost);
+        p2-&gt;next = NULL;
+    }
+
+    return total;
+}
+/*在检查项目总文件中寻找需要的数据段*/
+int findExamStart(int left, int right, FILE *pf_exam, int target)
+{
+    int mid = (left + right) / 2;
+    fseek(pf_exam,mid * 30, SEEK_SET);
+    int tmp;
+    fscanf(pf_exam,&quot;%d&quot;,&amp;tmp);
+    if(tmp == target)
+    return mid;
+    if(left &gt; right)
+    return -1;
+    if(tmp &gt; target)
+        return findExamStart(left,mid - 1, pf_exam,target);
+    else
+        return findExamStart(mid + 1,right , pf_exam, target);
+}
+
+/*释放总诊疗记录链表*/
+void clearList(struct Data *base)
+{
+    if(!base)
+        return;
+    struct Data *p = base-&gt;next;
+    free(base);
+    struct Data *p2;
+    while(p)
+    {
+        p2 = p;
+        p = p-&gt;next;
+        clearList2(p2-&gt;treatment.exminationFee.next);
+        clearList1(p2-&gt;treatment.medicine.next);
+        free(p2);
+    }
+    return;
+}
+
+
+/*释放购药链表*/
+void clearList1(struct Medicine *base)
+{
+    struct Medicine *p = base;
+    struct Medicine *p2;
+    while(p)
+    {
+        p2 = p;
+        p = p-&gt;next;
+        free(p2);
+    }
+    return;
+}
+/*释放诊疗记录链表*/
+void clearList2(struct ExaminationFee *base)
+{
+    struct ExaminationFee *p = base;
+    struct ExaminationFee *p2;
+    while(p)
+    {
+        p2 = p;
+        p = p-&gt;next;
+        free(p2);
+    }
+    return;
+}
+
+int printSingleData(struct Data * p)
+{
+        printf(&quot;挂号序列：%d 患者姓名：%s ID:%d 患者年龄： %d  &quot;, p-&gt;number, p-&gt;name,p-&gt;ID, p-&gt;age);
+        printf(&quot;医生：%s %s %s 工号：%d\n药品费： %d元 %d角\n&quot;,departments[p-&gt;doctor.department],DoctorLevel[p-&gt;doctor.level],p-&gt;doctor.name,p-&gt;doctor.number,(p-&gt;treatment.totalMedicineCharge)/10,(p-&gt;treatment.totalMedicineCharge)%10);
+        printMedList(&amp;(p-&gt;treatment.medicine));
+        printf(&quot;检查费： %d元 %d角&quot;,(p-&gt;treatment.totalExaminationFee)/10,(p-&gt;treatment.totalExaminationFee)%10);
+        printExamList(&amp;(p-&gt;treatment.exminationFee));
+        if(p-&gt;treatment.hospitalization.ruyuanshijian)
+        {
+            int a = p-&gt;treatment.hospitalization.ruyuanshijian;
+            int b = p-&gt;treatment.hospitalization.chuyuanshijian;
+            printf(&quot;入院时间:%d月 %d日 %d时&quot;,a /1000000,(a%1000000)/10000, (a%10000)/100);
+            printf(&quot;出院时间:%d月 %d日 %d时&quot;,b /1000000,(b%1000000)/10000, (b%10000)/100);
+        }
+        printf(&quot;\n\n\n\n&quot;);
+        return 0;
+}
+
+
+/*将dataHead链表的所有信息存在路径为location的文件中*/
+void saveData(char *location)
+{
+    strcpy(location+10,&quot;data.txt&quot;);
+    FILE *pf_data = fopen(location,&quot;w&quot;);
+    strcpy(location+10,&quot;examination.txt&quot;);
+    FILE *pf_exa = fopen(location,&quot;w&quot;);
+    strcpy(location+10,&quot;medicine.txt&quot;);
+    FILE *pf_med = fopen(location,&quot;w&quot;);
+    struct Data * p = dataHead-&gt;next;
+    int k_med = 1,k_exa = 1;
+    while(p)
+    {
+        fprintf(pf_data,&quot;%09d %08d %8s %03d %06d %8s %d %02d &quot;,p-&gt;number,p-&gt;ID,p-&gt;name,p-&gt;age,p-&gt;doctor.number,p-&gt;doctor.name,p-&gt;doctor.level,p-&gt;doctor.department);
+        for(int i = 0; i &lt; 7; ++i)
+        fprintf(pf_data,&quot;%d &quot;,p-&gt;doctor.workingHours[i]);
+        fprintf(pf_data,&quot;%06d &quot;,p-&gt;treatment.total);
+        struct Medicine* p_med = p-&gt;treatment.medicine.next;
+        if(p_med)
+        {
+            fprintf(pf_data,&quot;%06d &quot;,k_med);
+        while(p_med)
+        {
+            fprintf(pf_med,&quot;%06d %20s %03d %04d\n&quot;,k_med++,p_med-&gt;name,p_med-&gt;number,p_med-&gt;price);
+            p_med = p_med-&gt;next;
+        }
+        fprintf(pf_data,&quot;%06d &quot;,k_med-1);
+        }
+        else
+        {
+        fprintf(pf_data,&quot;%06d %06d &quot;,0,0);
+        }
+        struct ExaminationFee* p_exa = p-&gt;treatment.exminationFee.next;
+        if(p_exa)
+        {
+            fprintf(pf_data,&quot;%06d &quot;,k_exa);
+        while(p_exa)
+        {
+            fprintf(pf_exa,&quot;%06d %14s %06d\n&quot;,k_exa++,p_exa-&gt;name,p_exa-&gt;cost);
+            p_exa = p_exa-&gt;next;
+        }
+        fprintf(pf_data,&quot;%06d &quot;,k_exa-1);
+
+        }
+        else
+        {
+            fprintf(pf_data,&quot;%06d %06d &quot;,0, 0);
+        }
+        fprintf(pf_data,&quot;%08d %08d\n&quot;,p-&gt;treatment.hospitalization.ruyuanshijian,p-&gt;treatment.hospitalization.chuyuanshijian);
+        p = p-&gt;next;
+
+    }
+    fclose(pf_data);
+    fclose(pf_exa);
+    fclose(pf_med);
+
+}
+
+/*建立一个药品链表：该链表存储着医院所有药品*/
+void inputMedData()
+{
+    FILE *pf_med = fopen(&quot;hospital/medicine.txt&quot;,&quot;r&quot;);
+
+    mediStorage = (struct Medicine *)malloc(sizeof(struct Medicine));
+     struct Medicine * p = mediStorage,*p1,*p2;
+    while(!feof(pf_med))
+    {
+        p1 = (struct Medicine *)malloc(sizeof(struct Medicine));
+        int tmp;
+        fscanf(pf_med,&quot;%d%s%d%d&quot;,&amp;tmp,p1-&gt;name,&amp;(p1-&gt;number),&amp;(p1-&gt;price));
+        p1-&gt;next = NULL;
+        p-&gt;next = p1;
+        p2 = p;
+        p = p1;
+    }
+    free(p);
+    p2-&gt;next = NULL;
+    fclose(pf_med);
+
+}
+
+
+int clearMedList()
+{
+    struct Medicine * p = mediStorage,*p1;
+    while(p)
+    {
+        p1 = p;
+        p = p-&gt;next;
+        free(p1);
+    }
+    return 0;
+}
+/*在每一个科室之下建立医生链表*/
+void buildDoctorList()//
+{
+    FILE *pf_doctor = fopen(&quot;hospital/doctor.txt&quot;,&quot;a+&quot;);
+    struct Doctor *p1[5], *p2;
+    for(int i = 0; i &lt; 5; ++i)
+        p1[i] = &amp;(doctor_departments[i]);
+    while(!feof(pf_doctor))
+    {
+        p2 = (struct Doctor*) malloc(sizeof(struct Doctor));
+        p2-&gt;next = NULL;
+        fscanf(pf_doctor,&quot;%s%d%d%d&quot;,p2-&gt;name,&amp;(p2-&gt;level), &amp;(p2-&gt;department),&amp;(p2-&gt;number));
+        for(int i = 0; i &lt; 7; ++i)
+            fscanf(pf_doctor,&quot;%d&quot;,&amp;(p2-&gt;workingHours[i]));
+        p1[(p2-&gt;department)-1]-&gt;next = p2;
+        p1[(p2-&gt;department)-1] = p2;
+    }
+}
+
+int clearDoctorList()
+{
+    for(int i = 0; i &lt; 5; ++i)
+    {
+        struct Doctor * p = doctor_departments[i].next, *p1;
+        while(p)
+        {
+            p1 = p;
+            p = p-&gt;next;
+            free(p1);
+        }
+    }
+    return 0;
+}
+
+int compStr(char *s1, int len1, char *s2, int len2)//字符串比对,返回匹配度
+{
+    int count = 0;
+    for(int i = 0; i &lt; len1; ++i)
+    {
+        for(int j = 0; j &lt; len2; ++j)
+        {
+            if(s1[i] == s2[j])
+            {
+                ++count;
+                break;
+            }
+        }
+    }
+    return count==len1;
+}
+
+
+/*患者的购药函数*/
+void buyMedicine(struct Data* newnode)
+{
+    char s[20];
+    struct Medicine *p1 = &amp;newnode-&gt;treatment.medicine,*p2;
+    newnode-&gt;treatment.totalMedicineCharge = 0;
+    for(;;)
+    {
+        int flag = 0;
+        printf(&quot;请输出欲购买药品的名称，输入exit退出购药界面\n输入：&quot;);
+        scanStr(s,19);
+        if(s[0]==&#39;e&#39;)
+            break;
+        if(strlen(s) &lt; 3)
+        {
+            printf(&quot;检索的关键词过短！&quot;);
+            continue;
+        }
+        struct Medicine * container[100];
+        int itr = 0;
+        struct Medicine *p = mediStorage-&gt;next;//p是药仓，p1p2是新建链表
+        printf(&quot;\n\n\n&quot;);
+        while(p)
+        {
+            if(compStr(s,strlen(s),p-&gt;name,strlen(p-&gt;name)))
+            {
+                flag = 1;
+                container[itr++] = p;
+                printMargin(5);
+                printf(&quot;%d、%s 单价 %d 元 %d 角 库存剩余 %d\n\n&quot;,itr, p-&gt;name, p-&gt;price/10, p-&gt;price%10, p-&gt;number);
+            }
+            p = p-&gt;next;
+        }
+        container[itr] = NULL;
+        if(!flag)
+            {
+                printf(&quot;并没有找到该药品，请重新输入\n&quot;);
+                continue;
+            }
+        printf(&quot;请选择欲购买药品的序号:&quot;);
+        int command;
+        for(;;)
+        {
+            scanInt(&amp;command, 3);
+            if((command &lt; 1)||(command &gt; itr))
+                printf(&quot;输入不合法，请重新输入:&quot;);
+            else
+                break;
+        }
+        p = container[command-1];
+        printf(&quot;您要购买：\n%s 单价 %d 元 %d 角 库存剩余 %d\n&quot;, p-&gt;name, p-&gt;price/10, p-&gt;price%10, p-&gt;number);
+              for(;;)
+        {
+            printf(&quot;请输入数量:&quot;);
+            scanInt(&amp;command, 3);
+            if((command &lt; 0)||(command &gt; p-&gt;number)||(command &gt; 99))
+                printf(&quot;输入不合法，请重新输入:&quot;);
+            else
+                break;
+        }
+        if(!command)
+        {
+            printf(&quot;继续购买请输入1，结束购买请输入0:&quot;);
+            for(;;)
+            {
+                scanInt(&amp;command, 3);
+                if((command &lt; 0)||(command &gt; 1))
+                {
+                    printf(&quot;非法输入，请重新输入:&quot;);
+                }
+                else
+                    break;
+            }
+            if(command == 0)
+                break;
+        }
+        else
+        {
+            p2 = (struct Medicine *)malloc(sizeof(struct Medicine));
+            p2-&gt;number = command;
+            p2-&gt;next = NULL;
+            p2-&gt;price = p-&gt;price;
+            p1-&gt;next = p2;
+            p-&gt;number -= command;
+            newnode-&gt;treatment.totalMedicineCharge += (command* p-&gt;price);
+            strcpy(p2-&gt;name,p-&gt;name);
+            p1 = p2;
+        }
+
+        itr = -1;
+        printf(&quot;继续购买请选择1，结束购买请选择0&quot;);
+        for(;;)
+        {
+            scanInt(&amp;command, 2);
+            if((command &lt; 0)||(command &gt; 1))
+            {
+                printf(&quot;输入非法，请重新输入：&quot;);
+            }
+            else
+                break;
+
+        }
+        if(command == 0)
+            break;
+
+    }
+
+    printMedList(&amp;newnode-&gt;treatment.medicine);
+    return ;
+}
+
+
+/*打印出某个科室的所有值班医生(不值班的不会被打印)*/
+int printDeparList(int n)
+{
+    if(countDepartment[n] &gt;= 20)
+{
+    printMargin(40);
+    printf(&quot;该科室患者已经达到上限20\n&quot;);
+    return -1;
+}
+    printf(&quot;\n\n\n&quot;);
+    printMargin(40);
+    printf(&quot;该科室目前有%d位患者\n\n\n&quot;,countDepartment[n]);
+    struct Doctor * p = doctor_departments[n].next;
+    time_t rawtime;
+    time(&amp;rawtime);
+    struct tm *ti = localtime(&amp;rawtime);
+    printMargin(40);
+    printf(&quot;%s坐诊医生如下:\n\n\n&quot;,departments[n]);
+    int ii = 0;
+    while(p)
+    {
+        if(p-&gt;workingHours[ti-&gt;tm_wday])
+        {
+        printMargin(40); printf(&quot;|  %d:医生：%s %s&quot;,++ii,p-&gt;name,DoctorLevel[p-&gt;level]);
+        printf(&quot;   目前有%d名患者\n&quot;,p-&gt;registed);
+        printMargin(40);printf(&quot;|\n&quot;);
+        }
+        p = p-&gt;next;
+    }
+    printMargin(44);
+
+    return 0;
+}
+/*挂号函数*/
+int registe()
+{
+    countAllDoc();
+    printfMoneyStatus();
+    time_t timep;
+    time(&amp;timep);
+    char location[20] = &quot;data/&quot;;
+    strftime(location+5,sizeof(location),&quot;%m%d&quot;,localtime(&amp;timep));
+    if ( access(location, F_OK) != 0)
+         {
+             mkdir(location);
+         }
+    location[9] = &#39;/&#39;;
+    int money = 0;
+    openUTDfile();//这里建立最新数据的链表。需要统计各个科室、各个医生挂了多少号
+    FILE *pf_money = fopen(&quot;data/money.txt&quot;,&quot;r&quot;);
+    fscanf(pf_money,&quot;%d&quot;,&amp;money);
+    fclose(pf_money);
+    for(;;)
+    {
+        struct Data * newNode = (struct Data*) malloc(sizeof(struct Data));
+        newNode-&gt;next = NULL;
+        newNode-&gt;treatment.totalExaminationFee = 0;
+        newNode-&gt;treatment.totalMedicineCharge = 0;
+        newNode-&gt;treatment.hospitalization.zhuyuanyajin = 0;
+        printf(&quot;正在挂号...\n\n&quot;);
+        time_t now;
+        struct tm* tm_now;
+        time(&amp;now);
+        tm_now = localtime(&amp;now);
+        int seq = (tm_now-&gt;tm_mon+1) * 10e6 + tm_now-&gt;tm_mday * 10e4;
+        seq += (++sequence);
+        printf(&quot;挂号序号:%d\n&quot;,seq%1000);
+        newNode-&gt;number = seq;
+        int command = 0;
+        int m;
+        struct Doctor * p;
+        for(;;)
+        {
+            printf(&quot;\n\n\n\n\n\n\n\n&quot;);
+        for(int i = 0; i &lt; 5; ++i)
+        {
+            printMargin(40);printf(&quot;%d,%s&quot;,i+1,departments[i]);
+            printf(&quot;   目前有患者%d人\n\n&quot;,countDepartment[i]);
+        }
+        printf(&quot;\n\n\n\n\n\n\n\n请选择(输入0则返回主菜单)：&quot;);
+        scanInt(&amp;m,2);
+        if((m &gt; 5)||(m &lt;0))
+        {
+            printf(&quot;请正确输入！\n&quot;);
+            continue;
+        }
+        if(m == 0)
+            {
+                system(&quot;cls&quot;);
+                return 0;
+            }
+        p = doctor_departments[m-1].next;
+        system(&quot;cls&quot;);
+        if(printDeparList(m-1) == 0)
+            {
+                break;
+            }
+        }
+
+        int n;
+        while(1)
+        {
+            printf(&quot;\n\n\n&quot;);
+            printMargin(10);
+            printf(&quot;请输入医生序号，输入0则返回上一层（医生的患者上限为10人）:&quot;);
+            scanInt(&amp;command,3);
+            n = command;
+            if(n &lt; 0)
+            {
+                printf(&quot;请正确输入\n&quot;);
+                continue;
+            }
+            if(n == 0)
+            {
+                free(newNode);
+                break;
+            }
+            p = doctor_departments[m-1].next;
+            while(p)
+            {
+            if((p-&gt;workingHours[tm_now-&gt;tm_wday]))
+            {
+                if(!(--n))
+                break;
+            }
+            p = p-&gt;next;
+            }
+            if(p == NULL)
+            {
+                printf(&quot;请正确输入\n&quot;);
+                continue;
+            }
+            if(p-&gt;registed &gt;= 10)
+            {
+                printf(&quot;该医生患者数已达上限\n&quot;);
+                continue;
+            }
+            else
+            {
+                ++(p-&gt;registed);
+                break;
+            }
+        }
+        if(!command)
+            continue;
+        system(&quot;cls&quot;);
+        printf(&quot;%s\n&quot;,p-&gt;name);
+        strcpy(newNode-&gt;doctor.name,p-&gt;name);
+        newNode-&gt;doctor.department = m;
+        newNode-&gt;doctor.level = p-&gt;level;
+        newNode-&gt;doctor.number = p-&gt;number;
+        newNode-&gt;doctor.next = NULL;
+        for(int i = 0; i &lt; 7; ++i)
+        newNode-&gt;doctor.workingHours[i] = p-&gt;workingHours[i];
+        printf(&quot;请输入身份码（8位数字）：&quot;);
+
+        while((scanInt(&amp;(newNode-&gt;ID),8)!= 8))
+        {
+            printf(&quot;请检查输入长度!重新输入!\n&quot;);
+        }
+        int num = countPatientDoc(newNode-&gt;ID,newNode-&gt;doctor.number);
+        if(num)
+        {
+            printf(&quot;注意：您今天在%s 下已有挂号\n&quot;,newNode-&gt;doctor.name);
+            printf(&quot;如要取消本次挂号请输入0,否则输入其他数字\n&quot;);
+            scanInt(&amp;command,2);
+            if(command == 0)
+            {
+                    free(newNode);
+                    continue;
+            }
+        }
+        countDepartment[newNode-&gt;doctor.department]++;
+        printf(&quot;请输入患者姓名 :&quot;);
+        scanName(newNode-&gt;name,10);
+
+        for(;;)
+        {
+            printf(&quot;请输入性别，0为女，1为男\n&quot;);
+            int sex;
+            scanInt(&amp;sex,3);
+            if((sex &gt; 1)||(sex &lt; 0))
+                printf(&quot;请正确输入\n&quot;);
+            else
+                {
+                    newNode-&gt;number += (sex * 10000);
+                    break;
+                }
+        }
+
+
+        for(;;)
+        {
+        printf(&quot;请输入年龄 :&quot;);
+        scanInt(&amp;(newNode-&gt;age),5);
+        if((newNode-&gt;age &gt; 150)||(newNode-&gt;age&lt; 0))
+        {
+            printf(&quot;请检查输入！\n&quot;);
+        }
+        else
+        {
+            break;
+        }
+        }
+        newNode-&gt;treatment.medicine.next = NULL;
+        newNode-&gt;treatment.exminationFee.next = NULL;
+        printf(&quot;如需购药请输入1， 输入其他数字则不购药\n&quot;);
+        newNode-&gt;treatment.totalExaminationFee = 0;
+        newNode-&gt;treatment.totalMedicineCharge = 0;
+        newNode-&gt;treatment.total = 0;
+        scanInt(&amp;command,3);
+        if(command == 1)
+            buyMedicine(newNode);
+        else
+            newNode-&gt;treatment.medicine.next = NULL;
+        printf(&quot;如需进行检查请输入1，否则输入其他数字\n&quot;);
+        scanInt(&amp;command,3);
+        if(command == 1)
+            selectExaminations(newNode);
+        else
+            newNode-&gt;treatment.exminationFee.next = NULL;
+        printf(&quot;如需住院请输入1，否则输入其他数字\n&quot;);
+        scanInt(&amp;command,3);
+        newNode-&gt;treatment.hospitalization.chuyuanshijian = 0;
+        newNode-&gt;treatment.hospitalization.ruyuanshijian = 0;
+        newNode-&gt;treatment.hospitalization.zhuyuanyajin = 0;
+        if(command == 1)
+            hospitalize(newNode);
+                dataRear-&gt;next = newNode;
+                dataRear = dataRear-&gt;next;
+        printf(&quot;挂号成功！\n&quot;);
+        saveData(location);
+        printf(&quot;序号：%d  姓名:%s &quot;,newNode-&gt;number,newNode-&gt;name);
+        printf(&quot; ID %d 年龄 %d 医生：%s\n\n&quot;,newNode-&gt;ID,newNode-&gt;age,newNode-&gt;doctor.name);
+        printf(&quot;输入1继续挂号，输入0退出挂号系统\n&quot;);
+        money += newNode-&gt;treatment.totalExaminationFee;
+        money += newNode-&gt;treatment.totalMedicineCharge;
+        money += newNode-&gt;treatment.hospitalization.zhuyuanyajin * 10;
+        scanInt(&amp;command,1);
+        if(!command)
+            break;
+    }
+
+    int moneyy = money;
+    pf_money = fopen(&quot;data/money.txt&quot;,&quot;w&quot;);
+    fprintf(pf_money,&quot;%d&quot;,moneyy);
+    fclose(pf_money);
+    printfMoneyStatus();
+    printf(&quot;按任意键返回\n&quot;);
+    getchar();
+    system(&quot;cls&quot;);
+    clearList(dataHead);
+    return 0;
+}
+
+
+
+int nextDay(char *ori)//输入为&quot;data/1009/&quot;型字符串，输出为后一天的字符串，如“data/1010/”
+{
+    if(ori[8]==&#39;0&#39;)
+        {
+            ori[8]=&#39;1&#39;;
+            return 0;
+        }
+    if(ori[7] == &#39;3&#39;)//肯定为31号
+    {
+        ori[7] = &#39;0&#39;;
+        ori[8] = &#39;1&#39;;
+        ori[6] += 1;
+        return 0;
+    }
+    if(ori[8] == &#39;9&#39;)
+        {
+            ori[8] = &#39;0&#39;;
+            ori[7] += 1;
+            return 0;
+        }
+    ori[8] += 1;
+    return 0;
+}
+int preDay(char *ori)//输入为&quot;data/1009/&quot;型字符串，输出为前一天的字符串，如“data/1008/”
+{
+    if((ori[7] == &#39;0&#39;)&amp;&amp;(ori[8] == &#39;1&#39;))
+       {
+           ori[7] = &#39;3&#39;;
+           ori[8] = &#39;1&#39;;
+           if(ori[6]==&#39;0&#39;)
+           {
+               ori[6] = &#39;9&#39;;
+               ori[5] -= 1;
+           }
+           else
+           {
+               ori[6] -= 1;
+           }
+           return 0;
+       }
+    if(ori[8] == &#39;0&#39;)
+    {
+        ori[8] = &#39;9&#39;;
+        ori[7] -= 1;
+        return 0;
+    }
+    ori[8] -= 1;
+    return 0;
+
+}
+
+/*患者的住院函数*/
+void hospitalize(struct Data* newNode)//住院
+{
+    struct Data * p = inHospital;
+    while(p)
+    {
+        if(newNode-&gt;ID == p-&gt;ID)
+        {
+            printf(&quot;该患者已经正在住院，无法重复办理住院\n&quot;);
+            return;
+        }
+        p = p-&gt;next;
+    }
+    int months[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+    printf(&quot;请输入入院时间,格式：月 日 时如： \&quot;9 10 10\&quot;,数字间以空格间隔 \n&quot;);
+    int m,d,h,s;
+    newNode-&gt;treatment.hospitalization.zhuyuanyajin = 0;
+    int time1 = 0;
+    for(;;)
+    {
+        scanInt(&amp;m, 2);
+        scanInt(&amp;d, 2);
+        scanInt(&amp;h, 2);
+        s = 0;
+        if((m &gt; 0)&amp;&amp;(m &lt; 13)&amp;&amp;(d &gt; 0)&amp;&amp; (d &lt;= months[m])&amp;&amp;(h &gt;= 0)&amp;&amp;(h &lt; 24)&amp;&amp;(s &gt;= 0)&amp;&amp;(s &lt; 60))
+        {
+
+        }
+        else
+        {
+            printf(&quot;请检查输入格式重新输入:&quot;);
+            continue;
+        }
+    time1 = m * 1000000;
+    time1 += (d * 10000);
+    time1 += (h * 100);
+    time_t now;
+    struct tm* tm_now;
+    time(&amp;now);
+    tm_now = localtime(&amp;now);
+    int tmp = (tm_now-&gt;tm_mon+1) * 1000000 + tm_now-&gt;tm_mday * 10000 + tm_now-&gt;tm_hour * 100;
+    if(tmp &gt; time1)
+    {
+        printf(&quot;请保证入院时间晚于当前时间\n&quot;);
+        continue;
+    }
+    else
+        break;
+
+
+    }
+    newNode-&gt;treatment.hospitalization.ruyuanshijian = time1;
+    int m1,d1,h1;
+    printf(&quot;请输入预计出院时间,格式：月 日 时如： \&quot;9 10 10\&quot;,数字间以空格间隔 \n&quot;);
+    int time2;
+    for(;;)
+    {
+        scanInt(&amp;m1, 2);
+        scanInt(&amp;d1, 2);
+        scanInt(&amp;h1, 2);
+        if((m1 &gt; 0)&amp;&amp;(m1 &lt; 13)&amp;&amp;(d1 &gt; 0)&amp;&amp; (d1 &lt;= months[m])&amp;&amp;(h1 &gt;= 0)&amp;&amp;(h1 &lt; 24))
+        {
+            time2 = m1 * 1000000;
+            time2 += (d1 * 10000);
+            time2 += (h1 * 100);
+            if(time1 &lt; time2)
+            {
+            }
+            else
+            {
+                printf(&quot;请保证出院时间晚于入院时间\n&quot;);
+                continue;
+            }
+    time_t now;
+    struct tm* tm_now;
+    time(&amp;now);
+    tm_now = localtime(&amp;now);
+    int tmp = (tm_now-&gt;tm_mon+1) * 1000000 + tm_now-&gt;tm_mday * 10000 + tm_now-&gt;tm_hour;
+    if(tmp &gt; time2)
+    {
+        printf(&quot;请保证出院时间晚于当前时间\n&quot;);
+        continue;
+    }
+    break;
+        }
+        else
+        {
+            printf(&quot;请检查输入格式\n请重新输入出院时间：&quot;);
+        }
+    }
+
+    newNode-&gt;treatment.hospitalization.chuyuanshijian = time2;
+    int money = timeSpan(newNode-&gt;treatment.hospitalization.ruyuanshijian,newNode-&gt;treatment.hospitalization.chuyuanshijian) * 200;
+
+    for(;;)
+    {
+         printf(&quot;请缴纳押金 至少为 %d元,至多为99900元，且必须为100的整数倍\n&quot;, money+1000);
+         scanInt(&amp;(newNode-&gt;treatment.hospitalization.zhuyuanyajin),7);
+         if(((newNode-&gt;treatment.hospitalization.zhuyuanyajin) &lt; money+1000) ||(newNode-&gt;treatment.hospitalization.zhuyuanyajin &gt; 99999)||(newNode-&gt;treatment.hospitalization.zhuyuanyajin%100))
+            printf(&quot;非法输入\n&quot;);
+         else
+            break;
+    }
+    printf(&quot;已缴纳！\n&quot;);
+    struct Data* node_hospital = (struct Data*)malloc(sizeof(struct Data));
+    node_hospital-&gt;next = NULL;
+    if(inHospital == NULL)
+        {
+            inHospital = node_hospital;
+            inHospitalRear = node_hospital;
+        }
+    else
+        {
+            inHospitalRear-&gt;next = node_hospital;
+            inHospitalRear =  node_hospital;
+        }
+    node_hospital-&gt;age = newNode-&gt;age;
+    node_hospital-&gt;ID = newNode-&gt;ID;
+    node_hospital-&gt;number = newNode-&gt;number;
+    strcpy(node_hospital-&gt;name,newNode-&gt;name);
+    node_hospital-&gt;treatment.hospitalization.chuyuanshijian = newNode-&gt;treatment.hospitalization.chuyuanshijian;
+    node_hospital-&gt;treatment.hospitalization.ruyuanshijian = newNode-&gt;treatment.hospitalization.ruyuanshijian;
+    node_hospital-&gt;treatment.hospitalization.zhuyuanyajin = newNode-&gt;treatment.hospitalization.zhuyuanyajin;
+    node_hospital-&gt;treatment.exminationFee.next = NULL;
+    node_hospital-&gt;treatment.medicine.next = NULL;
+    return;
+}
+
+
+
+
+/*患者进行检查的函数*/
+void selectExaminations(struct Data * newnode)
+{
+    char s[20];
+    struct ExaminationFee *p1 = &amp;(newnode-&gt;treatment.exminationFee),*p2;
+    struct ExaminationFee * container[200];
+    int command;
+    for(;;)
+    {
+        int flag = 0;
+        printf(&quot;请输入检查项目名，输入exit退出界面\n&quot;);
+        scanStr(s,10);
+        if(s[0]==&#39;e&#39;)
+            break;
+        if(strlen(s) &lt; 3)
+        {
+            printf(&quot;检索关键词过短&quot;);
+            continue;
+        }
+        struct ExaminationFee *p = examlists;
+        int itr = 0;
+        printf(&quot;\n\n\n&quot;);
+        while(p)
+        {
+            if(compStr(s,strlen(s),p-&gt;name,strlen(p-&gt;name)))
+            {
+                container[itr++] = p;
+                flag = 1;
+                printMargin(5);
+                printf(&quot;%d 、%s 单价： %d元 %d角\n\n&quot;,itr,p-&gt;name, p-&gt;cost/10, p-&gt;cost % 10);
+            }
+            p = p-&gt;next;
+        }
+        if(!flag)
+            {
+                printf(&quot;未找到匹配的检查项目，请重新输入\n&quot;);
+                continue;
+            }
+            for(;;)
+        {
+            printf(&quot;请选择检查项目的序号,选择0则重新检索:&quot;);
+            scanInt(&amp;command, 3);
+            if((command &lt; 0) ||(command &gt; itr))
+            {
+                printf(&quot;输入非法!\n&quot;);
+            }
+            else
+                break;
+
+        }
+        if(command == 0)
+            continue;
+        p = container[command - 1];
+       printf(&quot;%s 已选择√\n&quot;,p-&gt;name);
+        newnode-&gt;treatment.totalExaminationFee += p-&gt;cost;
+
+        p2 = (struct ExaminationFee*) malloc (sizeof(struct ExaminationFee));
+        p2-&gt;cost = p-&gt;cost;
+        strcpy(p2-&gt;name,p-&gt;name);
+        p2-&gt;next = NULL;
+        p1-&gt;next = p2;
+        p1 = p2;
+        printf(&quot;继续选择请选择1，结束选择请选择0\n&quot;);
+        for(;;)
+        {
+            scanInt(&amp;command, 2);
+            if((command &lt;0)||(command &gt; 1))
+                {
+                    printf(&quot;输入非法！\n&quot;);
+                }
+            else
+                break;
+        }
+        if(command == 0)
+            break;
+    }
+
+    printExamList(&amp;(newnode-&gt;treatment.exminationFee));
+    return;
+}
+
+/*主菜单*/
+void menu()
+{
+    int (*mainMenu[5])() = {registe,inpatientDapart,dataViewMenu,dataChangeMenu};
+    int command = 0;
+    while(1)
+    {
+        system(&quot;cls&quot;);
+        printf(&quot;\n\n\n\n\n\n\n&quot;);
+        printMargin(40); printf(&quot;|----------主菜单----------|\n&quot;);
+        printMargin(40); printf(&quot;|                          |\n&quot;);
+        printMargin(40); printf(&quot;|&quot;);printMargin(8); printf(&quot;1、挂号&quot;);printMargin(11);printf(&quot;|\n&quot;);
+        printMargin(40); printf(&quot;|                          |\n&quot;);
+        printMargin(40); printf(&quot;|&quot;);printMargin(8); printf(&quot;2、住院部&quot;);printMargin(9);printf(&quot;|\n&quot;);
+        printMargin(40); printf(&quot;|                          |\n&quot;);
+        printMargin(40); printf(&quot;|&quot;);printMargin(8); printf(&quot;3、浏览数据&quot;);printMargin(7);printf(&quot;|\n&quot;);
+        printMargin(40); printf(&quot;|                          |\n&quot;);
+        printMargin(40); printf(&quot;|&quot;);printMargin(8); printf(&quot;4、修改数据&quot;);printMargin(7);printf(&quot;|\n&quot;);
+        printMargin(40); printf(&quot;|                          |\n&quot;);
+        printMargin(40); printf(&quot;|&quot;);printMargin(8); printf(&quot;0、退出系统&quot;);printMargin(7);printf(&quot;|\n&quot;);
+        printMargin(40); printf(&quot;|                          |\n&quot;);
+        printMargin(40); printf(&quot;|--------------------------|\n\n\n\n\n\n\n&quot;);
+        printf(&quot;请选择：&quot;);
+        scanInt(&amp;command,1);
+        if((command &gt; 4)||(command&lt;0))
+        {
+            printf(&quot;请检查输入！\n&quot;);
+            continue;
+        }
+        if(!command)
+            break;
+        system(&quot;cls&quot;);
+        mainMenu[command-1]();
+    }
+}
+/*从文件中加载医院所有的检查项目*/
+void inputExamData()
+{
+    FILE *pf_exa = fopen(&quot;hospital/examination.txt&quot;,&quot;r&quot;);
+
+    examlists = (struct ExaminationFee *)malloc(sizeof(struct ExaminationFee));
+    struct ExaminationFee * p = examlists,*p1;
+    while(!feof(pf_exa))
+    {
+        p1 = (struct ExaminationFee *)malloc(sizeof(struct ExaminationFee));
+        int tmp;
+        fscanf(pf_exa,&quot;%d%s%d&quot;,&amp;tmp,p1-&gt;name,&amp;(p1-&gt;cost));
+        p1-&gt;next = NULL;
+        p-&gt;next = p1;
+        p = p1;
+    }
+    fclose(pf_exa);
+}
+
+
+int clearExamList()
+{
+    struct ExaminationFee * p, *p1;
+    p = examlists;
+    while(p)
+    {
+        p1 = p;
+        p = p-&gt;next;
+        free(p1);
+    }
+    return 0;
+}
+
+void openUTDfile()//打开最新的数据文件
+{
+    time_t timep;
+    time(&amp;timep);
+    char location[20] = &quot;data/&quot;;
+    strftime(location+5,sizeof(location),&quot;%m%d&quot;,localtime(&amp;timep));
+    location[9] = &#39;/&#39;;
+    location[10] = 0;
+    dataHead = input(location);
+    return;
+}
+
+
+
+int scanInt(int *num,int length)//输入整型变量，回车键或空格键结束输入，非法字符会被忽略,过长输入会被截取,输入过长返回-1;
+{
+    *num = 0;
+    char c = getchar();
+    int len = 0;
+    while((c &gt; &#39;9&#39;)||(c &lt; &#39;0&#39;))
+    {
+        c = getchar();
+    }
+    while((c != &#39;\n&#39;) &amp;&amp; (c != &#39; &#39;))
+    {
+        if((c &lt;= &#39;9&#39;)&amp;&amp; (c &gt;= &#39;0&#39;))
+        {
+            *num *= 10;
+            *num += (c - &#39;0&#39;);
+            ++len;
+            if(len &gt;= length)
+            {
+                c = getchar();
+                if(c == &#39;\n&#39;)
+                    return len;
+                while((c != &#39;\n&#39;) &amp;&amp; (c != &#39; &#39;))
+                {
+                    c = getchar();
+                }
+                return -1;
+            }
+        }
+        c = getchar();
+    }
+    return len;
+}
+int scanName(char *s,int length)//输入姓名,返回-1为输入过长,非法字符会被过滤
+{
+
+    char c = getchar();
+    while(!((c &lt; 0)||((c &lt;= &#39;Z&#39;)&amp;&amp;(c &gt;= &#39;A&#39;))||((c &lt;= &#39;z&#39;)&amp;&amp;(c &gt;= &#39;a&#39;))))
+    {
+        c = getchar();
+    }
+    s[0] = c;
+    int i = 0;
+    if(c &lt; 0)//中文
+    {
+        while(c != &#39;\n&#39;)
+    {
+        c = getchar();
+
+        if(c &gt;= 0)
+            continue;
+        s[++i] = c;
+        if(i &gt;= length-1)
+        {
+            s[++i] = 0;
+                while(c != &#39;\n&#39;)
+                {
+                c = getchar();
+                }
+                return -1;
+        }
+    }
+    }
+    else
+    {
+        while(c != &#39;\n&#39;)
+        {
+            c = getchar();
+            if(!(((c &lt;= &#39;Z&#39;)&amp;&amp;(c &gt;= &#39;A&#39;))||((c &lt;= &#39;z&#39;)&amp;&amp;(c &gt;= &#39;a&#39;))||(c == &#39; &#39;)))
+                continue;
+            s[++i] = c;
+            if(i &gt;= length-1)
+            {
+                s[++i] = 0;
+                while(c != &#39;\n&#39;)
+                {
+                c = getchar();
+                }
+                return -1;
+            }
+        }
+    }
+    s[++i] = 0;
+    return i;
+}
+int scanStrNum(char *num,int length)//输入数字的字符串,回车结束输入，其他非数字的字符会被过滤，返回值为长度，长度过长返回-1.
+{
+    char c = getchar();
+    int i = 0;
+    while((c &gt; &#39;9&#39;) || (c &lt; &#39;0&#39;))
+    {
+        c = getchar();
+    }
+    while(c != &#39;\n&#39;)
+    {
+        if((c &lt;= &#39;9&#39;)&amp;&amp;(c &gt;= &#39;0&#39;))
+        {
+        num[i++] = c;
+        if(i &gt;= length)
+        {
+            num[i] = 0;
+            while(c != &#39;\n&#39;)
+            {
+            c = getchar();
+            }
+            return -1;
+        }
+        }
+        c = getchar();
+    }
+    num[i] = 0;
+    return (i-1);
+}
+
+void saveHosData()
+{
+    FILE *pf = fopen(&quot;hospital/hospital.txt&quot;,&quot;w&quot;);
+    struct Data * p = inHospital;
+    while(p)
+    {
+        int sex = (p-&gt;number % 100000) / 10000;
+        fprintf(pf,&quot;%08d %20s %d %03d %08d &quot;,p-&gt;ID,p-&gt;name,sex ,p-&gt;age,p-&gt;treatment.hospitalization.ruyuanshijian);
+        fprintf(pf,&quot;%08d %08d\n&quot;,p-&gt;treatment.hospitalization.chuyuanshijian,p-&gt;treatment.hospitalization.zhuyuanyajin);
+        p = p-&gt;next;
+    }
+    fclose(pf);
+}
+
+/*加载住院数据*/
+void loadHospitalizeData()
+{
+    inHospital = NULL;
+    inHospitalRear = NULL;
+    FILE *pf = fopen(&quot;hospital/hospital.txt&quot;,&quot;r&quot;);
+    if(!pf)
+        return;
+    inHospital = (struct Data*)malloc(sizeof(struct Data));
+    inHospital-&gt;treatment.medicine.next = NULL;
+    inHospital-&gt;treatment.exminationFee.next = NULL;
+    struct Data *p = inHospital, *p1;
+    p-&gt;next = NULL;
+    while(!feof(pf))
+    {
+            int sex;
+            p1 = p;
+            p-&gt;next = (struct Data*)malloc(sizeof(struct Data));
+            p = p-&gt;next;
+            p-&gt;next = NULL;
+            p-&gt;treatment.medicine.next = NULL;
+            p-&gt;treatment.exminationFee.next = NULL;
+            fscanf(pf,&quot;%d%s%d%d%d&quot;,&amp;(p-&gt;ID),p-&gt;name,&amp;sex,&amp;(p-&gt;age),&amp;(p-&gt;treatment.hospitalization.ruyuanshijian));
+            fscanf(pf,&quot;%d%d&quot;,&amp;(p-&gt;treatment.hospitalization.chuyuanshijian),&amp;(p-&gt;treatment.hospitalization.zhuyuanyajin));
+            p-&gt;number = sex * 10000;
+    }
+    inHospitalRear = p1;
+    p1-&gt;next = NULL;
+    free(p);
+    p = inHospital;
+    inHospital = p-&gt;next;
+    free(p);
+    fclose(pf);
+}
+
+
+void countAllDoc()//统计所有医生的繁忙情况
+{
+    openUTDfile();
+    extern int countDepartment[7];
+    extern struct Doctor doctor_departments[5];
+    extern struct Data*  dataHead;
+    for(int i = 0; i &lt; 5; ++i)
+    {
+    countDepartment[i] = 0;
+    struct Doctor *p_doc = doctor_departments[i].next;
+    while(p_doc)
+    {
+        struct Data * p_data = dataHead-&gt;next;
+        p_doc-&gt;registed = 0;
+        while(p_data)
+        {
+            if(p_data-&gt;doctor.number == p_doc-&gt;number)
+            {
+                ++(p_doc-&gt;registed);
+                ++countDepartment[i];
+            }
+            p_data = p_data-&gt;next;
+        }
+
+        p_doc = p_doc-&gt;next;
+    }
+
+    }
+    return;
+}
+
+
+
+int showDepartStatus()//繁忙情况统计的交互界面
+{
+    countAllDoc();
+    w_countAllDoc();
+    system(&quot;cls&quot;);
+    extern struct Doctor doctor_departments[5];
+    extern char departments[7][20];
+    printf(&quot;要查看哪个科室的情况? 输入0返回上一层\n&quot;);
+    for(int i = 0; i &lt; 5; ++i)
+    {
+        printMargin(40);
+        printf(&quot;%d、%s\n\n&quot;,i+1,departments[i]);
+    }
+    printf(&quot;请选择：&quot;);
+    int command;
+    for(;;)
+    {
+        scanInt(&amp;command,3);
+        if((command &lt; 0)||(command &gt; 5))
+        {
+            printf(&quot;输入非法\n&quot;);
+        }
+        else
+            break;
+    }
+    system(&quot;cls&quot;);
+    printMargin(40);
+    printf(&quot;%s 所有医生挂号状况如下：\n\n\n&quot;,departments[command-1]);
+    printMargin(40);
+    printf(&quot;该科室今天共有%d个病人\n&quot;,countDepartment[command-1]);
+    showDocRegisted(doctor_departments[command-1].next);
+
+    printMargin(40);printf(&quot;按任意键返回上一层&quot;);
+    getchar();
+    return 0;
+}
+
+void showDocRegisted(struct Doctor *head)//以科室头指针为参数，显示该科室医生的繁忙情况
+{
+    char dic[7][3] = {&quot;日&quot;,&quot;一&quot;,&quot;二&quot;,&quot;三&quot;,&quot;四&quot;,&quot;五&quot;,&quot;六&quot;};
+    struct Doctor * p_doc = head;
+    int counter = 0;
+    while(p_doc)
+    {
+        int workDay = 0;
+        printMargin(40);
+        printf(&quot;%d %10s 今天共有%2d病人 本周共有%d病人\n&quot;,++counter,p_doc-&gt;name,p_doc-&gt;registed,p_doc-&gt;w_registed);
+        printMargin(40);printf(&quot;上班时间： 周&quot;);
+            for(int i = 0; i &lt; 7; ++i)
+        {
+            if(p_doc-&gt;workingHours[i])
+                {
+                    printf(&quot;%s、&quot;,dic[i]);
+                    ++workDay;
+                }
+        }
+        printf(&quot;\n&quot;);
+        printMargin(40);
+        printf(&quot;今天挂号率:%.2f%% 本周挂号率: %.2f%%\n\n&quot;,(float)(p_doc-&gt;registed)*10, (float)(p_doc-&gt;w_registed*10/workDay));
+        p_doc = p_doc-&gt;next;
+    }
+    return;
+}
+int leaveHospital(struct Data *p)
+{
+
+    time_t now;
+    struct tm* tm_now;
+    time(&amp;now);
+    tm_now = localtime(&amp;now);
+    int tmp = (tm_now-&gt;tm_mon+1) * 1000000 + tm_now-&gt;tm_mday * 10000 + tm_now-&gt;tm_hour;
+    extern struct Data* inHospital;
+    int hos_time = timeSpan(p-&gt;treatment.hospitalization.ruyuanshijian,tmp);
+    int hos_money = 200 * hos_time;
+    printf(&quot;您共住院%d天，产生住院费%d元 住院押金剩余%d&quot;,hos_time,hos_money,p-&gt;treatment.hospitalization.zhuyuanyajin-hos_money );
+    if(p-&gt;treatment.hospitalization.zhuyuanyajin-hos_money &gt;= 0)
+         printf(&quot;余额已返还，请确认\n&quot;);
+     else
+      {
+        printf(&quot;请缴纳欠款！\n&quot;);
+    }
+    FILE *pf_money = fopen(&quot;data/money.txt&quot;,&quot;r+&quot;);
+    fseek(pf_money,0,SEEK_SET);
+    int money;
+    fscanf(pf_money,&quot;%d&quot;,&amp;money);
+    if(p-&gt;treatment.hospitalization.zhuyuanyajin-hos_money &gt;= 0)
+    money = money - p-&gt;treatment.hospitalization.zhuyuanyajin + hos_money;
+    else
+        money = money + p-&gt;treatment.hospitalization.zhuyuanyajin - hos_money;
+    fseek(pf_money,0,SEEK_SET);
+    fprintf(pf_money,&quot;%d&quot;,money);
+    fclose(pf_money);
+    printfMoneyStatus();
+    printf(&quot;出院成功！\n\n\n\n\n\n&quot;);
+    printf(&quot;按任意键返回主菜单\n&quot;);
+    getchar();
+    system(&quot;cls&quot;);
+    printf(&quot;\n\n\n\n\n&quot;);
+    printMargin(40);
+    printf(&quot;出院成功！\n\n\n\n\n\n&quot;);
+    printf(&quot;按任意键返回主菜单\n&quot;);
+    getchar();
+    return 0;
+}
+
+
+int patientAdminMenu()
+{
+    struct Data* p = inHospital;
+    struct Data * p1 = p;
+    printf(&quot;请输入病人ID,输入0返回上一层\n&quot;);
+    int id;
+    for(;;)
+    {
+        int length = scanInt(&amp;id, 9);
+        if(!id)
+            return 0;
+        if(length != 8)
+        {
+            printf(&quot;输入非法！请重新输入:&quot;);
+            continue;
+        }
+        while(p)
+        {
+            if(p-&gt;ID == id)
+                break;
+            p1 = p;
+            p = p-&gt;next;
+        }
+        if(p == NULL)
+            printf(&quot;未找到该患者\n&quot;);
+        else
+            break;
+
+    }
+    system(&quot;cls&quot;);
+    showPatientsInfo(p);
+    printf(&quot;\n\n\n&quot;);
+    printMargin(40);
+    printf(&quot;1、办理出院\n\n&quot;);
+        printMargin(40);
+    printf(&quot;2、延迟出院\n\n&quot;);
+        printMargin(40);
+    printf(&quot;0、退出系统\n\n\n\n\n\n\n\n\n&quot;);
+        printMargin(40);
+    printf(&quot;请选择：&quot;);
+    int command;
+    for(;;)
+    {
+        scanInt(&amp;command,3);
+        if((command &lt; 0)|| (command &gt; 2))
+            printf(&quot;输入非法&quot;);
+        else
+            break;
+    }
+    switch(command)
+    {
+        case 1:
+            {
+                leaveHospital(p);
+                if(p == inHospital)
+                inHospital = p-&gt;next;
+                else
+                    p1-&gt;next = p-&gt;next;
+                free(p);
+                break;
+            }
+        case 2: delayTime(p); break;
+        case 0: break;
+    }
+    return 0;
+}
+
+int delayTime(struct Data *p)
+{
+    int b;
+    int money = 0;
+    while(1)
+    {
+    int a = p-&gt;treatment.hospitalization.chuyuanshijian;
+
+    int t[3];
+    printf(&quot;请输入月 日 时中间用空格分隔，如:9 2 1 :&quot;);
+    scanInt(&amp;(t[0]),2);
+    scanInt(&amp;(t[1]),2);
+    scanInt(&amp;(t[2]),2);
+    b = t[0] * 1000000 + t[1] * 10000 + t[2] * 100;
+
+    if(timeSpan(a,b) != 0)
+        {
+        int cost = timeSpan(p-&gt;treatment.hospitalization.ruyuanshijian,b) * 200;
+        if(cost+1000 &gt; p-&gt;treatment.hospitalization.zhuyuanyajin)
+        printf(&quot;请续缴住院费，至少缴纳%d 元,至多缴纳99999元&quot;,cost+1000 - p-&gt;treatment.hospitalization.zhuyuanyajin);
+        else
+            break;
+        for(;;)
+        {
+            scanInt(&amp;money, 7);
+            if((money &lt; cost+1000 - p-&gt;treatment.hospitalization.zhuyuanyajin)||(money &gt; 99999))
+            printf(&quot;请检查输入！\n&quot;);
+            else
+                break;
+        }
+
+        break;
+    }
+   printf(&quot;输入不合法，请检查\n&quot;);
+    }
+
+       printf(&quot;操作成功！ 任意键返回上一级\n&quot;);
+       getchar();
+    FILE *pf_money = fopen(&quot;data/money.txt&quot;,&quot;r+&quot;);
+    int money_;
+    fseek(pf_money,0,SEEK_SET);
+    fscanf(pf_money,&quot;%d&quot;,&amp;money_);
+    money_ = money + money_;
+    fseek(pf_money,0,SEEK_SET);
+    fprintf(pf_money,&quot;%d&quot;,money_);
+    fclose(pf_money);
+    p-&gt;treatment.hospitalization.chuyuanshijian = b;
+        printfMoneyStatus();
+               printf(&quot;操作成功！ 任意键返回上一级\n&quot;);
+       getchar();
+    return 0;
+}
+
+int timeSpan(int start, int end)//日期不合法返回0
+{
+    int a = start / 100;
+    int b = end / 100;
+    if(end &lt;= start)
+        return 0;
+    int months[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+    int m1,d1,h1,m2,d2,h2;
+    h1 = a % 100;
+    a /= 100;
+    d1 = a % 100;
+    a /= 100;
+    m1 = a;
+    h2 = b % 100;
+    b /= 100;
+    d2 = b % 100;
+    b /= 100;
+    m2 = b;
+    if((m1&lt;1)||(m1&gt;12)||(m2&lt;1)||(m2&gt;12))
+        return -1;
+    if((d1&lt;1)||(d1&gt;months[m1])||(d2&lt;1)||(d2&gt;months[m2]))
+        return -1;
+    if((h1&lt;0)||(h1&gt;23)||(h2&lt;0)||(h2&gt;23))
+        return -1;
+    int sum = 0;
+    for(int i = m1; i &lt; m2; ++i)
+        sum += months[i];
+    sum += d2;
+    sum -= d1;
+    if(h2 &gt; 8)
+        ++sum;
+    return sum;
+}
+
+int printfMoneyStatus()
+{
+    FILE *pf_money = fopen(&quot;data/money.txt&quot;,&quot;r&quot;);
+    int money;
+    fscanf(pf_money,&quot;%d&quot;,&amp;money);
+    printf(&quot;\n\n\n\n\n\n\n&quot;);
+    printMargin(40);
+    printf(&quot;当前医院总营业额为%d元%d角\n\n\n\n\n\n&quot;,money/10,money%10);
+    fclose(pf_money);
+    return 0;
+}
+
+int inputDate(int *month, int *day)//输入月、日，并检查格式
+{
+    int months[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+    printf(&quot;请输入月 日 中间用空格隔开&quot;);
+
+    for(;;)
+    {
+        scanInt(month,9);
+        if((*month &gt; 12)||(*month &lt;0))
+        {
+            printf(&quot;输入不正确，请检查\n&quot;);
+        }
+        else
+            break;
+    }
+    for(;;)
+    {
+        scanInt(day,9);
+        if((*day &lt; 0) || (*day &gt; months[*month]) )
+        {
+            printf(&quot;输入不正确，请检查\n&quot;);
+        }
+        else
+            break;
+    }
+    return 0;
+}
+
+
+struct Data* reInput(const char* dir)//打开以路径“dir”为参数的所有文件,路径格式：“data/1001/”,并逆序建立链表。
+{
+    FILE *pf, *pf_med, *pf_exam;
+    char position[40];
+    strcpy(position,dir);
+    strcpy(position+10,&quot;data.txt&quot;);
+    sequence = 0;
+    struct Data *  base =  (struct Data*)malloc(sizeof(struct Data));
+    base-&gt;next = NULL;
+    if(pf = fopen(position,&quot;r&quot;),pf==NULL)
+    {
+
+        dataRear = base;
+        dataHead = base;
+        return base;
+    }
+    strcpy(position+10,&quot;examination.txt&quot;);
+    pf_exam = fopen(position,&quot;r&quot;);
+    strcpy(position+10,&quot;medicine.txt&quot;);
+    pf_med = fopen(position,&quot;r&quot;);
+    struct Data *p1, *p2 = NULL;
+    p1 = base;
+
+    int itr = 1;
+    int flag = 0;
+    fseek(pf,-123,SEEK_END);
+    while(!flag)
+    {
+        int countScan = 0;
+        p2 = (struct Data *)malloc(sizeof(struct Data));
+        p2-&gt;next = NULL;
+        p1-&gt;next = p2;
+        countScan = fscanf(pf,&quot;%d%d%s%d%d%s&quot;,&amp;(p2-&gt;number),&amp;(p2-&gt;ID),p2-&gt;name,&amp;(p2-&gt;age),&amp;(p2-&gt;doctor.number),p2-&gt;doctor.name);
+        if(countScan != 6)
+        {
+            reSeek(pf);
+            continue;
+        }
+        countScan = fscanf(pf,&quot;%d%d&quot;,&amp;p2-&gt;doctor.level,&amp;p2-&gt;doctor.department);
+        if(countScan != 2)
+        {
+            reSeek(pf);
+            continue;
+        }
+        countScan = 0;
+        int i;
+        for(i = 0; i &lt; 7; ++i)
+        countScan += fscanf(pf,&quot;%d&quot;,&amp;(p2-&gt;doctor.workingHours[i]));
+        if(countScan != 7)
+        {
+            reSeek(pf);
+            continue;
+        }
+        if(fscanf(pf,&quot;%d&quot;,&amp;(p2-&gt;treatment.total))!=  1)
+        {
+            reSeek(pf);
+            continue;
+        }
+        int med_start,med_end,exam_start,exam_end;
+        countScan = fscanf(pf,&quot;%d%d%d%d&quot;,&amp;med_start,&amp;med_end,&amp;exam_start,&amp;exam_end);
+        if(countScan != 4)
+        {
+            reSeek(pf);
+            continue;
+        }
+        countScan = fscanf(pf,&quot;%d%d&quot;,&amp;(p2-&gt;treatment.hospitalization.ruyuanshijian),&amp;(p2-&gt;treatment.hospitalization.chuyuanshijian));
+        if(countScan != 2)
+        {
+            reSeek(pf);
+            continue;
+        }
+        p2-&gt;treatment.medicine.next = NULL;
+
+        fgetc(pf);
+        p2-&gt;treatment.totalMedicineCharge = buildMedList(&amp;(p2-&gt;treatment.medicine),pf_med,med_start,med_end);
+        p2-&gt;treatment.totalExaminationFee = buildExamList(&amp;(p2-&gt;treatment.exminationFee), pf_exam,exam_start,exam_end);
+        p1 = p2;
+        flag = fseek(pf,-(++itr) * 123,SEEK_END);
+    }
+    dataRear = p1;
+    fclose(pf);
+    fclose(pf_exam);
+    fclose(pf_med);
+    return base;
+
+}
+
+int viewUTDdata(int n)//打开最新的数据文件
+{
+    system(&quot;cls&quot;);
+    extern char departments[7][20];
+    extern struct Data* dataHead;
+
+    struct Data* dataHeadToDel[100];
+    int i_del = 0;
+    if(n &gt; 100)
+    {
+        printf(&quot;最多查看100条数据\n&quot;);
+        return -1;
+    }
+    time_t timep;
+    time(&amp;timep);
+    char location[20] = &quot;data/&quot;;
+    strftime(location+5,sizeof(location),&quot;%m%d&quot;,localtime(&amp;timep));
+    location[9] = &#39;/&#39;;
+    location[10] = 0;
+    int count = 0;
+    struct Data *container[120];
+
+    while(count &lt; n)
+    {
+    dataHead = reInput(location);
+    struct Data *p = dataHead-&gt;next;
+    if(!p)
+    {
+        free(dataHead);
+    }
+    else
+    {
+        dataHeadToDel[i_del++] = dataHead;
+    }
+    printf(&quot;数据日期：%c%c月%c%c日:\n&quot;,location[5],location[6],location[7],location[8]);
+    while(p)
+    {
+        container[count] = p;
+        printf(&quot;---------------------\n&quot;);
+        printf(&quot;%d、  &quot;,++count);
+        printf(&quot;序号：%d 患者姓名：%s ID:%d 患者年龄： %d  &quot;, p-&gt;number, p-&gt;name,p-&gt;ID, p-&gt;age);
+        printf(&quot;主治医生：%s %s %s 工号:%d \n药品费： %d元%d角\n&quot;,departments[p-&gt;doctor.department],DoctorLevel[p-&gt;doctor.level],p-&gt;doctor.name,p-&gt;doctor.number,(p-&gt;treatment.totalMedicineCharge)/10,(p-&gt;treatment.totalMedicineCharge)%10);
+        printMedList(&amp;(p-&gt;treatment.medicine));
+        printf(&quot;检查费： %d元 %d角&quot;,(p-&gt;treatment.totalExaminationFee)/10,(p-&gt;treatment.totalExaminationFee)%10);
+        printExamList(&amp;(p-&gt;treatment.exminationFee));
+        printf(&quot;\n\n\n\n&quot;);
+        p = p-&gt;next;
+        if(count &gt;= n)
+            break;
+    }
+
+        preDay(location);
+    }
+    container[count] = NULL;
+
+    for(;;)
+    {printMargin(40);
+    printf(&quot;1：按医生筛选数据\n&quot;);
+     printMargin(40);
+    printf(&quot;2：按患者ID筛选数据\n&quot;);
+     printMargin(40);
+    printf(&quot;3：按科室筛选数据\n&quot;);
+     printMargin(40);
+    printf(&quot;0: 退出\n&quot;);
+    int command;
+    for(;;)
+    {
+        printf(&quot;请选择：&quot;);
+        scanInt(&amp;command,3);
+        if((command &lt;0)||(command &gt; 3))
+        {
+            printf(&quot;输入不合法\n&quot;);
+        }
+        else
+            break;
+    }
+    switch(command)
+    {
+    case 1:
+        {
+            int id;
+            printf(&quot;请输入医生ID(8位):&quot;);
+            for(;;)
+            {
+                if(scanInt(&amp;id,9) != 8)
+                {
+                    printf(&quot;数据非法！请重新输入\n&quot;);
+                }
+                else
+                    break;
+            }
+            viewByDoctorID(container,id);
+            break;
+        }
+    case 2:
+        {
+            int id;
+            printf(&quot;请输入患者ID(8位):&quot;);
+            for(;;)
+            {
+                if(scanInt(&amp;id,9) != 8)
+                {
+                    printf(&quot;数据非法！请重新输入\n&quot;);
+                }
+                else
+                    break;
+            }
+            viewByPatientID(container,id);
+            break;
+        }
+    case 3:
+        {
+            int nn;
+            for(int i = 0; i &lt; 5; ++i)
+            printf(&quot;%d、%s\n&quot;,i+1,departments[i]);
+            printf(&quot;请选择：&quot;);
+            for(;;)
+            {
+                scanInt(&amp;nn,3);
+                if((nn &lt; 1)||(nn &gt; 5))
+                {
+                    printf(&quot;输入非法\n&quot;);
+                }
+                else
+                    break;
+            }
+            viewByDepart(container,nn-1);
+            break;
+        }
+        case 0:break;
+    }
+    if(!command)
+        break;
+    }
+
+    for(int i = 0; i &lt; i_del; ++i)
+        clearList(dataHeadToDel[i]);
+    return 0;
+}
+
+
+
+void w_countAllDoc()//统计所有医生本周的繁忙情况
+{
+    extern struct Doctor doctor_departments[5];
+    struct Doctor * p_doc;
+    int count_w = 0;
+    time_t timep;
+    time(&amp;timep);
+    char location[20] = &quot;data/&quot;;
+    strftime(location+5,sizeof(location),&quot;%m%d&quot;,localtime(&amp;timep));
+    location[9] = &#39;/&#39;;
+    location[10] = 0;
+    dataHead = input(location);
+
+    for(int i = 0; i &lt; 5; ++i)
+    {
+        p_doc = doctor_departments[i].next;
+        while(p_doc)
+        {
+            p_doc-&gt;w_registed = 0;
+            p_doc = p_doc-&gt;next;
+        }
+    }
+
+
+    while(count_w &lt; 7)//打开7天的数据
+    {
+        if(dataHead-&gt;next)//导入成功
+        {
+            ++count_w;
+            for(int i = 0; i &lt; 5; ++i)
+            {
+                p_doc = doctor_departments[i].next;
+
+                while(p_doc)
+                {
+                    struct Data * p = dataHead-&gt;next;
+                    while(p)
+                    {
+                        if(p-&gt;doctor.number == p_doc-&gt;number)
+                        {
+                            ++(p_doc-&gt;w_registed);
+                        }
+                        p = p-&gt;next;
+                    }
+                    p_doc = p_doc-&gt;next;
+                }
+            }
+        }
+        preDay(location);
+        clearList(dataHead);
+        dataHead = input(location);
+    }
+}
+
+int showPatientsInHospital()
+{
+    system(&quot;cls&quot;);
+    printf(&quot;当前住院患者如下:\n\n&quot;);
+    struct Data *p = inHospital;
+    int count = 0;
+    while(p)
+    {
+        ++count;
+        printf(&quot;------------------------------------------------------------\n&quot;);
+        printf(&quot;%d、 &quot;,count);
+        showPatientsInfo(p);
+        printf(&quot;\n------------------------------------------------------------\n&quot;);
+        printf(&quot;\n\n&quot;);
+        p = p-&gt;next;
+    }
+    printf(&quot;按任意键返回上一级\n&quot;);
+    getchar();
+    return 0;
+}
+
+
+int scanStr(char *s, int length)
+{
+    int count = 0;
+            char c;
+    while(count &lt; length)
+    {
+
+        c = getchar();
+        if(c == &#39;\n&#39;)
+            break;
+        s[count++] = c;
+    }
+    s[count] = 0;
+    while(c != &#39;\n&#39;)
+    {
+        c  = getchar();
+        ++count;
+    }
+    return count;
+}
+int dataChangeMenu()
+{
+    printMargin(40);
+    printf(&quot;执行敏感操作，需要您输入密码\n&quot;);
+    printf(&quot;\n\n\n\n\n\n\n\n\n&quot;);
+    char pass[20];
+    char* key = deCode();
+    for(;;)
+    {
+
+        printf(&quot;请输入密码，若要退出系统请直接按回车:&quot;);
+        int length = scanStr(pass,15);
+        if(length == 0)
+            return 0;
+        if(strcmp(pass,key))
+        {
+            printf(&quot;密码错误！\n&quot;);
+        }
+        else
+        {
+            printf(&quot;密码正确，正在载入\n&quot;);
+            loading();
+            system(&quot;cls&quot;);
+            break;
+        }
+    }
+    free(key);
+    for(;;)
+    {printf(&quot;\n\n\n\n\n\n\n&quot;);
+    printMargin(40);
+    printf(&quot;1、诊断记录修改\n\n&quot;);
+        printMargin(40);
+    printf(&quot;2、密码修改\n\n&quot;);
+        printMargin(40);
+    printf(&quot;0、返回主菜单\n\n\n\n\n\n\n\n&quot;);
+
+    int command;
+    for(;;)
+    {
+        printf(&quot;请选择序号：&quot;);
+        scanInt(&amp;command,3);
+        if((command &gt; 2)||(command &lt; 0))
+        {
+            printf(&quot;输入非法！\n&quot;);
+        }
+        else
+            break;
+    }
+    if(command == 0)
+        return 0;
+    if(command == 1)
+    {
+        changeDataMenu();
+    }
+    else if (command == 2)
+    {
+        printf(&quot;请设置新密码\n&quot;);
+        setPassWord();
+    }
+    else
+    {
+        printf(&quot;系统构建中\n\n&quot;);
+        printf(&quot;按任意键返回主菜单\n\n&quot;);
+        getchar();
+    }
+    }
+    return 0;
+
+}
+
+
+
+int changeDoctorData(struct Doctor *p)
+{
+    extern char departments[7][20];
+    extern const char DoctorLevel[5][12];
+    int command;
+      for(;;)
+    {
+        printf(&quot;请选择需要修改哪一项:\n&quot;);
+        printf(&quot;1、医生姓名 2、 医生职级 3、医生科室\n&quot;);
+        scanInt(&amp;command, 2);
+        if((command &lt; 1)||(command &gt; 3))
+        {
+            printf(&quot;输入不合法，请检查 \n&quot;);
+        }
+        else
+            break;
+
+    }
+    switch(command)
+    {
+    case 2:
+        {
+            printf(&quot;请选择修改后的医生职级(输入序号):&quot;);
+            printf(&quot;1:%s\n2:%s\n3:%s\n4:%s\n&quot;,DoctorLevel[1],DoctorLevel[2],DoctorLevel[3],DoctorLevel[4]);
+            for(;;)
+            {
+                int n;
+                scanInt(&amp;n,4);
+                if((n &lt; 1)||(n &gt; 4))
+                    printf(&quot;输入不合法！\n&quot;);
+                else
+                {
+                    p-&gt;level = n;
+                    break;
+                }
+
+            }
+            break;
+        }
+    case 1:
+        {
+            printf(&quot;修改姓名:&quot;);
+            scanName(p-&gt;name,20);
+            break;
+        }
+    case 3:
+        {
+            printf(&quot;修改科室(输入序号):&quot;);
+            printf(&quot;1:%s\n2:%s\n3:%s\n4:%s\n5:%s\n\n&quot;,departments[0],departments[1],departments[2],departments[3],departments[4]);
+            for(;;)
+            {
+                int n;
+                scanInt(&amp;n,4);
+                if((n &lt; 1)||(n &gt; 5))
+                    printf(&quot;输入不合法！\n&quot;);
+                else
+                {
+                    p-&gt;department = n-1;
+                    break;
+                }
+
+            }
+            break;
+
+        }
+    }
+    printf(&quot;修改成功！修改后的医生信息为：&quot;);
+    printf(&quot;%s %s %s \n&quot;,departments[p-&gt;department],DoctorLevel[p-&gt;level],p-&gt;name);
+
+    return 0;
+
+}
+
+
+int changeExamList(struct ExaminationFee * head)
+{
+    struct ExaminationFee *p = head-&gt;next;
+    struct ExaminationFee * line[200];
+    int i = 0;
+    while(p)
+    {
+        line[i] = p;
+        printf(&quot;%d)、  项目名： %15s 单价：%5d \n&quot;,++i,p-&gt;name,p-&gt;cost);
+        p = p-&gt;next;
+    }
+    line[i] = NULL;
+        int command;
+        for(;;)
+        {
+            printf(&quot;请选择需要执行的操作：1、增加一条数据 2、删除一条数据 3、修改数据\n&quot;);
+            scanInt(&amp;command,3);
+            if((command &gt;3) || (command &lt; 1))
+            {
+                printf(&quot;输入不合法\n&quot;);
+            }
+            else
+                break;
+        }
+        switch (command)
+        {
+        case 1://插入一条数据
+            {
+                struct ExaminationFee * pnew = (struct ExaminationFee *) malloc (sizeof(struct ExaminationFee));
+                pnew-&gt;next = NULL;
+                printf(&quot;请输入检查项目名称：&quot;);
+                scanStr(pnew-&gt;name,14);
+                for(;;)
+                {
+                    printf(&quot;请输入检查项目价格（格式： 元 角,最高不超过99999元） 中间用空格隔开：&quot;);
+                    int m, n;
+                    for(;;)
+                    {
+                        scanInt(&amp;m, 6);
+                        scanInt(&amp;n,3);
+                        if((m &lt; 0)||(m &gt; 99999)||(n &lt; 0)||(n &gt; 9))
+                        {
+                            printf(&quot;请检查输入格式\n&quot;);
+                        }
+                        else
+                        {
+                            pnew-&gt;cost = m * 10 + n;
+                            break;
+                        }
+                    }
+                }
+
+                break;
+            }
+        case 2://删除一条数据
+            {
+                if(!i)//链表为空
+                {
+                    printf(&quot;没有可删除的数据\n&quot;);
+                    break;
+                }
+                printf(&quot;请输入欲删除的数据序号\n&quot;);
+                for(;;)
+                {
+                    int command;
+                    scanInt(&amp;command,3);
+                    if((command &lt; 0)||(command &gt; i))
+                    {
+                        printf(&quot;请检查输入格式!\n&quot;);
+                    }
+                    else
+                    {
+                        if(command == 1)
+                        {
+                            free(line[0]);
+                            head-&gt;next = NULL;
+                        }
+                        else
+                        {
+                            free(line[command - 1]);
+                            line[command - 2]-&gt;next = line[command];
+                        }
+                        printf(&quot;已删除&quot;);
+                        break;
+                    }
+                }
+
+                break;
+            }
+
+        case 3://修改一条数据
+            {
+                int command;
+                struct ExaminationFee *pp;
+                for(;;)
+                {
+                    printf(&quot;请输入欲修改的数据序号：&quot;);
+                    scanInt( &amp;command, 3);
+                    if((command &gt; i)||(command &lt; 0))
+                    {
+                      printf(&quot;输入不合法！\n&quot;);
+                    }
+                    else
+                    {
+                        pp = line[command - 1];
+                        break;
+                    }
+                }
+                printf(&quot;请输入检查项目名称：&quot;);
+                scanStr(pp-&gt;name,14);
+                for(;;)
+                {
+                    printf(&quot;请输入检查项目价格（格式： 元 角,最高不超过99999元） 中间用空格隔开：&quot;);
+                    int m, n;
+                    for(;;)
+                    {
+                        scanInt(&amp;m, 6);
+                        scanInt(&amp;n,3);
+                        if((m &lt; 0)||(m &gt; 99999)||(n &lt; 0)||(n &gt; 9))
+                        {
+                            printf(&quot;请检查输入格式\n&quot;);
+                        }
+                        else
+                        {
+                            pp-&gt;cost = m * 10 + n;
+                            break;
+                        }
+                    }
+                }
+
+                break;
+
+
+            }
+        }
+    p = head-&gt;next;
+    printf(&quot;修改后数据：\n&quot;);
+    i = 0;
+    while(p)
+    {
+        line[i] = p;
+        printf(&quot;%d)、  项目名： %15s 单价：%5d \n&quot;,++i,p-&gt;name,p-&gt;cost);
+        p = p-&gt;next;
+    }
+        return 0;
+}
+
+
+
+int changeDataMenu()
+{
+        extern struct Data* dataHead;
+        char position[20] = &quot;data/&quot;;
+        int start_m, start_d;
+        system(&quot;cls&quot;);
+        printf(&quot;\n\n\n\n\n\n&quot;);
+        printf(&quot;要修改哪天的数据呢？\n&quot;);
+        inputDate(&amp;start_m,&amp;start_d);
+        position[5] = start_m / 10 + &#39;0&#39;;
+        position[6] = start_m % 10 + &#39;0&#39;;
+        position[7] = start_d / 10 + &#39;0&#39;;
+        position[8] = start_d % 10 + &#39;0&#39;;
+        position[9] = &#39;/&#39;;
+        position[10] = 0;
+        dataHead = input(position);
+        if(changeData() == -1)
+        {
+            printf(&quot;\n\n\n\n\n\n\n&quot;);
+            printMargin(40);
+            printf(&quot;未找到这一天的数据，按任意键返回上一层\n&quot;);
+            getchar();
+            system(&quot;cls&quot;);
+        }
+        saveData(position);
+        clearList(dataHead);
+    return 0;
+}
+int setPassWord()//加密控件
+{
+    char key[21];
+    int length;
+    for(;;)
+    {
+        printf(&quot;请输入新密码(8到16位):&quot;);
+        length = scanStr(key,17);
+        if((length &gt; 16)||(length &lt; 8))
+           {
+               printf(&quot;请检查输入长度\n&quot;);
+               continue;
+           }
+        printf(&quot;请再次输入：&quot;);
+        char key2[20];
+        scanStr(key2,18);
+        if(strcmp(key,key2))
+        {
+            printf(&quot;两次输入密码不一致，请检查\n&quot;);
+            continue;
+        }
+        break;
+    }
+    srand(time(0));
+    FILE *pf = fopen(&quot;data/key.txt&quot;,&quot;wb&quot;);
+    for(int i = 0; i &lt; length; ++i)
+    {
+        for(int j = 0; j &lt; 7; ++j)
+        {
+            int num = rand()%128;
+            int bi = 1 &lt;&lt; j;
+            if(((key[i]) &amp; bi))
+            {
+                num |= bi;
+            }
+            else
+                num &amp;= (~bi);
+            fwrite(&amp;num,1,1,pf);
+        }
+    }
+    fclose(pf);
+    return 0;
+}
+
+char * deCode()
+{
+
+    FILE *pf = fopen(&quot;data/key.txt&quot;,&quot;rb&quot;);
+    char *password = (char *)malloc(20);
+    int pos = 0;
+    int num;
+    while(!feof(pf))
+    {
+        num = 0;
+        for(int i = 0; i &lt; 7; ++i)
+        {
+            int tmp;
+            int bi = (1 &lt;&lt; i);
+            fread(&amp;tmp,1,1,pf);
+            num += (tmp &amp; bi);
+        }
+        password[pos++] = num;
+
+    }
+    password[pos-1] = 0;
+    fclose(pf);
+    return password;
+}
+
+
+
+int dataViewMenu()
+{
+    printf(&quot;\n\n\n\n\n&quot;);
+    printMargin(40);printf(&quot;1、医生信息\n\n&quot;);
+    printMargin(40);printf(&quot;2、营业额 \n\n&quot;);
+    printMargin(40);printf(&quot;3、诊疗记录浏览 \n\n&quot;);
+    printMargin(40);printf(&quot;0、返回上一层\n\n\n\n\n&quot;);
+    int command;
+    for(;;)
+    {
+        printf(&quot;请选择一项（输入序号）:&quot;);
+        scanInt(&amp;command,3);
+        if((command &gt; 3)||(command &lt; 0))
+        {
+            printf(&quot;输入非法\n&quot;);
+        }
+        else
+            break;
+    }
+    switch(command)
+    {
+        case 1: showDepartStatus(); break;
+        case 2:
+            {
+                system(&quot;cls&quot;);
+                printfMoneyStatus();
+                printf(&quot;按任意键返回\n&quot;);
+                getchar();
+                break;
+            }
+        case 3: viewData();break;
+        case 0: break;
+    }
+    return 0;
+}
+
+int inpatientDapart()
+{
+    for(;;)
+    {
+        system(&quot;cls&quot;);
+        printf(&quot;\n\n\n\n\n&quot;);
+    printMargin(40);
+    printf(&quot;1、病房信息\n\n&quot;);
+        printMargin(40);
+    printf(&quot;2、住院病人管理\n\n&quot;);
+            printMargin(40);
+    printf(&quot;0、返回主菜单\n\n\n\n\n\n\n\n\n&quot;);
+    int command = 0;
+    for(;;)
+    {
+        scanInt(&amp;command, 3);
+        if((command &lt; 0)||(command &gt; 3))
+            printf(&quot;输入不合法\n&quot;);
+        else
+            break;
+    }
+    if(command == 1)
+    {
+        showPatientsInHospital();
+    }
+    else if(command == 2)
+        patientAdminMenu();
+    else
+        break;
+    }
+    return 0;
+}
+
+
+int  printMargin(int n) {
+    for (int i = 0; i &lt; n; i++)
+        printf(&quot; &quot;);
+    return 0;
+}
+
+void loading() {
+    system(&quot;color f0&quot;);
+    int i, j;
+    printf(&quot;\n\n\n\n\n\n\n\n\n\n\n\n&quot;);
+    for (i = 1; i &lt;= 10; i++)
+    {
+        printf(&quot;\t\t\t\t\t\t欢迎使用|&quot;);
+        for (j = 0; j &lt; i; j++)
+           printf(&quot;-&quot;);
+        printf(&quot;|&#39;%d%%&#39;\r&quot;, i*10);
+        Sleep(50);
+    }
+    system(&quot;cls&quot;);
+}
+
+int countPatient(int id, int departmentID)//根据病人id，统计它在某个科室挂了多少号
+{
+    extern struct Data *dataHead;
+    struct Data * p = dataHead;
+    int num = 0;
+    while(p)
+    {
+        if((p-&gt;ID == id)&amp;&amp;(p-&gt;doctor.department == departmentID))
+        {
+            ++num;
+        }
+        p = p-&gt;next;
+    }
+    return num;
+}
+
+int countPatientDoc(int id, int doctorID)//根据病人id，统计它在某个医生名下挂了多少号
+{
+    extern struct Data *dataHead;
+    struct Data * p = dataHead;
+    int num = 0;
+    while(p)
+    {
+        if((p-&gt;ID == id)&amp;&amp;(p-&gt;doctor.number == doctorID))
+        {
+            ++num;
+        }
+        p = p-&gt;next;
+    }
+    return num;
+}
+int saveMedData()
+{
+    extern struct Medicine* mediStorage;
+    struct Medicine * p = mediStorage-&gt;next;
+    FILE * pf = fopen(&quot;hospital/medicine.txt&quot;,&quot;w&quot;);
+    int i = 0;
+    while(p)
+    {
+        fprintf(pf,&quot;%06d %16s %3d %4d\n&quot;,++i,p-&gt;name,p-&gt;number,p-&gt;price);
+        p = p-&gt;next;
+    }
+    fprintf(pf,&quot;%8d&quot;, i);
+    fclose(pf);
+    return 0;
+}
+
+
+int reSeek(FILE *pf)
+{
+    char c = 0;
+    while((c != &#39;\n&#39;)&amp;&amp;(c != EOF))
+    {
+        c = fgetc(pf);
+    }
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c">//文件view.h
+#ifndef HOUSJ_H_INCLUDED
+#define HOUSJ_H_INCLUDED
+int viewByDoctorID(struct Data ** container, int ID);//按医生工号筛选诊疗信息
+int viewByDepart(struct Data ** container, int ID);//按科室筛选诊疗信息
+int viewByPatientID(struct Data ** container, int ID);//按患者ID筛选诊疗信息
+int countPatientDoc(int id, int doctorID);//根据病人id，统计它在某个医生名下挂了多少号
+int countPatient(int id, int departmentID);//根据病人id，统计它在某个科室挂了多少号
+void countAllDoc();//统计所有医生的挂号数量
+void printMedList(struct Medicine * head);//输出某位患者的购药单
+void printExamList(struct ExaminationFee * head);//输出某位患者的检查单
+int showPatientsInHospital();//展示病房信息
+int showPatientsInfo(struct Data *node);//展示住院病人的信息
+int viewDataSpan();//按时间区间浏览历史诊疗记录
+int printDataList(struct Data * base);//输出所建链表的所有数据
+#endif // HOUSJ_H_INCLUDED
+</code></pre>
+<pre><code class="lang-c">//文件view.c
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include&lt;string.h&gt;
+#include&lt;time.h&gt;
+#include &lt;io.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include&lt;windows.h&gt;
+#include&quot;basic.h&quot;
+#include&quot;view.h&quot;
+#include&quot;change.h&quot;
+
+/*打印head链表的所有的诊疗记录*/
+int printDataList(struct Data * base)//返回值为链表的有效结点数
+{
+    if(base-&gt;next == NULL)
+        return -1;
+    struct Data *p = base-&gt;next;
+    printf(&quot;正在打印数据...：\n\n&quot;);
+    int i = 0;
+    while(p)
+    {
+        printf(&quot;---------------------\n&quot;);
+        printf(&quot;%d、  &quot;,++i);
+        printSingleData(p);
+        printf(&quot;\n\n\n\n&quot;);
+        p = p-&gt;next;
+    }
+    return i;
+}
+
+int viewByDoctorID(struct Data ** container, int ID)
+{
+    int itr = 0;
+    int i = 0;
+    int count = 0;
+    while(container[itr])
+    {
+        if(container[itr]-&gt;doctor.number == ID)
+        {
+            ++i;
+            printf(&quot;%d、&quot;,++count);
+            printSingleData(container[itr]);
+            printf(&quot;\n\n&quot;);
+        }
+
+        ++itr;
+    }
+        if(!i)
+    {
+        printMargin(40);
+        printf(&quot;未找到任何数据！\n&quot;);
+        printMargin(40);
+        printf(&quot;按任意键返回上一层\n&quot;);
+        getchar();
+        return 0;
+    }
+    return 0;
+}
+
+
+
+int viewByDepart(struct Data ** container, int ID)
+{
+    int itr = 0;
+    int count = 0;
+    int i = 0;
+    while(container[itr])
+    {
+        if(container[itr]-&gt;doctor.department == ID)
+        {
+            printf(&quot;%d、&quot;,++count);
+            printSingleData(container[itr]);
+            printf(&quot;\n\n&quot;);
+            ++i;
+        }
+
+        ++itr;
+    }
+        if(!i)
+    {
+        printMargin(40);
+        printf(&quot;未找到任何数据！\n&quot;);
+        printMargin(40);
+        printf(&quot;按任意键返回上一层\n&quot;);
+        getchar();
+        return 0;
+    }
+    return 0;
+}
+
+
+
+int viewByPatientID(struct Data ** container, int ID)
+{
+    int itr = 0;
+    int count = 0;
+    int i = 0;
+    while(container[itr])
+    {
+        if(container[itr]-&gt;ID == ID)
+        {
+            printf(&quot;%d、&quot;,++count);
+            printSingleData(container[itr]);
+            printf(&quot;\n\n&quot;);
+            ++i;
+        }
+
+        ++itr;
+    }
+        if(!i)
+    {
+        printMargin(40);
+        printf(&quot;未找到任何数据！\n&quot;);
+        printMargin(40);
+        printf(&quot;按任意键返回上一层\n&quot;);
+        getchar();
+        return 0;
+    }
+    return 0;
+}
+
+/*打印购药链表*/
+void printMedList(struct Medicine * head)
+{
+    struct Medicine *p = head-&gt;next;
+    if(!p)
+        return;
+        printf(&quot;          ***所购药品如下:***     \n\n&quot;);
+    int i = 0;
+    while(p)
+    {
+        printf(&quot;%d)、  药品名：%s 数量：%d, 单价：%d元 %d角 \n&quot;,++i,p-&gt;name,p-&gt;number,(p-&gt;price)/10,(p-&gt;price)%10);
+        p = p-&gt;next;
+    }
+    printf(&quot;  \n\n&quot;);
+}
+/*打印所做检查项目链表*/
+void printExamList(struct ExaminationFee * head)
+{
+    struct ExaminationFee *p = head-&gt;next;
+    if(!p)
+        return;
+    printf(&quot;\n       ***所做检查项目如下:***     \n\n&quot;);
+    int i = 0;
+    while(p)
+    {
+        printf(&quot;检查项目%d：      %s 价格：%d 元 %d 角 \n&quot;,++i,p-&gt;name,(p-&gt;cost)/10,(p-&gt;cost)%10);
+        p = p-&gt;next;
+    }
+}
+int viewDataSpan()//可以手动输入日期获取该日期的诊疗记录
+{
+        extern struct Data * dataHead;
+        extern char departments[7][20];
+        char endPosition[20] = &quot;data/&quot;;
+        char position[20] = &quot;data/&quot;;
+        int start_m, start_d;
+        int end_m, end_d;
+        printf(&quot;注意：您最多查看30天的数据\n&quot;);
+        for(;;)
+        {
+            printf(&quot;请输入需要查看的起始日期\n&quot;);
+            inputDate(&amp;start_m,&amp;start_d);
+            int tmp1 = start_m * 1000000;
+            tmp1 += (start_d * 10000);
+            printf(&quot;请输入需要查看的结束日期\n&quot;);
+            inputDate(&amp;end_m, &amp;end_d);
+            int tmp2 = end_m * 1000000;
+            tmp2 += (end_d * 10000);
+            int aa = timeSpan(tmp1,tmp2);
+            if(aa &gt; 30)
+            {
+                printf(&quot;最多查看30天的数据，请重新输入！\n&quot;);
+            }
+            else
+                break;
+        }
+
+        position[5] = start_m / 10 + &#39;0&#39;;
+        position[6] = start_m % 10 + &#39;0&#39;;
+        position[7] = start_d / 10 + &#39;0&#39;;
+        position[8] = start_d % 10 + &#39;0&#39;;
+        position[9] = &#39;/&#39;;
+        position[10] = 0;
+        endPosition[5] = end_m / 10 + &#39;0&#39;;
+        endPosition[6] = end_m % 10 + &#39;0&#39;;
+        endPosition[7] = end_d / 10 + &#39;0&#39;;
+        endPosition[8] = end_d % 10 + &#39;0&#39;;
+        endPosition[9] = &#39;/&#39;;
+        position[10] = 0;
+        struct Data* container[300];
+        int itr = 0;
+        struct Data* dataHeadToDel[100];
+        int i_del = 0;
+        while(strcmp(position,endPosition) &lt;= 0)
+        {
+            dataHead = input(position);
+            struct Data * p = dataHead-&gt;next;
+            if(!p)
+            {
+                free(dataHead);
+            }
+            else
+                dataHeadToDel[itr++] = dataHead;
+            while(p)
+            {
+                printf(&quot;%d、&quot;,itr+1);
+                printSingleData(p);
+                container[itr++]= p;
+                p = p-&gt;next;
+            }
+            nextDay(position);
+        }
+        container[itr] = NULL;
+    if(!itr)
+    {
+        printMargin(40);
+        printf(&quot;未找到该时间段的任何数据！\n&quot;);
+        printMargin(40);
+        printf(&quot;按任意键返回上一层\n&quot;);
+        getchar();
+        return 0;
+    }
+    for(;;)
+    {printMargin(40);
+    printf(&quot;1：按医生筛选数据\n&quot;);
+     printMargin(40);
+    printf(&quot;2：按患者ID筛选数据\n&quot;);
+     printMargin(40);
+    printf(&quot;3：按科室筛选数据\n&quot;);
+     printMargin(40);
+    printf(&quot;0: 退出\n&quot;);
+    int command;
+    for(;;)
+    {
+        printf(&quot;请选择：&quot;);
+        scanInt(&amp;command,3);
+        if((command &lt;0)||(command &gt; 3))
+        {
+            printf(&quot;输入不合法\n&quot;);
+        }
+        else
+            break;
+    }
+    switch(command)
+    {
+    case 1:
+        {
+            int id;
+            printf(&quot;请输入医生ID(8位):&quot;);
+            for(;;)
+            {
+                if(scanInt(&amp;id,9) != 8)
+                {
+                    printf(&quot;数据非法！请重新输入\n&quot;);
+                }
+                else
+                    break;
+            }
+            viewByDoctorID(container,id);
+            break;
+        }
+    case 2:
+        {
+            int id;
+            printf(&quot;请输入患者ID(8位):&quot;);
+            for(;;)
+            {
+                if(scanInt(&amp;id,9) != 8)
+                {
+                    printf(&quot;数据非法！请重新输入\n&quot;);
+                }
+                else
+                    break;
+            }
+            viewByPatientID(container,id);
+            break;
+        }
+    case 3:
+        {
+            int nn;
+            for(int i = 0; i &lt; 5; ++i)
+            printf(&quot;%d、%s\n&quot;,i+1,departments[i]);
+            printf(&quot;请选择：&quot;);
+            for(;;)
+            {
+                scanInt(&amp;nn,3);
+                if((nn &lt; 1)||(nn &gt; 5))
+                {
+                    printf(&quot;输入非法\n&quot;);
+                }
+                else
+                    break;
+            }
+            viewByDepart(container,nn-1);
+            break;
+        }
+        case 0: break;
+    }
+    if(!command)
+        break;
+    }
+    for(int i = 0; i &lt; i_del; ++i)
+        clearList(dataHeadToDel[i]);
+    return 0;
+}
+
+int showPatientsInfo(struct Data *node)
+{
+    /*日期格式：09020900*/
+    int in_mon = node-&gt;treatment.hospitalization.ruyuanshijian/1000000;
+    int in_day = (node-&gt;treatment.hospitalization.ruyuanshijian/10000)%100;
+    int in_hou = (node-&gt;treatment.hospitalization.ruyuanshijian/100) % 100;
+    int out_mon = node-&gt;treatment.hospitalization.chuyuanshijian/1000000;
+    int out_day = (node-&gt;treatment.hospitalization.chuyuanshijian/10000)%100;
+    int out_hou = (node-&gt;treatment.hospitalization.chuyuanshijian/100) % 100;
+    char sexstr[2][4] = {&quot;女&quot;,&quot;男&quot;};
+    int sex = (node-&gt;number % 100000) / 10000;
+    printf(&quot;ID: %d 姓名:%5s 性别：%s 年龄:%2d  &quot;,node-&gt;ID,node-&gt;name,sexstr[sex],node-&gt;age);
+    printf(&quot;入院时间： %2d月 %2d日 %2d时 预计出院时间: %2d月 %2d日 %2d时  &quot;,in_mon,in_day,in_hou,out_mon,out_day,out_hou);
+    time_t now;
+    struct tm* tm_now;
+    time(&amp;now);
+    tm_now = localtime(&amp;now);
+
+    int now_time = (tm_now-&gt;tm_mon+1)*1000000 + tm_now-&gt;tm_mday * 10000 + tm_now-&gt;tm_hour * 100;
+    int cost = 200*timeSpan(node-&gt;treatment.hospitalization.ruyuanshijian,now_time);
+    printf(&quot;总缴纳押金:%d&quot;,node-&gt;treatment.hospitalization.zhuyuanyajin);
+    printf(&quot;住院押金剩余：%d&quot;,node-&gt;treatment.hospitalization.zhuyuanyajin - cost);
+    if(node-&gt;treatment.hospitalization.zhuyuanyajin - cost &lt; 1000)
+    {
+    HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(handle, 0xFC);
+    printMargin(30);
+    printf(&quot;余额不足！&quot;);
+    SetConsoleTextAttribute(handle, 0xF0);
+    }
+    return 0;
+}
+</code></pre>
+<pre><code class="lang-c">//文件change.h
+#ifndef ZHANGWY_H_INCLUDED
+#define ZHANGWY_H_INCLUDED
+
+int changePatientData(struct Data *p);//修改患者基本信息
+int changeDoctorData(struct Doctor *p);//修改数据中的医生信息
+int changeMedList(struct Medicine * head);//修改数据中的购药信息
+int changeExamList(struct ExaminationFee * head);//修改数据中的检查项目信息
+int changeHospitalData(struct Hospitalization *base);//修改数据中的住院信息
+int changeData();//修改挂号数据的主界面
+#endif // ZHANGWY_H_INCLUDED
+</code></pre>
+<pre><code class="lang-c">//文件change.c
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include&lt;string.h&gt;
+#include&lt;time.h&gt;
+#include &lt;io.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include&lt;windows.h&gt;
+#include&quot;basic.h&quot;
+#include&quot;view.h&quot;
+#include&quot;change.h&quot;
+int changePatientData(struct Data *p)
+{
+    int command;
+      for(;;)
+    {
+        printf(&quot;请选择需要修改哪一项:\n&quot;);
+        printf(&quot;1、挂号序列 2、 姓名 3、年龄 4、ID \n&quot;);
+        scanInt(&amp;command, 2);
+        if((command &lt; 1)||(command &gt; 4))
+        {
+            printf(&quot;输入不合法，请检查 \n&quot;);
+        }
+        else
+            break;
+    }
+    switch(command)
+    {
+    case 1:
+        {
+            printf(&quot;请重新输入挂号序列（9位正整数）:&quot;);
+            for(;;)
+            {
+                if(scanInt(&amp;(p-&gt;number),9)==9)
+                    break;
+                else
+                {
+                    printf(&quot;请正确输入！\n&quot;);
+                }
+            }
+            break;
+        }
+    case 2:
+        {
+            printf(&quot;修改姓名:&quot;);
+            scanName(p-&gt;name,20);
+            break;
+        }
+    case 3:
+        {
+            printf(&quot;修改年龄:&quot;);
+            for(;;)
+            {
+                scanInt(&amp;(p-&gt;age), 4);
+                if((p-&gt;age &lt;0) || (p-&gt;age &gt; 140))
+                {
+                    printf(&quot;输入不合法，请检查！\n&quot;);
+                }
+                else
+                    break;
+
+            }
+            break;
+
+        }
+    case 4:
+        {
+            printf(&quot;修改ID(8位正整数):&quot;);
+            for(;;)
+            {
+                if(scanInt(&amp;(p-&gt;ID),8) == 8)
+                    break;
+                else
+                {
+                    printf(&quot;请正确输入!\n&quot;);
+
+                }
+            }
+            break;
+        }
+    }
+        printf(&quot;修改成功！修改后的患者信息为：&quot;);
+        printf(&quot;挂号序列：%d 患者姓名：%s ID:%d 患者年龄： %d  &quot;, p-&gt;number, p-&gt;name,p-&gt;ID, p-&gt;age);
+
+    return 0;
+}
+
+int changeData()
+{
+    system(&quot;cls&quot;);
+    extern struct Data *dataHead;
+    struct Data* p = dataHead-&gt;next;
+    int command;
+    struct Data* line[300];
+    if(dataHead-&gt;next == NULL)
+        return -1;
+    int i = 0;
+    while(p)
+    {
+        line[i] = p;
+        printf(&quot;---------------------\n&quot;);
+        printf(&quot;%d、  &quot;,++i);
+        printSingleData(p);
+        p = p-&gt;next;
+    }
+    line[i] = NULL;
+    for(;;)
+    {
+        printMargin(40);
+        printf(&quot;1:删除数据\n\n&quot;);
+        printMargin(40);
+        printf(&quot;2:修改数据\n\n&quot;);
+        printMargin(40);
+        printf(&quot;0:返回上一层\n\n\n\n\n\n\n\n请输入:&quot;);
+        scanInt(&amp;command,3);
+        if((command &gt; 2)||(command &lt;0))
+        {
+            printf(&quot;输入不合法\n&quot;);
+        }
+        else
+            break;
+    }
+    if(!command)
+        return 0;
+    if(command == 1)
+    {
+        for(;;)
+        {
+            printf(&quot;您要删除哪条数据？\n&quot;);
+            int n;
+            scanInt(&amp;n,3);
+            if((n &gt; i)||(n &lt; 1))
+                printf(&quot;输入不合法！\n&quot;);
+            else
+            {
+                free(line[n-1]);
+                if(n == 1)
+                    dataHead-&gt;next = line[1];
+                else
+                    line[n-2]-&gt;next = line[n];
+                break;
+            }
+        }
+        system(&quot;cls&quot;);
+        printf(&quot;\n\n\n\n\n\n&quot;);
+        printMargin(40);
+        printf(&quot;删除成功！按任意键返回上一层&quot;);
+        getchar();
+        return 0;
+    }
+    for(;;)
+    {
+        printf(&quot;请输入需要修改的数据序号(输入0返回上一层):&quot;);
+        scanInt(&amp;command,2);
+        if((command &gt; i)||(command &lt; 0))
+        {
+            printf(&quot;请检查输入\n&quot;);
+        }
+        else
+            break;
+    }
+    if(!command)
+        return 0;
+    p = line[command-1];
+    printf(&quot;\n\n\n\n&quot;);
+     printMargin(10);
+    printSingleData(p);
+
+    printf(&quot;\n\n请选择修改哪项数据？\n\n\n\n\n&quot;);
+    printMargin(10);
+    printf(&quot;1:患者基本信息\n\n&quot;);
+        printMargin(10);
+    printf(&quot;2:医生信息\n\n&quot;);
+        printMargin(10);
+    printf(&quot;3:购药信息\n\n&quot;);
+        printMargin(10);
+    printf(&quot;4:检查项目信息\n\n&quot;);
+        printMargin(10);
+    printf(&quot;5:住院信息\n\n&quot;);
+        printMargin(10);
+    printf(&quot;0:退出页面\n\n&quot;);
+        printMargin(10);
+    for(;;)
+    {
+        scanInt(&amp;command,3);
+        if((command &lt; 0)||(command &gt; 5))
+        {
+            printf(&quot;输入不合法，请检查！\n&quot;);
+        }
+        else
+            break;
+    }
+    switch(command)
+    {
+        case 1: changePatientData(p);break;
+        case 2: changeDoctorData(&amp;(p-&gt;doctor));break;
+        case 3: changeMedList(&amp;(p-&gt;treatment.medicine)); break;
+        case 4: changeExamList(&amp;(p-&gt;treatment.exminationFee)); break;
+        case 5: changeHospitalData(&amp;(p-&gt;treatment.hospitalization));break;
+        case 0: break;
+    }
+
+    system(&quot;cls&quot;);
+    printf(&quot;\n\n\n&quot;);
+    printf(&quot;修改后的完整数据：\n&quot;);
+    printSingleData(p);
+    printf(&quot;\n\n\n&quot;);
+    printf(&quot;按任意键返回主菜单！&quot;);
+    getchar();
+    return 0;
+}
+
+
+
+int changeHospitalData(struct Hospitalization *base)
+{
+    int months[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+    printf(&quot;请输入入院时间,格式：月 日 时如： \&quot;9 10 10\&quot;,数字间以空格间隔 \n&quot;);
+    int m,d,h,s;
+    base-&gt;zhuyuanyajin = 0;
+    for(;;)
+    {
+        scanInt(&amp;m, 2);
+        scanInt(&amp;d, 2);
+        scanInt(&amp;h, 2);
+        s = 0;
+        if((m &gt; 0)&amp;&amp;(m &lt; 13)&amp;&amp;(d &gt; 0)&amp;&amp; (d &lt;= months[m])&amp;&amp;(h &gt;= 0)&amp;&amp;(h &lt; 24)&amp;&amp;(s &gt;= 0)&amp;&amp;(s &lt; 60))
+        {
+            break;
+        }
+        printf(&quot;请检查输入格式重新输入:&quot;);
+    }
+    int time1 = m * 1000000;
+    time1 += (d * 10000);
+    time1 += (h * 100);
+    base-&gt;ruyuanshijian = time1;
+    int m1,d1,h1,s1;
+    printf(&quot;请输入出院时间,格式：月 日 时如： \&quot;9 10 10\&quot;,数字间以空格间隔 \n&quot;);
+    for(;;)
+    {
+        scanInt(&amp;m1, 2);
+        scanInt(&amp;d1, 2);
+        scanInt(&amp;h1, 2);
+        s1 = 0;
+        if((m1 &gt; 0)&amp;&amp;(m1 &lt; 13)&amp;&amp;(d1 &gt; 0)&amp;&amp; (d1 &lt;= months[m])&amp;&amp;(h1 &gt;= 0)&amp;&amp;(h1 &lt; 24))
+        {
+            int n1 = m;
+            n1 = n1 * 40 + d;
+            n1 = n1 * 30 + h;
+            n1 = n1 * 60 + s;
+            int n2 = m1;
+            n2 = n2 * 40 + d1;
+            n2 = n2 * 30 + h1;
+            n2 = n2 * 60 + s1;
+            if(n1 &lt; n2)
+                break;
+            else
+            {
+                printf(&quot;请保证出院时间晚于入院时间\n&quot;);
+            }
+        }
+        printf(&quot;请重新输入出院时间:&quot;);
+    }
+    time1 = m1 * 1000000;
+    time1 += (d1 * 10000);
+    time1 += (h1 * 100);
+    time1 += (s1);
+    base-&gt;chuyuanshijian = time1;
+    printf(&quot;入院时间：%d月 %d日 %d时 &quot;,(base-&gt;ruyuanshijian)/1000000,((base-&gt;ruyuanshijian)%1000000)/10000,((base-&gt;ruyuanshijian)%10000)/100);
+    printf(&quot;出院时间：%d月 %d日 %d时 \n&quot;,(base-&gt;chuyuanshijian)/1000000,((base-&gt;chuyuanshijian)%1000000)/10000,((base-&gt;chuyuanshijian)%10000)/100);
+    return 0;
+
+}
+
+
+int changeMedList(struct Medicine * head)
+{
+
+
+
+
+    struct Medicine *p = head-&gt;next;
+    struct Medicine * line[200];
+    int i = 0;
+    while(p)
+    {
+        line[i] = p;
+        printf(&quot;%d)、  药品名：%s 数量：%d, 单价：%d \n&quot;,++i,p-&gt;name,p-&gt;number,p-&gt;price);
+        p = p-&gt;next;
+    }
+    line[i] = NULL;
+        int command;
+        for(;;)
+        {
+            printf(&quot;请选择需要执行的操作：1、增加一条数据 2、删除一条数据 3、修改数据\n&quot;);
+            scanInt(&amp;command,3);
+            if((command &gt;3) || (command &lt; 1))
+            {
+                printf(&quot;输入不合法\n&quot;);
+            }
+            else
+                break;
+        }
+        switch (command)
+        {
+        case 1://插入一条数据
+            {
+                struct Medicine * pnew = (struct Medicine *) malloc (sizeof(struct Medicine));
+                pnew-&gt;next = NULL;
+                printf(&quot;请输入药品名称：&quot;);
+                scanStr(pnew-&gt;name,14);
+                printf(&quot;请输入药品单价,\(格式 \&quot; 元 角 \&quot; ,不得超过999元):&quot;);
+                int m,n;
+                for(;;)
+                {
+                    scanInt(&amp;n,6);
+                    scanInt(&amp;m,5);
+                    if((n &lt; 0)||(n &gt; 999)||(m &gt; 9)||(m &lt; 0))
+                    {
+                        printf(&quot;请检查输入格式\n&quot;);
+                    }
+                    else
+                    {
+                        pnew-&gt;price = n*10 + m;
+                        break;
+                    }
+
+                }
+                printf(&quot;请输入药品数量，不得超过999&quot;);
+                for(;;)
+                {
+                    scanInt(&amp;m,4);
+                    if((m &lt; 0)||(m &gt; 999))
+                    {
+                        printf(&quot;数据不合法\n&quot;);
+                    }
+                    else
+                    {
+                        pnew-&gt;number = m;
+                        break;
+                    }
+                }
+                    head-&gt;next = pnew;
+                    pnew-&gt;next = line[0];
+                break;
+            }
+        case 2://删除一条数据
+            {
+                if(!i)//链表为空
+                {
+                    printf(&quot;没有可删除的数据\n&quot;);
+                    break;
+                }
+                printf(&quot;请输入欲删除的数据序号\n&quot;);
+                for(;;)
+                {
+                    int command;
+                    scanInt(&amp;command,3);
+                    if((command &lt; 0)||(command &gt; i))
+                    {
+                        printf(&quot;请检查输入格式!\n&quot;);
+                    }
+                    else
+                    {
+                        if(command == 1)
+                        {
+                            free(line[0]);
+                            head-&gt;next = NULL;
+                        }
+                        else
+                        {
+                            free(line[command - 1]);
+                            line[command - 2]-&gt;next = line[command];
+                        }
+                        printf(&quot;已删除&quot;);
+                        break;
+                    }
+                }
+
+                break;
+            }
+
+        case 3://修改一条数据
+            {
+                int command;
+                struct Medicine *pp;
+                for(;;)
+                {
+                    printf(&quot;请输入欲修改的数据序号：&quot;);
+                    scanInt( &amp;command, 3);
+                    if((command &gt; i)||(command &lt; 0))
+                    {
+                      printf(&quot;输入不合法！\n&quot;);
+                    }
+                    else
+                    {
+                        pp = line[command - 1];
+                        break;
+                    }
+                }
+
+                printf(&quot;请输入药品名称：&quot;);
+                scanStr(pp-&gt;name,14);
+                printf(&quot;请输入药品单价,（格式 “元 角” ,不得超过999元）:&quot;);
+                int m,n;
+                for(;;)
+                {
+                    scanInt(&amp;n,6);
+                    scanInt(&amp;m,5);
+                    if((n &lt; 0)||(n &gt; 999)||(m &gt; 9)||(m &lt; 0))
+                    {
+                        printf(&quot;请检查输入格式\n&quot;);
+                    }
+                    else
+                    {
+                        pp-&gt;price = n*10 + m;
+                        break;
+                    }
+
+                }
+                printf(&quot;请输入药品数量，不得超过999&quot;);
+                for(;;)
+                {
+                    scanInt(&amp;m,4);
+                    if((m &lt; 0)||(m &gt; 99))
+                    {
+                        printf(&quot;数据不合法\n&quot;);
+                    }
+                    else
+                    {
+                        pp-&gt;number = m;
+                        break;
+                    }
+                }
+                break;
+
+            }
+        }
+    p = head-&gt;next;
+    printf(&quot;修改后数据：\n&quot;);
+    while(p)
+    {
+        line[i] = p;
+        printf(&quot;%d)、  药品名：%s 数量：%d, 单价：%d \n&quot;,++i,p-&gt;name,p-&gt;number,p-&gt;price);
+        p = p-&gt;next;
+    }
+        return 0;
+}
+</code></pre>
+<h1 id="附件："><a href="#附件：" class="headerlink" title="附件："></a>附件：</h1><p>1、<a href="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/appendix/2020-10-16-1/cProject.zip" target="_blank" rel="noopener">工程源文件.zip</a><br>2、<a href="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/appendix/2020-10-16-1/实验报告.docx" target="_blank" rel="noopener">实验报告.docx</a></p>
+<p>注：工程使用codeblocks:: 17.12编译</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/10/10/BBCnews2020 10 10/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-10-10-1/1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-10-10-1/1.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                BBC news 10/10 白宫的“超级传播事件”</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 断梦三生<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2019 Max L ♥</p>
+    </div>
+    <div class="footer-device">
+
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">DayDream</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://qm.qq.com/cgi-bin/qm/qr?k=OKbDbzqI5VkiSEunPQoWG9F2yxDGaYQD&noverify=0" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+        <a href="http://music.163.com/m/user/home?id=67715923" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+        <a href="https://du.163.com/share/user/caa5d60f49f44f4d96ede3dd669c91ec?user=caa5d60f49f44f4d96ede3dd669c91ec" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/编程/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/英语新闻/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  英语
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/book">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2660651585"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+  <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/piao.js"></script>
+</body>
+</html>

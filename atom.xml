@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-10-11T15:33:06.450Z</updated>
+  <updated>2020-10-16T14:11:34.159Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JLU C语言课设：医院管理系统 源码</title>
+    <link href="/2020/10/16/C/"/>
+    <id>/2020/10/16/C/</id>
+    <published>2020-10-16T13:36:35.005Z</published>
+    <updated>2020-10-16T14:11:34.159Z</updated>
+    
+    <summary type="html">
+    
+      第一次写工程文件
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="C语言" scheme="/categories/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="课设" scheme="/tags/%E8%AF%BE%E8%AE%BE/"/>
+    
+      <category term="C语言" scheme="/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>BBC news 10/10 白宫的“超级传播事件”</title>
@@ -511,28 +535,6 @@
       <category term="英语新闻" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
     
       <category term="Forbes" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/Forbes/"/>
-    
-    
-      <category term="英语新闻" scheme="/tags/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The Guardian 2020/7/18 被撕裂的美国</title>
-    <link href="/2020/07/18/The%20Guardian%207%E6%9C%8818%E6%97%A5%20%E8%A2%AB%E6%92%95%E8%A3%82%E7%9A%84%E7%BE%8E%E5%9B%BD/"/>
-    <id>/2020/07/18/The Guardian 7月18日 被撕裂的美国/</id>
-    <published>2020-07-18T13:40:24.000Z</published>
-    <updated>2020-08-26T14:36:59.671Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;em&gt;With flu season on the horizon and Donald Trump demanding that millions of students return to school in the fall – not to mention a presidential election quickly approaching – the country appears at risk of being torn apart.&lt;/em&gt;&lt;br&gt;&lt;em&gt;流感季节即将到来、大选临近、总统又要求学校秋季开学——美国正面临被撕裂的危险。&lt;/em&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="英语新闻" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="The Guardian" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/The-Guardian/"/>
     
     
       <category term="英语新闻" scheme="/tags/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
