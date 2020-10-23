@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: web | DayDream</title>
+  <title itemprop="name">单链表合辑 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -284,64 +284,251 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="web.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      单链表合辑</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-10-22<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">web</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2018/12/12/鱼书笔记 第四章 神经网络的学习/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="链表的定义："><a href="#链表的定义：" class="headerlink" title="链表的定义："></a>链表的定义：</h1><p>/**</p>
+<ul>
+<li>Definition for singly-linked list.</li>
+<li>struct ListNode {</li>
+<li>int val;</li>
+<li>ListNode *next;</li>
+<li>ListNode(int x) : val(x), next(NULL) {}</li>
+<li>};<br>*/</li>
+</ul>
+<h1 id="1、交换元素"><a href="#1、交换元素" class="headerlink" title="1、交换元素"></a>1、交换元素</h1><p>以交换单链表中第m和n号结点为例。<br>以头节点为第一个结点，保证m&gt;n，且m、n均小于链表长度。<br>做法是将待交换的两结点的前驱及自身地址记录下来，然后逐个交换。</p>
+<p>需要考虑的特殊情况：</p>
+<ul>
+<li>可能涉及到头节点。这里的处理是建立一个哨兵</li>
+<li>可能待交换的结点是紧挨着的,这样就不可以简单地交换了，这里进行了特判</li>
+</ul>
+<pre><code class="lang-cpp">class Solution {
+public:
+    ListNode* swapNode(ListNode* head, int m, int n) {
+        ListNode* headTmp = new ListNode(1);
+        headTmp-&gt;next = head;
+        ListNode* pre1 = NULL;
+        ListNode* lat1 = NULL;
+        ListNode* pre2 = NULL;
+        ListNode* lat2 = NULL;
+        int counter = 0;
+        ListNode* p = headTmp;
+        while(p &amp;&amp; (counter &lt;= n))
+        {
+            if(counter == m-1)
+                pre1 = p;
+            if(counter == m)
+                lat1 = p;
+            if(counter == n-1)
+                pre2 = p;
+            if(counter == n)
+                lat2 = p;
+            ++counter;
+            p = p-&gt;next;
+        }
+        ListNode* tmp = lat1-&gt;next;
+        lat1-&gt;next = lat2-&gt;next;
+        pre1-&gt;next = lat2;
+        if(n == m+1)//结点紧挨着的情况
+        {
+            lat2-&gt;next = lat1;
+        }
+        else
+        {
+            pre2-&gt;next = lat1;
+            lat2-&gt;next = tmp;
+        }
+        ListNode* newHead = headTmp-&gt;next;
+        delete headTmp;
+        return newHead;
+    }
+};
+</code></pre>
+<h1 id="2、链表反转"><a href="#2、链表反转" class="headerlink" title="2、链表反转"></a>2、链表反转</h1><p>反转从位置 m 到 n 的链表。使用一趟扫描完成反转。</p>
+<p>说明:<br>1 ≤ m ≤ n ≤ 链表长度。<br>示例：</p>
+<blockquote>
+<p>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4<br>输出: 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL</p>
+</blockquote>
+<p>大体思路：采用三指针，前两个指针用于反转，后一个指针用于记录next的值</p>
+<p>注意：反转如果涉及到头或尾节点需要特殊处理.</p>
+<pre><code class="lang-cpp">class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int m, int n) {
+        ListNode* headTmp = new ListNode(1);
+        headTmp-&gt;next = head;//设置哨兵
+        ListNode *pre = NULL;
+        ListNode *rear = NULL;
+        ListNode *p = headTmp;
+        int counter = 0;
+        while(p &amp;&amp; (counter + 1 &lt; m))
+        {
+            ++counter;
+            p = p-&gt;next;
+        }//循环后p指向反转部分的前驱(第m-1个结点)
+        pre = p;
+        p = p-&gt;next;
+        rear = p;//反转部分的头部(第m个结点，也就是反转后的尾部)
+        ++counter;
+        ListNode *p1 = p-&gt;next, *p2;
+        if(!p1)//m=n=链表长度，啥也不用做
+        {
+            delete headTmp;
+            return head;
+        }
+        p2 = p1-&gt;next;
+        while(p2 &amp;&amp; (counter &lt; n))//交换第counter和第counter+1个结点
+        {
+            p1-&gt;next = p;
+            p = p1;
+            p1 = p2;
+            p2 = p2-&gt;next;
+            counter++;
+        }//p为第n个结点，p1为尾结点的后继
+        if(n &gt; counter )
+        {
+            p1-&gt;next = p;
+            p = p1;
+            p1 = p2;
+        }
+        pre-&gt;next = p;
+        rear-&gt;next = p1;
+        ListNode* newhead = headTmp-&gt;next;
+        delete headTmp;
+        return newhead;
+    }
+};
+</code></pre>
+<p>下面是在<a href="https://leetcode-cn.com/problems/reverse-linked-list-ii/solution/bu-bu-chai-jie-ru-he-di-gui-di-fan-zhuan-lian-biao/" target="_blank" rel="noopener">leetcode</a>上找到的比较优美的代码：</p>
+<p>范例1：<br>这个不需要特判，太舒服了。<br>需要弄明白如何迭代（建议画画图）。</p>
+<pre><code class="lang-cpp">class Solution {
+public:
+    ListNode* reverseBetween(ListNode* head, int m, int n) {
+        ListNode* headTmp = new ListNode(1);
+        headTmp-&gt;next = head;
+        ListNode* pre = headTmp;
+        int counter = 0;
+        while(counter &lt; m - 1)
+        {
+            ++counter;
+            pre = pre-&gt;next;
+        }//pre定位到m-1的位置
+     ListNode* back = pre-&gt;next;
+    while(counter &lt; n-1)
+    {
+        ListNode* front = back-&gt;next;//back-&gt;next指向反转部分的最后一个结点
+        back-&gt;next = front-&gt;next;//front-&gt;next是下一个反转的结点
+        front-&gt;next = pre-&gt;next;//pre-&gt;next指向反转之后、反转部分的尾结点
+        pre-&gt;next = front;
+        ++counter;
+    }
+        return headTmp-&gt;next;
+    }
+};
+</code></pre>
+
         </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2018/12/12/鱼书笔记 第四章 神经网络的学习/">
-    鱼书笔记 第四章 神经网络的学习</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2018-12-12</div>
-    <p>
-    hexo-sakura主题使用教程</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2018/12/12/鱼书笔记 第四章 神经网络的学习/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/10/20/2020_10/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/think.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/think.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                大二。</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
