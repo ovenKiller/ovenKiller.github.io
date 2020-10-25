@@ -418,11 +418,11 @@
       <category term="C++" scheme="/categories/%E7%BC%96%E7%A8%8B/C/"/>
     
     
+      <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
       <category term="C++" scheme="/tags/C/"/>
     
       <category term="STL" scheme="/tags/STL/"/>
-    
-      <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
@@ -492,9 +492,9 @@
       <category term="C++" scheme="/categories/%E7%BC%96%E7%A8%8B/C/"/>
     
     
-      <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
       <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
