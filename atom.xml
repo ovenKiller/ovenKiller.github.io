@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-10-23T02:48:45.642Z</updated>
+  <updated>2020-11-03T07:41:44.697Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,163 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode 96 不同的二叉搜索树</title>
+    <link href="/2020/11/03/leetcode96/"/>
+    <id>/2020/11/03/leetcode96/</id>
+    <published>2020-11-03T07:33:47.547Z</published>
+    <updated>2020-11-03T07:41:44.697Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/unique-binary-search-trees/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>鱼书笔记 第四章 神经网络的学习</title>
+    <link href="/2020/11/03/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
+    <id>/2020/11/03/鱼书笔记 第四章 神经网络的学习/</id>
+    <published>2020-11-03T02:30:00.000Z</published>
+    <updated>2020-11-04T07:09:31.310Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这里的“学习”是指从训练数据中自动获取最优权重参数的过程。&lt;/p&gt;
+&lt;h1 id=&quot;4-1-从数据中学习&quot;&gt;&lt;a href=&quot;#4-1-从数据中学习&quot; class=&quot;headerlink&quot; title=&quot;4.1 从数据中学习&quot;&gt;&lt;/a&gt;4.1 从数据中学习&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="深度学习" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 95 不同的二叉搜索树 Ⅱ</title>
+    <link href="/2020/11/02/leetcode95/"/>
+    <id>/2020/11/02/leetcode95/</id>
+    <published>2020-11-02T11:00:56.128Z</published>
+    <updated>2020-11-04T07:06:52.313Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/unique-binary-search-trees-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 93 复原IP地址</title>
+    <link href="/2020/10/26/leetcode93/"/>
+    <id>/2020/10/26/leetcode93/</id>
+    <published>2020-10-26T13:10:00.000Z</published>
+    <updated>2020-10-26T13:18:18.777Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/restore-ip-addresses/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目描述：&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 94 二叉树中序遍历</title>
+    <link href="/2020/10/26/leetcode94/"/>
+    <id>/2020/10/26/leetcode94/</id>
+    <published>2020-10-26T12:02:00.000Z</published>
+    <updated>2020-10-26T14:18:50.795Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/binary-tree-inorder-traversal/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>单链表合辑</title>
@@ -144,9 +301,9 @@
     
       <category term="python" scheme="/tags/python/"/>
     
-      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -201,9 +358,9 @@
       <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -285,9 +442,9 @@
     
       <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -421,123 +578,6 @@
       <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
     
       <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="STL" scheme="/tags/STL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 60 求第k个排列（全排列相关）</title>
-    <link href="/2020/09/03/leetcode%2060%20%E6%B1%82%E7%AC%ACk%E4%B8%AA%E6%8E%92%E5%88%97%EF%BC%88%E5%85%A8%E6%8E%92%E5%88%97%E7%9B%B8%E5%85%B3%EF%BC%89/"/>
-    <id>/2020/09/03/leetcode 60 求第k个排列（全排列相关）/</id>
-    <published>2020-09-03T01:40:00.000Z</published>
-    <updated>2020-09-03T02:08:02.962Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;原题传送门 &lt;a href=&quot;https://leetcode-cn.com/problems/permutation-sequence/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;  —&amp;gt;&amp;gt; &lt;/a&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="题解" scheme="/categories/%E7%BC%96%E7%A8%8B/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CNN News 2020/8/25 特朗普 or 拜登？</title>
-    <link href="/2020/08/27/CNNnews%208%E6%9C%8825%E6%97%A5%20%E6%8B%9C%E7%99%BB%EF%BC%9F%E7%89%B9%E6%9C%97%E6%99%AE%EF%BC%9F/"/>
-    <id>/2020/08/27/CNNnews 8月25日 拜登？特朗普？/</id>
-    <published>2020-08-27T14:16:01.000Z</published>
-    <updated>2020-08-31T11:53:41.482Z</updated>
-    
-    <summary type="html">
-    
-      很荣幸，中国成了左右美国大选的关键因素
-    
-    </summary>
-    
-      <category term="英语新闻" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="CNN news" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/CNN-news/"/>
-    
-    
-      <category term="英语新闻" scheme="/tags/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="CNN" scheme="/tags/CNN/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C++ 一个对象占用的空间大小计算（转载）</title>
-    <link href="/2020/08/12/2020-8-12-cpp-class-space/"/>
-    <id>/2020/08/12/2020-8-12-cpp-class-space/</id>
-    <published>2020-08-12T14:16:01.000Z</published>
-    <updated>2020-08-27T04:53:54.807Z</updated>
-    
-    <summary type="html">
-    
-      c++一个对象需要占用多少空间呢？
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="C++" scheme="/categories/%E7%BC%96%E7%A8%8B/C/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The Guardian 2020/8/4 Tiktok被强制拆分</title>
-    <link href="/2020/08/04/The%20Guardian%20Tiktok%E8%A2%AB%E5%BC%BA%E5%88%B6%E6%8B%86%E5%88%86/"/>
-    <id>/2020/08/04/The Guardian Tiktok被强制拆分/</id>
-    <published>2020-08-04T13:32:00.000Z</published>
-    <updated>2020-08-30T00:41:50.851Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;em&gt;“Forced acquisition + only 45 days + intermediary fees are not comparable to Google. It is incredible,” he said.&lt;/em&gt;&lt;br&gt;&lt;em&gt;“强制收购+仅有45天期限+收取中介费用的行径与谷歌退出中国绝不是一回事。这太不可思议了，” 他说&lt;/em&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="英语新闻" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="The Guardian" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/The-Guardian/"/>
-    
-    
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>STL map随机读取效率测试</title>
-    <link href="/2020/07/28/STL%20map%E7%9A%84%E6%8F%92%E5%85%A5%E4%B8%8E%E9%9A%8F%E6%9C%BA%E8%AF%BB%E5%8F%96%E6%95%88%E7%8E%87%E6%B5%8B%E8%AF%95/"/>
-    <id>/2020/07/28/STL map的插入与随机读取效率测试/</id>
-    <published>2020-07-28T02:30:00.000Z</published>
-    <updated>2020-08-27T04:55:06.800Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;背景：map&lt;type key,type data&gt;是STL中的重要关联容器，可以根据key值来进行有序插入、随机读取。&lt;/type&gt;&lt;/p&gt;
-&lt;p&gt;map的随机读取很特殊：可以通过中括号访问。 比如map&amp;lt;int,int&amp;gt;sample中有一个元素为pair&amp;lt;4,6&amp;gt;，则可以通过sample[4]的形式访问到这个元素&lt;br&gt;
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="C++" scheme="/categories/%E7%BC%96%E7%A8%8B/C/"/>
-    
     
       <category term="STL" scheme="/tags/STL/"/>
     

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Category: 鱼书笔记 | DayDream</title>
+  <title itemprop="name">leetcode 93 复原IP地址 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -284,171 +284,191 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img data-src="鱼书笔记.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      leetcode 93 复原IP地址</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-10-26<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">鱼书笔记.zh</h1>
-    <span class="cat-des">
-      <p>鱼书笔记.en</p>
-    </span>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>原题传送门<a href="https://leetcode-cn.com/problems/restore-ip-addresses/" target="_blank" rel="noopener">—&gt;&gt;</a></p>
+<h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><p> 给定一个只包含数字的字符串，复原它并返回所有可能的 IP 地址格式。</p>
+<p>有效的 IP 地址 正好由四个整数（每个整数位于 0 到 255 之间组成，且不能含有前导 0），整数之间用 ‘.’ 分隔。</p>
+<p>例如：”0.1.2.201” 和 “192.168.1.1” 是 有效的 IP 地址，但是 “0.011.255.245”、”192.168.1.312” 和 “192.168@1.1” 是 无效的 IP 地址。</p>
+<h2 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h2><ul>
+<li>输入：s = “25525511135”</li>
+<li>输出：[“255.255.11.135”,”255.255.111.35”]</li>
+</ul>
+<h2 id="示例2："><a href="#示例2：" class="headerlink" title="示例2："></a>示例2：</h2><ul>
+<li>输入：s = “0000”</li>
+<li>输出：[“0.0.0.0”]</li>
+</ul>
+<p>标准DFS</p>
+<p>不过第一次提交没有剪枝，导致超时，记录一下</p>
+<pre><code class="lang-cpp">class Solution {
+public:
+    vector&lt;string&gt; ans;
+    string ans_;
+    vector&lt;string&gt; tmp;
+    vector&lt;string&gt; restoreIpAddresses(string s) {
+        solve(s, 0);
+        return ans;
+    }
+    int solve(string &amp; s, int start)
+    {
+        if(tmp.size() &gt; 4)//注意这里的剪枝！！！否则当数据过长会超时
+            return 0;
+        if(start == s.size())
+        {
+            if(tmp.size() == 4)
+            {
+                ans_.clear();
+                ans_+=tmp[0];
+                for(int i = 1;i &lt; 4; ++i)
+                {
+                    ans_ += &quot;.&quot;;
+                    ans_+= tmp[i];
+                }
+                ans.push_back(ans_);
+            }
+            return 0;
+        }
+        for(int i = 1; i &lt; 4; ++i)//i为长度
+        {
+            if((s[start] == &#39;0&#39;)&amp;&amp; (i &gt; 1))
+            {
+                break;
+            }
+            if(start + i &gt; s.size())
+                break;
+            string a(s.begin() + start, s.begin() + start + i);
+            if((a &gt; &quot;255&quot;)&amp;&amp;(i == 3))
+                break;
+            tmp.push_back(a);
+            solve(s, start + i);
+            tmp.pop_back();
+        }
+        return 0;
+    }
+};
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/11/02/leetcode95/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                leetcode 95 不同的二叉搜索树 Ⅱ</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/10/26/leetcode94/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                leetcode 94 二叉树中序遍历</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-3-1/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-    鱼书笔记 第四章 神经网络的学习</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-11-3</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-    鱼书笔记 第二章 感知机</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-27</div>
-    <p>
-    介绍一下感知机的概念和实现</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
 
-<!-- 
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-3-1/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-    鱼书笔记 第四章 神经网络的学习</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-11-3</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-    鱼书笔记 第二章 感知机</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-27</div>
-    <p>
-    介绍一下感知机的概念和实现</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
 
- -->
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
