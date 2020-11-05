@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-11-05T07:59:44.013Z</updated>
+  <updated>2020-11-05T08:59:05.155Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode 106 由中序和后序遍历序列建立树</title>
+    <link href="/2020/11/05/leetcode106/"/>
+    <id>/2020/11/05/leetcode106/</id>
+    <published>2020-11-05T08:54:50.022Z</published>
+    <updated>2020-11-05T08:59:05.155Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="树" scheme="/tags/%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode105 从前序与中序遍历序列构造二叉树</title>
@@ -48,8 +80,8 @@
   
   <entry>
     <title>leetcode 103  二叉树的锯齿形层次遍历</title>
-    <link href="/2020/11/04/leetcode%20103/"/>
-    <id>/2020/11/04/leetcode 103/</id>
+    <link href="/2020/11/04/leetcode103/"/>
+    <id>/2020/11/04/leetcode103/</id>
     <published>2020-11-04T13:32:35.676Z</published>
     <updated>2020-11-04T13:49:15.337Z</updated>
     
@@ -139,9 +171,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -170,9 +202,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
       <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
@@ -236,9 +268,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -267,9 +299,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -298,9 +330,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -432,9 +464,9 @@
     
       <category term="python" scheme="/tags/python/"/>
     
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -489,9 +521,9 @@
       <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -573,33 +605,9 @@
     
       <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
-  </entry>
-  
-  <entry>
-    <title>leetcode 89.Gray Code（格雷码）</title>
-    <link href="/2020/09/18/leetcode%2089.Gray%20Code/"/>
-    <id>/2020/09/18/leetcode 89.Gray Code/</id>
-    <published>2020-09-18T08:20:00.000Z</published>
-    <updated>2020-09-18T08:35:55.338Z</updated>
-    
-    <summary type="html">
-    
-      写一个格雷码生成函数
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="c++" scheme="/tags/c/"/>
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
