@@ -366,7 +366,8 @@
  * };
  */
 </code></pre>
-<h2 id="方案1-数组法："><a href="#方案1-数组法：" class="headerlink" title="方案1 数组法："></a>方案1 数组法：</h2><pre><code class="lang-cpp">class Solution {
+<h2 id="方案1-数组法："><a href="#方案1-数组法：" class="headerlink" title="方案1 数组法："></a>方案1 数组法：</h2><p>（好无脑啊但复杂度还挺低🐶）</p>
+<pre><code class="lang-cpp">class Solution {
 public:
     vector&lt;int&gt; nodes;
     TreeNode* sortedListToBST(ListNode* head) {
@@ -389,9 +390,40 @@ public:
         return base;
     }
 };
+
+时间复杂度O (N)
+空间复杂度O（N）
 </code></pre>
-<h2 id="方案2-快慢指针法"><a href="#方案2-快慢指针法" class="headerlink" title="方案2 快慢指针法"></a>方案2 快慢指针法</h2><p>定义一个快指针，每次循环前进2个结点<br>一个慢指针，每次循环前进1个结点</p>
-<p>那么，当快指针到达链表尾部，慢指针大概到达了链表中间位置。</p>
+<h2 id="方案2-快慢指针法"><a href="#方案2-快慢指针法" class="headerlink" title="方案2 快慢指针法"></a>方案2 快慢指针法</h2><p>关于快慢指针法的应用，请戳：<a href="https://x-quest.xyz/2020/11/07/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" target="_blank" rel="noopener">《快慢指针法L》</a><br><br><br></p>
+<p>思路仍然是不变的：在链表中找到中位数作为根，然后分别建立左右子树<br>区别是如何找中位数？ 方案1中采取了用向量存储链表。<br>本方案采取快慢指针法定位中位数。<br>定义一个快指针，每次循环前进2个结点<br>一个慢指针，每次循环前进1个结点<br>那么，当快指针到达链表尾部，慢指针大概到达了链表中间位置。</p>
+<pre><code class="lang-cpp">class Solution {
+public:
+    TreeNode* sortedListToBST(ListNode* head) {
+        return sortedListToBST(head, NULL);
+    }
+    TreeNode* sortedListToBST(ListNode* head, ListNode* rear)
+    {
+        if(head == rear)
+            return NULL;
+        if(head-&gt;next == rear)
+        {
+            return new TreeNode(head-&gt;val);
+        }
+        ListNode* fastPtr = head, *slowPtr = head;
+        while((fastPtr != rear) &amp;&amp; (fastPtr-&gt;next != rear))
+        {
+            slowPtr = slowPtr-&gt;next;
+            fastPtr = fastPtr-&gt;next-&gt;next;
+        }
+        TreeNode* root = new TreeNode(slowPtr-&gt;val);
+        root-&gt;left = sortedListToBST(head, slowPtr);
+        root-&gt;right = sortedListToBST(slowPtr-&gt;next, rear);
+    return root;
+    }
+};
+</code></pre>
+<p>时间复杂度 O(NlogN)<br>空间复杂度 O(1)</p>
+<h2 id="方案3-由中序遍历查找树产生的灵感"><a href="#方案3-由中序遍历查找树产生的灵感" class="headerlink" title="方案3 由中序遍历查找树产生的灵感"></a>方案3 由中序遍历查找树产生的灵感</h2><p>查找二叉树的重要特点是：中序遍历的结果为升序。</p>
 <p><em>更新中…</em></p>
 
         </div>
