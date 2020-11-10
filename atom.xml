@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-11-10T02:55:18.241Z</updated>
+  <updated>2020-11-10T03:59:01.083Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode 114. Flatten Binary Tree to Linked List 二叉树原地变链表</title>
+    <link href="/2020/11/10/leetcode114/"/>
+    <id>/2020/11/10/leetcode114/</id>
+    <published>2020-11-10T03:46:07.835Z</published>
+    <updated>2020-11-10T03:59:01.083Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="树" scheme="/tags/%E6%A0%91/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 113. Path Sum II 二叉树路径和</title>
@@ -591,37 +623,6 @@
       <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode91 解码方法</title>
-    <link href="/2020/10/02/leetcode91/"/>
-    <id>/2020/10/02/leetcode91/</id>
-    <published>2020-10-02T11:18:44.514Z</published>
-    <updated>2020-10-02T11:55:04.801Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/decode-ways/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目描述：&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="dp" scheme="/tags/dp/"/>
-    
-      <category term="分治" scheme="/tags/%E5%88%86%E6%B2%BB/"/>
     
   </entry>
   
