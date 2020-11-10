@@ -366,7 +366,7 @@
  * };
  */
 </code></pre>
-<h2 id="方案1-数组法："><a href="#方案1-数组法：" class="headerlink" title="方案1 数组法："></a>方案1 数组法：</h2><p>（好无脑啊但复杂度还挺低🐶）</p>
+<h2 id="方案1-数组法："><a href="#方案1-数组法：" class="headerlink" title="方案1 数组法："></a>方案1 数组法：</h2><p>（就是无脑但复杂度还挺低🐶）</p>
 <pre><code class="lang-cpp">class Solution {
 public:
     vector&lt;int&gt; nodes;
@@ -390,10 +390,8 @@ public:
         return base;
     }
 };
-
-时间复杂度O (N)
-空间复杂度O（N）
 </code></pre>
+<p>时间复杂度O (N)<br>空间复杂度O（N）</p>
 <h2 id="方案2-快慢指针法"><a href="#方案2-快慢指针法" class="headerlink" title="方案2 快慢指针法"></a>方案2 快慢指针法</h2><p>关于快慢指针法的应用，请戳：<a href="https://x-quest.xyz/2020/11/07/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/" target="_blank" rel="noopener">《快慢指针法L》</a><br><br><br></p>
 <p>思路仍然是不变的：在链表中找到中位数作为根，然后分别建立左右子树<br>区别是如何找中位数？ 方案1中采取了用向量存储链表。<br>本方案采取快慢指针法定位中位数。<br>定义一个快指针，每次循环前进2个结点<br>一个慢指针，每次循环前进1个结点<br>那么，当快指针到达链表尾部，慢指针大概到达了链表中间位置。</p>
 <pre><code class="lang-cpp">class Solution {
@@ -423,8 +421,37 @@ public:
 };
 </code></pre>
 <p>时间复杂度 O(NlogN)<br>空间复杂度 O(1)</p>
-<h2 id="方案3-由中序遍历查找树产生的灵感"><a href="#方案3-由中序遍历查找树产生的灵感" class="headerlink" title="方案3 由中序遍历查找树产生的灵感"></a>方案3 由中序遍历查找树产生的灵感</h2><p>查找二叉树的重要特点是：中序遍历的结果为升序。</p>
-<p><em>更新中…</em></p>
+<h2 id="方案3-由中序遍历查找树产生的灵感"><a href="#方案3-由中序遍历查找树产生的灵感" class="headerlink" title="方案3 由中序遍历查找树产生的灵感"></a>方案3 由中序遍历查找树产生的灵感</h2><p>查找二叉树的重要特点是：中序遍历的结果为升序。<br>用中序遍历的方式来建立树，得到的就是搜索树。<br>但还要保证一个问题：左右子树的结点尽可能相等。所以还需要求得链表长度，逐步二分进行递归</p>
+<pre><code class="lang-cpp">class Solution {
+public:
+    ListNode* p;
+    TreeNode* sortedListToBST(ListNode* head) {
+        int len = 0;
+        p = head;
+        while(p)
+        {
+            p = p-&gt;next;
+            ++len;
+        }
+        p = head;
+        return creatTree(len);
+    }
+    TreeNode* creatTree(int n)
+    {
+        if(!n)
+            return NULL;
+        int mid = n / 2;
+        TreeNode* left = creatTree(mid);
+        TreeNode* root = new TreeNode(p-&gt;val);
+        p = p-&gt;next;
+        TreeNode* right = creatTree(n - mid - 1);
+        root-&gt;left = left;
+        root-&gt;right = right;
+        return root;
+    }
+};
+</code></pre>
+<p>时间复杂度O(N)<br>空间复杂度O(log(N))</p>
 
         </div>
         <!-- .entry-content -->
