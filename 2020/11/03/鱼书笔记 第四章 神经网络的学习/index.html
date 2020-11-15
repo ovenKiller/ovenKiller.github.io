@@ -383,7 +383,59 @@ print(cross_entropy_error(np.array(y), np.array(t)))
 </ul>
 <p><strong>mini-batch学习</strong>:神经网络的训练中，数据可能会达到几百万、几千万之多，这种情况下对所以数据求损失函数并不现实。我们取其中的一小部分数据（称为mini-batch），然后对每个mini-batch进行学习。<br>这种学习方式称为mini-batch学习。</p>
 <p>简而言之mini-batch就是取一部分样本来代表整体。</p>
-<font size="3" color="#8f8f8f">*更新中 最后更新于2020/10/13*</font>
+<p>前面提到过MNIST数据集：</p>
+<pre><code class="lang-python">import sys, os
+sys.path.append(os.pardir)
+from dataset.mnist import load_mnist
+(x_train, t_train),(x_test, t_test) = load_mnist(flatten=True,normalize=True, one_hot_label = True) # 线性化 规格化 one-hot表示
+print(x_train.shape) # (60000, 784)
+print(t_train.shape) # (60000, 10)
+print(x_test.shape) # (10000, 784)
+print(t_test.shape) # (10000, 10)
+</code></pre>
+<p>MINIST数据集中，共60000条训练数据， 每条数据为784（28×28）维，监督数据是10维。</p>
+<p>如何从中抽取10组数据？？ 我们使用了random.choice()方法</p>
+<pre><code class="lang-python">array = np.random.choice(60000,10) # 从0到60000中随机取10个数字
+print(array)
+ # 输出结果：[11913 29114 14056  6304 11747 12412 43446 59074 46544 17836]
+</code></pre>
+<h2 id="4-2-4-mini-batch版交叉熵误差"><a href="#4-2-4-mini-batch版交叉熵误差" class="headerlink" title="4.2.4 mini-batch版交叉熵误差"></a>4.2.4 mini-batch版交叉熵误差</h2><p>一个可以同时处理单个数据和批量数据的函数：</p>
+<pre><code class="lang-python">def cross_entropy_error(y, t):
+    if y.ndim == 1:  # 这一步为什么这样做俺也不明白，感觉不需要reshape啊
+        t = t.reshape(1, t.size)
+        y = y.reshape(1, y.size)
+    batch_size = y.shape[0]
+    # 如果数据是one-hot表示：
+    return -np.sum(t * np.log(y + 1e-7)) / batch_size
+    # 如果数据是非one-hot表示：
+    # return -np.sum(np.log(y[np.arange(batch_size), t] + 1e-7)) / batch_size
+</code></pre>
+<h2 id="4-2-5-为何要设定损失函数？"><a href="#4-2-5-为何要设定损失函数？" class="headerlink" title="4.2.5 为何要设定损失函数？"></a>4.2.5 为何要设定损失函数？</h2><p><strong>以前面的手写数字识别任务为例。</strong><br>问题：既然该任务的目的是尽可能得提高识别精度，那么直接使用识别精度作为指标不就可以了吗？为什么还要使用损失函数？</p>
+<p>首先解释一下“导数”在神经网络中的作用。在神经网络的学习中，我们需要利用“导数”来寻找最优算法。</p>
+<ul>
+<li>如果导数为负值，则需要设法改变参数使该点损失函数的值增大</li>
+<li>如果导数为负值，则需要设法改变参数使该点损失函数的值减小</li>
+</ul>
+<p>假如以识别精度作指标，大部分点的导数值均为0.<br>比如100张图片，成功识别了32张，识别精度为32%。现在调整权重后，识别精度仍为32%，那么如何继续调整参数呢？这样就很难调整了。</p>
+<p>损失函数的意义在于，能评估权重细微的改变对模型效果的影响。</p>
+<p>损失函数应当是连续可导的。</p>
+<h1 id="4-3-数值微分"><a href="#4-3-数值微分" class="headerlink" title="4.3 数值微分"></a>4.3 数值微分</h1><p>写一个求导的函数！</p>
+<p>导数定义</p>
+<script type="math/tex; mode=display">\frac{df(x)}{d(x)} = {\lim_{x \to 0}} \frac{f(x + h) - f(x)}{h}</script><p>据此可以写一段函数：</p>
+<pre><code class="lang-python">def numerical_diff(f,x):
+    h = 10e-4 # 思考：h值过大或过小会有什么问题？
+    return (f(x + h)- f(x)) / h
+</code></pre>
+<p>这段函数计算的是函数f在(x + h)和 x 之间的差分，这称为<strong>前向差分</strong>，我们还可以利用<strong>中心差分</strong>，即</p>
+<script type="math/tex; mode=display">\frac{df(x)}{d(x)} = {\lim_{x \to 0}} \frac{f(x + h) - f(x - h)}{2 \times h}</script><pre><code class="lang-python">def numerical_diff(f,x):
+    h = 10e-4
+    return (f(x + h)- f(x - h)) / 2 * h
+</code></pre>
+<p>这样求得的导数值更精确。</p>
+<blockquote>
+<p>tip:以上利用微小的差分求导的方法被称为<strong>数值微分(numercical differentiation)</strong>，而基于数字公式的求导过程，则用“<strong>解析性(analytic)</strong>”一词,利用解析性的求导是不含误差的。 </p>
+</blockquote>
+<h1 id="4-4-梯度"><a href="#4-4-梯度" class="headerlink" title="4.4 梯度"></a>4.4 梯度</h1><font size="3" color="#8f8f8f">*更新中 最后更新于2020/10/15*</font>
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
