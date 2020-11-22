@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-11-13T15:51:47.779Z</updated>
+  <updated>2020-11-21T12:06:41.734Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小tip:对STL中的queue执行清空操作</title>
+    <link href="/2020/11/21/clear-for-queue/"/>
+    <id>/2020/11/21/clear-for-queue/</id>
+    <published>2020-11-21T12:02:29.871Z</published>
+    <updated>2020-11-21T12:06:41.734Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;STL中的queue没有clear(清空队列)操作。&lt;br&gt;这里可以用到swap高效完成该功能：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;//假设已经定义了 queue&amp;lt;int&amp;gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+    
+      <category term="web" scheme="/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python 小白笔记</title>
+    <link href="/2020/11/21/pythonNote/"/>
+    <id>/2020/11/21/pythonNote/</id>
+    <published>2020-11-21T03:09:12.394Z</published>
+    <updated>2020-11-22T10:51:52.335Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;range-n-函数&quot;&gt;&lt;a href=&quot;#range-n-函数&quot; class=&quot;headerlink&quot; title=&quot;range(n)函数&quot;&gt;&lt;/a&gt;range(n)函数&lt;/h2&gt;&lt;p&gt;函数：range(start, stop[, step])&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 116 填充树中每个节点的next指针</title>
@@ -403,7 +459,7 @@
     <link href="/2020/11/03/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
     <id>/2020/11/03/鱼书笔记 第四章 神经网络的学习/</id>
     <published>2020-11-03T02:30:00.000Z</published>
-    <updated>2020-11-16T15:32:19.492Z</updated>
+    <updated>2020-11-22T10:59:17.668Z</updated>
     
     <summary type="html">
     
@@ -571,59 +627,6 @@
       <category term="随想" scheme="/tags/%E9%9A%8F%E6%83%B3/"/>
     
       <category term="音乐" scheme="/tags/%E9%9F%B3%E4%B9%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JLU C语言课设：医院管理系统 源码</title>
-    <link href="/2020/10/16/C/"/>
-    <id>/2020/10/16/C/</id>
-    <published>2020-10-16T13:36:35.005Z</published>
-    <updated>2020-10-16T14:18:57.206Z</updated>
-    
-    <summary type="html">
-    
-      第一次写工程文件
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="C语言" scheme="/categories/%E7%BC%96%E7%A8%8B/C%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="课设" scheme="/tags/%E8%AF%BE%E8%AE%BE/"/>
-    
-      <category term="C语言" scheme="/tags/C%E8%AF%AD%E8%A8%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BBC news 10/10 白宫的“超级传播事件”</title>
-    <link href="/2020/10/10/BBCnews2020%2010%2010/"/>
-    <id>/2020/10/10/BBCnews2020 10 10/</id>
-    <published>2020-10-10T15:00:01.000Z</published>
-    <updated>2020-10-11T15:33:06.450Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本报道在2020/10/10日 BBC new官网中浏览量排在第一位&lt;/p&gt;
-&lt;h1 id=&quot;White-House-hosted-Covid-‘superspreader’-event-says-Dr-Fauci&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="英语新闻" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="BBC" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/BBC/"/>
-    
-    
-      <category term="BBC" scheme="/tags/BBC/"/>
     
   </entry>
   
