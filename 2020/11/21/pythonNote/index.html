@@ -354,6 +354,69 @@ print(&quot;{:.4}&quot;.format(12.222)) #12.22
 print(&quot;{:.5}&quot;.format(12.222)) #12.222
 print(&quot;{:.6}&quot;.format(12.222)) #12.222
 </code></pre>
+<h2 id="Python之可变参数，参数，-参数"><a href="#Python之可变参数，参数，-参数" class="headerlink" title="Python之可变参数，参数，*参数"></a>Python之可变参数，<em>参数，*</em>参数</h2><p><em>参数用于接收普通元素，转化成元组类型。<br>*</em>参数用于接收字典类型，转化成字典</p>
+<pre><code class="lang-python">def func(a, *b, **c):
+    print(a)
+    print(b)
+    print(c)
+func(1,2,3,4,score1=4,score2=7)
+#1
+#(2, 3, 4)
+#{&#39;score1&#39;: 4, &#39;score2&#39;: 7}
+</code></pre>
+<h2 id="函数的位置传递与名称传递"><a href="#函数的位置传递与名称传递" class="headerlink" title="函数的位置传递与名称传递"></a>函数的位置传递与名称传递</h2><pre><code class="lang-python">def func(a, b):
+    print(a,end=&quot;,&quot;)
+    print(b)
+func(1,2) #1,2
+func(b=1,a=2)#2,1
+</code></pre>
+<h2 id="函数中哪些变量是全局变量呢？"><a href="#函数中哪些变量是全局变量呢？" class="headerlink" title="函数中哪些变量是全局变量呢？"></a>函数中哪些变量是全局变量呢？</h2><h3 id="1-函数内用global声明的变量"><a href="#1-函数内用global声明的变量" class="headerlink" title="1 函数内用global声明的变量"></a>1 函数内用global声明的变量</h3><pre><code class="lang-python">def func():
+    global a
+    a = 3
+a = 4
+func()
+print(a)#3
+</code></pre>
+<p>注意这里的a是在函数之后声明的。(c++这样操作会报错)</p>
+<h3 id="2-未真实创建的列表可作全局变量"><a href="#2-未真实创建的列表可作全局变量" class="headerlink" title="2 未真实创建的列表可作全局变量"></a>2 未真实创建的列表可作全局变量</h3><pre><code class="lang-python">def func():
+    ls.append(&quot;a&quot;)
+ls = [1,2]
+func()
+print(ls) # [1, 2, &#39;a&#39;]
+</code></pre>
+<h2 id="lambda函数"><a href="#lambda函数" class="headerlink" title="lambda函数"></a>lambda函数</h2><p>&gt;函数名&lt; = lambda&gt;参数&lt;:&gt;表达式&lt;</p>
+<pre><code class="lang-python">f = lambda a,b: a+b
+print(f(&quot;aa&quot;,&quot;bb&quot;))#aabb
+</code></pre>
+<h2 id="列表间的赋值，传递的是引用！"><a href="#列表间的赋值，传递的是引用！" class="headerlink" title="列表间的赋值，传递的是引用！"></a>列表间的赋值，传递的是引用！</h2><font color="red">注意！！ =只能传递一个引用，而不是将列表的内容进行赋值</font>
+
+<pre><code class="lang-python">ls = [1,2,3]
+lt = ls
+ls += [4]
+print(lt) # [1, 2, 3, 4]
+</code></pre>
+<p>即便是重新创建列表也不可以！</p>
+<pre><code class="lang-python">ls = [1,2,3]
+lt = []
+lt = ls
+ls += [4]
+print(lt) # [1, 2, 3, 4]
+</code></pre>
+<p>如何通过复制创建一个列表？可以用.copy()方法</p>
+<pre><code class="lang-python">ls = [1,2,3]
+lt = []
+lt = ls.copy()
+ls += [4]
+print(lt) # [1, 2, 3]
+</code></pre>
+<h2 id="删除列表中的元素"><a href="#删除列表中的元素" class="headerlink" title="删除列表中的元素"></a>删除列表中的元素</h2><p>如何删除列表中下标为2、4、6的元素？</p>
+<pre><code class="lang-python">ls = [1,2,3,4,5,6,7]
+del ls[2:8:2]#注意，ls[8]不会被删除
+print(ls) # [1, 2, 4, 6]
+</code></pre>
+<h2 id="字典类型中相同键的不同值"><a href="#字典类型中相同键的不同值" class="headerlink" title="字典类型中相同键的不同值"></a>字典类型中相同键的不同值</h2><pre><code class="lang-python">di = {&#39;a&#39;:1, &#39;b&#39;:2, &#39;b&#39;:3}
+print(di[&#39;b&#39;]) #输出是3， 不是2哦
+</code></pre>
 
         </div>
         <!-- .entry-content -->

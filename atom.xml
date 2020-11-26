@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-11-21T12:06:41.734Z</updated>
+  <updated>2020-11-26T15:16:57.134Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python在Excel中的应用（一）</title>
+    <link href="/2020/11/26/pyexcel1/"/>
+    <id>/2020/11/26/pyexcel1/</id>
+    <published>2020-11-26T13:31:40.867Z</published>
+    <updated>2020-11-26T15:16:57.134Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一-创建excel文件&quot;&gt;&lt;a href=&quot;#一-创建excel文件&quot; class=&quot;headerlink&quot; title=&quot;一 创建excel文件&quot;&gt;&lt;/a&gt;一 创建excel文件&lt;/h1&gt;&lt;p&gt;创建空文件:&lt;/p&gt;
+&lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="excel" scheme="/tags/excel/"/>
+    
+  </entry>
   
   <entry>
     <title>小tip:对STL中的queue执行清空操作</title>
@@ -48,7 +81,7 @@
     <link href="/2020/11/21/pythonNote/"/>
     <id>/2020/11/21/pythonNote/</id>
     <published>2020-11-21T03:09:12.394Z</published>
-    <updated>2020-11-22T10:51:52.335Z</updated>
+    <updated>2020-11-26T07:16:41.295Z</updated>
     
     <summary type="html">
     
@@ -459,7 +492,7 @@
     <link href="/2020/11/03/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
     <id>/2020/11/03/鱼书笔记 第四章 神经网络的学习/</id>
     <published>2020-11-03T02:30:00.000Z</published>
-    <updated>2020-11-22T10:59:17.668Z</updated>
+    <updated>2020-11-23T03:45:18.797Z</updated>
     
     <summary type="html">
     
@@ -605,28 +638,6 @@
       <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="c++" scheme="/tags/c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大二。</title>
-    <link href="/2020/10/20/2020_10/"/>
-    <id>/2020/10/20/2020_10/</id>
-    <published>2020-10-20T10:55:00.000Z</published>
-    <updated>2020-10-20T13:29:11.875Z</updated>
-    
-    <summary type="html">
-    
-      偶尔还是觉得挺累的
-    
-    </summary>
-    
-      <category term="随想" scheme="/categories/%E9%9A%8F%E6%83%B3/"/>
-    
-    
-      <category term="随想" scheme="/tags/%E9%9A%8F%E6%83%B3/"/>
-    
-      <category term="音乐" scheme="/tags/%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   

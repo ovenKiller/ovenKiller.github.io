@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Category: python | DayDream</title>
+  <title itemprop="name">python在Excel中的应用（一） | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -284,303 +284,196 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img data-src="python.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/2.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/2.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      python在Excel中的应用（一）</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-11-26<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">python.zh</h1>
-    <span class="cat-des">
-      <p>python.en</p>
-    </span>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="一-创建excel文件"><a href="#一-创建excel文件" class="headerlink" title="一 创建excel文件"></a>一 创建excel文件</h1><p>创建空文件:</p>
+<pre><code class="lang-python">import pandas as pd
+
+df = pd.DataFrame()
+df.to_excel(&#39;D:/pyExcel/tmp.xlsx&#39;)
+</code></pre>
+<p>给表格加点儿内容:</p>
+<pre><code class="lang-python">import pandas as pd
+
+df = pd.DataFrame({&#39;ID&#39;:[1,2,3,4],&#39;name&#39;:[&#39;liu&#39;,&#39;oio&#39;,&#39;sda&#39;,&#39;fss&#39;]})
+df.to_excel(&#39;D:/pyExcel/tmp.xlsx&#39;)
+</code></pre>
+<p>文件内容：</p>
+<pre><code class="lang-xml">    ID    name
+0    1    liu
+1    2    oio
+2    3    sda
+3    4    fss
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/1.png"><br>注意，这里第一列自动添加了0、1、2、3 作为索引<br>如何让ID当做索引呢？</p>
+<pre><code class="lang-python">import pandas as pd
+
+df = pd.DataFrame({&#39;ID&#39;:[1,2,3,4],&#39;name&#39;:[&#39;liu&#39;,&#39;oio&#39;,&#39;sda&#39;,&#39;fss&#39;]})
+df = df.set_index(&#39;ID&#39;)
+df.to_excel(&#39;D:/pyExcel/tmp.xlsx&#39;)
+</code></pre>
+<p>文件内容如下</p>
+<pre><code class="lang-xml">ID    name
+1    liu
+2    oio
+3    sda
+4    fss
+</code></pre>
+<h1 id="二、读取excel文件"><a href="#二、读取excel文件" class="headerlink" title="二、读取excel文件"></a>二、读取excel文件</h1><h2 id="1、读取与简单查看"><a href="#1、读取与简单查看" class="headerlink" title="1、读取与简单查看"></a>1、读取与简单查看</h2><p>以选修课表为例：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/3.png"><br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/2.png"></p>
+<pre><code class="lang-python">import pandas as pd
+opCourse = pd.read_excel(&#39;D:/pyExcel/jlucourse.xlsx&#39;)
+print(opCourse.head(3)) #查看前3行
+print(&quot;======================&quot;)
+print(opCourse.tail(3)) #查看最后三行
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="lang-xml">吉林大学中心校区2020-2021学年第1学期普通教育公选课开课计划表 Unnamed: 1   Unnamed: 2  ... Unnamed: 7  Unnamed: 8 Unnamed: 9
+0                                  序号       开课单位      公选课课程名称  ...       上课时间   上课地点/选课 
+人数        起止周
+1                                   1        统战部  中国民主党派与社会发展  ...         25  李四光二阶 /300   
+    8-17
+2                                   2     哲学社会学院         哲学通论  ...         45    逸夫二阶/270       8-17
+
+[3 rows x 10 columns]
+======================
+    吉林大学中心校区2020-2021学年第1学期普通教育公选课开课计划表 Unnamed: 1  ... Unnamed: 8 Unnamed: 9
+163                                 158   公共外语教育学院  ...  逸夫十五阶/300      8-16双
+164                                 NaN        NaN  ...        NaN        NaN
+165                                 NaN        NaN  ...        NaN        NaN
+
+[3 rows x 10 columns]
+</code></pre>
+<p>注意:excel第一行的数据被视为key值，不算是行数。前三行其实是2-4行。<br>并且无论输出哪几行，第一行的索引值都会被输出<br>问题是：第一行明明是表格的名字啊，key值其实在第二行。如何处理呢？</p>
+<h2 id="2、首行“脏数据”的处理。"><a href="#2、首行“脏数据”的处理。" class="headerlink" title="2、首行“脏数据”的处理。"></a>2、首行“脏数据”的处理。</h2><p>首先，假如第一行是<strong>空行</strong>，则不需要任何操作，程序会自动把第二行作为索引</p>
+<p>但假如不是空行,可以在读取时设置header参数：</p>
+<pre><code class="lang-python">import pandas as pd
+opCourse = pd.read_excel(&#39;D:/pyExcel/jlucourse.xlsx&#39;,header=1)
+print(opCourse.head(3))
+</code></pre>
+<p>输出：</p>
+<pre><code class="lang-xml">  序号    开课单位      公选课课程名称 教师信息      卡号 课程信息（包括学时/学分/类别）        课程编号 上课时
+间   上课地点/选课人数   起止周
+0  1     统战部  中国民主党派与社会发展  马忠正  216251           30/2/2  gx02250210   25  李四光二阶 /300  8-17
+1  2  哲学社会学院         哲学通论   杨晓  607334           30/2/2  tg01110201   45    逸夫二阶/270  8-17     
+2  3  哲学社会学院         西方哲学  赵雄峰  600480           30/2/2  tg01110203   45    逸夫七阶/300  8-17
+</code></pre>
+<p>这里注意:excel的行数是从1开始的，python中是从0开始，header=1指的是第2行</p>
+<h2 id="3、在无key值的列表里添加key值"><a href="#3、在无key值的列表里添加key值" class="headerlink" title="3、在无key值的列表里添加key值"></a>3、在无key值的列表里添加key值</h2><p>假如数据是如下这样的呢?<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/4.png"></p>
+<pre><code class="lang-python">import pandas as pd
+opCourse = pd.read_excel(&#39;D:/pyExcel/jlucourse.xlsx&#39;,header=None)
+print(opCourse.columns)
+#输出为 Int64Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype=&#39;int64&#39;)
+opCourse.columns = [&#39;序号&#39;,&#39;开课单位&#39;,&#39;公选课课程名称&#39;,&#39;教师信息&#39;,&#39;卡号&#39;,&#39;课程信息（包括学时/学分/类别）&#39;,&#39;课程编号&#39;,&#39;上课时间&#39;,&#39;上课地点/选课人数&#39;,&#39;起止周&#39;
+]
+opCourse.to_excel(&#39;D:/pyExcel/jlucourse(1).xlsx&#39;)
+</code></pre>
+<p>得到的新表格：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/5.png"></p>
+<p>这样，我们添加上了key值，只是表格间距看起来有点儿挤🙄</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/11/21/clear-for-queue/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                小tip:对STL中的queue执行清空操作</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/11/26/pyexcel1/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/2.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/11/26/pyexcel1/">
-    python在Excel中的应用（一）</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-11-26</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/11/26/pyexcel1/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/11/21/pythonNote/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/11/21/pythonNote/">
-    python 小白笔记</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-11-21</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/11/21/pythonNote/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/17/py爬虫 皇室战争玩家信息获取/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/17/py爬虫 皇室战争玩家信息获取/">
-    爬虫实战 皇室战争部落管理 第一步：数据获取</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-17</div>
-    <p>
-    利用爬虫获取royaleapi.com的网页信息</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/17/py爬虫 皇室战争玩家信息获取/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/09/WordCloud 《围城》《三体》词云应用/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-9-1/4.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/09/WordCloud 《围城》《三体》词云应用/">
-    《三体》《围城》词云</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-9</div>
-    <p>
-    wordcloud基础应用——《三体》《围城》中哪些词出现最多呢？</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/09/WordCloud 《围城》《三体》词云应用/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
 
-<!-- 
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/11/26/pyexcel1/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/2.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/11/26/pyexcel1/">
-    python在Excel中的应用（一）</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-11-26</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/11/26/pyexcel1/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/11/21/pythonNote/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/11/21/pythonNote/">
-    python 小白笔记</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-11-21</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/11/21/pythonNote/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/17/py爬虫 皇室战争玩家信息获取/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/17/py爬虫 皇室战争玩家信息获取/">
-    爬虫实战 皇室战争部落管理 第一步：数据获取</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-17</div>
-    <p>
-    利用爬虫获取royaleapi.com的网页信息</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/17/py爬虫 皇室战争玩家信息获取/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/09/WordCloud 《围城》《三体》词云应用/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-9-1/4.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/09/WordCloud 《围城》《三体》词云应用/">
-    《三体》《围城》词云</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-9</div>
-    <p>
-    wordcloud基础应用——《三体》《围城》中哪些词出现最多呢？</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/09/WordCloud 《围城》《三体》词云应用/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
 
- -->
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
