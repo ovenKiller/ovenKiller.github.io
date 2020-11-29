@@ -320,7 +320,7 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="一-创建excel文件"><a href="#一-创建excel文件" class="headerlink" title="一 创建excel文件"></a>一 创建excel文件</h1><p>创建空文件:</p>
+          <h1 id="一、-创建excel文件"><a href="#一、-创建excel文件" class="headerlink" title="一、 创建excel文件"></a>一、 创建excel文件</h1><p>创建空文件:</p>
 <pre><code class="lang-python">import pandas as pd
 
 df = pd.DataFrame()
@@ -392,6 +392,7 @@ print(opCourse.head(3))
 2  3  哲学社会学院         西方哲学  赵雄峰  600480           30/2/2  tg01110203   45    逸夫七阶/300  8-17
 </code></pre>
 <p>这里注意:excel的行数是从1开始的，python中是从0开始，header=1指的是第2行</p>
+<p>这时首行数据相当于被<strong>遗弃</strong>了，假如将DataFrame对象输出为excel文件，会发现首行数据被删除了。</p>
 <h2 id="3、在无key值的列表里添加key值"><a href="#3、在无key值的列表里添加key值" class="headerlink" title="3、在无key值的列表里添加key值"></a>3、在无key值的列表里添加key值</h2><p>假如数据是如下这样的呢?<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/4.png"></p>
 <pre><code class="lang-python">import pandas as pd
 opCourse = pd.read_excel(&#39;D:/pyExcel/jlucourse.xlsx&#39;,header=None)
@@ -402,7 +403,83 @@ opCourse.columns = [&#39;序号&#39;,&#39;开课单位&#39;,&#39;公选课课程
 opCourse.to_excel(&#39;D:/pyExcel/jlucourse(1).xlsx&#39;)
 </code></pre>
 <p>得到的新表格：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/5.png"></p>
-<p>这样，我们添加上了key值，只是表格间距看起来有点儿挤🙄</p>
+<p>这样，我们添加上了key值，只是表格间距看起来有点儿挤🙄<br>但是，最左侧又多出来一列index值。<br>实际上，在用pandas导入excel表格时，假如不指定index，会自动生成新的index。这些index假如再次存入excel，会在新的文件中占据一列。</p>
+<p>假如文件中存在index：</p>
+<pre><code class="lang-python">import pandas as pd
+opCourse = pd.read_excel(&#39;D:/pyExcel/jlucourse.xlsx&#39;,header=1,index_col=&#39;序号&#39;)
+print(opCourse.head())
+</code></pre>
+<p>假如文件中不存在index名，可以在设置header后再设置index。</p>
+<pre><code class="lang-python">import pandas as pd
+opCourse = pd.read_excel(&#39;D:/pyExcel/jlucourse.xlsx&#39;,header=None)
+opCourse.columns = [&#39;序号&#39;,&#39;开课单位&#39;,&#39;公选课课程名称&#39;,&#39;教师信息&#39;,&#39;卡号&#39;,&#39;课程信息（包括学时/学分/类别）&#39;,&#39;课程编号&#39;,&#39;上课时间&#39;,&#39;上课地点/选课人数&#39;,&#39;起止周&#39;
+]
+opCourse.set_index(&#39;序号&#39;,inplace=True) #与opCourse = opCourse.set_index(&#39;序号&#39;)的效果相同
+opCourse.to_excel(&#39;D:/pyExcel/jlucourse(4).xlsx&#39;)
+</code></pre>
+<h1 id="三、-行列操作"><a href="#三、-行列操作" class="headerlink" title="三、 行列操作"></a>三、 行列操作</h1><h2 id="1、Series"><a href="#1、Series" class="headerlink" title="1、Series"></a>1、Series</h2><p>Series可以用于构建dataframe</p>
+<pre><code class="lang-python">import pandas as pd
+s2 = pd.Series([1,2,3],index=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;],name = &#39;A&#39;)
+print(s2)
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="lang-xml">a    1
+b    2
+c    3
+Name: A, dtype: int64
+</code></pre>
+<pre><code class="lang-python">import pandas as pd
+s1 = pd.Series([1,2,3],index=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;],name = &#39;A&#39;)
+s2 = pd.Series([10,20,30],index=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;],name = &#39;B&#39;)
+s3 = pd.Series([100,200,300],index=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;],name = &#39;C&#39;)
+
+df = pd.DataFrame({s1.name:s1,s2.name:s2,s3.name:s3})
+print(df)
+</code></pre>
+<pre><code class="lang-xml">   A   B    C
+a  1  10  100
+b  2  20  200
+c  3  30  300
+</code></pre>
+<p>以字典的形式创建，index为列、name为行。</p>
+<pre><code class="lang-python">import pandas as pd
+s1 = pd.Series([1,2,3],index=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;],name = &#39;A&#39;)
+s2 = pd.Series([10,20,30],index=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;],name = &#39;B&#39;)
+s3 = pd.Series([100,200,300],index=[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;],name = &#39;C&#39;)
+
+df = pd.DataFrame([s1,s2,s3])
+print(df)
+</code></pre>
+<pre><code class="lang-xml">     a    b    c
+A    1    2    3
+B   10   20   30
+C  100  200  300
+</code></pre>
+<p>以列表的形式创建，name为列、index为行</p>
+<h2 id="2、如何读取特定区块的数据？"><a href="#2、如何读取特定区块的数据？" class="headerlink" title="2、如何读取特定区块的数据？"></a>2、如何读取特定区块的数据？</h2><p>对于下面这样的表格该怎么处理？<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-26-1/6.png"></p>
+<pre><code class="lang-python">import pandas as pd
+df = pd.read_excel(&#39;D:/pyExcel/tmp1.xlsx&#39;,skiprows=6, usecols=&#39;D:F&#39;,index_col=None)
+# skiprows=6: 跳过前6行
+# usecols=&#39;D:F&#39; 使用D到F列。 usecols=&#39;D,E,F&#39;也是同样的效果
+print(df)
+</code></pre>
+<pre><code class="lang-xml">    ID  score  data
+0    1    NaN   NaN
+1    2    NaN   NaN
+2    3    NaN   NaN
+3    4    NaN   NaN
+4    5    NaN   NaN
+5    6    NaN   NaN
+6    7    NaN   NaN
+8    9    NaN   NaN
+9   10    NaN   NaN
+10  11    NaN   NaN
+11  12    NaN   NaN
+</code></pre>
+<p><strong>注意两点：</strong></p>
+<blockquote>
+<p>usecols=’D:F’，包括了F列，这和python切片有区别<br>skiprows=6和header=6的应用效果是不是相同的呢？…(这个问题以后要注意)<br>读入时index_col设为None，而没有设成’ID’,这是为了便于之后对’ID’进行操作</p>
+</blockquote>
 
         </div>
         <!-- .entry-content -->

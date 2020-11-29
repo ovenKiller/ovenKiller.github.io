@@ -628,22 +628,48 @@ class simpleNet:
 
         return loss
 </code></pre>
+<p>下面是具体使用：</p>
 <pre><code class="lang-python">
+import sys, os
+sys.path.append(os.pardir) 
+import numpy as np
+from common.functions import softmax, cross_entropy_error
+from common.gradient import numerical_gradient
+
+
+class simpleNet:
+    def __init__(self):
+        self.W = np.random.randn(2,3)
+
+    def predict(self, x):
+        return np.dot(x, self.W)
+
+    def loss(self, x, t):
+        z = self.predict(x)
+        y = softmax(z)
+        loss = cross_entropy_error(y, t)
+
+        return loss
+
+x = np.array([0.6, 0.9])
+t = np.array([0, 0, 1])
+
 net = simpleNet()
-#随机生成了2×3的权重参数
-#[[-0.62344858  0.71274911 -1.04174112]
-# [ 0.03565396  0.75876225 -0.43216257]]
-
-x = np.array([0.6, 0.9]) #输入数据 即自变量
-t = np.array([0, 0, 1]) #正确解标签
-
-
-f = lambda w: net.loss(x, t)
+p = net.predict(x)
+print(p) # [-0.64406265  0.75226208  0.3971255 ]
+print(np.argmax(p)) # 1
+print(net.loss(x, t)) # 1.0222385512028003
+</code></pre>
+<p>上面的代码测试了随机生成的神经网络的预测值。可以看到误差非常大。<br>接下来求梯度：</p>
+<pre><code class="lang-python">f = lambda w: net.loss(x, t)
 dW = numerical_gradient(f, net.W)
-
 print(dW)
 </code></pre>
-<p>运行结果:</p>
+<h1 id="4-5学习算法的实现"><a href="#4-5学习算法的实现" class="headerlink" title="4.5学习算法的实现"></a>4.5学习算法的实现</h1><p>复习一下之前的内容：<br>前提:<br>何为 <strong>“学习”</strong>？。调整神经网络的权重和参数以便拟合训练数据的过程称为“学习”。</p>
+<h2 id="步骤1-mini-batch"><a href="#步骤1-mini-batch" class="headerlink" title="步骤1 (mini-batch)"></a>步骤1 (mini-batch)</h2><p>从训练数据中随机选出一部分数据。我们将其视作全体数据</p>
+<h2 id="步骤2-计算梯度"><a href="#步骤2-计算梯度" class="headerlink" title="步骤2 (计算梯度)"></a>步骤2 (计算梯度)</h2><p>计算梯度是为了更好地减少损失函数的值</p>
+<h2 id="步骤3-更新参数"><a href="#步骤3-更新参数" class="headerlink" title="步骤3 (更新参数)"></a>步骤3 (更新参数)</h2><p>将权重参数沿梯度方向进行微小更新。</p>
+<h2 id="步骤4（重复）"><a href="#步骤4（重复）" class="headerlink" title="步骤4（重复）"></a>步骤4（重复）</h2><p>重复步骤1、2、3</p>
 <font size="3" color="#8f8f8f">*更新中 最后更新于2020/10/22*</font>
 
         </div>
