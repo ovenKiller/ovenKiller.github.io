@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-12-02T15:28:25.774Z</updated>
+  <updated>2020-12-03T14:59:38.190Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git&amp;Github (一)基本介绍及初始化git</title>
+    <link href="/2020/12/03/git-note-1/"/>
+    <id>/2020/12/03/git-note-1/</id>
+    <published>2020-12-03T12:46:10.202Z</published>
+    <updated>2020-12-03T14:59:38.190Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、版本控制工具应该具备的功能？&quot;&gt;&lt;a href=&quot;#一、版本控制工具应该具备的功能？&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="git&amp;github" scheme="/categories/%E7%BC%96%E7%A8%8B/git-github/"/>
+    
+    
+      <category term="git" scheme="/tags/git/"/>
+    
+      <category term="github" scheme="/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dijkstra算法·求单源最短路径</title>
+    <link href="/2020/12/03/dijkstra/"/>
+    <id>/2020/12/03/dijkstra/</id>
+    <published>2020-12-03T10:22:00.547Z</published>
+    <updated>2020-12-03T12:32:21.672Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原理不再赘述，请参阅&lt;a href=&quot;https://www.cnblogs.com/bigsai/p/11537975.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>JLU数据结构·插入排序</title>
@@ -159,9 +221,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -191,9 +253,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -224,9 +286,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -313,9 +375,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -347,9 +409,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -409,9 +471,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -445,9 +507,9 @@
     
       <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="c++" scheme="/tags/c/"/>
-    
       <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -566,68 +628,6 @@
         
         
           &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/unique-binary-search-trees-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 93 复原IP地址</title>
-    <link href="/2020/10/26/leetcode93/"/>
-    <id>/2020/10/26/leetcode93/</id>
-    <published>2020-10-26T13:10:00.000Z</published>
-    <updated>2020-10-26T13:18:18.777Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/restore-ip-addresses/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;题目描述：&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 94 二叉树中序遍历</title>
-    <link href="/2020/10/26/leetcode94/"/>
-    <id>/2020/10/26/leetcode94/</id>
-    <published>2020-10-26T12:02:00.000Z</published>
-    <updated>2020-10-26T14:18:50.795Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/binary-tree-inorder-traversal/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2
         
       
