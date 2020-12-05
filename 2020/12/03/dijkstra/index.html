@@ -329,7 +329,7 @@
 </ul>
 <p>缺点很显然，邻接表写起来麻烦。（伪码倒是不麻烦）</p>
 <p>邻接表的设定：<br>Head:主表<br>Head[v]: 编号为v的点<br>adjacent(Head[v]): 编号为v的点的第一个邻接点指针。</p>
-<p>设p = adjacent(Head[v]),则：<br>VerAdj(p): p的结点编号<br>cost(p):&gt;v，VerAdj(p)&lt;p的权重<br>link(p): v的下一个邻接点地址。</p>
+<p>设p = adjacent(Head[v]),则：<br>VerAdj(p): p的结点编号<br>cost(p):&lt;v，VerAdj(p)&gt;p的权重<br>link(p): v的下一个邻接点地址。</p>
 <h2 id="2、其他需要存储的内容："><a href="#2、其他需要存储的内容：" class="headerlink" title="2、其他需要存储的内容："></a>2、其他需要存储的内容：</h2><p>1）如何将结点收录到S集合中？<br>设定数组s。s[i] = 1表示i号点已被收录<br>2）如何记录距离？<br>设定数组dist。dist[i] = m 表示i号点与起点距离为m<br>3）如何记录路径？<br>设定数组path。path[i]= j表示路径中i的前一个结点是j。</p>
 <p>二、伪码：</p>
 <pre><code class="lang-c">算法 DSPath(Head,n,v.dist,path)

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-12-03T14:59:38.190Z</updated>
+  <updated>2020-12-05T15:22:02.488Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,103 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git&amp;Github (二)基本操作</title>
+    <link href="/2020/12/05/git-note-2/"/>
+    <id>/2020/12/05/git-note-2/</id>
+    <published>2020-12-05T14:19:42.065Z</published>
+    <updated>2020-12-05T15:22:02.488Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、commit操作：&quot;&gt;&lt;a href=&quot;#一、commit操作：&quot; class=&quot;headerlink&quot; title=&quot;一、commit操作：&quot;&gt;&lt;/a&gt;一、commit操作：&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;lang-dos&quot;&gt;$ git
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="git&amp;github" scheme="/categories/%E7%BC%96%E7%A8%8B/git-github/"/>
+    
+    
+      <category term="git" scheme="/tags/git/"/>
+    
+      <category term="github" scheme="/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拓扑排序</title>
+    <link href="/2020/12/04/topoorder/"/>
+    <id>/2020/12/04/topoorder/</id>
+    <published>2020-12-04T12:28:42.769Z</published>
+    <updated>2020-12-05T11:54:52.896Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、拓扑排序思路&quot;&gt;&lt;a href=&quot;#一、拓扑排序思路&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="拓扑排序" scheme="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Prim 求最优生成树</title>
+    <link href="/2020/12/04/Prim/"/>
+    <id>/2020/12/04/Prim/</id>
+    <published>2020-12-04T06:27:32.929Z</published>
+    <updated>2020-12-04T11:31:45.846Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Prim算法是典型的贪心算法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步：任选1个结点，作为子图G’的第一个结点。&lt;/li&gt;
+&lt;li&gt;第二步：找出与G’相连、且不会与G’构成回路，且权值最小的边，并将该边及相邻结点收入G’。该步骤不断重复&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="图论" scheme="/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>Git&amp;Github (一)基本介绍及初始化git</title>
@@ -51,7 +148,7 @@
     <link href="/2020/12/03/dijkstra/"/>
     <id>/2020/12/03/dijkstra/</id>
     <published>2020-12-03T10:22:00.547Z</published>
-    <updated>2020-12-03T12:32:21.672Z</updated>
+    <updated>2020-12-04T06:35:57.397Z</updated>
     
     <summary type="html">
     
@@ -529,105 +626,6 @@
         
         
           &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/validate-binary-search-tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 96 不同的二叉搜索树</title>
-    <link href="/2020/11/03/leetcode96/"/>
-    <id>/2020/11/03/leetcode96/</id>
-    <published>2020-11-03T07:33:47.547Z</published>
-    <updated>2020-11-04T08:08:25.683Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/unique-binary-search-trees/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>鱼书笔记 第四章 神经网络的学习</title>
-    <link href="/2020/11/03/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%AD%A6%E4%B9%A0/"/>
-    <id>/2020/11/03/鱼书笔记 第四章 神经网络的学习/</id>
-    <published>2020-11-03T02:30:00.000Z</published>
-    <updated>2020-11-29T08:20:13.789Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;这里的“学习”是指从训练数据中自动获取最优权重参数的过程。&lt;/p&gt;
-&lt;h1 id=&quot;4-1-从数据中学习&quot;&gt;&lt;a href=&quot;#4-1-从数据中学习&quot; class=&quot;headerlink&quot; title=&quot;4.1 从数据中学习&quot;&gt;&lt;/a&gt;4.1 从数据中学习&lt;/h1&gt;&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="深度学习" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="deeplearning" scheme="/tags/deeplearning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 95 不同的二叉搜索树 Ⅱ</title>
-    <link href="/2020/11/02/leetcode95/"/>
-    <id>/2020/11/02/leetcode95/</id>
-    <published>2020-11-02T11:00:56.128Z</published>
-    <updated>2020-11-04T07:06:52.313Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/unique-binary-search-trees-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2
         
       
