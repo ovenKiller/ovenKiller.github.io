@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-12-05T15:22:02.488Z</updated>
+  <updated>2020-12-09T15:02:49.066Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Git&amp;Github (二)基本操作</title>
-    <link href="/2020/12/05/git-note-2/"/>
-    <id>/2020/12/05/git-note-2/</id>
-    <published>2020-12-05T14:19:42.065Z</published>
-    <updated>2020-12-05T15:22:02.488Z</updated>
+    <title>Git&amp;Github (三)版本穿梭</title>
+    <link href="/2020/12/07/git-note-3/"/>
+    <id>/2020/12/07/git-note-3/</id>
+    <published>2020-12-07T11:39:23.224Z</published>
+    <updated>2020-12-09T15:02:49.066Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,37 @@
       
         
         
-          &lt;h1 id=&quot;一、commit操作：&quot;&gt;&lt;a href=&quot;#一、commit操作：&quot; class=&quot;headerlink&quot; title=&quot;一、commit操作：&quot;&gt;&lt;/a&gt;一、commit操作：&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;lang-dos&quot;&gt;$ git
+          &lt;h1 id=&quot;1、-git-log-git-reflog&quot;&gt;&lt;a href=&quot;#1、-git-log-git-reflog&quot; class=&quot;headerlink&quot; title=&quot;1、 git log / git reflog&quot;&gt;&lt;/a&gt;1、 git log / git
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="git&amp;github" scheme="/categories/%E7%BC%96%E7%A8%8B/git-github/"/>
+    
+    
+      <category term="git" scheme="/tags/git/"/>
+    
+      <category term="github" scheme="/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git&amp;Github (二)基本的添加提交操作</title>
+    <link href="/2020/12/05/git-note-2/"/>
+    <id>/2020/12/05/git-note-2/</id>
+    <published>2020-12-05T14:19:42.065Z</published>
+    <updated>2020-12-07T11:39:00.559Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、基础命令&quot;&gt;&lt;a href=&quot;#一、基础命令&quot; class=&quot;headerlink&quot; title=&quot;一、基础命令&quot;&gt;&lt;/a&gt;一、基础命令&lt;/h1&gt;&lt;h2 id=&quot;1、git-status：&quot;&gt;&lt;a href=&quot;#1、git-status：&quot;
         
       
     
@@ -51,7 +81,7 @@
     <link href="/2020/12/04/topoorder/"/>
     <id>/2020/12/04/topoorder/</id>
     <published>2020-12-04T12:28:42.769Z</published>
-    <updated>2020-12-05T11:54:52.896Z</updated>
+    <updated>2020-12-07T12:58:43.671Z</updated>
     
     <summary type="html">
     
@@ -118,7 +148,7 @@
     <link href="/2020/12/03/git-note-1/"/>
     <id>/2020/12/03/git-note-1/</id>
     <published>2020-12-03T12:46:10.202Z</published>
-    <updated>2020-12-03T14:59:38.190Z</updated>
+    <updated>2020-12-09T14:58:44.242Z</updated>
     
     <summary type="html">
     
@@ -259,9 +289,9 @@
     </summary>
     
     
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
-    
       <category term="web" scheme="/tags/web/"/>
+    
+      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
     
   </entry>
   
@@ -318,9 +348,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
       <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -350,9 +380,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
       <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -383,9 +413,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
       <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -472,9 +502,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
       <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -506,9 +536,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
       <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -568,9 +598,9 @@
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
       <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -604,42 +634,11 @@
     
       <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
       <category term="c++" scheme="/tags/c/"/>
     
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
       <category term="树" scheme="/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 98 验证二叉搜索树</title>
-    <link href="/2020/11/04/leetcode97/"/>
-    <id>/2020/11/04/leetcode97/</id>
-    <published>2020-11-04T08:04:10.548Z</published>
-    <updated>2020-11-04T08:10:29.803Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/validate-binary-search-tree/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="C++" scheme="/tags/C/"/>
     
   </entry>
   

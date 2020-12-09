@@ -323,6 +323,7 @@
           <h1 id="一、版本控制工具应该具备的功能？"><a href="#一、版本控制工具应该具备的功能？" class="headerlink" title="一、版本控制工具应该具备的功能？"></a>一、版本控制工具应该具备的功能？</h1><p>1）协同修改<br>·多人并行不悖的修改<strong>服务器端</strong>的同一个文件。<br>2) 数据备份<br>·不仅保存目录和文件的当前状态，还能够保存每一个提交过的历史状态。<br>3) 版本管理<br>·在保存每一个版本的文件信息的时候要做到不保存重复数据，以节约存储空间，提高运行效率<br>4) 权限控制<br>·对团队中参与开发的人员进行权限控制。<br>·对团队外开发者贡献的代码进行审核——Git独有。<br>5)历史记录<br>·查看修改人、修改时间、修改内容、日志信息。<br>·将本地文件恢复到某一个历史状态。<br>6)分支管理<br>·允许开发团队在工作过程中多条生产线同时推进任务，进一步提高效率。</p>
 <h1 id="二、git结构"><a href="#二、git结构" class="headerlink" title="二、git结构"></a>二、git结构</h1><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-3-1/1.png"></p>
 <p>注意：图示的结构均是<strong>保存在本地</strong></p>
+<p>暂存区: index file<br>工作区: working tree</p>
 <h1 id="三、本地库初始化"><a href="#三、本地库初始化" class="headerlink" title="三、本地库初始化"></a>三、本地库初始化</h1><h2 id="1、init"><a href="#1、init" class="headerlink" title="1、init"></a>1、init</h2><p>右键菜单“Git Bash Here”,执行以下操作</p>
 <pre><code class="lang-dos">user@LAPTOP-VAFH00IB MINGW64 /d/笔记/git&amp;&amp;github
 $ git init

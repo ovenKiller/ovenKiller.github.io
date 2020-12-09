@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Git&amp;Github (二)基本操作 | DayDream</title>
+  <title itemprop="name">Git&amp;Github (二)基本的添加提交操作 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -294,7 +294,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Git&Github (二)基本操作</h1>
+      Git&Github (二)基本的添加提交操作</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -320,11 +320,11 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="一、commit操作："><a href="#一、commit操作：" class="headerlink" title="一、commit操作："></a>一、commit操作：</h1><pre><code class="lang-dos">$ git status
-
-//查看工作区、暂存区状态
-
-On branch master
+          <h1 id="一、基础命令"><a href="#一、基础命令" class="headerlink" title="一、基础命令"></a>一、基础命令</h1><h2 id="1、git-status："><a href="#1、git-status：" class="headerlink" title="1、git status："></a>1、git status：</h2><p>功能：查看工作区、暂存区状态</p>
+<pre><code class="lang-dos">$ git status
+</code></pre>
+<p>窗口反馈内容：</p>
+<pre><code class="lang-dos">On branch master
 
 //该工作区在master分支上
 
@@ -339,9 +339,12 @@ Untracked files:
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 //暂存区
 </code></pre>
-<h1 id="二、add操作："><a href="#二、add操作：" class="headerlink" title="二、add操作："></a>二、add操作：</h1><pre><code class="lang-dos">$ git add Git-GitHub.pdf
+<h2 id="2、git-add："><a href="#2、git-add：" class="headerlink" title="2、git add："></a>2、git add：</h2><p>将工作区文件添加到暂存区</p>
+<pre><code class="lang-dos">$ git add Git-GitHub.pdf
 $ git status
-On branch master
+</code></pre>
+<p>窗口显示：</p>
+<pre><code class="lang-dos">On branch master
 
 No commits yet
 
@@ -350,13 +353,12 @@ Changes to be committed:
         new file:   Git-GitHub.pdf
 </code></pre>
 <p>暂存区有了新文件。不过提示里的“git rm —cached <file>…” to unstage”是什么意思？</file></p>
-<h1 id="三、rm-—cached"><a href="#三、rm-—cached" class="headerlink" title="三、rm —cached"></a>三、rm —cached</h1><pre><code class="lang-dos">user@LAPTOP-VAFH00IB MINGW64 /d/笔记/git&amp;&amp;github (master)
-$ git rm --cached Git-GitHub.pdf
-rm &#39;Git-GitHub.pdf&#39;
-
-user@LAPTOP-VAFH00IB MINGW64 /d/笔记/git&amp;&amp;github (master)
+<h2 id="3、git-rm-—cached"><a href="#3、git-rm-—cached" class="headerlink" title="3、git rm —cached"></a>3、git rm —cached</h2><p>功能：将文件从缓冲区删除</p>
+<pre><code class="lang-dos">$ git rm --cached Git-GitHub.pdf
 $ git status
-On branch master
+</code></pre>
+<p>窗口显示：</p>
+<pre><code class="lang-dos">On branch master
 
 No commits yet
 
@@ -366,18 +368,15 @@ Untracked files:
 
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </code></pre>
-<p>文件被从缓存区删除。</p>
-<h1 id="三、commit操作"><a href="#三、commit操作" class="headerlink" title="三、commit操作"></a>三、commit操作</h1><pre><code class="lang-dos">user@LAPTOP-VAFH00IB MINGW64 /d/笔记/git&amp;&amp;github (master)
+<p>文件已被从缓存区删除。</p>
+<h2 id="4、git-commit"><a href="#4、git-commit" class="headerlink" title="4、git commit"></a>4、git commit</h2><pre><code class="lang-dos">$ git commit Git-GitHub.pdf
+</code></pre>
+<p>输入这条命令，弹出了<br>如下窗口<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-5-2/1.png"><br>现在处于vim编辑器中。<br>vim编辑器的简单使用：<br>按“i”键进入Insert模式，编辑文本。<br>(注意：#开始的文字会被屏蔽)<br>编辑结束后，按Esc打开输入栏,再输入”:wq”保存。</p>
+<pre><code class="lang-dos">$ git add Git-GitHub.pdf
 $ git commit Git-GitHub.pdf
 </code></pre>
-<p>输入这条命令，弹出了<br>如下窗口<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-5-2/1.png"><br>现在处于vim编辑器中。<br>emmmm…所以vim编辑器要怎么用啊？<br>按“i”键进入Insert模式，编辑文本。<br>注意：#开始的文字会被屏蔽</p>
-<p>编辑结束后，按Esc打开输入栏,再输入”:wq”保存。</p>
-<pre><code class="lang-dos">user@LAPTOP-VAFH00IB MINGW64 /d/笔记/git&amp;&amp;github (master)
-$ git add Git-GitHub.pdf
-
-user@LAPTOP-VAFH00IB MINGW64 /d/笔记/git&amp;&amp;github (master)
-$ git commit Git-GitHub.pdf
-[master (root-commit) f228a51] My first commit
+<p>窗口显示：</p>
+<pre><code class="lang-dos">[master (root-commit) f228a51] My first commit
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 Git-GitHub.pdf
 </code></pre>
@@ -387,7 +386,58 @@ $ git commit Git-GitHub.pdf
 <li>/<em>“root-commit”：由于这是该库的第一次提交，故被分配为root-commit，“My first commit”是commit时所标注的信息</em>/</li>
 <li>1 file changed, 0 insertions(+), 0 deletions(-)</li>
 <li>/<em>一个文件被修改，新增0行，减少0行。由于这是pdf文件，压根不存在行</em>/</li>
+<li></li>
 </ul>
+<blockquote>
+<p>Tip: git commit -m “&lt;提交备注&gt;” [&lt;文件名&gt;]命令可以省去编辑备注的操作</p>
+</blockquote>
+<h1 id="二、新建和修改的区别"><a href="#二、新建和修改的区别" class="headerlink" title="二、新建和修改的区别"></a>二、新建和修改的区别</h1><p>新建文件文件并提交到本地库：</p>
+<pre><code class="lang-dos">$ vim hello.txt
+$ git add hello.txt
+$ git commit hello.txt
+</code></pre>
+<p>窗口显示：</p>
+<pre><code class="lang-dos">warning: LF will be replaced by CRLF in hello.txt.
+The file will have its original line endings in your working directory
+[master 36ac922] 测试一下新建文件的提交：
+ 1 file changed, 2 insertions(+)
+ create mode 100644 hello.txt
+</code></pre>
+<p>hello.txt内的内容：</p>
+<pre><code class="lang-dos">试一试新建文件
+一共有两行
+</code></pre>
+<p>再修改文件：</p>
+<pre><code class="lang-dos">vim hello.txt
+</code></pre>
+<p>hello.txt内的内容：</p>
+<pre><code class="lang-dos">a
+b
+c
+</code></pre>
+<p>再次查看状态：</p>
+<pre><code class="lang-dos">
+$ git status
+
+On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
+        modified:   hello.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+<p>注意最后一行：(use “git add” and/or “git commit -a”)<br>修改后的文件也可以直接使用git commit -a提交到缓存区。</p>
+<pre><code class="lang-dos">$ git add hello.txt
+$ git commit -m &quot;哈哈&quot; hello.txt
+</code></pre>
+<p>窗口显示：</p>
+<pre><code class="lang-dos">warning: LF will be replaced by CRLF in hello.txt.
+The file will have its original line endings in your working directory
+[master 0e1f499] 哈哈
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+</code></pre>
+<p>注意：这次的提交是：[master 0e1f499]。而不是root-commit。因为这不是该工作区的第一次提交</p>
 
         </div>
         <!-- .entry-content -->
@@ -406,9 +456,26 @@ $ git commit Git-GitHub.pdf
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/12/07/git-note-3/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-5-2/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-5-2/1.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Git&amp;Github (三)版本穿梭</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2020/12/04/topoorder/" rel="next">
               <div class="background">
