@@ -417,6 +417,17 @@ print(ls) # [1, 2, 4, 6]
 <h2 id="字典类型中相同键的不同值"><a href="#字典类型中相同键的不同值" class="headerlink" title="字典类型中相同键的不同值"></a>字典类型中相同键的不同值</h2><pre><code class="lang-python">di = {&#39;a&#39;:1, &#39;b&#39;:2, &#39;b&#39;:3}
 print(di[&#39;b&#39;]) #输出是3， 不是2哦
 </code></pre>
+<h2 id="for循环中修改迭代器的值不会对循环产生影响"><a href="#for循环中修改迭代器的值不会对循环产生影响" class="headerlink" title="for循环中修改迭代器的值不会对循环产生影响"></a>for循环中修改迭代器的值不会对循环产生影响</h2><pre><code class="lang-python">for i in range(5):
+    i = i + 1
+    print(i)
+</code></pre>
+<p>输出为1、2、3、4、5</p>
+<pre><code class="lang-python">ls = [&#39;a&#39;,&#39;e&#39;,&#39;r&#39;,&#39;f&#39;,&#39;3&#39;,&#39;2&#39;]
+for i in range(len(ls)):
+    del ls[-1]
+    print(i)
+</code></pre>
+<p>输出结果：<br>0<br>1<br>2<br>3<br>4<br>5<br>也就是说，len只执行了一次</p>
 
         </div>
         <!-- .entry-content -->
