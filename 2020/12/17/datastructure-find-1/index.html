@@ -290,7 +290,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-17-1/3.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-17-1/3.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -368,36 +368,6 @@ GOTO U2
 </code></pre>
 <p>其实上面算法的m是可以事先准备好。</p>
 <h1 id="二、斐波那契查找"><a href="#二、斐波那契查找" class="headerlink" title="二、斐波那契查找"></a>二、斐波那契查找</h1><p>斐波拉契查找与二分查找相似，但构造树的方法不同</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">j</th>
-<th style="text-align:center">0</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
-<th style="text-align:center">6</th>
-<th style="text-align:center">7</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">f(j)</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">13</td>
-</tr>
-</tbody>
-</table>
-</div>
 <p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-17-1/2.png" alt="二叉判定树"></p>
 <p>对于k阶斐波拉契树(即包括外结点时层数为k)， 其根节点为<script type="math/tex">T_{k}</script>.这样很容易确定左子树。<br>对于右子树，每个结点的值<strong>减去根节点的值</strong>仍为斐波拉契树。</p>
 <p>伪码:</p>
@@ -456,7 +426,7 @@ F4[i增大].
 <li>2） 当前结点的元素有可能小于m/2 - 1（取上界）</li>
 </ul>
 <p>先从子节点取，子节点没有符合条件时就向向父节点取，取中间值往父节点放；</p>
-<h1 id="七、数字查找"><a href="#七、数字查找" class="headerlink" title="七、数字查找"></a>七、数字查找</h1><p>注意一下检索表：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-17-1/3.png" alt="检索表"></p>
+<h1 id="七、数字查找"><a href="#七、数字查找" class="headerlink" title="七、数字查找"></a>七、数字查找</h1><p>注意一下检索表：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-17-1/4.png" alt="检索表"></p>
 <h1 id="八、散列"><a href="#八、散列" class="headerlink" title="八、散列"></a>八、散列</h1><h2 id="1、散列函数"><a href="#1、散列函数" class="headerlink" title="1、散列函数"></a>1、散列函数</h2><h3 id="1）压缩法"><a href="#1）压缩法" class="headerlink" title="1）压缩法"></a>1）压缩法</h3><p>把一串数据压缩成一个。</p>
 <p>比如: 各个位数字相加取平均值：h(378) = 6<br>h(‘abc’) = ‘b’</p>
 <h3 id="2-除法"><a href="#2-除法" class="headerlink" title="2) 除法"></a>2) 除法</h3><p>h(K) = K mod M<br>M最好取素数</p>
