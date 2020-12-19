@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-12-18T01:18:09.486Z</updated>
+  <updated>2020-12-19T13:39:50.548Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,232 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python进阶 变量与函数</title>
+    <link href="/2020/12/19/python-note-1/"/>
+    <id>/2020/12/19/python-note-1/</id>
+    <published>2020-12-19T07:22:54.503Z</published>
+    <updated>2020-12-19T13:39:50.548Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot; title=&quot;目标&quot;&gt;&lt;/a&gt;目标&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;变量的引用&lt;/li&gt;
+&lt;li&gt;可变和不可变类型&lt;/li&gt;
+&lt;li&gt;局部变量和全局变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JLU数据结构 数组和字符串</title>
+    <link href="/2020/12/19/datastructure-list/"/>
+    <id>/2020/12/19/datastructure-list/</id>
+    <published>2020-12-19T06:31:28.645Z</published>
+    <updated>2020-12-19T14:31:10.805Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;数组的存储&quot;&gt;&lt;a href=&quot;#数组的存储&quot; class=&quot;headerlink&quot; title=&quot;数组的存储&quot;&gt;&lt;/a&gt;数组的存储&lt;/h2&gt;&lt;p&gt;区分：行优先存储/列优先存储&lt;br&gt;c语言中，数组按行优先顺序存储&lt;/p&gt;
+&lt;h2 id=&quot;三元组表&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JLU数据结构 线性表</title>
+    <link href="/2020/12/19/datastructure-linear/"/>
+    <id>/2020/12/19/datastructure-linear/</id>
+    <published>2020-12-19T01:32:59.157Z</published>
+    <updated>2020-12-19T02:24:33.547Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、线性表&quot;&gt;&lt;a href=&quot;#一、线性表&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JLU数据结构 绪论</title>
+    <link href="/2020/12/19/datastructure-main/"/>
+    <id>/2020/12/19/datastructure-main/</id>
+    <published>2020-12-19T01:12:25.547Z</published>
+    <updated>2020-12-19T02:10:52.804Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、数据的逻辑结构&quot;&gt;&lt;a href=&quot;#1、数据的逻辑结构&quot; class=&quot;headerlink&quot; title=&quot;1、数据的逻辑结构&quot;&gt;&lt;/a&gt;1、数据的逻辑结构&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;1)
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pycharm（1）基本快捷键</title>
+    <link href="/2020/12/18/pycharm-note1/"/>
+    <id>/2020/12/18/pycharm-note1/</id>
+    <published>2020-12-18T14:24:25.033Z</published>
+    <updated>2020-12-19T07:20:29.780Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Ctrl-W-Ctrl-Shift-W&quot;&gt;&lt;a href=&quot;#Ctrl-W-Ctrl-Shift-W&quot; class=&quot;headerlink&quot; title=&quot;Ctrl + W/ Ctrl + Shift + W&quot;&gt;&lt;/a&gt;Ctrl + W/ Ctrl +
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JLU数据结构·选择排序</title>
+    <link href="/2020/12/18/ssort/"/>
+    <id>/2020/12/18/ssort/</id>
+    <published>2020-12-18T13:19:19.576Z</published>
+    <updated>2020-12-18T13:31:56.302Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、直接选择排序&quot;&gt;&lt;a href=&quot;#一、直接选择排序&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="数据结构" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JLU数据结构·快速排序</title>
+    <link href="/2020/12/18/quick-sort/"/>
+    <id>/2020/12/18/quick-sort/</id>
+    <published>2020-12-18T07:44:05.256Z</published>
+    <updated>2020-12-18T13:12:47.530Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;注意，轴枢元素选取第一个元素。&lt;/p&gt;
+&lt;h1 id=&quot;1、伪码&quot;&gt;&lt;a href=&quot;#1、伪码&quot; class=&quot;headerlink&quot; title=&quot;1、伪码&quot;&gt;&lt;/a&gt;1、伪码&lt;/h1&gt;&lt;p&gt;算法分为两部分：&lt;br&gt;1)分划&lt;/p&gt;
+&lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="数据结构" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JLU数据结构 查找</title>
     <link href="/2020/12/17/datastructure-find-1/"/>
     <id>/2020/12/17/datastructure-find-1/</id>
     <published>2020-12-17T00:48:48.102Z</published>
-    <updated>2020-12-18T01:18:09.486Z</updated>
+    <updated>2020-12-19T07:27:11.373Z</updated>
     
     <summary type="html">
     
@@ -414,223 +635,6 @@
       <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
     
       <category term="web" scheme="/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 小白笔记</title>
-    <link href="/2020/11/21/pythonNote/"/>
-    <id>/2020/11/21/pythonNote/</id>
-    <published>2020-11-21T03:09:12.394Z</published>
-    <updated>2020-12-15T12:49:44.498Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;range-n-函数&quot;&gt;&lt;a href=&quot;#range-n-函数&quot; class=&quot;headerlink&quot; title=&quot;range(n)函数&quot;&gt;&lt;/a&gt;range(n)函数&lt;/h2&gt;&lt;p&gt;函数：range(start, stop[, step])&lt;/p&gt;
-&lt;h3
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 116 填充树中每个节点的next指针</title>
-    <link href="/2020/11/13/leetcode116/"/>
-    <id>/2020/11/13/leetcode116/</id>
-    <published>2020-11-13T15:37:03.681Z</published>
-    <updated>2020-11-13T15:51:47.779Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="c++" scheme="/tags/c/"/>
-    
-      <category term="树" scheme="/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 114. Flatten Binary Tree to Linked List 二叉树原地变链表</title>
-    <link href="/2020/11/10/leetcode114/"/>
-    <id>/2020/11/10/leetcode114/</id>
-    <published>2020-11-10T03:46:07.835Z</published>
-    <updated>2020-11-10T03:59:01.083Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="c++" scheme="/tags/c/"/>
-    
-      <category term="树" scheme="/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 113. Path Sum II 二叉树路径和</title>
-    <link href="/2020/11/10/leetcode113/"/>
-    <id>/2020/11/10/leetcode113/</id>
-    <published>2020-11-10T02:40:49.236Z</published>
-    <updated>2020-11-10T02:55:18.241Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/path-sum-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;—&amp;gt;&amp;gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="c++" scheme="/tags/c/"/>
-    
-      <category term="树" scheme="/tags/%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BBCnews 2020/11/8 败选那天的特朗普</title>
-    <link href="/2020/11/09/BBC%20news%2011-8/"/>
-    <id>/2020/11/09/BBC news 11-8/</id>
-    <published>2020-11-09T02:10:39.090Z</published>
-    <updated>2020-11-10T01:22:45.513Z</updated>
-    
-    <summary type="html">
-    
-      这或许是一个故事的谢幕...
-    
-    </summary>
-    
-      <category term="英语新闻" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="BBC news" scheme="/categories/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/BBC-news/"/>
-    
-    
-      <category term="英语新闻" scheme="/tags/%E8%8B%B1%E8%AF%AD%E6%96%B0%E9%97%BB/"/>
-    
-      <category term="BBC news" scheme="/tags/BBC-news/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快慢指针法的应用</title>
-    <link href="/2020/11/07/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/"/>
-    <id>/2020/11/07/快慢指针/</id>
-    <published>2020-11-07T02:31:28.199Z</published>
-    <updated>2020-11-07T03:49:26.614Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;所谓快慢指针法，指的是用两个前进步长不一致的指针对链表进行遍历。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;1、快慢指针定位链表中点。&quot;&gt;&lt;a href=&quot;#1、快慢指针定位链表中点。&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="算法" scheme="/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="C++" scheme="/categories/%E7%AE%97%E6%B3%95/C/"/>
-    
-    
-      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="快慢指针" scheme="/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 109 升序链表建立AVL树</title>
-    <link href="/2020/11/07/leetcode109/"/>
-    <id>/2020/11/07/leetcode109/</id>
-    <published>2020-11-07T02:17:14.521Z</published>
-    <updated>2020-11-10T01:45:19.254Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门&lt;a href=&quot;https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="c++" scheme="/tags/c/"/>
-    
-      <category term="树" scheme="/tags/%E6%A0%91/"/>
-    
-      <category term="二分" scheme="/tags/%E4%BA%8C%E5%88%86/"/>
     
   </entry>
   
