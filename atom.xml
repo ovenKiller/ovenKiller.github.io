@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2020-12-19T13:39:50.548Z</updated>
+  <updated>2021-01-15T12:57:22.597Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,194 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>pytorch(1) 简单入门</title>
+    <link href="/2021/01/15/pytorchNote-1/"/>
+    <id>/2021/01/15/pytorchNote-1/</id>
+    <published>2021-01-15T06:00:14.663Z</published>
+    <updated>2021-01-15T12:57:22.597Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、Tensor&quot;&gt;&lt;a href=&quot;#1、Tensor&quot; class=&quot;headerlink&quot; title=&quot;1、Tensor&quot;&gt;&lt;/a&gt;1、Tensor&lt;/h1&gt;&lt;p&gt;实际上就是一个高维数组。&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
+    
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记 （一）</title>
+    <link href="/2021/01/14/jsNote-1/"/>
+    <id>/2021/01/14/jsNote-1/</id>
+    <published>2021-01-14T06:45:23.499Z</published>
+    <updated>2021-01-15T14:28:00.277Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、js程序写在哪里？&quot;&gt;&lt;a href=&quot;#一、js程序写在哪里？&quot; class=&quot;headerlink&quot; title=&quot;一、js程序写在哪里？&quot;&gt;&lt;/a&gt;一、js程序写在哪里？&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ipython的使用</title>
+    <link href="/2021/01/12/ipython/"/>
+    <id>/2021/01/12/ipython/</id>
+    <published>2021-01-12T02:50:47.911Z</published>
+    <updated>2021-01-15T06:00:03.715Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;安装-打开-关闭&quot;&gt;&lt;a href=&quot;#安装-打开-关闭&quot; class=&quot;headerlink&quot; title=&quot;安装/打开/关闭&quot;&gt;&lt;/a&gt;安装/打开/关闭&lt;/h1&gt;&lt;p&gt;pip安装&lt;/p&gt;
+&lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+      <category term="pytorth" scheme="/categories/pytorth/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 116 三角形最短路径</title>
+    <link href="/2020/12/26/leetcode120/"/>
+    <id>/2020/12/26/leetcode120/</id>
+    <published>2020-12-26T02:56:55.059Z</published>
+    <updated>2020-12-26T03:08:39.578Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;class Solution {
+public:
+    int solu_sum;
+    int solu_ans;
+    int
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="树" scheme="/tags/%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python进阶 面向对象基础语法</title>
+    <link href="/2020/12/24/python-note-2/"/>
+    <id>/2020/12/24/python-note-2/</id>
+    <published>2020-12-24T14:11:47.999Z</published>
+    <updated>2020-12-24T15:04:49.716Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、‘dir’内置函数&quot;&gt;&lt;a href=&quot;#1、‘dir’内置函数&quot; class=&quot;headerlink&quot; title=&quot;1、‘dir’内置函数&quot;&gt;&lt;/a&gt;1、‘dir’内置函数&lt;/h1&gt;&lt;p&gt;在&lt;code&gt;Python&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JLU数据结构 绪论</title>
+    <link href="/2020/12/20/datastructure-tree/"/>
+    <id>/2020/12/20/datastructure-tree/</id>
+    <published>2020-12-20T08:12:23.897Z</published>
+    <updated>2020-12-20T11:40:11.392Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、树的相关定义&quot;&gt;&lt;a href=&quot;#一、树的相关定义&quot; class=&quot;headerlink&quot; title=&quot;一、树的相关定义&quot;&gt;&lt;/a&gt;一、树的相关定义&lt;/h1&gt;&lt;h2 id=&quot;何为“结点的度”？&quot;&gt;&lt;a href=&quot;#何为“结点的度”？&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python进阶 变量与函数</title>
     <link href="/2020/12/19/python-note-1/"/>
     <id>/2020/12/19/python-note-1/</id>
     <published>2020-12-19T07:22:54.503Z</published>
-    <updated>2020-12-19T13:39:50.548Z</updated>
+    <updated>2021-01-12T02:50:15.545Z</updated>
     
     <summary type="html">
     
@@ -119,7 +302,7 @@
     <link href="/2020/12/19/datastructure-main/"/>
     <id>/2020/12/19/datastructure-main/</id>
     <published>2020-12-19T01:12:25.547Z</published>
-    <updated>2020-12-19T02:10:52.804Z</updated>
+    <updated>2020-12-20T08:41:04.209Z</updated>
     
     <summary type="html">
     
@@ -180,7 +363,7 @@
     <link href="/2020/12/18/ssort/"/>
     <id>/2020/12/18/ssort/</id>
     <published>2020-12-18T13:19:19.576Z</published>
-    <updated>2020-12-18T13:31:56.302Z</updated>
+    <updated>2020-12-21T13:17:52.511Z</updated>
     
     <summary type="html">
     
@@ -242,7 +425,7 @@
     <link href="/2020/12/17/datastructure-find-1/"/>
     <id>/2020/12/17/datastructure-find-1/</id>
     <published>2020-12-17T00:48:48.102Z</published>
-    <updated>2020-12-19T07:27:11.373Z</updated>
+    <updated>2020-12-21T13:29:53.211Z</updated>
     
     <summary type="html">
     
@@ -448,193 +631,6 @@
       <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="拓扑排序" scheme="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Prim 求最优生成树</title>
-    <link href="/2020/12/04/Prim/"/>
-    <id>/2020/12/04/Prim/</id>
-    <published>2020-12-04T06:27:32.929Z</published>
-    <updated>2020-12-04T11:31:45.846Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Prim算法是典型的贪心算法&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;第一步：任选1个结点，作为子图G’的第一个结点。&lt;/li&gt;
-&lt;li&gt;第二步：找出与G’相连、且不会与G’构成回路，且权值最小的边，并将该边及相邻结点收入G’。该步骤不断重复&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="图论" scheme="/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git&amp;Github (一)基本介绍及初始化git</title>
-    <link href="/2020/12/03/git-note-1/"/>
-    <id>/2020/12/03/git-note-1/</id>
-    <published>2020-12-03T12:46:10.202Z</published>
-    <updated>2020-12-15T04:15:19.634Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、版本控制工具应该具备的功能？&quot;&gt;&lt;a href=&quot;#一、版本控制工具应该具备的功能？&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="git&amp;github" scheme="/categories/%E7%BC%96%E7%A8%8B/git-github/"/>
-    
-    
-      <category term="git" scheme="/tags/git/"/>
-    
-      <category term="github" scheme="/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dijkstra算法·求单源最短路径</title>
-    <link href="/2020/12/03/dijkstra/"/>
-    <id>/2020/12/03/dijkstra/</id>
-    <published>2020-12-03T10:22:00.547Z</published>
-    <updated>2020-12-04T06:35:57.397Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原理不再赘述，请参阅&lt;a href=&quot;https://www.cnblogs.com/bigsai/p/11537975.html&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JLU数据结构·插入排序</title>
-    <link href="/2020/12/02/insertSort/"/>
-    <id>/2020/12/02/insertSort/</id>
-    <published>2020-12-02T14:24:30.735Z</published>
-    <updated>2020-12-02T15:28:25.774Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、直接插入排序&quot;&gt;&lt;a href=&quot;#一、直接插入排序&quot; class=&quot;headerlink&quot; title=&quot;一、直接插入排序&quot;&gt;&lt;/a&gt;一、直接插入排序&lt;/h1&gt;&lt;h2 id=&quot;基础版：&quot;&gt;&lt;a href=&quot;#基础版：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="数据结构" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python在Excel中的应用（一）</title>
-    <link href="/2020/11/26/pyexcel1/"/>
-    <id>/2020/11/26/pyexcel1/</id>
-    <published>2020-11-26T13:31:40.867Z</published>
-    <updated>2020-12-02T15:24:16.758Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、-创建excel文件&quot;&gt;&lt;a href=&quot;#一、-创建excel文件&quot; class=&quot;headerlink&quot; title=&quot;一、 创建excel文件&quot;&gt;&lt;/a&gt;一、 创建excel文件&lt;/h1&gt;&lt;p&gt;创建空文件:&lt;/p&gt;
-&lt;pre&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="excel" scheme="/tags/excel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小tip:对STL中的queue执行清空操作</title>
-    <link href="/2020/11/21/clear-for-queue/"/>
-    <id>/2020/11/21/clear-for-queue/</id>
-    <published>2020-11-21T12:02:29.871Z</published>
-    <updated>2020-11-21T12:06:41.734Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;STL中的queue没有clear(清空队列)操作。&lt;br&gt;这里可以用到swap高效完成该功能：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;//假设已经定义了 queue&amp;lt;int&amp;gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
-    
-      <category term="web" scheme="/tags/web/"/>
     
   </entry>
   

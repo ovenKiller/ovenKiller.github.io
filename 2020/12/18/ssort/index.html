@@ -325,18 +325,19 @@
 <li>在前n个元素中选择最大值，放在n号位</li>
 <li>在前n-1个元素中选择最大值，放在n-1号位</li>
 <li>在前n-2个元素中选择最大值，放在n-2号位</li>
-<li>。。。。<pre><code class="lang-c">算法SSort(R,n)
+<li>。。。。</li>
+</ul>
+<p>一定要区分： <strong>直接插入排序</strong>与<strong>直接选择排序</strong></p>
+<pre><code class="lang-c">算法SSort(R,n)
 FOR j = n TO 2 STEP -1 DO
 {
-  t = 1.//t用来记录最大值的下标
-  FOR i = 2 TO j DO{
-      IF Kt &lt; Ki THEN t = i.
-  }
-  swap(Rj,Rt).
+    t = 1.//t用来记录最大值的下标
+    FOR i = 2 TO j DO{
+        IF Kt &lt; Ki THEN t = i.
+    }
+    swap(Rj,Rt).
 }
 </code></pre>
-</li>
-</ul>
 <h1 id="二、堆排序"><a href="#二、堆排序" class="headerlink" title="二、堆排序"></a>二、堆排序</h1>
         </div>
         <!-- .entry-content -->
@@ -457,7 +458,7 @@ FOR j = n TO 2 STEP -1 DO
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 断梦三生<br>
+      &copy; 2021 断梦三生<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

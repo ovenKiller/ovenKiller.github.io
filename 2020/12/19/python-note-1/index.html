@@ -365,7 +365,23 @@ print(num)
 <li>为了保证所有的函数都能够正确使用到全局变量，应该<strong>将全局变量定义在其他函数的上方</strong><h2 id="2）-开发时的全局变量"><a href="#2）-开发时的全局变量" class="headerlink" title="2） 开发时的全局变量"></a>2） 开发时的全局变量</h2></li>
 </ul>
 <p>开发时全局变量需要加上特定记号，以避免混淆<br>如：<code>g_</code> 或者<code>gl_</code> 的前缀</p>
-<h1 id="函数参数和返回值的使用"><a href="#函数参数和返回值的使用" class="headerlink" title="函数参数和返回值的使用"></a>函数参数和返回值的使用</h1>
+<h1 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h1><blockquote>
+<p>问题1：在函数内部，针对参数使用<strong>赋值语句</strong>，会不会影响调用函数时传递的<strong>实参变量（的值）</strong>？—<br>—不会！</p>
+<ul>
+<li>无论传递的参数是<strong>可变</strong> 还是<strong>不可变</strong> <em> 只要<strong>针对参数</strong>使用<strong>赋值语句</strong>，会在<strong>函数内部</strong> 修改<strong>局部变量的引用</strong>，<em>*不会影响到外部变量的引用</em></em></li>
+</ul>
+<p>问题2：如果传递的参数是<strong>可变类型</strong>，在函数内部，使用<strong>方法</strong> 修改了数据的内容，<strong>同样会影响到外部的数据</strong></p>
+</blockquote>
+<pre><code class="lang-python">    def mutable(num_list):
+    # num_list = [1, 2, 3]
+    num_list.extend([1, 2, 3])
+    print(num_list)
+    gl_list = [6, 7, 8]
+    mutable(gl_list)
+    print(gl_list)
+</code></pre>
+<pre><code>示例——`+=`* 在`python` 中，列表变量调用`+=` 本质上是在执行列表变量的`extend` 方法，不会修改变量的引用
+</code></pre>
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
@@ -383,9 +399,26 @@ print(num)
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/12/20/datastructure-tree/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                JLU数据结构 绪论</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2020/12/19/datastructure-list/" rel="next">
               <div class="background">
@@ -468,7 +501,7 @@ print(num)
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 断梦三生<br>
+      &copy; 2021 断梦三生<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

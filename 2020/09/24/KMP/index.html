@@ -326,6 +326,7 @@
 <p>先贴一个感觉比较清楚的教程：<a href="https://blog.csdn.net/starstar1992/article/details/54913261" target="_blank" rel="noopener">KMP算法最浅显理解——一看就明白</a>。这里面的代码相对通俗易懂。</p>
 <p>下面是自己实现时的感受：<br><br>算法的原理还是比较好懂的，但在看别人代码时最最难受的事情就是next数组的确定…不同的人有不同的规则。比如next[i] 的值为 n，有可能是指前i+1个字符有长度为n的重复串，也有可能值前i+1个字符有长度为n+1的字符串，也有可能指前i个字符有长度为n的字符串，某些人还会特别的把next[0]设定为-1…<br><strong>关键的关键，是设定这种规则的人，还往往不把规则说清楚！！！</strong>（读这一大串字就够痛苦了，更别说我在阅读他人代码实现时是有多痛苦了☹）</p>
 <p>下面的代码依照一般教科书上的官方版本，next[i] = n,表示前i+1个（注意下标从0到i共i+1）字符有长度为n+1的重复串，没有其他特殊约定。</p>
+<p>|模式串:|a|b|a|b|a|c|a|<br>|next[i]|-1|-1|0|1|2|-1|0|</p>
 <pre><code class="lang-cpp">#include&lt;string&gt;
 #include&lt;iostream&gt;
 using namespace std;
@@ -510,7 +511,7 @@ int main()
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 断梦三生<br>
+      &copy; 2021 断梦三生<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
