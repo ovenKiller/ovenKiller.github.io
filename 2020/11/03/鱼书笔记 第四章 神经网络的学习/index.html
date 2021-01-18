@@ -605,6 +605,7 @@ plt.show()
 <p>得到的图像：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-3-1/3.png"></p>
 <p>可以看到，自变量不断向（0，0）点逼近。</p>
+<p>实际上，(x,y) = (0,0)就是该问题的解。<br>我们可以把神经网络的参数看成这里的x、y,就能逐步得出loss = 0的时候神经网络的参数取值了</p>
 <p>像学习率这样的参数称为<strong>超参数(hyperparameter)</strong>,神经网络中的权重参数等是在学习中自动获得的，而超参数则是人工设定的。一般来说，超参数需要不断尝试新的值</p>
 <h2 id="4-4-2-神经网络的梯度"><a href="#4-4-2-神经网络的梯度" class="headerlink" title="4.4.2 神经网络的梯度"></a>4.4.2 神经网络的梯度</h2><p>神经网络的学习中，“梯度”一般指的是损失函数关于权重参数的梯度。<br>设权重为W, 损失函数为L：</p>
 <script type="math/tex; mode=display">W = \begin{pmatrix}w_{11} & w_{12} & w_{13}\\w_{21} & w_{22} & w_{23}\\ \end{pmatrix}</script><script type="math/tex; mode=display">\frac{\delta L}{\delta W} = \begin{pmatrix}\frac{\delta L}{\delta w_{11}} & \frac{\delta L}{\delta w_{12}} & \frac{\delta L}{\delta w_{13}}\\\frac{\delta L}{\delta w_{21}} & \frac{\delta L}{\delta w_{22}} & \frac{\delta L}{\delta w_{23}}\\ \end{pmatrix}</script><p>求梯度代码的python实现(随书源码):</p>
@@ -666,11 +667,168 @@ dW = numerical_gradient(f, net.W)
 print(dW)
 </code></pre>
 <h1 id="4-5学习算法的实现"><a href="#4-5学习算法的实现" class="headerlink" title="4.5学习算法的实现"></a>4.5学习算法的实现</h1><p>复习一下之前的内容：<br>前提:<br>何为 <strong>“学习”</strong>？。调整神经网络的权重和参数以便拟合训练数据的过程称为“学习”。</p>
-<h2 id="步骤1-mini-batch"><a href="#步骤1-mini-batch" class="headerlink" title="步骤1 (mini-batch)"></a>步骤1 (mini-batch)</h2><p>从训练数据中随机选出一部分数据。我们将其视作全体数据</p>
-<h2 id="步骤2-计算梯度"><a href="#步骤2-计算梯度" class="headerlink" title="步骤2 (计算梯度)"></a>步骤2 (计算梯度)</h2><p>计算梯度是为了更好地减少损失函数的值</p>
-<h2 id="步骤3-更新参数"><a href="#步骤3-更新参数" class="headerlink" title="步骤3 (更新参数)"></a>步骤3 (更新参数)</h2><p>将权重参数沿梯度方向进行微小更新。</p>
-<h2 id="步骤4（重复）"><a href="#步骤4（重复）" class="headerlink" title="步骤4（重复）"></a>步骤4（重复）</h2><p>重复步骤1、2、3</p>
-<font size="3" color="#8f8f8f">*更新中 最后更新于2020/10/22*</font>
+<h3 id="步骤1-mini-batch"><a href="#步骤1-mini-batch" class="headerlink" title="步骤1 (mini-batch)"></a>步骤1 (mini-batch)</h3><p>从训练数据中随机选出一部分数据。我们将其视作全体数据</p>
+<h3 id="步骤2-计算梯度"><a href="#步骤2-计算梯度" class="headerlink" title="步骤2 (计算梯度)"></a>步骤2 (计算梯度)</h3><p>计算梯度是为了更好地减少损失函数的值</p>
+<h3 id="步骤3-更新参数"><a href="#步骤3-更新参数" class="headerlink" title="步骤3 (更新参数)"></a>步骤3 (更新参数)</h3><p>将权重参数沿梯度方向进行微小更新。</p>
+<h3 id="步骤4（重复）"><a href="#步骤4（重复）" class="headerlink" title="步骤4（重复）"></a>步骤4（重复）</h3><p>重复步骤1、2、3</p>
+<p>该算法采用的数据来自于随机选择的mini-batch数据，因此也被称为<strong>随机梯度下降法</strong></p>
+<h2 id="4-5-1-2层神经网络的实现"><a href="#4-5-1-2层神经网络的实现" class="headerlink" title="4.5.1 2层神经网络的实现"></a>4.5.1 2层神经网络的实现</h2><pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir)  # 
+from common.functions import *
+from common.gradient import numerical_gradient
+import numpy as np
+
+
+class TwoLayerNet:
+
+    def __init__(self, input_size, hidden_size, output_size, weight_init_std=0.01):
+        # 初始化。
+        self.params = {}
+        self.params[&#39;W1&#39;] = weight_init_std * np.random.randn(input_size, hidden_size)
+        self.params[&#39;b1&#39;] = np.zeros(hidden_size)#返回值为一个用0填充的数组
+        self.params[&#39;W2&#39;] = weight_init_std * np.random.randn(hidden_size, output_size)
+        self.params[&#39;b2&#39;] = np.zeros(output_size)
+    # params保存着神经网络的参数。其中W1表示第一层的权重、权重为随机值，偏置为0，
+    # hidden_size是隐藏层的神经元数，设置为一个合适的值即可
+    #第0、1、2层分别是输入层、隐藏层、输出层
+
+
+    def predict(self, x):
+        W1, W2 = self.params[&#39;W1&#39;], self.params[&#39;W2&#39;]
+        b1, b2 = self.params[&#39;b1&#39;], self.params[&#39;b2&#39;]
+        a1 = np.dot(x, W1) + b1
+        z1 = sigmoid(a1)
+        a2 = np.dot(z1, W2) + b2
+        y = softmax(a2)
+        return y
+    # 预测函数，两层神经网络分别用sigmoid函数和softmax函数作激活函数
+
+
+
+    def loss(self, x, t):
+        y = self.predict(x)
+
+        return cross_entropy_error(y, t)
+    # x为输入数据，t为正确解标签 返回的是交叉熵误差
+
+
+   def accuracy(self, x, t):
+        y = self.predict(x)
+        y = np.argmax(y, axis=1)
+        t = np.argmax(t, axis=1)
+
+        accuracy = np.sum(y == t) / float(x.shape[0])
+        return accuracy
+    #应该是评估精确度
+
+
+   def numerical_gradient(self, x, t):
+        loss_W = lambda W: self.loss(x, t)   
+        grads = {}
+        grads[&#39;W1&#39;] = numerical_gradient(loss_W, self.params[&#39;W1&#39;])
+        grads[&#39;b1&#39;] = numerical_gradient(loss_W, self.params[&#39;b1&#39;])
+        grads[&#39;W2&#39;] = numerical_gradient(loss_W, self.params[&#39;W2&#39;])
+        grads[&#39;b2&#39;] = numerical_gradient(loss_W, self.params[&#39;b2&#39;])
+        return grads
+        #计算梯度    
+
+
+    def gradient(self, x, t):
+        W1, W2 = self.params[&#39;W1&#39;], self.params[&#39;W2&#39;]
+        b1, b2 = self.params[&#39;b1&#39;], self.params[&#39;b2&#39;]
+        grads = {}
+
+        batch_num = x.shape[0]
+
+        # forward
+        a1 = np.dot(x, W1) + b1
+        z1 = sigmoid(a1)
+        a2 = np.dot(z1, W2) + b2
+        y = softmax(a2)
+
+        # backward
+        dy = (y - t) / batch_num
+        grads[&#39;W2&#39;] = np.dot(z1.T, dy)
+        grads[&#39;b2&#39;] = np.sum(dy, axis=0)
+
+        dz1 = np.dot(dy, W2.T)
+        da1 = sigmoid_grad(a1) * dz1
+        grads[&#39;W1&#39;] = np.dot(x.T, da1)
+        grads[&#39;b1&#39;] = np.sum(da1, axis=0)
+
+        return grads
+        # 误差反向传播法 高速计算梯度
+</code></pre>
+<p>每一个参数对应着一个梯度<br>如grads[‘b1’]和params[‘b1’]维度是相同的。</p>
+<h2 id="4-5-2-mini-batch的实现"><a href="#4-5-2-mini-batch的实现" class="headerlink" title="4.5.2 mini-batch的实现"></a>4.5.2 mini-batch的实现</h2><p>神经网络的学习主要是使用<strong>mini-batch学习</strong><br>mini-batch学习：从训练数据中选择一部分数据（称为mini-batch）,再以这些mini-batch为输入数据，使用梯度法更新参数。</p>
+<p>下面我们以TwoLayerNet为对象，进行mini-batch学习<br><em>以下为随书源码</em></p>
+<pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir)  
+import numpy as np
+import matplotlib.pyplot as plt
+from dataset.mnist import load_mnist
+from two_layer_net import TwoLayerNet
+
+# 读入完整的MINIST数据
+(x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, one_hot_label=True)
+
+#初始化一个神经网络
+network = TwoLayerNet(input_size=784, hidden_size=50, output_size=10)
+
+iters_num = 10000  #循环次数
+train_size = x_train.shape[0]
+batch_size = 100 #批（batch）大小
+learning_rate = 0.1 # 学习率
+
+train_loss_list = []
+#train_acc_list = []
+#test_acc_list = []
+
+#iter_per_epoch = max(train_size / batch_size, 1)
+
+for i in range(iters_num):
+    batch_mask = np.random.choice(train_size, batch_size)
+    x_batch = x_train[batch_mask]
+    t_batch = t_train[batch_mask]
+
+    # 计算梯度
+    grad = network.gradient(x_batch, t_batch)
+
+    # 更新参数
+    for key in (&#39;W1&#39;, &#39;b1&#39;, &#39;W2&#39;, &#39;b2&#39;):
+        network.params[key] -= learning_rate * grad[key]
+
+    loss = network.loss(x_batch, t_batch)
+    train_loss_list.append(loss)
+
+    # if i % iter_per_epoch == 0:
+    #     train_acc = network.accuracy(x_train, t_train)
+    #     test_acc = network.accuracy(x_test, t_test)
+    #     train_acc_list.append(train_acc)
+    #     test_acc_list.append(test_acc)
+    #     print(&quot;train acc, test acc | &quot; + str(train_acc) + &quot;, &quot; + str(test_acc))
+
+# 绘制图像
+# markers = {&#39;train&#39;: &#39;o&#39;, &#39;test&#39;: &#39;s&#39;}
+# x = np.arange(len(train_acc_list))
+# plt.plot(x, train_acc_list, label=&#39;train acc&#39;)
+# plt.plot(x, test_acc_list, label=&#39;test acc&#39;, linestyle=&#39;--&#39;)
+# plt.xlabel(&quot;epochs&quot;)
+# plt.ylabel(&quot;accuracy&quot;)
+# plt.ylim(0, 1.0)
+# plt.legend(loc=&#39;lower right&#39;)
+# plt.show()
+</code></pre>
+<p>注意被注释掉的代码，涉及到下一个问题：评价识别精度。</p>
+<h2 id="4-5-3-基于测试数据的评价"><a href="#4-5-3-基于测试数据的评价" class="headerlink" title="4.5.3 基于测试数据的评价"></a>4.5.3 基于测试数据的评价</h2><p>经过神经网络的学习，损失函数的值可以不断减小,但这个“减小”仅仅是针对某个特定mini-batch的，假如换成另外的数据，是不是也能减小呢？<br>这就涉及到神经网络的评价。需要利用训练用的mini-batch以外的数据来进行评价。</p>
+<p>每经过一个epoch，就评估一次识别精度。</p>
+<blockquote>
+<p>何为epoch? 即：完整地“看”过一次训练数据所用的次数。<br>比如训练数据大小为1000，mini-batch大小为100，经过10次就可以“看”完所有的训练数据<br>上面的代码中，每次更新参数后都会重新随机选择mini-batch，10次未必能看完所有数据。但是实际应用中，一般是将训练数据随机打乱。比如训练数据为1000，mini-batch大小为100，将1000个数据标为1、2、…1000,第一次训练选择1~100,第二次选择101~200…这样经过10次，就能看完所有数据</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-3-1/4.png" alt="识别精度"></p>
+<p>可以看到，刚才的那段代码识别精度在稳步提升</p>
 
         </div>
         <!-- .entry-content -->

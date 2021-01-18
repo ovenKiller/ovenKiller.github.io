@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-01-15T12:57:22.597Z</updated>
+  <updated>2021-01-18T14:57:18.745Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>pytorch(1) 简单入门</title>
-    <link href="/2021/01/15/pytorchNote-1/"/>
-    <id>/2021/01/15/pytorchNote-1/</id>
-    <published>2021-01-15T06:00:14.663Z</published>
-    <updated>2021-01-15T12:57:22.597Z</updated>
+    <title>鱼书笔记 第五章 误差反向传播法</title>
+    <link href="/2021/01/18/DLFromScratch-5/"/>
+    <id>/2021/01/18/DLFromScratch-5/</id>
+    <published>2021-01-18T02:30:00.000Z</published>
+    <updated>2021-01-18T14:57:18.745Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,98 @@
       
         
         
-          &lt;h1 id=&quot;1、Tensor&quot;&gt;&lt;a href=&quot;#1、Tensor&quot; class=&quot;headerlink&quot; title=&quot;1、Tensor&quot;&gt;&lt;/a&gt;1、Tensor&lt;/h1&gt;&lt;p&gt;实际上就是一个高维数组。&lt;br&gt;&lt;img
+          &lt;p&gt;&lt;strong&gt;误差反向传播法&lt;/strong&gt;是一种高效地求解权重参数梯度的方法&lt;/p&gt;
+&lt;h1 id=&quot;5-1-计算图&quot;&gt;&lt;a href=&quot;#5-1-计算图&quot; class=&quot;headerlink&quot; title=&quot;5.1 计算图&quot;&gt;&lt;/a&gt;5.1
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="深度学习" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="deeplearning" scheme="/tags/deeplearning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python 列表生成器</title>
+    <link href="/2021/01/17/ListComprehensions/"/>
+    <id>/2021/01/17/ListComprehensions/</id>
+    <published>2021-01-17T03:56:07.618Z</published>
+    <updated>2021-01-17T04:00:38.706Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;基础版：&quot;&gt;&lt;a href=&quot;#基础版：&quot; class=&quot;headerlink&quot; title=&quot;基础版：&quot;&gt;&lt;/a&gt;基础版：&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;variable = [out_exp for item in
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="/categories/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库笔记（一）</title>
+    <link href="/2021/01/16/databaseNote-1/"/>
+    <id>/2021/01/16/databaseNote-1/</id>
+    <published>2021-01-16T10:53:18.416Z</published>
+    <updated>2021-01-18T14:56:28.334Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、-什么是数据库？&quot;&gt;&lt;a href=&quot;#一、-什么是数据库？&quot; class=&quot;headerlink&quot; title=&quot;一、 什么是数据库？&quot;&gt;&lt;/a&gt;一、 什么是数据库？&lt;/h1&gt;&lt;h2 id=&quot;数据库是电子化信息的集合。&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="数据库" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch(1) 简单入门</title>
+    <link href="/2021/01/15/pytorchNote-1/"/>
+    <id>/2021/01/15/pytorchNote-1/</id>
+    <published>2021-01-15T06:00:14.663Z</published>
+    <updated>2021-01-16T09:41:17.156Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、Tensor&quot;&gt;&lt;a href=&quot;#1、Tensor&quot; class=&quot;headerlink&quot; title=&quot;1、Tensor&quot;&gt;&lt;/a&gt;1、Tensor&lt;/h1&gt;&lt;p&gt;实际上就是一个高维数组。类似与numpy&lt;br&gt;&lt;img
         
       
     
@@ -40,9 +131,9 @@
       <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
     
     
-      <category term="pytorch" scheme="/tags/pytorch/"/>
-    
       <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
     
   </entry>
   
@@ -79,7 +170,7 @@
     <link href="/2021/01/12/ipython/"/>
     <id>/2021/01/12/ipython/</id>
     <published>2021-01-12T02:50:47.911Z</published>
-    <updated>2021-01-15T06:00:03.715Z</updated>
+    <updated>2021-01-15T14:34:16.564Z</updated>
     
     <summary type="html">
     
@@ -131,9 +222,9 @@ public:
       <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
       <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="树" scheme="/tags/%E6%A0%91/"/>
     
@@ -539,98 +630,6 @@ public:
       <category term="git" scheme="/tags/git/"/>
     
       <category term="github" scheme="/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git&amp;Github (三)版本穿梭</title>
-    <link href="/2020/12/07/git-note-3/"/>
-    <id>/2020/12/07/git-note-3/</id>
-    <published>2020-12-07T11:39:23.224Z</published>
-    <updated>2020-12-10T14:24:23.358Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;1、-git-log-git-reflog&quot;&gt;&lt;a href=&quot;#1、-git-log-git-reflog&quot; class=&quot;headerlink&quot; title=&quot;1、 git log / git reflog&quot;&gt;&lt;/a&gt;1、 git log / git
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="git&amp;github" scheme="/categories/%E7%BC%96%E7%A8%8B/git-github/"/>
-    
-    
-      <category term="git" scheme="/tags/git/"/>
-    
-      <category term="github" scheme="/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git&amp;Github (二)基本的添加提交操作</title>
-    <link href="/2020/12/05/git-note-2/"/>
-    <id>/2020/12/05/git-note-2/</id>
-    <published>2020-12-05T14:19:42.065Z</published>
-    <updated>2020-12-14T15:25:02.562Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、基础命令&quot;&gt;&lt;a href=&quot;#一、基础命令&quot; class=&quot;headerlink&quot; title=&quot;一、基础命令&quot;&gt;&lt;/a&gt;一、基础命令&lt;/h1&gt;&lt;h2 id=&quot;1、git-status：&quot;&gt;&lt;a href=&quot;#1、git-status：&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="git&amp;github" scheme="/categories/%E7%BC%96%E7%A8%8B/git-github/"/>
-    
-    
-      <category term="git" scheme="/tags/git/"/>
-    
-      <category term="github" scheme="/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>拓扑排序</title>
-    <link href="/2020/12/04/topoorder/"/>
-    <id>/2020/12/04/topoorder/</id>
-    <published>2020-12-04T12:28:42.769Z</published>
-    <updated>2020-12-07T12:58:43.671Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、拓扑排序思路&quot;&gt;&lt;a href=&quot;#一、拓扑排序思路&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="拓扑排序" scheme="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   

@@ -320,15 +320,40 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="1、Tensor"><a href="#1、Tensor" class="headerlink" title="1、Tensor"></a>1、Tensor</h1><p>实际上就是一个高维数组。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-15-1/1.png" alt="Tensor"></p>
-<h2 id="三种加法的写法："><a href="#三种加法的写法：" class="headerlink" title="三种加法的写法："></a>三种加法的写法：</h2><pre><code class="lang-python">import torch as t
+          <h1 id="1、Tensor"><a href="#1、Tensor" class="headerlink" title="1、Tensor"></a>1、Tensor</h1><p>实际上就是一个高维数组。类似与numpy<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-15-1/1.png" alt="Tensor"></p>
+<h2 id="加法的几种写法："><a href="#加法的几种写法：" class="headerlink" title="加法的几种写法："></a>加法的几种写法：</h2><pre><code class="lang-python">import torch as t
 x = t.Tensor(5,3)
 y = t.Tensor(5,3)
+z = t.Tensor(5,3) # z必须事先分配内存
 </code></pre>
-<h3 id="1"><a href="#1" class="headerlink" title="1)"></a>1)</h3><pre><code class="lang-python">
-
+<h3 id="1"><a href="#1" class="headerlink" title="1)"></a>1)</h3><pre><code class="lang-python">z = x + y
 </code></pre>
+<h3 id="2"><a href="#2" class="headerlink" title="2)"></a>2)</h3><pre><code class="lang-python">z = t.add(x,y)
+</code></pre>
+<h2 id="3"><a href="#3" class="headerlink" title="3)"></a>3)</h2><pre><code class="lang-python">t.add(x,y,out = z)
+</code></pre>
+<h2 id="4）add-与-add-的区别："><a href="#4）add-与-add-的区别：" class="headerlink" title="4）add() 与 add_()的区别："></a>4）add() 与 add_()的区别：</h2><p>x.add(y),等同于 x+y。 x的值不会改变<br>x.add_(y)等同于 x += y（且返回值是x的值）</p>
+<h2 id="Tensor与numpy的相互转化"><a href="#Tensor与numpy的相互转化" class="headerlink" title="Tensor与numpy的相互转化"></a>Tensor与numpy的相互转化</h2><p>与numpy相比，Tensor支持gpu运算。<br>numpy()方法可以将Tensor转化为numpy</p>
+<pre><code class="lang-python">In [23]: x = t.Tensor(3,4)
 
+In [24]: y = x.numpy()
+In [26]: x[1][1] = 1
+
+In [27]: y
+Out[27]:
+array([[1.0102060e-38, 9.0000075e-39, 9.6428910e-39, 1.0653069e-38],
+       [1.0102052e-38, 1.0000000e+00, 1.0653079e-38, 9.0000426e-39],
+       [8.4490268e-39, 8.7245053e-39, 1.0102052e-38, 1.0653065e-38]],
+      dtype=float32)
+</code></pre>
+<p>注意：Tensor与numpy共用内存，所以两者的转化非常快。但相对的，对其中一个的操作也会影响另一个</p>
+<h2 id="GPU加速运算"><a href="#GPU加速运算" class="headerlink" title="GPU加速运算"></a>GPU加速运算</h2><p>cuda方法可以将Tensor转化为支持cuda的Tensor</p>
+<pre><code class="lang-python">if t.cuda.is_available():
+    x = x.cuda()
+    y = y.cuda()
+    z = x + y
+</code></pre>
+<h1 id="Autograd-自动微分"><a href="#Autograd-自动微分" class="headerlink" title="Autograd 自动微分"></a>Autograd 自动微分</h1>
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
@@ -346,9 +371,26 @@ y = t.Tensor(5,3)
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/01/16/databaseNote-1/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-16-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-16-1/1.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                数据库笔记（一）</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2021/01/14/jsNote-1/" rel="next">
               <div class="background">
