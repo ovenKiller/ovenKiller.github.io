@@ -323,7 +323,157 @@
           <p><strong>误差反向传播法</strong>是一种高效地求解权重参数梯度的方法</p>
 <h1 id="5-1-计算图"><a href="#5-1-计算图" class="headerlink" title="5.1 计算图"></a>5.1 计算图</h1><p>这是为了便于理解“误差反向传播法”而引入的一种图。类似“表达式树”<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/1.png" alt="计算图"></p>
 <p>箭头上的数字即为上一步的运算结果。<br>f = [(a <em> x) +(b </em> y)] * c<br>计算图的特点是：每个结点仅需进行“局部运算”，只需要把箭头上传来的数据进行一步处理就ok</p>
-<p>以上就是一次<strong>正向传播</strong>过程</p>
+<p>以上就是一次<strong>正向传播</strong>过程<br>计算图的意义在于，可以反向传播高效求导数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/2.png" alt="计算图反向传播"></p>
+<h1 id="5-2-链式法则"><a href="#5-2-链式法则" class="headerlink" title="5.2 链式法则"></a>5.2 链式法则</h1><h2 id="5-2-1-amp-5-2-2-链式法则基本内容"><a href="#5-2-1-amp-5-2-2-链式法则基本内容" class="headerlink" title="5.2.1 &amp; 5.2.2 链式法则基本内容"></a>5.2.1 &amp; 5.2.2 链式法则基本内容</h2><p>涉及到微积分（二）内容🐶<br>已知f(u, v), u(x, y),v(x, y)</p>
+<script type="math/tex; mode=display">\frac{\delta f} {\delta x}=\frac{\delta f} {\delta u}\times\frac{\delta u} {\delta x}+\frac{\delta f} {\delta v}\times\frac{\delta v} {\delta x}</script><p>这个规则可用于反向传播求梯度</p>
+<h2 id="5-2-3-链式法则和计算图"><a href="#5-2-3-链式法则和计算图" class="headerlink" title="5.2.3 链式法则和计算图"></a>5.2.3 链式法则和计算图</h2><script type="math/tex; mode=display">t=x+y</script><script type="math/tex; mode=display">z=t^2</script><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/3.png" alt="计算图与链式法则"></p>
+<p>注：该图中**2是平方的意思<br>可以看出，反向传播是基于链式法则的</p>
+<h1 id="5-3-反向传播"><a href="#5-3-反向传播" class="headerlink" title="5.3 反向传播"></a>5.3 反向传播</h1><p>对于加法节点，由于加法不会影响导数值，输入信号会原封不动地传入下一个节点</p>
+<p>对于乘法节点呢？<br>对于函数<script type="math/tex">f(x,y)=xy</script></p>
+<script type="math/tex; mode=display">\frac{\delta f}{\delta x}=y,\frac{\delta f}{\delta y}=x</script><p>可见，在反向传播时，导数乘以正向传播时的翻转值<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/4.png" alt="计算图与链式法则"></p>
+<p>实现反向传播时需要用到正向传播的输入信号，所以需要保存正向传播时的数据</p>
+<h2 id="反向传播举例"><a href="#反向传播举例" class="headerlink" title="反向传播举例"></a>反向传播举例</h2><p>试求下面神经网络的正向传播和反向传播图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/5.png" alt="例"></p>
+<p>（答案在该文章最后）</p>
+<h1 id="5-4-简单层的实现"><a href="#5-4-简单层的实现" class="headerlink" title="5.4 简单层的实现"></a>5.4 简单层的实现</h1><p>乘法节点称为乘法层，加法节点称为加法层</p>
+<h2 id="1）乘法层"><a href="#1）乘法层" class="headerlink" title="1）乘法层"></a>1）乘法层</h2><p>以下为随书源码：</p>
+<pre><code class="lang-python"># coding: utf-8
+class MulLayer:
+    def __init__(self):
+        self.x = None
+        self.y = None
+
+    def forward(self, x, y):
+        self.x = x
+        self.y = y                
+        out = x * y
+
+        return out
+
+    def backward(self, dout):
+        dx = dout * self.y
+        dy = dout * self.x
+
+        return dx, dy
+</code></pre>
+<p>乘法层的使用可以是这样：</p>
+<pre><code class="lang-python"># coding: utf-8
+from layer_naive import *#引入了上面创建的对象
+
+apple = 100
+apple_num = 2
+tax = 1.1
+
+mul_apple_layer = MulLayer()
+mul_tax_layer = MulLayer()
+
+# forward正向传播
+apple_price = mul_apple_layer.forward(apple, apple_num)
+price = mul_tax_layer.forward(apple_price, tax)
+
+# backward 反向传播
+dprice = 1
+dapple_price, dtax = mul_tax_layer.backward(dprice)
+dapple, dapple_num = mul_apple_layer.backward(dapple_price)
+
+print(&quot;price:&quot;, int(price))
+print(&quot;dApple:&quot;, dapple)
+print(&quot;dApple_num:&quot;, int(dapple_num))
+print(&quot;dTax:&quot;, dtax)
+</code></pre>
+<h2 id="2）加法层"><a href="#2）加法层" class="headerlink" title="2）加法层"></a>2）加法层</h2><pre><code class="lang-python">class AddLayer:
+    def __init__(self):
+        pass
+
+    def forward(self, x, y):
+        out = x + y
+
+        return out
+
+    def backward(self, dout):
+        dx = dout * 1
+        dy = dout * 1
+
+        return dx, dy
+</code></pre>
+<p>使用一个含有加法层和乘法层的计算图：</p>
+<pre><code class="lang-python"># coding: utf-8
+from layer_naive import *
+
+apple = 100
+apple_num = 2
+orange = 150
+orange_num = 3
+tax = 1.1
+
+# layer
+mul_apple_layer = MulLayer()
+mul_orange_layer = MulLayer()
+add_apple_orange_layer = AddLayer()
+mul_tax_layer = MulLayer()
+
+# forward
+apple_price = mul_apple_layer.forward(apple, apple_num)  # (1)
+orange_price = mul_orange_layer.forward(orange, orange_num)  # (2)
+all_price = add_apple_orange_layer.forward(apple_price, orange_price)  # (3)
+price = mul_tax_layer.forward(all_price, tax)  # (4)
+
+# backward
+dprice = 1
+dall_price, dtax = mul_tax_layer.backward(dprice)  # (4)
+dapple_price, dorange_price = add_apple_orange_layer.backward(dall_price)  # (3)
+dorange, dorange_num = mul_orange_layer.backward(dorange_price)  # (2)
+dapple, dapple_num = mul_apple_layer.backward(dapple_price)  # (1)
+
+print(&quot;price:&quot;, int(price))
+print(&quot;dApple:&quot;, dapple)
+print(&quot;dApple_num:&quot;, int(dapple_num))
+print(&quot;dOrange:&quot;, dorange)
+print(&quot;dOrange_num:&quot;, int(dorange_num))
+print(&quot;dTax:&quot;, dtax)
+</code></pre>
+<p>这是前面的答案！⬇⬇⬇⬇<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/6.png" alt="答案"></p>
+<h1 id="5-5-激活函数的实现"><a href="#5-5-激活函数的实现" class="headerlink" title="5.5 激活函数的实现"></a>5.5 激活函数的实现</h1><h2 id="5-51-ReLU-rectified-liner-unit-层"><a href="#5-51-ReLU-rectified-liner-unit-层" class="headerlink" title="5.51 ReLU(rectified liner unit)层"></a>5.51 ReLU(rectified liner unit)层</h2><p>ReLU函数表达式还能想起来吗？</p>
+<p>ReLU函数的导数为：</p>
+<script type="math/tex; mode=display">\frac{\delta y}{\delta x}=\left\{\begin{aligned}1,x>0\\0,x<0\end{aligned}\right.</script><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/7.png" alt="ReLU函数计算图"></p>
+<p>随书源码：</p>
+<pre><code class="lang-python">class Relu:
+    def __init__(self):
+        self.mask = None
+
+    def forward(self, x):
+        self.mask = (x &lt;= 0)
+        out = x.copy()
+        out[self.mask] = 0
+
+        return out
+
+    def backward(self, dout):
+        dout[self.mask] = 0
+        dx = dout
+
+        return dx
+</code></pre>
+<p>mask数组的作用？</p>
+<p>ReLU函数可以看作一个“开关”，当输入为正时开关打开，输入为负时开关关闭。<br>开关打开时，对信号没有影响；开关关闭后，信号一律置0</p>
+<p>当mask实际上记录了“开关”的状态，当mask=True,开关就断开了。</p>
+<h2 id="5-52-Sigmoid层"><a href="#5-52-Sigmoid层" class="headerlink" title="5.52 Sigmoid层"></a>5.52 Sigmoid层</h2><p>sigmoid函数的表达式还记得嘛？</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/7.png" alt="ReLU函数计算图"></p>
+<p>该式的推导运用了极其复杂的高数知识！🐷（好吧是我太菜了）<br>类的实现：（随书源码）</p>
+<pre><code class="lang-python">class Sigmoid:
+    def __init__(self):
+        self.out = None
+
+    def forward(self, x):
+        out = sigmoid(x)
+        self.out = out
+        return out
+
+    def backward(self, dout):
+        dx = dout * (1.0 - self.out) * self.out
+
+        return dx
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -342,9 +492,26 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/01/19/databaseNote-2/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                数据库笔记（一）</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2021/01/17/ListComprehensions/" rel="next">
               <div class="background">
