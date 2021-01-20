@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: 深度学习 | DayDream</title>
+  <title itemprop="name">数据库笔记（三）关系模型 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -284,262 +284,133 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="深度学习.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/1.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      数据库笔记（三）关系模型</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-1-20<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">深度学习</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="关系模型的三要素"><a href="#关系模型的三要素" class="headerlink" title="关系模型的三要素"></a>关系模型的三要素</h1><p>基本结构：表(table)/关系(relation)<br>基本操作：交、并、差、等等等<br>完整性约束： 实体完整性，操作完整性，用户自定义完整性</p>
+<h2 id="“表-table-”的定义"><a href="#“表-table-”的定义" class="headerlink" title="“表(table)”的定义"></a>“表(table)”的定义</h2><h3 id="第一步：定义“域”"><a href="#第一步：定义“域”" class="headerlink" title="第一步：定义“域”"></a>第一步：定义“域”</h3><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/1.png" alt="域"></p>
+<h3 id="第二步：组成“元组”"><a href="#第二步：组成“元组”" class="headerlink" title="第二步：组成“元组”"></a>第二步：组成“元组”</h3><p>表中的一行就是一个“元组”<br>各个域之间可以自由组合，便形成<strong>笛卡尔积</strong></p>
+<h3 id="第三步：形成“关系”"><a href="#第三步：形成“关系”" class="headerlink" title="第三步：形成“关系”"></a>第三步：形成“关系”</h3><p>笛卡尔积中的每个元组未必是有意义的<br>比如。名字可以取值:“关公”，性别可以取值“女”，但是未必有一个这样的数据存在<br>而“关系”是笛卡尔积的子集</p>
+<p>一个“域”与表中的“列”不一定一一对应。因此，我们还要定义属性名。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/2.png" alt="属性名"></p>
+<h1 id="关系模式"><a href="#关系模式" class="headerlink" title="关系模式"></a>关系模式</h1><p>关系可用R(A1:D1, A2:D2, … , An:Dn)表示，可简记为R(A1, A2, … , An)，这种描述又被称为关系模式(Schema)或表标题(head)<br>R是关系的名字, Ai是属性, Di是属性所对应的域, n是关系的度或目(degree), 关系中元组的数目称为关系的基数(Cardinality)<br>例如下图的关系为一3目关系，描述为家庭(丈夫:男人，妻子:女人, 子女:儿童)或家庭(丈夫，妻子, 子女)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/3.png" alt="关系"></p>
+<h1 id="什么是关系"><a href="#什么是关系" class="headerlink" title="什么是关系"></a>什么是关系</h1><h2 id="关系的特性："><a href="#关系的特性：" class="headerlink" title="关系的特性："></a>关系的特性：</h2><p>列是同质：即每一列中的分量来自同一域，是同一类型的数据<br>不同的列可来自同一个域，称其中的每一列为一个属性，不同的属性要给予不同的属性名。</p>
+<p>列位置互换性：区分哪一列是靠列名<br>行位置互换性：区分哪一行是靠某一或某几列的值(关键字/键字/码字)<br><strong>关系是以内容(名字或值)来区分的，而不是属性在关系的位置来区分</strong></p>
+<p>理论上，关系的任意两个元组不能完全相同。(集合的要求：集合内不能有相同的两个元素)；现实应用中，表(Table)可能并不完全遵守此特性。<br>元组相同是指两个元组的每个分量都相同</p>
+<p>也就是说，“关系”和“表”有细微的差别</p>
+<h2 id="关系第一范式："><a href="#关系第一范式：" class="headerlink" title="关系第一范式："></a>关系第一范式：</h2><p>属性不可再分特性:又被称为关系第一范式<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/3.png" alt="关系第一范式"><br>复合属性和多值属性都不满足关系第一范式</p>
+<h1 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h1><h2 id="候选码-候选键"><a href="#候选码-候选键" class="headerlink" title="候选码/候选键"></a>候选码/候选键</h2><p>关系中的一个属性组，其值能唯一标识一个元组，若从该属性组中去掉任何一个属性，它就不具有这一性质了，这样的属性组称作候选码。<br>例如：“学生(S#, Sname, Sage, Sclass)”，S#就是一个候选码，在此关系中，任何两个元组的S#是一定不同的，而这两个元组的Sname, Sage, Sclass都可能相同(同名、同龄、同班)，所以S#是候选码</p>
+<h2 id="主码-主键"><a href="#主码-主键" class="headerlink" title="主码/主键"></a>主码/主键</h2><p>多个候选码中可以选择一个作为主码</p>
+<h2 id="主属性与非主属性"><a href="#主属性与非主属性" class="headerlink" title="主属性与非主属性"></a>主属性与非主属性</h2><p>包含在任何一个候选码中的属性被称作主属性，而其他属性被称作非主属性如“选课”中的S# , C#为主属性，而Sname, Cname, Grade则为非主属性；<br>最简单的，候选码只包含一个属性<br>最极端的，所有属性构成这个关系的候选码，称为全码(All-Key)。<br>比如：关系“教师授课”(T#,C#)中的候选码(T#,C#)就是全码</p>
+<h2 id="外码-Foreign-Key-外键"><a href="#外码-Foreign-Key-外键" class="headerlink" title="外码(Foreign Key)/外键"></a>外码(Foreign Key)/外键</h2><p>关系R中的一个属性组，它不是R的候选码，但它与另一个关系S的候选码相对应，则称这个属性组为R的外码或外键。</p>
+<p>例如“合同”关系中的客户号不是候选码，但却是外码。因它与“客户”关系中的候选码“客户号”相对应。<br>两个关系通常是靠外码连接起来的</p>
+<h1 id="关系模型的完整性"><a href="#关系模型的完整性" class="headerlink" title="关系模型的完整性"></a>关系模型的完整性</h1><h2 id="实体完整性"><a href="#实体完整性" class="headerlink" title="实体完整性"></a>实体完整性</h2><p>关系的主码中的属性值不能为空值<br>空值：不知道或无意义的值；<br>意义：关系中的元组对应到现实世界相互之间可区分的一个个个体，这些个体是通过主码来唯一标识的；若主码为空，则出现不可标识的个体，这是不容许的</p>
+<h2 id="参照完整性"><a href="#参照完整性" class="headerlink" title="参照完整性"></a>参照完整性</h2><p>如果关系R1的外码Fk与关系R2的主码Pk相对应，则R1中的每一个元组的Fk值或者等于R2 中某个元组的Pk值，或者为空值<br>意义：如果关系R1的某个元组t1参照了关系R2的某个元组t2，则t2必须存在<br>例如关系Student在D#上的取值有两种可能:<br>空值，表示该学生尚未分到任何系中<br>若非空值，则必须是Dept关系中某个元组的D#值，表示该学生不可能分到一个不存在的系中</p>
+<h2 id="用户自定义完整性"><a href="#用户自定义完整性" class="headerlink" title="用户自定义完整性"></a>用户自定义完整性</h2><p>用户针对具体的应用环境定义的完整性约束条件<br>如S#要求是10位整数，其中前四位为年度，当前年度与他们的差必须在4以内</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2021/01/20/DLFromScratch-6/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                鱼书笔记 第六章 与学习有关的技巧</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/01/20/DLFromScratch-6/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/01/20/DLFromScratch-6/">
-    鱼书笔记 第六章 与学习有关的技巧</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-1-20</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/01/20/DLFromScratch-6/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/01/18/DLFromScratch-5/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/01/18/DLFromScratch-5/">
-    鱼书笔记 第五章 误差反向传播法</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-1-18</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/01/18/DLFromScratch-5/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2021/01/15/pytorchNote-1/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2021/01/15/pytorchNote-1/">
-    pytorch(1) 简单入门</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2021-1-15</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2021/01/15/pytorchNote-1/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-11-3-1/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-    鱼书笔记 第四章 神经网络的学习</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-11-3</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/11/03/鱼书笔记 第四章 神经网络的学习/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/10/02/鱼书笔记 第三章 神经网络/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/3.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/10/02/鱼书笔记 第三章 神经网络/">
-    鱼书笔记 第三章 神经网络</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-10-2</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/10/02/鱼书笔记 第三章 神经网络/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-    鱼书笔记 第二章 感知机</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-27</div>
-    <p>
-    介绍一下感知机的概念和实现</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/27/鱼书笔记 第二章 感知机/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/09/22/鱼书笔记 第一章 NumPy库和Matplotlib库的使用/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-20-1/2.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/09/22/鱼书笔记 第一章 NumPy库和Matplotlib库的使用/">
-    鱼书笔记 第一章 NumPy和Matplotlib的使用</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-9-22</div>
-    <p>
-    介绍一下两个python库</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/09/22/鱼书笔记 第一章 NumPy库和Matplotlib库的使用/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

@@ -458,7 +458,7 @@ print(&quot;dTax:&quot;, dtax)
 <p>ReLU函数可以看作一个“开关”，当输入为正时开关打开，输入为负时开关关闭。<br>开关打开时，对信号没有影响；开关关闭后，信号一律置0</p>
 <p>当mask实际上记录了“开关”的状态，当mask=True,开关就断开了。</p>
 <h2 id="5-52-Sigmoid层"><a href="#5-52-Sigmoid层" class="headerlink" title="5.52 Sigmoid层"></a>5.52 Sigmoid层</h2><p>sigmoid函数的表达式还记得嘛？</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/7.png" alt="ReLU函数计算图"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/8.png" alt="ReLU函数计算图"></p>
 <p>该式的推导运用了极其复杂的高数知识！🐷（好吧是我太菜了）<br>类的实现：（随书源码）</p>
 <pre><code class="lang-python">class Sigmoid:
     def __init__(self):
@@ -474,6 +474,128 @@ print(&quot;dTax:&quot;, dtax)
 
         return dx
 </code></pre>
+<p>sigmoid函数可以通过正向传播时输出的y来确定反向传播的梯度</p>
+<h1 id="5-6-Affine-Softmax层的实现"><a href="#5-6-Affine-Softmax层的实现" class="headerlink" title="5.6 Affine/Softmax层的实现"></a>5.6 Affine/Softmax层的实现</h1><h2 id="5-6-1-amp-5-6-2-Affine层"><a href="#5-6-1-amp-5-6-2-Affine层" class="headerlink" title="5.6.1&amp;5.6.2 Affine层"></a>5.6.1&amp;5.6.2 Affine层</h2><p>实现仿射变换的层叫做<strong>Affine层</strong>（仿射层）</p>
+<blockquote>
+<p>仿射变换：对矩阵的一次线性变换和一次平移。如 X.*W + B</p>
+</blockquote>
+<p>类似于一个加法层和一个乘法层的叠加，只不过这里的变量是矩阵</p>
+<p>对于 <script type="math/tex">XW=Y</script>,<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/9.png" alt="Affine层"></p>
+<script type="math/tex; mode=display">\frac{\delta L}{\delta X}=\frac{\delta L}{\delta Y}W^T</script><script type="math/tex; mode=display">\frac{\delta L}{\delta W}=X^T\frac{\delta L}{\delta Y}</script><p>代码实现:</p>
+<pre><code class="lang-python">class Affine:
+    def __init__(self, W, b):
+        self.W =W
+        self.b = b
+
+        self.x = None
+        self.original_x_shape = None
+        # 重み・バイアスパラメータの微分
+        self.dW = None
+        self.db = None
+
+    def forward(self, x):
+        # テンソル対応
+        self.original_x_shape = x.shape
+        x = x.reshape(x.shape[0], -1)
+        self.x = x
+
+        out = np.dot(self.x, self.W) + self.b
+
+        return out
+
+    def backward(self, dout):
+        dx = np.dot(dout, self.W.T)
+        self.dW = np.dot(self.x.T, dout)
+        self.db = np.sum(dout, axis=0)
+        #注意这一句：db存储的是dout的每列的和
+        dx = dx.reshape(*self.original_x_shape)  # 入力データの形状に戻す（テンソル対応）
+        return dx
+</code></pre>
+<p>这段代码考虑了数据是张量的情况，俺不细究了！</p>
+<h2 id="5-6-3-Softmax-with-Loss-层"><a href="#5-6-3-Softmax-with-Loss-层" class="headerlink" title="5.6.3 Softmax with Loss 层"></a>5.6.3 Softmax with Loss 层</h2><p>Softmax函数的作用：将输入值正规化后输出<br>什么是正规化？<br>把结果处理成0~1之间的数字</p>
+<p>softmax和Cross Entrory Error函数比较复杂，但是两者结合后，经过简化的计算图如下图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/10.png" alt="softmax计算图"><br>反向传播时居然结果是y1-t1这样的值，妙~<br>(实际上，交叉熵误差就是为softmax函数设计的，得到y1-t1这样的值是有bear而来)</p>
+<h1 id="5-7误差反向传播法的实现"><a href="#5-7误差反向传播法的实现" class="headerlink" title="5.7误差反向传播法的实现"></a>5.7误差反向传播法的实现</h1><h2 id="5-7-1-神经网络学习的全貌"><a href="#5-7-1-神经网络学习的全貌" class="headerlink" title="5.7.1 神经网络学习的全貌"></a>5.7.1 神经网络学习的全貌</h2><p>学习：调整权重和偏置以便拟合训练数据的过程</p>
+<h3 id="step-1-mini-batch"><a href="#step-1-mini-batch" class="headerlink" title="step 1(mini-batch)"></a>step 1(mini-batch)</h3><p>选取一个batch的数据作为训练数据</p>
+<h3 id="step-2-计算梯度"><a href="#step-2-计算梯度" class="headerlink" title="step 2(计算梯度)"></a>step 2(计算梯度)</h3><h3 id="step-3-更新参数"><a href="#step-3-更新参数" class="headerlink" title="step 3(更新参数)"></a>step 3(更新参数)</h3><h3 id="step-4-重复"><a href="#step-4-重复" class="headerlink" title="step 4(重复)"></a>step 4(重复)</h3><h2 id="5-7-2-代码实现："><a href="#5-7-2-代码实现：" class="headerlink" title="5.7.2 代码实现："></a>5.7.2 代码实现：</h2><p>（随书源码）</p>
+<pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir) 
+import numpy as np
+from common.layers import *
+from common.gradient import numerical_gradient
+from collections import OrderedDict
+
+
+class TwoLayerNet:
+
+    def __init__(self, input_size, hidden_size, output_size, weight_init_std = 0.01):
+        # 数据初始化
+        self.params = {}
+        self.params[&#39;W1&#39;] = weight_init_std * np.random.randn(input_size, hidden_size)
+        self.params[&#39;b1&#39;] = np.zeros(hidden_size)
+        self.params[&#39;W2&#39;] = weight_init_std * np.random.randn(hidden_size, output_size) 
+        self.params[&#39;b2&#39;] = np.zeros(output_size)
+
+        # 生成神经网络的各层
+        self.layers = OrderedDict()
+        self.layers[&#39;Affine1&#39;] = Affine(self.params[&#39;W1&#39;], self.params[&#39;b1&#39;])
+        self.layers[&#39;Relu1&#39;] = Relu()
+        self.layers[&#39;Affine2&#39;] = Affine(self.params[&#39;W2&#39;], self.params[&#39;b2&#39;])
+
+        self.lastLayer = SoftmaxWithLoss()
+
+    def predict(self, x):
+        for layer in self.layers.values():
+            x = layer.forward(x)
+
+        return x
+
+    def loss(self, x, t):
+        y = self.predict(x)
+        return self.lastLayer.forward(y, t)
+
+    def accuracy(self, x, t):
+        y = self.predict(x)
+        y = np.argmax(y, axis=1)
+        if t.ndim != 1 : t = np.argmax(t, axis=1)
+
+        accuracy = np.sum(y == t) / float(x.shape[0])
+        return accuracy
+
+    # x:入力データ, t:教師データ
+    def numerical_gradient(self, x, t):
+        loss_W = lambda W: self.loss(x, t)
+
+        grads = {}
+        grads[&#39;W1&#39;] = numerical_gradient(loss_W, self.params[&#39;W1&#39;])
+        grads[&#39;b1&#39;] = numerical_gradient(loss_W, self.params[&#39;b1&#39;])
+        grads[&#39;W2&#39;] = numerical_gradient(loss_W, self.params[&#39;W2&#39;])
+        grads[&#39;b2&#39;] = numerical_gradient(loss_W, self.params[&#39;b2&#39;])
+
+        return grads
+
+    def gradient(self, x, t):
+        # forward
+        self.loss(x, t)
+
+        # backward
+        dout = 1
+        dout = self.lastLayer.backward(dout)
+
+        layers = list(self.layers.values())
+        layers.reverse()
+        for layer in layers:
+            dout = layer.backward(dout)
+        grads = {}
+        grads[&#39;W1&#39;], grads[&#39;b1&#39;] = self.layers[&#39;Affine1&#39;].dW, self.layers[&#39;Affine1&#39;].db
+        grads[&#39;W2&#39;], grads[&#39;b2&#39;] = self.layers[&#39;Affine2&#39;].dW, self.layers[&#39;Affine2&#39;].db
+
+        return grads
+</code></pre>
+<p>注意上面的layer是有序字典。（因为神经网络的层是有先后顺序的，有序字典可以依次调用各层）</p>
+<h2 id="5-7-3-梯度确认"><a href="#5-7-3-梯度确认" class="headerlink" title="5.7.3 梯度确认"></a>5.7.3 梯度确认</h2><p>使用误差反向传播法，虽然速度很快，但是可能会发生错误（为什么？）。</p>
+<p>经常会比较误差反向传播法和数值微分法的结果，这个操作称为<strong>梯度确认</strong></p>
 
         </div>
         <!-- .entry-content -->
