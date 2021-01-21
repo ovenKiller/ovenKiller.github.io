@@ -392,6 +392,180 @@ class Adam:
             #unbisa_b += (1 - self.beta2) * (grads[key]*grads[key] - self.v[key]) # correct bias
             #params[key] += self.lr * unbias_m / (np.sqrt(unbisa_b) + 1e-7)
 </code></pre>
+<h1 id="6-2-权重的初始值"><a href="#6-2-权重的初始值" class="headerlink" title="6.2 权重的初始值"></a>6.2 权重的初始值</h1><h2 id="6-2-1-初始权重可以设为0吗"><a href="#6-2-1-初始权重可以设为0吗" class="headerlink" title="6.2.1 初始权重可以设为0吗"></a>6.2.1 初始权重可以设为0吗</h2><p>减小权重的值可以抑制过拟合的发生（具体原因在之后的章节会解释）。但初始权重可以设为0吗？</p>
+<p><em>注：查阅资料了解到，权重可以取负值，但这里“减少权重的值”指的是绝对值还是数值呢？</em></p>
+<p>答案是：不可以设为0.确切地说，权重不应该设计成一样的值。（起码在梯度下降算法时是这样的）</p>
+<p>假设：第一层和第二层之间的权重全部设为0，那么第二层接收到的值是相同的。</p>
+<p>那么，当反向传播时，第二层返回的导数也是相同的。</p>
+<p>那么，第二层权重的更新幅度也是相同的。</p>
+<p>这样就使神经网络失去了意义——神经网络必须要有复杂的权重才有意义。</p>
+<h2 id="6-2-2-隐藏层的激活值分布"><a href="#6-2-2-隐藏层的激活值分布" class="headerlink" title="6.2.2 隐藏层的激活值分布"></a>6.2.2 隐藏层的激活值分布</h2><p>解释一下隐藏层的激活值：就是隐藏层激活函数的输出数据。<br>已经知道，神经网络的权重需要设为满足高斯分布的值。那么标准差应该设为多少呢？</p>
+<p>下面构造的神经网络测试了标准差为1的情况：</p>
+<pre><code class="lang-python"># coding: utf-8
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+
+def ReLU(x):
+    return np.maximum(0, x)
+
+
+def tanh(x):
+    return np.tanh(x) #双曲正切函数
+
+input_data = np.random.randn(1000, 100)  # 1000个输入数据
+node_num = 100  # 每个隐藏层的神经元数目
+hidden_layer_size = 5  # 隐藏层数
+activations = {}  # 结果保存的位置
+
+x = input_data
+
+for i in range(hidden_layer_size):#注意这个循环包括了十几行语句哦！
+    if i != 0:
+        x = activations[i-1]
+
+    #实验！
+    w = np.random.randn(node_num, node_num) * 1
+    # w = np.random.randn(node_num, node_num) * 0.01
+    # w = np.random.randn(node_num, node_num) * np.sqrt(1.0 / node_num)
+    # w = np.random.randn(node_num, node_num) * np.sqrt(2.0 / node_num)
+
+
+    a = np.dot(x, w)
+
+
+    # 活性化関数の種類も変えて実験しよう！
+    z = sigmoid(a)
+    # z = ReLU(a)
+    # z = tanh(a)
+
+    activations[i] = z
+
+# ヒストグラムを描画
+for i, a in activations.items():
+    plt.subplot(1, len(activations), i+1)
+    plt.title(str(i+1) + &quot;-layer&quot;)
+    if i != 0: plt.yticks([], [])
+    # plt.xlim(0.1, 1)
+    # plt.ylim(0, 7000)
+    plt.hist(a.flatten(), 30, range=(0,1))
+plt.show()
+</code></pre>
+<p>下面展示的是标准差为1、0.01、<script type="math/tex">\sqrt{\frac{1}{n}}</script>、<script type="math/tex">\sqrt{\frac{2}{n}}</script>时的激活值分布：<br>（注：n是上一层的神经元数。比如对于第1层的初始值，应使用第0层的神经元数）<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/2.png" alt="1"><br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/3.png" alt="2"><br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/4.png" alt="3"><br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/5.png" alt="4"></p>
+<p>梯度消失：这里使用的是sigmoid函数，当激活值偏向0或1时，导数会接近于0，这样就发生了梯度消失问题。<br>图1便是这种情况<br>表现力缺失：如果激活值集中于某几个值，那么大量的神经元就没有存在的意义了，这称为<strong>表现力缺失</strong><br>图1、2都有表现力缺失的问题</p>
+<p>所以标准差设为<script type="math/tex">\sqrt{\frac{1}{n}}</script>、<script type="math/tex">\sqrt{\frac{2}{n}}</script>或许是更好的选择</p>
+<ul>
+<li>当激活函数为sigmoid或者tanh时，使用标准差为<script type="math/tex">\sqrt{\frac{1}{n}}</script>的初始值</li>
+<li>当激活函数为ReLU函数时，使用标准差为<script type="math/tex">\sqrt{\frac{2}{n}}</script>的初始值</li>
+</ul>
+<h1 id="6-3-Batch-Normalization"><a href="#6-3-Batch-Normalization" class="headerlink" title="6.3 Batch Normalization"></a>6.3 Batch Normalization</h1><p>前面的初始值设定的目标是：激活值有一定的“广度”<br>那么我们可不可以刻意提高这个“广度”来帮助学习的进行呢？ 由此，出现了BatchNormalization方法<br>Batch Norm有以下优点：</p>
+<ul>
+<li>使学习快速进行（可以增大学习率）</li>
+<li>不那么依赖初始值</li>
+<li>抑制过拟合</li>
+</ul>
+<p>Batch Norm的方法是：向神经网络中插入若干个Batch Norm层，该层用于对数据进行正规化。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/6.png" alt="BatchNorm使用"></p>
+<p>正规化：使输出数据均值为0、方差为1</p>
+<script type="math/tex; mode=display">\mu_{B}$$:均值
+$$\sigma^{2}_{B}$$:方差
+
+输出函数：
+$$x_i=\frac{x_i-\mu_B}{\sqrt{\sigma^2+\epsilon}}</script><p>其中<script type="math/tex">\epsilon</script>是一个微小的接近0的值，加上它是为了避免分母为0</p>
+<p>以下代码用于对batch-norm的评估</p>
+<pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポートするための設定
+import numpy as np
+import matplotlib.pyplot as plt
+from dataset.mnist import load_mnist
+from common.multi_layer_net_extend import MultiLayerNetExtend
+from common.optimizer import SGD, Adam
+
+(x_train, t_train), (x_test, t_test) = load_mnist(normalize=True)
+
+# 学習データを削減
+x_train = x_train[:1000]
+t_train = t_train[:1000]
+
+max_epochs = 20
+train_size = x_train.shape[0]
+batch_size = 100
+learning_rate = 0.01
+
+
+def __train(weight_init_std):
+    bn_network = MultiLayerNetExtend(input_size=784, hidden_size_list=[100, 100, 100, 100, 100], output_size=10, 
+                                    weight_init_std=weight_init_std, use_batchnorm=True)
+    network = MultiLayerNetExtend(input_size=784, hidden_size_list=[100, 100, 100, 100, 100], output_size=10,
+                                weight_init_std=weight_init_std)
+    optimizer = SGD(lr=learning_rate)
+
+    train_acc_list = []
+    bn_train_acc_list = []
+
+    iter_per_epoch = max(train_size / batch_size, 1)
+    epoch_cnt = 0
+
+    for i in range(1000000000):
+        batch_mask = np.random.choice(train_size, batch_size)
+        x_batch = x_train[batch_mask]
+        t_batch = t_train[batch_mask]
+
+        for _network in (bn_network, network):
+            grads = _network.gradient(x_batch, t_batch)
+            optimizer.update(_network.params, grads)
+
+        if i % iter_per_epoch == 0:
+            train_acc = network.accuracy(x_train, t_train)
+            bn_train_acc = bn_network.accuracy(x_train, t_train)
+            train_acc_list.append(train_acc)
+            bn_train_acc_list.append(bn_train_acc)
+
+            print(&quot;epoch:&quot; + str(epoch_cnt) + &quot; | &quot; + str(train_acc) + &quot; - &quot; + str(bn_train_acc))
+
+            epoch_cnt += 1
+            if epoch_cnt &gt;= max_epochs:
+                break
+
+    return train_acc_list, bn_train_acc_list
+
+
+# 3.グラフの描画==========
+weight_scale_list = np.logspace(0, -4, num=16)
+x = np.arange(max_epochs)
+
+for i, w in enumerate(weight_scale_list):
+    print( &quot;============== &quot; + str(i+1) + &quot;/16&quot; + &quot; ==============&quot;)
+    train_acc_list, bn_train_acc_list = __train(w)
+
+    plt.subplot(4,4,i+1)
+    plt.title(&quot;W:&quot; + str(w))
+    if i == 15:
+        plt.plot(x, bn_train_acc_list, label=&#39;Batch Normalization&#39;, markevery=2)
+        plt.plot(x, train_acc_list, linestyle = &quot;--&quot;, label=&#39;Normal(without BatchNorm)&#39;, markevery=2)
+    else:
+        plt.plot(x, bn_train_acc_list, markevery=2)
+        plt.plot(x, train_acc_list, linestyle=&quot;--&quot;, markevery=2)
+
+    plt.ylim(0, 1.0)
+    if i % 4:
+        plt.yticks([])
+    else:
+        plt.ylabel(&quot;accuracy&quot;)
+    if i &lt; 12:
+        plt.xticks([])
+    else:
+        plt.xlabel(&quot;epochs&quot;)
+    plt.legend(loc=&#39;lower right&#39;)
+
+plt.show()
+</code></pre>
+<p>运行结果：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/7.png" alt="batchNorm效果评估"></p>
+<p>实线为使用batch norm 虚线为不使用。</p>
 
         </div>
         <!-- .entry-content -->
