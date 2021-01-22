@@ -565,7 +565,253 @@ for i, w in enumerate(weight_scale_list):
 plt.show()
 </code></pre>
 <p>运行结果：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/7.png" alt="batchNorm效果评估"></p>
-<p>实线为使用batch norm 虚线为不使用。</p>
+<p>实线为使用batch norm 。虚线为不使用。</p>
+<h1 id="6-4-正则化"><a href="#6-4-正则化" class="headerlink" title="6.4 正则化"></a>6.4 正则化</h1><h2 id="6-4-1-过拟合"><a href="#6-4-1-过拟合" class="headerlink" title="6.4.1 过拟合"></a>6.4.1 过拟合</h2><p>过拟合是指：训练出的模型只能拟合训练数据，但不能很好地拟合训练数据之外的数据的情况</p>
+<p>发生过拟合的原因有：</p>
+<ul>
+<li>模型具有大量参数，表现力强</li>
+<li>训练数据少</li>
+</ul>
+<p>下面的代码模拟了过拟合的情况:(采用300个训练数据，7×100的神经网络)</p>
+<pre><code class="lang-python"># coding: utf-8
+import os
+import sys
+
+sys.path.append(os.pardir)  
+import numpy as np
+import matplotlib.pyplot as plt
+from dataset.mnist import load_mnist
+from common.multi_layer_net import MultiLayerNet
+from common.optimizer import SGD
+
+(x_train, t_train), (x_test, t_test) = load_mnist(normalize=True)
+
+
+x_train = x_train[:300]
+t_train = t_train[:300]
+
+
+weight_decay_lambda = 0.1
+# ====================================================
+
+network = MultiLayerNet(input_size=784, hidden_size_list=[100, 100, 100, 100, 100, 100], output_size=10,
+                        weight_decay_lambda=weight_decay_lambda)
+optimizer = SGD(lr=0.01)
+
+max_epochs = 201
+train_size = x_train.shape[0]
+batch_size = 100
+
+train_loss_list = []
+train_acc_list = []
+test_acc_list = []
+
+iter_per_epoch = max(train_size / batch_size, 1)
+epoch_cnt = 0
+
+for i in range(1000000000):
+    batch_mask = np.random.choice(train_size, batch_size)
+    x_batch = x_train[batch_mask]
+    t_batch = t_train[batch_mask]
+
+    grads = network.gradient(x_batch, t_batch)
+    optimizer.update(network.params, grads)
+
+    if i % iter_per_epoch == 0:
+        train_acc = network.accuracy(x_train, t_train)
+        test_acc = network.accuracy(x_test, t_test)
+        train_acc_list.append(train_acc)
+        test_acc_list.append(test_acc)
+
+        print(&quot;epoch:&quot; + str(epoch_cnt) + &quot;, train acc:&quot; + str(train_acc) + &quot;, test acc:&quot; + str(test_acc))
+
+        epoch_cnt += 1
+        if epoch_cnt &gt;= max_epochs:
+            break
+
+
+
+markers = {&#39;train&#39;: &#39;o&#39;, &#39;test&#39;: &#39;s&#39;}
+x = np.arange(max_epochs)
+plt.plot(x, train_acc_list, marker=&#39;o&#39;, label=&#39;train&#39;, markevery=10)
+plt.plot(x, test_acc_list, marker=&#39;s&#39;, label=&#39;test&#39;, markevery=10)
+plt.xlabel(&quot;epochs&quot;)
+plt.ylabel(&quot;accuracy&quot;)
+plt.ylim(0, 1.0)
+plt.legend(loc=&#39;lower right&#39;)
+plt.show()
+</code></pre>
+<p>运行结果图像:<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/8.png" alt="overfit"></p>
+<h2 id="6-4-2-权值衰减"><a href="#6-4-2-权值衰减" class="headerlink" title="6.4.2 权值衰减"></a>6.4.2 权值衰减</h2><p>很多过拟合是由于权重参数取值过大才发生的。<br>为了抑制这种过拟合，便可以采取<strong>权值衰减</strong>的方法，即抑制权重参数过大的现象</p>
+<p>“学习”是不断调整参数来使损失函数减小的过程。假如把权重参数加进损失函数里，就可以在减小损失函数时兼顾减小权重了。</p>
+<p>我们定义L2范数：</p>
+<script type="math/tex; mode=display">\frac{1}{2}\lambda W^2</script><p><script type="math/tex">\lambda</script>是可以调整的参数</p>
+<p>乘以<script type="math/tex">\frac{1}{2}</script>的目的是为了在求导时得到规整的值</p>
+<p>以下为权值衰减时的随书源码。<br>(仅需注意loss函数中的weight_dacay)</p>
+<pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポートするための設定
+import numpy as np
+from collections import OrderedDict
+from common.layers import *
+from common.gradient import numerical_gradient
+
+
+class MultiLayerNet:
+    &quot;&quot;&quot;全結合による多層ニューラルネットワーク
+
+    Parameters
+    ----------
+    input_size : 入力サイズ（MNISTの場合は784）
+    hidden_size_list : 隠れ層のニューロンの数のリスト（e.g. [100, 100, 100]）
+    output_size : 出力サイズ（MNISTの場合は10）
+    activation : &#39;relu&#39; or &#39;sigmoid&#39;
+    weight_init_std : 重みの標準偏差を指定（e.g. 0.01）
+        &#39;relu&#39;または&#39;he&#39;を指定した場合は「Heの初期値」を設定
+        &#39;sigmoid&#39;または&#39;xavier&#39;を指定した場合は「Xavierの初期値」を設定
+    weight_decay_lambda : Weight Decay（L2ノルム）の強さ
+    &quot;&quot;&quot;
+    def __init__(self, input_size, hidden_size_list, output_size,
+                 activation=&#39;relu&#39;, weight_init_std=&#39;relu&#39;, weight_decay_lambda=0):
+        self.input_size = input_size
+        self.output_size = output_size
+        self.hidden_size_list = hidden_size_list
+        self.hidden_layer_num = len(hidden_size_list)
+        self.weight_decay_lambda = weight_decay_lambda
+        self.params = {}
+
+        # 重みの初期化
+        self.__init_weight(weight_init_std)
+
+        # レイヤの生成
+        activation_layer = {&#39;sigmoid&#39;: Sigmoid, &#39;relu&#39;: Relu}
+        self.layers = OrderedDict()
+        for idx in range(1, self.hidden_layer_num+1):
+            self.layers[&#39;Affine&#39; + str(idx)] = Affine(self.params[&#39;W&#39; + str(idx)],
+                                                      self.params[&#39;b&#39; + str(idx)])
+            self.layers[&#39;Activation_function&#39; + str(idx)] = activation_layer[activation]()
+
+        idx = self.hidden_layer_num + 1
+        self.layers[&#39;Affine&#39; + str(idx)] = Affine(self.params[&#39;W&#39; + str(idx)],
+            self.params[&#39;b&#39; + str(idx)])
+
+        self.last_layer = SoftmaxWithLoss()
+
+    def __init_weight(self, weight_init_std):
+        &quot;&quot;&quot;重みの初期値設定
+
+        Parameters
+        ----------
+        weight_init_std : 重みの標準偏差を指定（e.g. 0.01）
+            &#39;relu&#39;または&#39;he&#39;を指定した場合は「Heの初期値」を設定
+            &#39;sigmoid&#39;または&#39;xavier&#39;を指定した場合は「Xavierの初期値」を設定
+        &quot;&quot;&quot;
+        all_size_list = [self.input_size] + self.hidden_size_list + [self.output_size]
+        for idx in range(1, len(all_size_list)):
+            scale = weight_init_std
+            if str(weight_init_std).lower() in (&#39;relu&#39;, &#39;he&#39;):
+                scale = np.sqrt(2.0 / all_size_list[idx - 1])  # ReLUを使う場合に推奨される初期値
+            elif str(weight_init_std).lower() in (&#39;sigmoid&#39;, &#39;xavier&#39;):
+                scale = np.sqrt(1.0 / all_size_list[idx - 1])  # sigmoidを使う場合に推奨される初期値
+
+            self.params[&#39;W&#39; + str(idx)] = scale * np.random.randn(all_size_list[idx-1], all_size_list[idx])
+            self.params[&#39;b&#39; + str(idx)] = np.zeros(all_size_list[idx])
+
+    def predict(self, x):
+        for layer in self.layers.values():
+            x = layer.forward(x)
+
+        return x
+
+    def loss(self, x, t):
+        &quot;&quot;&quot;損失関数を求める
+
+        Parameters
+        ----------
+        x : 入力データ
+        t : 教師ラベル
+
+        Returns
+        -------
+        損失関数の値
+        &quot;&quot;&quot;
+        y = self.predict(x)
+
+        weight_decay = 0
+        for idx in range(1, self.hidden_layer_num + 2):
+            W = self.params[&#39;W&#39; + str(idx)]
+            weight_decay += 0.5 * self.weight_decay_lambda * np.sum(W ** 2)
+
+        return self.last_layer.forward(y, t) + weight_decay
+
+    def accuracy(self, x, t):
+        y = self.predict(x)
+        y = np.argmax(y, axis=1)
+        if t.ndim != 1 : t = np.argmax(t, axis=1)
+
+        accuracy = np.sum(y == t) / float(x.shape[0])
+        return accuracy
+
+    def numerical_gradient(self, x, t):
+        &quot;&quot;&quot;勾配を求める（数値微分）
+
+        Parameters
+        ----------
+        x : 入力データ
+        t : 教師ラベル
+
+        Returns
+        -------
+        各層の勾配を持ったディクショナリ変数
+            grads[&#39;W1&#39;]、grads[&#39;W2&#39;]、...は各層の重み
+            grads[&#39;b1&#39;]、grads[&#39;b2&#39;]、...は各層のバイアス
+        &quot;&quot;&quot;
+        loss_W = lambda W: self.loss(x, t)
+
+        grads = {}
+        for idx in range(1, self.hidden_layer_num+2):
+            grads[&#39;W&#39; + str(idx)] = numerical_gradient(loss_W, self.params[&#39;W&#39; + str(idx)])
+            grads[&#39;b&#39; + str(idx)] = numerical_gradient(loss_W, self.params[&#39;b&#39; + str(idx)])
+
+        return grads
+
+    def gradient(self, x, t):
+        &quot;&quot;&quot;勾配を求める（誤差逆伝搬法）
+
+        Parameters
+        ----------
+        x : 入力データ
+        t : 教師ラベル
+
+        Returns
+        -------
+        各層の勾配を持ったディクショナリ変数
+            grads[&#39;W1&#39;]、grads[&#39;W2&#39;]、...は各層の重み
+            grads[&#39;b1&#39;]、grads[&#39;b2&#39;]、...は各層のバイアス
+        &quot;&quot;&quot;
+        # forward
+        self.loss(x, t)
+
+        # backward
+        dout = 1
+        dout = self.last_layer.backward(dout)
+
+        layers = list(self.layers.values())
+        layers.reverse()
+        for layer in layers:
+            dout = layer.backward(dout)
+
+        # 設定
+        grads = {}
+        for idx in range(1, self.hidden_layer_num+2):
+            grads[&#39;W&#39; + str(idx)] = self.layers[&#39;Affine&#39; + str(idx)].dW + self.weight_decay_lambda * self.layers[&#39;Affine&#39; + str(idx)].W
+            grads[&#39;b&#39; + str(idx)] = self.layers[&#39;Affine&#39; + str(idx)].db
+
+        return grads
+</code></pre>
+<p>用于实验的代码不表。<br>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/9.png" alt="overfit"><br>虽然预测能力没有明显提高，但过拟合受到了抑制。</p>
+<h2 id="6-4-3-DropOut"><a href="#6-4-3-DropOut" class="headerlink" title="6.4.3 DropOut"></a>6.4.3 DropOut</h2><p>当模型很复杂(神经元数量很多)时，权值衰减法效果也不太明显了。<br>DropOut方法可以在复杂的模型中也有较好效果。<br>思路：<br>Dropout说的简单一点就是：我们在前向传播的时候，让某个神经元的激活值以一定的概率p停止工作，这样可以使模型泛化性更强，因为它不会太依赖某些局部的特征。<br>这篇文章讲得挺有趣的：<a href="https://zhuanlan.zhihu.com/p/77609689" target="_blank" rel="noopener">知乎《什么是dropout》</a><br>具体是：<br>训练模型时，随机排除一定比例的神经元。<br>而使用模型时，不排除任何神经元，但要乘以训练时的那个排除比例。<br>具体实现不表</p>
 
         </div>
         <!-- .entry-content -->
