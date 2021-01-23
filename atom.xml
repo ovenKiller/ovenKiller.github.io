@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-01-22T15:00:53.878Z</updated>
+  <updated>2021-01-23T13:54:48.360Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS笔记（三）</title>
+    <link href="/2021/01/23/jsNote-3/"/>
+    <id>/2021/01/23/jsNote-3/</id>
+    <published>2021-01-23T11:46:46.897Z</published>
+    <updated>2021-01-23T13:54:48.360Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;基本运算符&quot;&gt;&lt;a href=&quot;#基本运算符&quot; class=&quot;headerlink&quot; title=&quot;基本运算符&quot;&gt;&lt;/a&gt;基本运算符&lt;/h1&gt;&lt;h2 id=&quot;加法&quot;&gt;&lt;a href=&quot;#加法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记（二） 函数与对象方法</title>
+    <link href="/2021/01/23/jsNote-2/"/>
+    <id>/2021/01/23/jsNote-2/</id>
+    <published>2021-01-23T09:20:46.861Z</published>
+    <updated>2021-01-23T13:51:42.045Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;对象方法&quot;&gt;&lt;a href=&quot;#对象方法&quot; class=&quot;headerlink&quot; title=&quot;对象方法&quot;&gt;&lt;/a&gt;对象方法&lt;/h1&gt;&lt;p&gt;类似：类的成员函数。&lt;/p&gt;
+&lt;p&gt;格式：&lt;br&gt;&amp;lt;函数名&amp;gt; :
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库笔记（四）关系代数</title>
@@ -86,7 +139,7 @@
     <link href="/2021/01/20/DLFromScratch-6/"/>
     <id>/2021/01/20/DLFromScratch-6/</id>
     <published>2021-01-20T05:31:10.355Z</published>
-    <updated>2021-01-22T09:14:48.786Z</updated>
+    <updated>2021-01-23T03:48:39.713Z</updated>
     
     <summary type="html">
     
@@ -107,9 +160,9 @@
       <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="python" scheme="/tags/python/"/>
-    
       <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
     
       <category term="deeplearning" scheme="/tags/deeplearning/"/>
     
@@ -172,9 +225,9 @@
       <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="python" scheme="/tags/python/"/>
-    
       <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
     
       <category term="deeplearning" scheme="/tags/deeplearning/"/>
     
@@ -267,11 +320,11 @@
   </entry>
   
   <entry>
-    <title>JS笔记 （一）</title>
+    <title>JS笔记(一) 基础写法以及数据类型</title>
     <link href="/2021/01/14/jsNote-1/"/>
     <id>/2021/01/14/jsNote-1/</id>
     <published>2021-01-14T06:45:23.499Z</published>
-    <updated>2021-01-22T14:38:38.661Z</updated>
+    <updated>2021-01-23T13:37:31.675Z</updated>
     
     <summary type="html">
     
@@ -288,9 +341,9 @@
       <category term="JavaScript" scheme="/categories/JavaScript/"/>
     
     
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
     
   </entry>
   
@@ -575,68 +628,6 @@ public:
     
     
       <category term="python" scheme="/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JLU数据结构·选择排序</title>
-    <link href="/2020/12/18/ssort/"/>
-    <id>/2020/12/18/ssort/</id>
-    <published>2020-12-18T13:19:19.576Z</published>
-    <updated>2020-12-21T13:17:52.511Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、直接选择排序&quot;&gt;&lt;a href=&quot;#一、直接选择排序&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="数据结构" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JLU数据结构·快速排序</title>
-    <link href="/2020/12/18/quick-sort/"/>
-    <id>/2020/12/18/quick-sort/</id>
-    <published>2020-12-18T07:44:05.256Z</published>
-    <updated>2020-12-18T13:12:47.530Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;注意，轴枢元素选取第一个元素。&lt;/p&gt;
-&lt;h1 id=&quot;1、伪码&quot;&gt;&lt;a href=&quot;#1、伪码&quot; class=&quot;headerlink&quot; title=&quot;1、伪码&quot;&gt;&lt;/a&gt;1、伪码&lt;/h1&gt;&lt;p&gt;算法分为两部分：&lt;br&gt;1)分划&lt;/p&gt;
-&lt;pre&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="数据结构" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">JS笔记(一) 基础写法以及数据类型 | DayDream</title>
+  <title itemprop="name">JS笔记（二） 函数与对象方法 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -294,7 +294,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      JS笔记(一) 基础写法以及数据类型</h1>
+      JS笔记（二） 函数与对象方法</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -306,7 +306,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-1-14<span class="bull">
+        2021-1-23<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -320,154 +320,100 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="一、js程序写在哪里？"><a href="#一、js程序写在哪里？" class="headerlink" title="一、js程序写在哪里？"></a>一、js程序写在哪里？</h1><h2 id="（1）js程序可以写在-lt-script-gt-lt-script-gt-标签中"><a href="#（1）js程序可以写在-lt-script-gt-lt-script-gt-标签中" class="headerlink" title="（1）js程序可以写在&lt;script&gt;&lt;/script&gt;标签中"></a>（1）js程序可以写在&lt;script&gt;&lt;/script&gt;标签中</h2><pre><code class="lang-html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script type=&quot;text/javascript&quot;&gt;
-    //alert:弹出警告框
-    alert(&quot;Hello World!&quot;);
-    //document.write:向body中写入文本
-    document.write(&quot;强行写入！&quot;);
-    //console.log: 向控制台输出文本。（控制台的内容需要在开发者模式中才能看到）
-    console.log(&quot;这段信息是瞎写的&quot;);
-    &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>上面展示的是三种基本输出语句。</p>
-<h2 id="2-将js语句写到标签的onclick属性中"><a href="#2-将js语句写到标签的onclick属性中" class="headerlink" title="(2)将js语句写到标签的onclick属性中"></a>(2)将js语句写到标签的onclick属性中</h2><pre><code class="lang-html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;button onclick=&quot;alert(&#39;想得美&#39;)&quot;&gt;点击获取100￥&lt;/button&gt;
-    &lt;!-- 注意上行代码使用了两种引号 --&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h2 id="3-将js语句写到超链接的的href属性中"><a href="#3-将js语句写到超链接的的href属性中" class="headerlink" title="(3)将js语句写到超链接的的href属性中"></a>(3)将js语句写到超链接的的href属性中</h2><pre><code class="lang-html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;a href=&quot;javascript:alert(&#39;我 秦始皇 打钱！&#39;)&quot;&gt;震惊！公园惊现穿着怪异男子！...&lt;/a&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>但是这样写，超链接就失去了跳转的功能。</p>
-<h2 id="4-写在外部文件中（重要）"><a href="#4-写在外部文件中（重要）" class="headerlink" title="(4)写在外部文件中（重要）"></a>(4)写在外部文件中（重要）</h2><pre><code class="lang-html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;script.js&quot; &gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p>script.js中的内容：</p>
-<pre><code class="lang-javascript">alert(&quot;我是外部文件的js&quot;);
-</code></pre>
-<p>script标签一旦用于引入外部文件，就不能用来编写代码了。<br>但可以另创建一个script标签来编写代码</p>
-<p>js代码按照在html文件中出现的先后顺序执行。</p>
-<h1 id="二、基本语法"><a href="#二、基本语法" class="headerlink" title="二、基本语法"></a>二、基本语法</h1><h2 id="注释：-格式同c语言"><a href="#注释：-格式同c语言" class="headerlink" title="注释： 格式同c语言"></a>注释： 格式同c语言</h2><h2 id="语句以分号结尾。"><a href="#语句以分号结尾。" class="headerlink" title="语句以分号结尾。"></a>语句以分号结尾。</h2><ul>
-<li>如果不写分号：</li>
-<li>浏览器也会自动添加，但这会消耗系统资源。</li>
-<li>浏览器有可能加错分号</li>
-</ul>
-<h1 id="三、变量"><a href="#三、变量" class="headerlink" title="三、变量"></a>三、变量</h1><h2 id="变量声明："><a href="#变量声明：" class="headerlink" title="变量声明："></a>变量声明：</h2><pre><code class="lang-javascript">var a;
-a = 123;
-var b = 345;
-var person = &quot;Bill Gates&quot;,
-carName = &quot;porsche&quot;,
-price = 15000;//变量声明可横跨多行
-</code></pre>
-<p>重复声明对变量没有影响。</p>
-<h2 id="number"><a href="#number" class="headerlink" title="number"></a>number</h2><h3 id="最大值"><a href="#最大值" class="headerlink" title="最大值"></a>最大值</h3><p>大致是1.7e308<br>超过一定限度,就会显示infinity。</p>
-<h3 id="infinity"><a href="#infinity" class="headerlink" title="infinity"></a>infinity</h3><p>是一个字面常量。类型也是number</p>
-<h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><p>类型也是number，但表示“不是数字”、<br>比如”asd”*”dsa”返回值就是NaN</p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>创建方法： ver array[10] = new Array();</p>
+          <h1 id="对象方法"><a href="#对象方法" class="headerlink" title="对象方法"></a>对象方法</h1><p>类似：类的成员函数。</p>
+<p>格式：<br>&lt;函数名&gt; : function(){函数体}</p>
 <pre><code class="lang-javascript">&lt;script&gt;
-var i;
-var cars = new Array();
-cars[0] = &quot;aaa&quot;;
-cars[1] = &quot;bbb&quot;;
-cars[2] = &quot;ccc&quot;;
-
-for (i=0;i&lt;cars.length;i++)
-{
-document.write(cars[i] + &quot;&lt;br&gt;&quot;);
-}
+var person = {
+    firstName: &quot;John&quot;,
+    lastName : &quot;Doe&quot;,
+    id : 5566,
+    fullName : function() 
+    {
+       return this.firstName + &quot; &quot; + this.lastName;
+    }
+};
+document.getElementById(&quot;demo&quot;).innerHTML = person.fullName();
 &lt;/script&gt;
 </code></pre>
-<p>输出：<br>aaa<br>bbb<br>ccc</p>
-<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>js的全局变量与局部变量类似于c语言<br>不需要任何保留字声明</p>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><pre><code class="lang-javascript">var person={firstname:&quot;John&quot;, lastname:&quot;Doe&quot;, id:5566};
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>格式：function &lt;函数名&gt;()<br>{<br>函数体<br>}<br>使用如下：</p>
+<pre><code class="lang-javascript">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;测试实例&lt;/title&gt;
+&lt;script&gt;
+function myFunction()
+{
+    alert(&quot;Hello World!&quot;);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;button onclick=&quot;myFunction()&quot;&gt;点我&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<p>上面例子中的对象 (person) 有三个属性：firstname、lastname 以及 id。</p>
-<p>空格和折行无关紧要。声明可横跨多行：</p>
-<pre><code class="lang-html">var person={
-firstname : &quot;John&quot;,
-lastname  : &quot;Doe&quot;,
-id        :  5566
-};
-</code></pre>
-<p>有点儿像C++中的类！<br>实际上就是类似的东西</p>
+<p>当然，函数可以有参数和返回值，基础用法和python类似</p>
 <pre><code class="lang-javascript">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt; 
 &lt;meta charset=&quot;utf-8&quot;&gt; 
-&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt; 
+&lt;title&gt;测试&lt;/title&gt; 
 &lt;/head&gt;
 &lt;body&gt;
 
+&lt;p&gt;本例调用的函数会执行一个计算，然后返回结果：&lt;/p&gt;
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
 &lt;script&gt;
-var person=
-{
-    firstname : &quot;John&quot;,
-    lastname  : &quot;Doe&quot;,
-    id        :  5566
-};
-document.write(person.lastname + &quot;&lt;br&gt;&quot;);
-document.write(person[&quot;lastname&quot;] + &quot;&lt;br&gt;&quot;);
+function myFunction(a,b){
+    return a*b;
+}
+document.getElementById(&quot;demo&quot;).innerHTML=myFunction(4,3);
 &lt;/script&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>两种寻址方式。<br>一种是类似字典的访问<br>一种是类似结构体的访问</p>
-<h2 id="动态数据类型"><a href="#动态数据类型" class="headerlink" title="动态数据类型"></a>动态数据类型</h2><p>js支持动态数据类型</p>
-<pre><code class="lang-javascript">&lt;!DOCTYPE html&gt;
+<h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><h2 id="方法中的this"><a href="#方法中的this" class="headerlink" title="方法中的this"></a>方法中的this</h2><p>类似this指针<br>如：</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;body&gt;
 
-&lt;h2&gt;JavaScript 数据类型&lt;/h2&gt;
+&lt;h1&gt;JavaScript &lt;b&gt;this&lt;/b&gt; 关键词&lt;/h1&gt;
 
-&lt;p&gt;JavaScript 拥有动态类型。这意味着相同变量可用于保存不同类型：&lt;/p&gt;
+&lt;p&gt;在本例中，&lt;b&gt;this&lt;/b&gt; 代表 &lt;b&gt;person&lt;/b&gt; 对象。&lt;/p&gt;
+
+&lt;p&gt;因为 person 对象“拥有” fullName 方法。&lt;/p&gt;
 
 &lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
 
 &lt;script&gt;
-var x;               // 现在 x 是 undefined
-var x = 7;           // 现在 x 是数值
-var x = &quot;Bill&quot;;      // 现在 x 是字符串值
+// 创建对象：
+var person = {
+  firstName: &quot;Bill&quot;,
+  lastName : &quot;Gates&quot;,
+  id     : 678,
+  fullName : function() {
+    return this.firstName + &quot; &quot; + this.lastName;
+  }
+};
 
-document.getElementById(&quot;demo&quot;).innerHTML = x;
+// 显示来自对象的数据：
+document.getElementById(&quot;demo&quot;).innerHTML = person.fullName();
 &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="事件中的this"><a href="#事件中的this" class="headerlink" title="事件中的this"></a>事件中的this</h2><p>this指代接受事件的html元素</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;JavaScript &lt;b&gt;this&lt;/b&gt; 关键词&lt;/h1&gt;
+
+&lt;button onclick=&quot;this.style.display=&#39;none&#39;&quot;&gt;单击来删除我！&lt;/button&gt;
 
 &lt;/body&gt;
 &lt;/html&gt;
@@ -493,7 +439,7 @@ document.getElementById(&quot;demo&quot;).innerHTML = x;
           
             <div class="post-nepre half previous">
           
-            <a href="/2021/01/15/pytorchNote-1/" rel="prev">
+            <a href="/2021/01/23/jsNote-3/" rel="prev">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
               </div>
@@ -501,7 +447,7 @@ document.getElementById(&quot;demo&quot;).innerHTML = x;
               Previous Post</span>
               <div class="info">
                 <h3>
-                pytorch(1) 简单入门</h3>
+                JS笔记（三）</h3>
                 <hr>
               </div>
             </a>
@@ -511,15 +457,15 @@ document.getElementById(&quot;demo&quot;).innerHTML = x;
           
             <div class="post-nepre half next">
           
-            <a href="/2021/01/12/ipython/" rel="next">
+            <a href="/2021/01/22/databaseNote-4/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                ipython的使用</h3>
+                数据库笔记（四）关系代数</h3>
                 <hr>
               </div>
             </a>
