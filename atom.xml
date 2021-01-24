@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-01-23T13:54:48.360Z</updated>
+  <updated>2021-01-24T12:08:34.582Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JS笔记（五） 数字的方法</title>
+    <link href="/2021/01/24/jsNote-5/"/>
+    <id>/2021/01/24/jsNote-5/</id>
+    <published>2021-01-24T11:36:29.556Z</published>
+    <updated>2021-01-24T12:08:34.582Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原始值（比如 3.14 或 2016），无法拥有属性和方法（因为它们不是对象）。&lt;/p&gt;
+&lt;p&gt;但是通过 JavaScript，方法和属性也可用于原始值，因为 JavaScript 在执行方法和属性时将原始值视作对象。&lt;/p&gt;
+&lt;h1 id=&quot;转换为字符串&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记（四） 字符串的方法</title>
+    <link href="/2021/01/24/jsNote-4/"/>
+    <id>/2021/01/24/jsNote-4/</id>
+    <published>2021-01-24T10:42:13.597Z</published>
+    <updated>2021-01-24T11:36:12.584Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;访问&quot;&gt;&lt;a href=&quot;#访问&quot; class=&quot;headerlink&quot; title=&quot;访问&quot;&gt;&lt;/a&gt;访问&lt;/h2&gt;&lt;h3 id=&quot;charAt-方法&quot;&gt;&lt;a href=&quot;#charAt-方法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS笔记（三）</title>
     <link href="/2021/01/23/jsNote-3/"/>
     <id>/2021/01/23/jsNote-3/</id>
     <published>2021-01-23T11:46:46.897Z</published>
-    <updated>2021-01-23T13:54:48.360Z</updated>
+    <updated>2021-01-24T11:15:33.059Z</updated>
     
     <summary type="html">
     
@@ -74,7 +128,7 @@
     <link href="/2021/01/22/databaseNote-4/"/>
     <id>/2021/01/22/databaseNote-4/</id>
     <published>2021-01-22T10:23:16.421Z</published>
-    <updated>2021-01-22T15:00:53.878Z</updated>
+    <updated>2021-01-24T15:24:38.433Z</updated>
     
     <summary type="html">
     
@@ -139,7 +193,7 @@
     <link href="/2021/01/20/DLFromScratch-6/"/>
     <id>/2021/01/20/DLFromScratch-6/</id>
     <published>2021-01-20T05:31:10.355Z</published>
-    <updated>2021-01-23T03:48:39.713Z</updated>
+    <updated>2021-01-24T15:28:47.364Z</updated>
     
     <summary type="html">
     
@@ -324,7 +378,7 @@
     <link href="/2021/01/14/jsNote-1/"/>
     <id>/2021/01/14/jsNote-1/</id>
     <published>2021-01-14T06:45:23.499Z</published>
-    <updated>2021-01-23T13:37:31.675Z</updated>
+    <updated>2021-01-24T11:16:57.442Z</updated>
     
     <summary type="html">
     
@@ -567,67 +621,6 @@ public:
       <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JLU数据结构 绪论</title>
-    <link href="/2020/12/19/datastructure-main/"/>
-    <id>/2020/12/19/datastructure-main/</id>
-    <published>2020-12-19T01:12:25.547Z</published>
-    <updated>2020-12-20T08:41:04.209Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;1、数据的逻辑结构&quot;&gt;&lt;a href=&quot;#1、数据的逻辑结构&quot; class=&quot;headerlink&quot; title=&quot;1、数据的逻辑结构&quot;&gt;&lt;/a&gt;1、数据的逻辑结构&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;1)
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="算法" scheme="/categories/%E7%BC%96%E7%A8%8B/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="编程" scheme="/tags/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="算法" scheme="/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="数据结构" scheme="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pycharm（1）基本快捷键</title>
-    <link href="/2020/12/18/pycharm-note1/"/>
-    <id>/2020/12/18/pycharm-note1/</id>
-    <published>2020-12-18T14:24:25.033Z</published>
-    <updated>2020-12-19T07:20:29.780Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Ctrl-W-Ctrl-Shift-W&quot;&gt;&lt;a href=&quot;#Ctrl-W-Ctrl-Shift-W&quot; class=&quot;headerlink&quot; title=&quot;Ctrl + W/ Ctrl + Shift + W&quot;&gt;&lt;/a&gt;Ctrl + W/ Ctrl +
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
     
   </entry>
   

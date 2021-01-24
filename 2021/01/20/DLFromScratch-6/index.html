@@ -645,15 +645,9 @@ plt.show()
 <h2 id="6-4-2-权值衰减"><a href="#6-4-2-权值衰减" class="headerlink" title="6.4.2 权值衰减"></a>6.4.2 权值衰减</h2><p>很多过拟合是由于权重参数取值过大才发生的。<br>为了抑制这种过拟合，便可以采取<strong>权值衰减</strong>的方法，即抑制权重参数过大的现象</p>
 <p>“学习”是不断调整参数来使损失函数减小的过程。假如把权重参数加进损失函数里，就可以在减小损失函数时兼顾减小权重了。</p>
 <p>我们定义L2范数：</p>
-<script type="math/tex; mode=display">\frac{1}{2}\lambda W^2</script><script type="math/tex; mode=display">\lambda$$是可以调整的参数
-
-乘以$$\frac{1}{2}$$的目的是为了在求导时得到规整的值
-
-以下为权值衰减时的随书源码。
-(仅需注意loss函数中的weight_dacay)
-
-```python
-# coding: utf-8
+<script type="math/tex; mode=display">\frac{1}{2}\lambda W^2</script><p>乘以<script type="math/tex">\frac{1}{2}</script>的目的是为了在求导时得到规整的值</p>
+<p>以下为权值衰减时的随书源码。<br>(仅需注意loss函数中的weight_dacay)</p>
+<pre><code class="lang-python"># coding: utf-8
 import sys, os
 sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポートするための設定
 import numpy as np
@@ -663,21 +657,21 @@ from common.gradient import numerical_gradient
 
 
 class MultiLayerNet:
-    """全結合による多層ニューラルネットワーク
+    &quot;&quot;&quot;全結合による多層ニューラルネットワーク
 
     Parameters
     ----------
     input_size : 入力サイズ（MNISTの場合は784）
     hidden_size_list : 隠れ層のニューロンの数のリスト（e.g. [100, 100, 100]）
     output_size : 出力サイズ（MNISTの場合は10）
-    activation : 'relu' or 'sigmoid'
+    activation : &#39;relu&#39; or &#39;sigmoid&#39;
     weight_init_std : 重みの標準偏差を指定（e.g. 0.01）
-        'relu'または'he'を指定した場合は「Heの初期値」を設定
-        'sigmoid'または'xavier'を指定した場合は「Xavierの初期値」を設定
+        &#39;relu&#39;または&#39;he&#39;を指定した場合は「Heの初期値」を設定
+        &#39;sigmoid&#39;または&#39;xavier&#39;を指定した場合は「Xavierの初期値」を設定
     weight_decay_lambda : Weight Decay（L2ノルム）の強さ
-    """
+    &quot;&quot;&quot;
     def __init__(self, input_size, hidden_size_list, output_size,
-                 activation='relu', weight_init_std='relu', weight_decay_lambda=0):
+                 activation=&#39;relu&#39;, weight_init_std=&#39;relu&#39;, weight_decay_lambda=0):
         self.input_size = input_size
         self.output_size = output_size
         self.hidden_size_list = hidden_size_list
@@ -689,38 +683,38 @@ class MultiLayerNet:
         self.__init_weight(weight_init_std)
 
         # レイヤの生成
-        activation_layer = {'sigmoid': Sigmoid, 'relu': Relu}
+        activation_layer = {&#39;sigmoid&#39;: Sigmoid, &#39;relu&#39;: Relu}
         self.layers = OrderedDict()
         for idx in range(1, self.hidden_layer_num+1):
-            self.layers['Affine' + str(idx)] = Affine(self.params['W' + str(idx)],
-                                                      self.params['b' + str(idx)])
-            self.layers['Activation_function' + str(idx)] = activation_layer[activation]()
+            self.layers[&#39;Affine&#39; + str(idx)] = Affine(self.params[&#39;W&#39; + str(idx)],
+                                                      self.params[&#39;b&#39; + str(idx)])
+            self.layers[&#39;Activation_function&#39; + str(idx)] = activation_layer[activation]()
 
         idx = self.hidden_layer_num + 1
-        self.layers['Affine' + str(idx)] = Affine(self.params['W' + str(idx)],
-            self.params['b' + str(idx)])
+        self.layers[&#39;Affine&#39; + str(idx)] = Affine(self.params[&#39;W&#39; + str(idx)],
+            self.params[&#39;b&#39; + str(idx)])
 
         self.last_layer = SoftmaxWithLoss()
 
     def __init_weight(self, weight_init_std):
-        """重みの初期値設定
+        &quot;&quot;&quot;重みの初期値設定
 
         Parameters
         ----------
         weight_init_std : 重みの標準偏差を指定（e.g. 0.01）
-            'relu'または'he'を指定した場合は「Heの初期値」を設定
-            'sigmoid'または'xavier'を指定した場合は「Xavierの初期値」を設定
-        """
+            &#39;relu&#39;または&#39;he&#39;を指定した場合は「Heの初期値」を設定
+            &#39;sigmoid&#39;または&#39;xavier&#39;を指定した場合は「Xavierの初期値」を設定
+        &quot;&quot;&quot;
         all_size_list = [self.input_size] + self.hidden_size_list + [self.output_size]
         for idx in range(1, len(all_size_list)):
             scale = weight_init_std
-            if str(weight_init_std).lower() in ('relu', 'he'):
+            if str(weight_init_std).lower() in (&#39;relu&#39;, &#39;he&#39;):
                 scale = np.sqrt(2.0 / all_size_list[idx - 1])  # ReLUを使う場合に推奨される初期値
-            elif str(weight_init_std).lower() in ('sigmoid', 'xavier'):
+            elif str(weight_init_std).lower() in (&#39;sigmoid&#39;, &#39;xavier&#39;):
                 scale = np.sqrt(1.0 / all_size_list[idx - 1])  # sigmoidを使う場合に推奨される初期値
 
-            self.params['W' + str(idx)] = scale * np.random.randn(all_size_list[idx-1], all_size_list[idx])
-            self.params['b' + str(idx)] = np.zeros(all_size_list[idx])
+            self.params[&#39;W&#39; + str(idx)] = scale * np.random.randn(all_size_list[idx-1], all_size_list[idx])
+            self.params[&#39;b&#39; + str(idx)] = np.zeros(all_size_list[idx])
 
     def predict(self, x):
         for layer in self.layers.values():
@@ -729,7 +723,7 @@ class MultiLayerNet:
         return x
 
     def loss(self, x, t):
-        """損失関数を求める
+        &quot;&quot;&quot;損失関数を求める
 
         Parameters
         ----------
@@ -739,12 +733,12 @@ class MultiLayerNet:
         Returns
         -------
         損失関数の値
-        """
+        &quot;&quot;&quot;
         y = self.predict(x)
 
         weight_decay = 0
         for idx in range(1, self.hidden_layer_num + 2):
-            W = self.params['W' + str(idx)]
+            W = self.params[&#39;W&#39; + str(idx)]
             weight_decay += 0.5 * self.weight_decay_lambda * np.sum(W ** 2)
 
         return self.last_layer.forward(y, t) + weight_decay
@@ -758,7 +752,7 @@ class MultiLayerNet:
         return accuracy
 
     def numerical_gradient(self, x, t):
-        """勾配を求める（数値微分）
+        &quot;&quot;&quot;勾配を求める（数値微分）
 
         Parameters
         ----------
@@ -768,20 +762,20 @@ class MultiLayerNet:
         Returns
         -------
         各層の勾配を持ったディクショナリ変数
-            grads['W1']、grads['W2']、...は各層の重み
-            grads['b1']、grads['b2']、...は各層のバイアス
-        """
+            grads[&#39;W1&#39;]、grads[&#39;W2&#39;]、...は各層の重み
+            grads[&#39;b1&#39;]、grads[&#39;b2&#39;]、...は各層のバイアス
+        &quot;&quot;&quot;
         loss_W = lambda W: self.loss(x, t)
 
         grads = {}
         for idx in range(1, self.hidden_layer_num+2):
-            grads['W' + str(idx)] = numerical_gradient(loss_W, self.params['W' + str(idx)])
-            grads['b' + str(idx)] = numerical_gradient(loss_W, self.params['b' + str(idx)])
+            grads[&#39;W&#39; + str(idx)] = numerical_gradient(loss_W, self.params[&#39;W&#39; + str(idx)])
+            grads[&#39;b&#39; + str(idx)] = numerical_gradient(loss_W, self.params[&#39;b&#39; + str(idx)])
 
         return grads
 
     def gradient(self, x, t):
-        """勾配を求める（誤差逆伝搬法）
+        &quot;&quot;&quot;勾配を求める（誤差逆伝搬法）
 
         Parameters
         ----------
@@ -791,9 +785,9 @@ class MultiLayerNet:
         Returns
         -------
         各層の勾配を持ったディクショナリ変数
-            grads['W1']、grads['W2']、...は各層の重み
-            grads['b1']、grads['b2']、...は各層のバイアス
-        """
+            grads[&#39;W1&#39;]、grads[&#39;W2&#39;]、...は各層の重み
+            grads[&#39;b1&#39;]、grads[&#39;b2&#39;]、...は各層のバイアス
+        &quot;&quot;&quot;
         # forward
         self.loss(x, t)
 
@@ -809,44 +803,24 @@ class MultiLayerNet:
         # 設定
         grads = {}
         for idx in range(1, self.hidden_layer_num+2):
-            grads['W' + str(idx)] = self.layers['Affine' + str(idx)].dW + self.weight_decay_lambda * self.layers['Affine' + str(idx)].W
-            grads['b' + str(idx)] = self.layers['Affine' + str(idx)].db
+            grads[&#39;W&#39; + str(idx)] = self.layers[&#39;Affine&#39; + str(idx)].dW + self.weight_decay_lambda * self.layers[&#39;Affine&#39; + str(idx)].W
+            grads[&#39;b&#39; + str(idx)] = self.layers[&#39;Affine&#39; + str(idx)].db
 
         return grads
-
-```
-用于实验的代码不表。
-运行结果：
-
-![overfit](https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/9.png)
-虽然预测能力没有明显提高，但过拟合受到了抑制。
-## 6.4.3 DropOut
-当模型很复杂(神经元数量很多)时，权值衰减法效果也不太明显了。
-DropOut方法可以在复杂的模型中也有较好效果。
-思路：
-Dropout说的简单一点就是：我们在前向传播的时候，让某个神经元的激活值以一定的概率p停止工作，这样可以使模型泛化性更强，因为它不会太依赖某些局部的特征。
-这篇文章讲得挺有趣的：[知乎《什么是dropout》](https://zhuanlan.zhihu.com/p/77609689)
-具体是：
-训练模型时，随机排除一定比例的神经元。
-而使用模型时，不排除任何神经元，但要乘以训练时的那个排除比例。
-具体实现不表。
-
-# 6.5 超参数的验证
-
-超参数（如学习率、神经元数量）非常重要，但找到合适的取值比较困难。本节介绍如何尽可能高效地选择超参数。
-
-## 6.5.1 验证数据
-切记：一定**不要使用训练数据来验证**超参数，否则会发生过拟合。
-
-一般选取专门数据来验证超参数，称之为**验证数据**
-
-- 训练数据用于学习（调整权重参数）
-- 验证数据用于验证超参数
-- 测试数据用于验证泛化能力（理想情况下，测试数据最好只使用一次）
-
-以下代码用于选择出验证数据：
-```python
-
+</code></pre>
+<p>用于实验的代码不表。<br>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/9.png" alt="overfit"><br>虽然预测能力没有明显提高，但过拟合受到了抑制。</p>
+<h2 id="6-4-3-DropOut"><a href="#6-4-3-DropOut" class="headerlink" title="6.4.3 DropOut"></a>6.4.3 DropOut</h2><p>当模型很复杂(神经元数量很多)时，权值衰减法效果也不太明显了。<br>DropOut方法可以在复杂的模型中也有较好效果。<br>思路：<br>Dropout说的简单一点就是：我们在前向传播的时候，让某个神经元的激活值以一定的概率p停止工作，这样可以使模型泛化性更强，因为它不会太依赖某些局部的特征。<br>这篇文章讲得挺有趣的：<a href="https://zhuanlan.zhihu.com/p/77609689" target="_blank" rel="noopener">知乎《什么是dropout》</a><br>具体是：<br>训练模型时，随机排除一定比例的神经元。<br>而使用模型时，不排除任何神经元，但要乘以训练时的那个排除比例。<br>具体实现不表。</p>
+<h1 id="6-5-超参数的验证"><a href="#6-5-超参数的验证" class="headerlink" title="6.5 超参数的验证"></a>6.5 超参数的验证</h1><p>超参数（如学习率、神经元数量）非常重要，但找到合适的取值比较困难。本节介绍如何尽可能高效地选择超参数。</p>
+<h2 id="6-5-1-验证数据"><a href="#6-5-1-验证数据" class="headerlink" title="6.5.1 验证数据"></a>6.5.1 验证数据</h2><p>切记：一定<strong>不要使用训练数据来验证</strong>超参数，否则会发生过拟合。</p>
+<p>一般选取专门数据来验证超参数，称之为<strong>验证数据</strong></p>
+<ul>
+<li>训练数据用于学习（调整权重参数）</li>
+<li>验证数据用于验证超参数</li>
+<li>测试数据用于验证泛化能力（理想情况下，测试数据最好只使用一次）</li>
+</ul>
+<p>以下代码用于选择出验证数据：</p>
+<pre><code class="lang-python">
 (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True)
 
 # 这里还有一个函数，用于把数据打乱，实现不表。
@@ -858,23 +832,18 @@ x_val = x_train[:validation_num]
 t_val = t_train[:validation_num]
 x_train = x_train[validation_num:]
 t_train = t_train[validation_num:]
-
-```
-## 6.5.2 超参数的最优化
-
-步骤：
-- 1，设定超参数的范围（很粗略就可以，比如$$10^{-3}$$~$$10^{3}$$）
-- 2, 从设定的超参数范围内随机采样
-- 3，完成学习步骤，再利用验证数据进行超参数验证。但注意，需要把epoch设定得比较小（因为只是要验证超参数，没必要完整地完成学习过程）
-- 4，不断重复2、3步骤，逐渐缩小超参数范围
-
-以上介绍的是一种经验式的做法，更精炼的方法可能是**贝叶斯最优化**方法
-
-## 6.5.3 超参数最优化的实现
-
-代码如下：
-
-我们设定权值衰减系数为$$10^{-8}$$~$$10^{-4}$$,学习率为$$10^{-6}$$~$$10^{-2}</script><pre><code class="lang-python"># coding: utf-8
+</code></pre>
+<h2 id="6-5-2-超参数的最优化"><a href="#6-5-2-超参数的最优化" class="headerlink" title="6.5.2 超参数的最优化"></a>6.5.2 超参数的最优化</h2><p>步骤：</p>
+<ul>
+<li>1，设定超参数的范围（很粗略就可以，比如<script type="math/tex">10^{-3}</script>~<script type="math/tex">10^{3}</script>）</li>
+<li>2, 从设定的超参数范围内随机采样</li>
+<li>3，完成学习步骤，再利用验证数据进行超参数验证。但注意，需要把epoch设定得比较小（因为只是要验证超参数，没必要完整地完成学习过程）</li>
+<li>4，不断重复2、3步骤，逐渐缩小超参数范围</li>
+</ul>
+<p>以上介绍的是一种经验式的做法，更精炼的方法可能是<strong>贝叶斯最优化</strong>方法</p>
+<h2 id="6-5-3-超参数最优化的实现"><a href="#6-5-3-超参数最优化的实现" class="headerlink" title="6.5.3 超参数最优化的实现"></a>6.5.3 超参数最优化的实现</h2><p>代码如下：</p>
+<p>我们设定权值衰减系数为<script type="math/tex">10^{-8}</script>~<script type="math/tex">10^{-4}</script>,学习率为<script type="math/tex">10^{-6}</script>~<script type="math/tex">10^{-2}</script></p>
+<pre><code class="lang-python"># coding: utf-8
 import sys, os
 sys.path.append(os.pardir)  
 import numpy as np

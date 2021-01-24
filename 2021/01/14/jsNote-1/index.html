@@ -400,6 +400,17 @@ price = 15000;//变量声明可横跨多行
 <h2 id="number"><a href="#number" class="headerlink" title="number"></a>number</h2><h3 id="最大值"><a href="#最大值" class="headerlink" title="最大值"></a>最大值</h3><p>大致是1.7e308<br>超过一定限度,就会显示infinity。</p>
 <h3 id="infinity"><a href="#infinity" class="headerlink" title="infinity"></a>infinity</h3><p>是一个字面常量。类型也是number</p>
 <h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><p>类型也是number，但表示“不是数字”、<br>比如”asd”*”dsa”返回值就是NaN</p>
+<h3 id="数字不要输入前导0"><a href="#数字不要输入前导0" class="headerlink" title="数字不要输入前导0"></a>数字不要输入前导0</h3><p>比如071  有可能被认为是8进制数字</p>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="1-字符串内置length属性"><a href="#1-字符串内置length属性" class="headerlink" title="1)字符串内置length属性"></a>1)字符串内置length属性</h3><p>如：<br>ver str = “hello”;<br>alert(str.length)</p>
+<h3 id="2-字符串换行"><a href="#2-字符串换行" class="headerlink" title="2)字符串换行"></a>2)字符串换行</h3><p>末尾加个反斜杠</p>
+<ul>
+<li>document.getElementById(“demo”).innerHTML = “Hello \</li>
+<li>Kitty!”;</li>
+</ul>
+<h3 id="字符串可以是对象"><a href="#字符串可以是对象" class="headerlink" title="字符串可以是对象"></a>字符串可以是对象</h3><p>var firstName = new String(“Bill”)<br>此时firstName是object类型</p>
+<p>下列语句：</p>
+<p>var str1 = “hello”;<br>var str2 = new String(“hello”);<br>str1 == str2;//返回true<br>str1 === str2;//返回false;<br>（实际上object被强制转换为string）<br>注意若将字符串声明为对象，容易拖慢程序运行</p>
+<p>另外，对象之间无法比较<br>var str1 = new String(“hello”);<br>var str2 = new String(“hello”);<br>str1 == str2;//return false;</p>
 <h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>创建方法： ver array[10] = new Array();</p>
 <pre><code class="lang-javascript">&lt;script&gt;
 var i;
