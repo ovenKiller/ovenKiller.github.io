@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">DayDream</title>
+  <title itemprop="name">JS笔记（七） 时间 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -284,505 +284,178 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
-<div id="content" class="site-content">
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/comment/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/startdash/wangshiwu.jpg">
-        </div>
-        <div class="info">
-          <h3>留言板</h3>
-          <p>交流一下！</p>
-        </div>
-      </a>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
     </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      JS笔记（七） 时间</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-1-26<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  
-</div>
+
+<div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="创建日期对象"><a href="#创建日期对象" class="headerlink" title="创建日期对象"></a>创建日期对象</h1><p>有以下四种方法：</p>
+<ul>
+<li>new Date() 以当前系统时间创建时间对象</li>
+<li>new Date(year, month, day, hours, minutes, seconds, milliseconds) </li>
+<li>new Date(milliseconds)</li>
+<li>new Date(date string)</li>
+</ul>
+<h2 id="new-Date-year-month-day-hours-minutes-seconds-milliseconds"><a href="#new-Date-year-month-day-hours-minutes-seconds-milliseconds" class="headerlink" title="new Date(year, month, day, hours, minutes, seconds, milliseconds)"></a>new Date(year, month, day, hours, minutes, seconds, milliseconds)</h2><p>这个创建对象的方法可以省略部分值。<br>比如: a = new Data(2020,12,1): 2020年12月1日<br>至少保留两个参数（一个参数的话就是第三个构造方法了）<br>另外，两位数年份会被解析为19XX年</p>
+<h2 id="new-Date-milliseconds"><a href="#new-Date-milliseconds" class="headerlink" title="new Date(milliseconds)"></a>new Date(milliseconds)</h2><p>以1970年1月1日0点（世界标准时间）为起始点。</p>
+<h2 id="new-Date-date-string"><a href="#new-Date-date-string" class="headerlink" title="new Date(date string)"></a>new Date(date string)</h2><p> |ISO 日期: |    “2018-02-19” （国际标准）     |<br> |短日期:     | “02/19/2018” 或者 “2018/02/19”  |<br> |长日期:     |”Feb 19 2018” 或者 “19 Feb 2019” |<br> |完整日期: |    “Monday February 25 2015”     |</p>
+<p>首选输入格式为ISO日期：”YYYY-MM-DD”<br>ISO日期也可以写成：<br>只有年：”YYYY”<br>只有年月：”YYYY-MM”</p>
+<h1 id="日期获取"><a href="#日期获取" class="headerlink" title="日期获取"></a>日期获取</h1><ul>
+<li>getDate()     以数值返回天（1-31）</li>
+<li>getDay()     以数值获取周名（0-6）</li>
+<li>getFullYear()     获取四位的年（yyyy）</li>
+<li>getHours()     获取小时（0-23）</li>
+<li>getMilliseconds()     获取毫秒（0-999）</li>
+<li>getMinutes()     获取分（0-59）</li>
+<li>getMonth()     获取月（0-11）</li>
+<li>getSeconds()     获取秒（0-59）</li>
+<li><p>getTime()     获取时间（从 1970 年 1 月 1 日至今）</p>
+</li>
+<li><p>getUTCDate()     等于 getDate()，但返回 UTC 日期</p>
+</li>
+<li>getUTCDay()     等于 getDay()，但返回 UTC 日</li>
+<li>getUTCFullYear()     等于 getFullYear()，但返回 UTC 年</li>
+<li>getUTCHours()     等于 getHours()，但返回 UTC 小时</li>
+<li>getUTCMilliseconds()     等于 getMilliseconds()，但返回 UTC 毫秒</li>
+<li>getUTCMinutes()     等于 getMinutes()，但返回 UTC 分</li>
+<li>getUTCMonth()     等于 getMonth()，但返回 UTC 月</li>
+<li>getUTCSeconds()     等于 getSeconds()，但返回 UTC 秒</li>
+</ul>
+<h1 id="日期设置"><a href="#日期设置" class="headerlink" title="日期设置"></a>日期设置</h1><ul>
+<li>setDate()     以数值（1-31）设置日</li>
+<li>setFullYear()     设置年（可选月和日）</li>
+<li>setHours()     设置小时（0-23）</li>
+<li>setMilliseconds()     设置毫秒（0-999）</li>
+<li>setMinutes()     设置分（0-59）</li>
+<li>setMonth()     设置月（0-11）</li>
+<li>setSeconds()     设置秒（0-59）</li>
+<li>setTime()     设置时间（从 1970 年 1 月 1 日至今的毫秒数）</li>
+</ul>
+<p>例：</p>
+<pre><code class="lang-javascript">&lt;script&gt;
+var d = new Date();
+d.setSeconds(30);
+document.getElementById(&quot;demo&quot;).innerHTML = d;
+&lt;/script&gt;
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/01/26/databaseNote-6/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                数据库笔记（六）SQL语言概览</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/01/25/databaseNote-5/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                数据库笔记（四）关系代数</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2021/01/20/databaseNote-3/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-20 20:01</div>
-      <a href="/2021/01/20/databaseNote-3/" class="post-title">
-        <h3>数据库笔记（三）关系模型</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/20/databaseNote-3/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/20/DLFromScratch-6/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-20 13:01</div>
-      <a href="/2021/01/20/DLFromScratch-6/" class="post-title">
-        <h3>鱼书笔记 第六章 与学习有关的技巧</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/deeplearning/">deeplearning<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/深度学习/">深度学习</a>
-          
-            <a href="/categories/编程/深度学习/鱼书笔记/">鱼书笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/20/DLFromScratch-6/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/19/databaseNote-2/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-19 19:01</div>
-      <a href="/2021/01/19/databaseNote-2/" class="post-title">
-        <h3>数据库笔记（二）</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/19/databaseNote-2/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/18/DLFromScratch-5/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-18 10:01</div>
-      <a href="/2021/01/18/DLFromScratch-5/" class="post-title">
-        <h3>鱼书笔记 第五章 误差反向传播法</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/deeplearning/">deeplearning<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/深度学习/">深度学习</a>
-          
-            <a href="/categories/编程/深度学习/鱼书笔记/">鱼书笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/18/DLFromScratch-5/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/17/ListComprehensions/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-17 11:01</div>
-      <a href="/2021/01/17/ListComprehensions/" class="post-title">
-        <h3>python 列表生成器</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/python/">python<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/python/">python</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/17/ListComprehensions/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/16/databaseNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-16-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-16 18:01</div>
-      <a href="/2021/01/16/databaseNote-1/" class="post-title">
-        <h3>数据库笔记（一）</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/16/databaseNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/15/pytorchNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-15 14:01</div>
-      <a href="/2021/01/15/pytorchNote-1/" class="post-title">
-        <h3>pytorch(1) 简单入门</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/pytorch/">pytorch<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/python/">python</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/15/pytorchNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/14/jsNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-14 14:01</div>
-      <a href="/2021/01/14/jsNote-1/" class="post-title">
-        <h3>JS笔记(一) 基础写法以及数据类型</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-            <a href="/tags/JavaScript/">JavaScript<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/JavaScript/">JavaScript</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/14/jsNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/12/ipython/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-12 10:01</div>
-      <a href="/2021/01/12/ipython/" class="post-title">
-        <h3>ipython的使用</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/排序/">排序<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/pytorth/">pytorth</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/12/ipython/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/12/26/leetcode120/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-12-26 10:12</div>
-      <a href="/2020/12/26/leetcode120/" class="post-title">
-        <h3>leetcode 116 三角形最短路径</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/leetcode/">leetcode<em>·</em></a>
-          
-            <a href="/tags/c/">c++<em>·</em></a>
-          
-            <a href="/tags/树/">树<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/leetcode/">leetcode</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2020/12/26/leetcode120/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-back"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-right"></i></a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/3/" class="">Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">

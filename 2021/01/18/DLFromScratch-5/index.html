@@ -512,6 +512,8 @@ print(&quot;dTax:&quot;, dtax)
         return dx
 </code></pre>
 <p>这段代码考虑了数据是张量的情况，俺不细究了！</p>
+<p>Affine层的意义，是串联其他层。</p>
+<p>Affine层并不算是神经网络的一层</p>
 <h2 id="5-6-3-Softmax-with-Loss-层"><a href="#5-6-3-Softmax-with-Loss-层" class="headerlink" title="5.6.3 Softmax with Loss 层"></a>5.6.3 Softmax with Loss 层</h2><p>Softmax函数的作用：将输入值正规化后输出<br>什么是正规化？<br>把结果处理成0~1之间的数字</p>
 <p>softmax和Cross Entrory Error函数比较复杂，但是两者结合后，经过简化的计算图如下图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/10.png" alt="softmax计算图"><br>反向传播时居然结果是y1-t1这样的值，妙~<br>(实际上，交叉熵误差就是为softmax函数设计的，得到y1-t1这样的值是有bear而来)</p>

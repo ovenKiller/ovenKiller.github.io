@@ -348,7 +348,12 @@
 <p>自然连接举例：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/8.png" alt="自然连接举例"></p>
 <h1 id="除操作"><a href="#除操作" class="headerlink" title="除操作"></a>除操作</h1><p>先看例子吧：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/9.png" alt="除运算"></p>
 <p>可以看到，R÷S 与 S 的笛卡尔积是R的子集。</p>
-<h1 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h1>
+<h1 id="外连接"><a href="#外连接" class="headerlink" title="外连接"></a>外连接</h1><p>思考这个问题：<br>列出所有老师的有关信息，包括姓名，工资，所教课程等。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/10.png" alt="外连接"></p>
+<p>如果使用普通的<script type="math/tex">\theta</script>连接，003号教师的信息会丢失。</p>
+<p>外连接解决的就是这个问题：当两个表内无法匹配，会生成一个空值。而不是把信息直接丢掉。</p>
+<p>外连接= 自然连接(或<script type="math/tex">\theta</script>连接) + 失配的元组(与全空元组形成的连接)<br>外连接的形式：左外连接、右外连接、全外连接<br>左外连接= 自然连接(或<script type="math/tex">\theta</script>连接) + 左侧表中失配的元组<br>右外连接= 自然连接(或<script type="math/tex">\theta</script>连接) + 右侧表中失配的元组<br>全外连接= 自然连接(或<script type="math/tex">\theta</script>连接) + 两侧表中失配的元组</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/11.png" alt="外连接"></p>
+
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>

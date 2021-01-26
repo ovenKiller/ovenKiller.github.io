@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">DayDream</title>
+  <title itemprop="name">JS笔记（六） 数组及其方法 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -284,505 +284,265 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
-<div id="content" class="site-content">
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/comment/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/startdash/wangshiwu.jpg">
-        </div>
-        <div class="info">
-          <h3>留言板</h3>
-          <p>交流一下！</p>
-        </div>
-      </a>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
     </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      JS笔记（六） 数组及其方法</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-1-25<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  
-</div>
+
+<div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h1><p>数组的使用和其他编程语言差不多，但有以下区别：</p>
+<ul>
+<li>数组是一类特殊的对象（使用typeof运算符，返回值是object）</li>
+<li>数组的索引值不可以是负数。</li>
+</ul>
+<h1 id="数组的操作："><a href="#数组的操作：" class="headerlink" title="数组的操作："></a>数组的操作：</h1><h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历:"></a>遍历:</h2><h3 id="for循环遍历（类似其他高级语言）"><a href="#for循环遍历（类似其他高级语言）" class="headerlink" title="for循环遍历（类似其他高级语言）"></a>for循环遍历（类似其他高级语言）</h3><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h3><pre><code class="lang-javascript">var fruits, text;
+fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];
+
+text = &quot;&lt;ul&gt;&quot;;
+fruits.forEach(myFunction);
+text += &quot;&lt;/ul&gt;&quot;;
+document.getElementById(&quot;demo&quot;).innerHTML = text;
+
+function myFunction(value) {
+  text += &quot;&lt;li&gt;&quot; + value + &quot;&lt;/li&gt;&quot;;
+}
+</code></pre>
+<p>forEach的参数为一个函数，该函数有一个参数</p>
+<h2 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h2><h3 id="1）push"><a href="#1）push" class="headerlink" title="1）push"></a>1）push</h3><pre><code class="lang-javascript">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];
+fruits.push(&quot;Lemon&quot;);                // 向 fruits 添加一个新元素 (Lemon)
+</code></pre>
+<p>push的返回值是新数组的长度。</p>
+<p>pop()是弹出元素，返回值是被弹出的元素</p>
+<h3 id="2-直接通过下标添加"><a href="#2-直接通过下标添加" class="headerlink" title="2)直接通过下标添加"></a>2)直接通过下标添加</h3><pre><code class="lang-javascript">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];
+fruits[10] = &quot;Lemon&quot;);                // 向 fruits 添加一个新元素 (Lemon)
+</code></pre>
+<p>这样的是可以的，fruits最后的结果是：<br>[“Banana”,”Orange”,”Apple”,”Mango”,,,,,,,”Lemon”]<br>(中间会留下没有值的“洞”)</p>
+<h3 id="3-unshift"><a href="#3-unshift" class="headerlink" title="3) unshift()"></a>3) unshift()</h3><p>从头部插入元素</p>
+<h2 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h2><h3 id="1）pop"><a href="#1）pop" class="headerlink" title="1）pop()"></a>1）pop()</h3><p>pop()是弹出元素，返回值是被弹出的元素</p>
+<h3 id="2）shift"><a href="#2）shift" class="headerlink" title="2）shift()"></a>2）shift()</h3><p>删除第一个元素，并且将之后的元素平移好。</p>
+<h2 id="查找元素"><a href="#查找元素" class="headerlink" title="查找元素"></a>查找元素</h2><h3 id="1-Array-indexOf"><a href="#1-Array-indexOf" class="headerlink" title="1)Array.indexOf()"></a>1)Array.indexOf()</h3><p>indexOf() 方法在数组中搜索元素值并返回其位置。</p>
+<h3 id="2-Array-lastIndexOf"><a href="#2-Array-lastIndexOf" class="headerlink" title="2)Array.lastIndexOf()"></a>2)Array.lastIndexOf()</h3><p>Array.lastIndexOf() 与 Array.indexOf() 类似，但是从数组结尾开始搜索。</p>
+<h3 id="3-Array-find"><a href="#3-Array-find" class="headerlink" title="3)Array.find()"></a>3)Array.find()</h3><p>find() 方法返回通过测试函数的第一个数组元素的值。</p>
+<p>这个例子查找（返回）大于 18 的第一个元素的值：</p>
+<pre><code class="lang-javascript">var numbers = [4, 9, 16, 25, 29];
+var first = numbers.find(myFunction);
+
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}
+</code></pre>
+<h3 id="4-Array-findIndex"><a href="#4-Array-findIndex" class="headerlink" title="4)Array.findIndex()"></a>4)Array.findIndex()</h3><p>findIndex() 方法返回通过测试函数的第一个数组元素的索引。<br>与前面的find很像，只不过返回值不同。</p>
+<h2 id="转换成字符串"><a href="#转换成字符串" class="headerlink" title="转换成字符串"></a>转换成字符串</h2><h3 id="1）toString-方法"><a href="#1）toString-方法" class="headerlink" title="1）toString()方法"></a>1）toString()方法</h3><p>可以将数组转换成字符串</p>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;JavaScript 数组方法&lt;/h1&gt; 
+
+&lt;h2&gt;toString()&lt;/h2&gt;
+
+&lt;p&gt;toString() 方法以逗号分隔的字符串返回数组：&lt;/p&gt;
+
+&lt;p id=&quot;demo&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];
+document.getElementById(&quot;demo&quot;).innerHTML = fruits.toString();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>某些情况下可认为这是一个强制转换，有时会自动调用</p>
+<h3 id="2）join-方法"><a href="#2）join-方法" class="headerlink" title="2）join()方法"></a>2）join()方法</h3><p>与toString的区别是，join可以有参数，参数是字符串中用作间隔的字符</p>
+<h2 id="splice-剪裁拼接"><a href="#splice-剪裁拼接" class="headerlink" title="splice 剪裁拼接"></a>splice 剪裁拼接</h2><pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;JavaScript 数组方法&lt;/h1&gt; 
+
+&lt;h2&gt;splice()&lt;/h2&gt;
+
+&lt;p&gt;splice() 方法将新元素添加到数组中。&lt;/p&gt;
+
+&lt;button onclick=&quot;myFunction()&quot;&gt;试一试&lt;/button&gt;
+
+&lt;p id=&quot;demo1&quot;&gt;&lt;/p&gt;
+&lt;p id=&quot;demo2&quot;&gt;&lt;/p&gt;
+
+&lt;script&gt;
+var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];
+document.getElementById(&quot;demo1&quot;).innerHTML = &quot;原数组：&lt;br&gt;&quot; + fruits;
+function myFunction() {
+  fruits.splice(2, 1, &quot;Lemon&quot;, &quot;Kiwi&quot;);
+  document.getElementById(&quot;demo2&quot;).innerHTML = &quot;新数组：&lt;br&gt;&quot; + fruits;
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>splice(2,1,”lemon”,”Kiwi”)中参数的意义是：<br>2代表拼接点（即”Apple”），<br>1代表从拼接点删除1个元素（即把”Apple”删掉）<br>最后再插入”Lemon”,”Kiwi”<br>一次运行的结果是：<br>Banana,Orange,Lemon,Kiwi,Mango</p>
+<h2 id="concat-连接"><a href="#concat-连接" class="headerlink" title="concat()连接"></a>concat()连接</h2><p>concat将若干数组连接起来，返回一个新数组</p>
+<pre><code class="lang-javascript">var myGirls = [&quot;Cecilie&quot;, &quot;Lone&quot;];
+var myBoys = [&quot;Emil&quot;, &quot;Tobias&quot;, &quot;Linus&quot;];
+var myChildren = myGirls.concat(myBoys);   // 连接 myGirls 和 myBoys
+</code></pre>
+<h2 id="slice-切片"><a href="#slice-切片" class="headerlink" title="slice()切片"></a>slice()切片</h2><p>类似字符串。返回值是一个新数组，不会改变原数组</p>
+<h1 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h1><h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><pre><code class="lang-javascript">var fruits = [&quot;Banana&quot;, &quot;Orange&quot;, &quot;Apple&quot;, &quot;Mango&quot;];
+fruits.sort();            // 对 fruits 中的元素进行排序
+</code></pre>
+<h2 id="自定义使用sort"><a href="#自定义使用sort" class="headerlink" title="自定义使用sort"></a>自定义使用sort</h2><pre><code class="lang-javascript">var points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b});
+</code></pre>
+<p>参数是一个函数。</p>
+<h2 id="反转数组-reverse"><a href="#反转数组-reverse" class="headerlink" title="反转数组 reverse()"></a>反转数组 reverse()</h2><h1 id="数据批量处理"><a href="#数据批量处理" class="headerlink" title="数据批量处理"></a>数据批量处理</h1><h2 id="Array-map-迭代执行函数"><a href="#Array-map-迭代执行函数" class="headerlink" title="Array.map()迭代执行函数"></a>Array.map()迭代执行函数</h2><pre><code class="lang-javascript">var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+function myFunction(value, index, array) {
+  return value * 2;
+}
+</code></pre>
+<p>map会对数组中的每个元素执行myFunction,并把返回值存到一个数组中。</p>
+<ul>
+<li>map() 方法不会对没有值的数组元素执行函数。</li>
+<li>map() 方法不会更改原始数组。</li>
+</ul>
+<h2 id="Array-filter-过滤器"><a href="#Array-filter-过滤器" class="headerlink" title="Array.filter() 过滤器"></a>Array.filter() 过滤器</h2><pre><code class="lang-javascript">var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+
+function myFunction(value, index, array) {
+  return value &gt; 18;
+}
+</code></pre>
+<p>生成新数组，其中包含所有myFunction值为true的数据</p>
+<h2 id="Array-reduce"><a href="#Array-reduce" class="headerlink" title="Array.reduce()"></a>Array.reduce()</h2><p>语法:</p>
+<pre><code class="lang-javascript">
+arr.reduce(function(prev,cur,index,arr){
+...
+}, init);
+</code></pre>
+<p>arr 表示原数组；<br>prev 表示上一次调用回调时的返回值，或者初始值 init;<br>cur 表示当前正在处理的数组元素；<br>index 表示当前正在处理的数组元素的索引，若提供 init 值，则索引为0，否则索引为1；<br>init 表示初始值。<br>与map、filter相比，reduce最大的优点是可以利用函数调用的返回值。</p>
+<h2 id="Array-reduceRight"><a href="#Array-reduceRight" class="headerlink" title="Array.reduceRight()"></a>Array.reduceRight()</h2><p>与reduce相比，该函数从右向左处理。</p>
+<h2 id="Array-every"><a href="#Array-every" class="headerlink" title="Array.every()"></a>Array.every()</h2><p>every() 方法检查所有数组值是否通过测试。</p>
+<h2 id="Array-some"><a href="#Array-some" class="headerlink" title="Array.some()"></a>Array.some()</h2><p>some() 方法检查是否存在数组值通过了测试。</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/01/25/databaseNote-5/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                数据库笔记（四）关系代数</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/01/25/DLFromScratch-7/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                鱼书笔记 第七章 卷积神经网络</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2021/01/20/databaseNote-3/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-20 20:01</div>
-      <a href="/2021/01/20/databaseNote-3/" class="post-title">
-        <h3>数据库笔记（三）关系模型</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/20/databaseNote-3/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/20/DLFromScratch-6/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-20 13:01</div>
-      <a href="/2021/01/20/DLFromScratch-6/" class="post-title">
-        <h3>鱼书笔记 第六章 与学习有关的技巧</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/deeplearning/">deeplearning<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/深度学习/">深度学习</a>
-          
-            <a href="/categories/编程/深度学习/鱼书笔记/">鱼书笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/20/DLFromScratch-6/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/19/databaseNote-2/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-19 19:01</div>
-      <a href="/2021/01/19/databaseNote-2/" class="post-title">
-        <h3>数据库笔记（二）</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/19/databaseNote-2/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/18/DLFromScratch-5/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-18 10:01</div>
-      <a href="/2021/01/18/DLFromScratch-5/" class="post-title">
-        <h3>鱼书笔记 第五章 误差反向传播法</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/deeplearning/">deeplearning<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/深度学习/">深度学习</a>
-          
-            <a href="/categories/编程/深度学习/鱼书笔记/">鱼书笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/18/DLFromScratch-5/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/17/ListComprehensions/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-17 11:01</div>
-      <a href="/2021/01/17/ListComprehensions/" class="post-title">
-        <h3>python 列表生成器</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/python/">python<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/python/">python</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/17/ListComprehensions/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/16/databaseNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-16-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-16 18:01</div>
-      <a href="/2021/01/16/databaseNote-1/" class="post-title">
-        <h3>数据库笔记（一）</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/16/databaseNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/15/pytorchNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-15 14:01</div>
-      <a href="/2021/01/15/pytorchNote-1/" class="post-title">
-        <h3>pytorch(1) 简单入门</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/pytorch/">pytorch<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/python/">python</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/15/pytorchNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/14/jsNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-14 14:01</div>
-      <a href="/2021/01/14/jsNote-1/" class="post-title">
-        <h3>JS笔记(一) 基础写法以及数据类型</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-            <a href="/tags/JavaScript/">JavaScript<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/JavaScript/">JavaScript</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/14/jsNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/12/ipython/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-12 10:01</div>
-      <a href="/2021/01/12/ipython/" class="post-title">
-        <h3>ipython的使用</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/排序/">排序<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/pytorth/">pytorth</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/12/ipython/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/12/26/leetcode120/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-12-26 10:12</div>
-      <a href="/2020/12/26/leetcode120/" class="post-title">
-        <h3>leetcode 116 三角形最短路径</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/leetcode/">leetcode<em>·</em></a>
-          
-            <a href="/tags/c/">c++<em>·</em></a>
-          
-            <a href="/tags/树/">树<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/leetcode/">leetcode</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2020/12/26/leetcode120/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-back"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-right"></i></a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/3/" class="">Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">

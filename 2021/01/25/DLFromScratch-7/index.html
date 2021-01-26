@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">DayDream</title>
+  <title itemprop="name">鱼书笔记 第七章 卷积神经网络 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -284,505 +284,466 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
-<div id="content" class="site-content">
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/comment/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/startdash/wangshiwu.jpg">
-        </div>
-        <div class="info">
-          <h3>留言板</h3>
-          <p>交流一下！</p>
-        </div>
-      </a>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
     </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      鱼书笔记 第七章 卷积神经网络</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-1-25<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  
-</div>
+
+<div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>卷积神经网络(Convolutional Neural Network)简称为CNN。几乎所有的深度学习比赛中都在广泛使用卷积神经网络。</p>
+<h1 id="7-1-CNN的结构"><a href="#7-1-CNN的结构" class="headerlink" title="7.1 CNN的结构"></a>7.1 CNN的结构</h1><p>先回顾一下之前学习的神经网络。<br>相邻层的所有神经元之间都有连接，这称为<strong>全连接</strong></p>
+<p>前面我们用Affine层实现了全连接<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/1.png" alt="全连接"></p>
+<p>这是利用ReLU层和Affine层构建的一个四层神经网络</p>
+<p>而CNN的模式大概是这样的：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/2.png" alt="全连接"><br>也就是说，层与层之间有些用卷积层(Convolution)或池化层(Pooling)。</p>
+<h1 id="7-2-卷积层"><a href="#7-2-卷积层" class="headerlink" title="7.2 卷积层"></a>7.2 卷积层</h1><h2 id="7-2-1-全连接的问题"><a href="#7-2-1-全连接的问题" class="headerlink" title="7.2.1 全连接的问题"></a>7.2.1 全连接的问题</h2><p>全连接层的问题是：忽视了输入数据的形状</p>
+<p>比如处理一个10×10的输入图像，全连接层会把他处理成一个一维的100×1的数据。这个处理过程丢失了数据的形状。</p>
+<p>在图像处理过程中，这个形状所代表的信息有可能非常重要</p>
+<p>而在卷积神经网络中，可以将三维输入的数据按照三维来处理。</p>
+<p>在卷积神经网络中，会把输入输出数据称作<strong>特征图</strong><br>其中输入数据被称为<strong>输入特征图</strong><br>输出数据被称为<strong>输出特征图</strong></p>
+<h2 id="7-2-2-卷积运算"><a href="#7-2-2-卷积运算" class="headerlink" title="7.2.2 卷积运算"></a>7.2.2 卷积运算</h2><p>如图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/3.gif" alt="卷积运算的图示"><br>上图展示的是如下运算：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/4.png" alt="卷积运算"></p>
+<p>相当于一个窗口不停滑动的过程<br>其中滑动时进行的运算是点乘求和运算</p>
+<p>上面的大矩阵是输入数据<br>小矩阵是权重值（滤波器）</p>
+<p>一般在卷积运算之后还要加上偏置</p>
+<p>下面介绍填充幅度和步幅<br>上面的例子中，填充幅度为0，步幅为1；<br>步幅很容易理解：就是每次平移的格数。<br>所谓填充幅度，是指在原图周围填充上特定数值（比如0）<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/5.png" alt="填充幅度"></p>
+<p>思考：当输入数据为H×W，步幅为S，填充幅度为M,滤波器大小为(FH,FW)输出数据应该是？</p>
+<p>高为<script type="math/tex">\frac{H-FH+2M}{S}+1</script>,宽为<script type="math/tex">\frac{W-FW+2M}{S}+1</script></p>
+<h2 id="7-2-5-三维卷积运算"><a href="#7-2-5-三维卷积运算" class="headerlink" title="7.2.5 三维卷积运算"></a>7.2.5 三维卷积运算</h2><p>假如输入的是三维数据呢？<br>我们可以使用一个三维的滤波器。(之前的滤波器是二维的)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/6.png" alt="填充幅度"></p>
+<p>但这样运算会丢失维度（输入是三维，输出是二维）<br>所以采用下面的方法：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/7.png" alt="填充幅度"><br>这样得到的是三维数据。<br>可以看作：使用的是一个四维的滤波器</p>
+<h1 id="7-3-池化层"><a href="#7-3-池化层" class="headerlink" title="7.3 池化层"></a>7.3 池化层</h1><p>池化层的作用是缩小数据量。</p>
+<p>如图是一个执行max操作的池化层：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/8.png" alt="填充幅度"></p>
+<p>一般来说，池化层的窗口大小会设定成和步幅相同的值。</p>
+<p>池化层的特征</p>
+<ul>
+<li>没有需要学习的参数</li>
+<li>通道数不发生变化</li>
+<li>对数据的微小变化不敏感</li>
+</ul>
+<h1 id="7-4-池化层和卷积层的实现"><a href="#7-4-池化层和卷积层的实现" class="headerlink" title="7.4 池化层和卷积层的实现"></a>7.4 池化层和卷积层的实现</h1><p>CNN中传递的是四维数据<br>(batch_num, channel,width,height)</p>
+<h2 id="7-4-1-生成四维数组"><a href="#7-4-1-生成四维数组" class="headerlink" title="7.4.1 生成四维数组"></a>7.4.1 生成四维数组</h2><pre><code class="lang-python">import numpy as np 
+x = np.random.rand(10,1,28,28)
+</code></pre>
+<p>生成的是一个10×1×28×28的四维数据</p>
+<h2 id="基于im2col的展开"><a href="#基于im2col的展开" class="headerlink" title="基于im2col的展开"></a>基于im2col的展开</h2><p>卷积运算由于牵扯到较高维度，需要嵌套for循环。这在运算起来比较麻烦。<br>im2col可以将高维数据转换成二维矩阵，也能再将运算过的矩阵恢复为高维数据。</p>
+<p>具体实现不表。</p>
+<p>当转换成矩阵后，就可以高效的进行卷积运算。</p>
+<h2 id="卷积层具体实现"><a href="#卷积层具体实现" class="headerlink" title="卷积层具体实现"></a>卷积层具体实现</h2><pre><code class="lang-python">
+class Convolution:
+    def __init__(self, W, b, stride=1, pad=0):
+        self.W = W #滤波器（权重）
+        self.b = b
+        self.stride = stride #步幅
+        self.pad = pad#填充
+
+        # 保存的中间变量（反向传播时用到）
+        self.x = None   
+        self.col = None
+        self.col_W = None
+
+        # 重み・バイアスパラメータの勾配
+        self.dW = None
+        self.db = None
+
+    def forward(self, x):
+        FN, C, FH, FW = self.W.shape #滤波器的形状
+        N, C, H, W = x.shape
+        out_h = 1 + int((H + 2*self.pad - FH) / self.stride)
+        out_w = 1 + int((W + 2*self.pad - FW) / self.stride)
+
+        col = im2col(x, FH, FW, self.stride, self.pad)#输入数据展开
+        col_W = self.W.reshape(FN, -1).T #滤波器展开
+
+        out = np.dot(col, col_W) + self.b#卷积运算
+        out = out.reshape(N, out_h, out_w, -1).transpose(0, 3, 1, 2)#恢复数据的形状
+
+        self.x = x
+        self.col = col
+        self.col_W = col_W
+
+        return out
+
+    def backward(self, dout):
+        FN, C, FH, FW = self.W.shape
+        dout = dout.transpose(0,2,3,1).reshape(-1, FN)
+
+        self.db = np.sum(dout, axis=0)
+        self.dW = np.dot(self.col.T, dout)
+        self.dW = self.dW.transpose(1, 0).reshape(FN, C, FH, FW)
+
+        dcol = np.dot(dout, self.col_W.T)
+        dx = col2im(dcol, self.x.shape, FH, FW, self.stride, self.pad)
+
+        return dx
+</code></pre>
+<h2 id="池化层的实现"><a href="#池化层的实现" class="headerlink" title="池化层的实现"></a>池化层的实现</h2><p>与卷积层不同，池化层对每个通道会单独处理。</p>
+<pre><code class="lang-python">class Pooling:
+    def __init__(self, pool_h, pool_w, stride=2, pad=0):
+        self.pool_h = pool_h
+        self.pool_w = pool_w
+        self.stride = stride
+        self.pad = pad
+
+        self.x = None
+        self.arg_max = None
+
+    def forward(self, x):
+        N, C, H, W = x.shape
+        out_h = int(1 + (H - self.pool_h) / self.stride)
+        out_w = int(1 + (W - self.pool_w) / self.stride)
+
+        col = im2col(x, self.pool_h, self.pool_w, self.stride, self.pad)
+        col = col.reshape(-1, self.pool_h*self.pool_w)
+
+        arg_max = np.argmax(col, axis=1)
+        out = np.max(col, axis=1)
+        out = out.reshape(N, out_h, out_w, C).transpose(0, 3, 1, 2)
+
+        self.x = x
+        self.arg_max = arg_max
+
+        return out
+
+    def backward(self, dout):
+        dout = dout.transpose(0, 2, 3, 1)
+
+        pool_size = self.pool_h * self.pool_w
+        dmax = np.zeros((dout.size, pool_size))
+        dmax[np.arange(self.arg_max.size), self.arg_max.flatten()] = dout.flatten()
+        dmax = dmax.reshape(dout.shape + (pool_size,)) 
+
+        dcol = dmax.reshape(dmax.shape[0] * dmax.shape[1] * dmax.shape[2], -1)
+        dx = col2im(dcol, self.x.shape, self.pool_h, self.pool_w, self.stride, self.pad)
+
+        return dx
+</code></pre>
+<h1 id="CNN层的实现"><a href="#CNN层的实现" class="headerlink" title="CNN层的实现"></a>CNN层的实现</h1><p>我们要实现的是这样的一个CNN：<br>conv - relu - pool - affine - relu - affine - softmax</p>
+<pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir)  
+import pickle
+import numpy as np
+from collections import OrderedDict
+from common.layers import *
+from common.gradient import numerical_gradient
+
+
+class SimpleConvNet:
+    &quot;&quot;&quot;単純なConvNet
+
+    conv - relu - pool - affine - relu - affine - softmax
+
+    Parameters
+    ----------
+    input_size : 输入大小（对于MINIST来说为784）
+    hidden_size_list : 隐藏层的层数
+    output_size : 输出（使用MNIST时为10）
+    activation : &#39;relu&#39; or &#39;sigmoid&#39;
+    weight_init_std : 权重的标准差设定（比如0.01）
+        &#39;relu&#39;下使用He值
+        &#39;sigmoid&#39;下使用Xavier值
+    &quot;&quot;&quot;
+    def __init__(self, input_dim=(1, 28, 28), 
+                 conv_param={&#39;filter_num&#39;:30, &#39;filter_size&#39;:5, &#39;pad&#39;:0, &#39;stride&#39;:1},
+                 hidden_size=100, output_size=10, weight_init_std=0.01):
+        filter_num = conv_param[&#39;filter_num&#39;]#滤波器数量
+        filter_size = conv_param[&#39;filter_size&#39;]#滤波器大小
+        filter_pad = conv_param[&#39;pad&#39;]#填充
+        filter_stride = conv_param[&#39;stride&#39;]#步幅
+        input_size = input_dim[1]#输入大小，input_dim保存着输入数据的形状
+        conv_output_size = (input_size - filter_size + 2*filter_pad) / filter_stride + 1
+        pool_output_size = int(filter_num * (conv_output_size/2) * (conv_output_size/2))
+
+        # 重みの初期化
+        self.params = {}
+        self.params[&#39;W1&#39;] = weight_init_std * \
+                            np.random.randn(filter_num, input_dim[0], filter_size, filter_size)
+        self.params[&#39;b1&#39;] = np.zeros(filter_num)
+        self.params[&#39;W2&#39;] = weight_init_std * \
+                            np.random.randn(pool_output_size, hidden_size)
+        self.params[&#39;b2&#39;] = np.zeros(hidden_size)
+        self.params[&#39;W3&#39;] = weight_init_std * \
+                            np.random.randn(hidden_size, output_size)
+        self.params[&#39;b3&#39;] = np.zeros(output_size)
+
+        # レイヤの生成
+        self.layers = OrderedDict()
+        self.layers[&#39;Conv1&#39;] = Convolution(self.params[&#39;W1&#39;], self.params[&#39;b1&#39;],
+                                           conv_param[&#39;stride&#39;], conv_param[&#39;pad&#39;])
+        self.layers[&#39;Relu1&#39;] = Relu()
+        self.layers[&#39;Pool1&#39;] = Pooling(pool_h=2, pool_w=2, stride=2)
+        self.layers[&#39;Affine1&#39;] = Affine(self.params[&#39;W2&#39;], self.params[&#39;b2&#39;])
+        self.layers[&#39;Relu2&#39;] = Relu()
+        self.layers[&#39;Affine2&#39;] = Affine(self.params[&#39;W3&#39;], self.params[&#39;b3&#39;])
+
+        self.last_layer = SoftmaxWithLoss()
+
+    def predict(self, x):
+        for layer in self.layers.values():
+            x = layer.forward(x)
+
+        return x
+
+    def loss(self, x, t):
+        &quot;&quot;&quot;損失関数を求める
+        引数のxは入力データ、tは教師ラベル
+        &quot;&quot;&quot;
+        y = self.predict(x)
+        return self.last_layer.forward(y, t)
+
+    def accuracy(self, x, t, batch_size=100):
+        if t.ndim != 1 : t = np.argmax(t, axis=1)
+
+        acc = 0.0
+
+        for i in range(int(x.shape[0] / batch_size)):
+            tx = x[i*batch_size:(i+1)*batch_size]
+            tt = t[i*batch_size:(i+1)*batch_size]
+            y = self.predict(tx)
+            y = np.argmax(y, axis=1)
+            acc += np.sum(y == tt) 
+
+        return acc / x.shape[0]
+
+    def numerical_gradient(self, x, t):
+        &quot;&quot;&quot;勾配を求める（数値微分）
+
+        Parameters
+        ----------
+        x : 入力データ
+        t : 教師ラベル
+
+        Returns
+        -------
+        各層の勾配を持ったディクショナリ変数
+            grads[&#39;W1&#39;]、grads[&#39;W2&#39;]、...は各層の重み
+            grads[&#39;b1&#39;]、grads[&#39;b2&#39;]、...は各層のバイアス
+        &quot;&quot;&quot;
+        loss_w = lambda w: self.loss(x, t)
+
+        grads = {}
+        for idx in (1, 2, 3):
+            grads[&#39;W&#39; + str(idx)] = numerical_gradient(loss_w, self.params[&#39;W&#39; + str(idx)])
+            grads[&#39;b&#39; + str(idx)] = numerical_gradient(loss_w, self.params[&#39;b&#39; + str(idx)])
+
+        return grads
+
+    def gradient(self, x, t):
+        &quot;&quot;&quot;勾配を求める（誤差逆伝搬法）
+
+        Parameters
+        ----------
+        x : 入力データ
+        t : 教師ラベル
+
+        Returns
+        -------
+        各層の勾配を持ったディクショナリ変数
+            grads[&#39;W1&#39;]、grads[&#39;W2&#39;]、...は各層の重み
+            grads[&#39;b1&#39;]、grads[&#39;b2&#39;]、...は各層のバイアス
+        &quot;&quot;&quot;
+        # forward
+        self.loss(x, t)
+
+        # backward
+        dout = 1
+        dout = self.last_layer.backward(dout)
+
+        layers = list(self.layers.values())
+        layers.reverse()
+        for layer in layers:
+            dout = layer.backward(dout)
+
+        # 設定
+        grads = {}
+        grads[&#39;W1&#39;], grads[&#39;b1&#39;] = self.layers[&#39;Conv1&#39;].dW, self.layers[&#39;Conv1&#39;].db
+        grads[&#39;W2&#39;], grads[&#39;b2&#39;] = self.layers[&#39;Affine1&#39;].dW, self.layers[&#39;Affine1&#39;].db
+        grads[&#39;W3&#39;], grads[&#39;b3&#39;] = self.layers[&#39;Affine2&#39;].dW, self.layers[&#39;Affine2&#39;].db
+
+        return grads
+
+    def save_params(self, file_name=&quot;params.pkl&quot;):
+        params = {}
+        for key, val in self.params.items():
+            params[key] = val
+        with open(file_name, &#39;wb&#39;) as f:
+            pickle.dump(params, f)
+
+    def load_params(self, file_name=&quot;params.pkl&quot;):
+        with open(file_name, &#39;rb&#39;) as f:
+            params = pickle.load(f)
+        for key, val in params.items():
+            self.params[key] = val
+
+        for i, key in enumerate([&#39;Conv1&#39;, &#39;Affine1&#39;, &#39;Affine2&#39;]):
+            self.layers[key].W = self.params[&#39;W&#39; + str(i+1)]
+            self.layers[key].b = self.params[&#39;b&#39; + str(i+1)]
+</code></pre>
+<p>用于测试的源码如下：</p>
+<pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポートするための設定
+import numpy as np
+import matplotlib.pyplot as plt
+from dataset.mnist import load_mnist
+from simple_convnet import SimpleConvNet
+from common.trainer import Trainer
+
+# データの読み込み
+(x_train, t_train), (x_test, t_test) = load_mnist(flatten=False)
+
+# 処理に時間のかかる場合はデータを削減 
+#x_train, t_train = x_train[:5000], t_train[:5000]
+#x_test, t_test = x_test[:1000], t_test[:1000]
+
+max_epochs = 20
+
+network = SimpleConvNet(input_dim=(1,28,28), 
+                        conv_param = {&#39;filter_num&#39;: 30, &#39;filter_size&#39;: 5, &#39;pad&#39;: 0, &#39;stride&#39;: 1},
+                        hidden_size=100, output_size=10, weight_init_std=0.01)
+
+trainer = Trainer(network, x_train, t_train, x_test, t_test,
+                  epochs=max_epochs, mini_batch_size=100,
+                  optimizer=&#39;Adam&#39;, optimizer_param={&#39;lr&#39;: 0.001},
+                  evaluate_sample_num_per_epoch=1000)
+trainer.train()
+
+# パラメータの保存
+network.save_params(&quot;params.pkl&quot;)
+print(&quot;Saved Network Parameters!&quot;)
+
+# グラフの描画
+markers = {&#39;train&#39;: &#39;o&#39;, &#39;test&#39;: &#39;s&#39;}
+x = np.arange(max_epochs)
+plt.plot(x, trainer.train_acc_list, marker=&#39;o&#39;, label=&#39;train&#39;, markevery=2)
+plt.plot(x, trainer.test_acc_list, marker=&#39;s&#39;, label=&#39;test&#39;, markevery=2)
+plt.xlabel(&quot;epochs&quot;)
+plt.ylabel(&quot;accuracy&quot;)
+plt.ylim(0, 1.0)
+plt.legend(loc=&#39;lower right&#39;)
+plt.show()
+</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2021/01/25/jsNote-6/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                JS笔记（六） 数组及其方法</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/01/24/jsNote-5/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                JS笔记（五） 数字的方法</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2021/01/20/databaseNote-3/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-2/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-20 20:01</div>
-      <a href="/2021/01/20/databaseNote-3/" class="post-title">
-        <h3>数据库笔记（三）关系模型</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/20/databaseNote-3/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/20/DLFromScratch-6/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-20 13:01</div>
-      <a href="/2021/01/20/DLFromScratch-6/" class="post-title">
-        <h3>鱼书笔记 第六章 与学习有关的技巧</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/deeplearning/">deeplearning<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/深度学习/">深度学习</a>
-          
-            <a href="/categories/编程/深度学习/鱼书笔记/">鱼书笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/20/DLFromScratch-6/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/19/databaseNote-2/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-19 19:01</div>
-      <a href="/2021/01/19/databaseNote-2/" class="post-title">
-        <h3>数据库笔记（二）</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/19/databaseNote-2/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/18/DLFromScratch-5/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-18-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-18 10:01</div>
-      <a href="/2021/01/18/DLFromScratch-5/" class="post-title">
-        <h3>鱼书笔记 第五章 误差反向传播法</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/deeplearning/">deeplearning<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/深度学习/">深度学习</a>
-          
-            <a href="/categories/编程/深度学习/鱼书笔记/">鱼书笔记</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/18/DLFromScratch-5/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/17/ListComprehensions/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-17 11:01</div>
-      <a href="/2021/01/17/ListComprehensions/" class="post-title">
-        <h3>python 列表生成器</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/python/">python<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/python/">python</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/17/ListComprehensions/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/16/databaseNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-16-1/1.png">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-16 18:01</div>
-      <a href="/2021/01/16/databaseNote-1/" class="post-title">
-        <h3>数据库笔记（一）</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/数据库/">数据库<em>·</em></a>
-          
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/学习笔记/">学习笔记</a>
-          
-            <a href="/categories/学习笔记/数据库/">数据库</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/16/databaseNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/15/pytorchNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-15 14:01</div>
-      <a href="/2021/01/15/pytorchNote-1/" class="post-title">
-        <h3>pytorch(1) 简单入门</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/深度学习/">深度学习<em>·</em></a>
-          
-            <a href="/tags/pytorch/">pytorch<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/python/">python</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/15/pytorchNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/14/jsNote-1/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-14 14:01</div>
-      <a href="/2021/01/14/jsNote-1/" class="post-title">
-        <h3>JS笔记(一) 基础写法以及数据类型</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/笔记/">笔记<em>·</em></a>
-          
-            <a href="/tags/JavaScript/">JavaScript<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/JavaScript/">JavaScript</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/14/jsNote-1/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2021/01/12/ipython/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2021-1-12 10:01</div>
-      <a href="/2021/01/12/ipython/" class="post-title">
-        <h3>ipython的使用</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/python/">python<em>·</em></a>
-          
-            <a href="/tags/排序/">排序<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/pytorth/">pytorth</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2021/01/12/ipython/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2020/12/26/leetcode120/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2020-12-26 10:12</div>
-      <a href="/2020/12/26/leetcode120/" class="post-title">
-        <h3>leetcode 116 三角形最短路径</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/leetcode/">leetcode<em>·</em></a>
-          
-            <a href="/tags/c/">c++<em>·</em></a>
-          
-            <a href="/tags/树/">树<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/编程/">编程</a>
-          
-            <a href="/categories/编程/leetcode/">leetcode</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p></p>
-        <div class="post-bottom">
-          <a href="/2020/12/26/leetcode120/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-back"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="iconfont icon-right"></i></a>
-      </nav>
-     -->
-  </div>
-  
-    <div id="pagination"><a href="/page/3/" class="">Previous</a></div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
 
     </div>    
     <div class="ins-search">
