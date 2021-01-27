@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-01-26T13:35:16.969Z</updated>
+  <updated>2021-01-27T10:17:12.976Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,71 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>leetcode 1654. 到家的最少跳跃次数</title>
+    <link href="/2021/01/27/leetcode1654/"/>
+    <id>/2021/01/27/leetcode1654/</id>
+    <published>2021-01-27T09:53:25.920Z</published>
+    <updated>2021-01-27T10:17:12.976Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门—&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-jumps-to-reach-home&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;leetcode&lt;/a&gt;&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="BFS" scheme="/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记（八） math对象/随机数相关</title>
+    <link href="/2021/01/27/jsNote-8/"/>
+    <id>/2021/01/27/jsNote-8/</id>
+    <published>2021-01-27T02:04:36.223Z</published>
+    <updated>2021-01-27T02:57:36.866Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;math属性&quot;&gt;&lt;a href=&quot;#math属性&quot; class=&quot;headerlink&quot; title=&quot;math属性&quot;&gt;&lt;/a&gt;math属性&lt;/h1&gt;&lt;p&gt;Math 属性（常量）&lt;/p&gt;
+&lt;p&gt;JavaScript 提供了可由 Math 对象访问的 8
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据库笔记（六）SQL语言概览</title>
     <link href="/2021/01/26/databaseNote-6/"/>
     <id>/2021/01/26/databaseNote-6/</id>
     <published>2021-01-26T11:39:32.474Z</published>
-    <updated>2021-01-26T13:35:16.969Z</updated>
+    <updated>2021-01-27T07:16:03.733Z</updated>
     
     <summary type="html">
     
@@ -75,11 +135,11 @@
   </entry>
   
   <entry>
-    <title>数据库笔记（四）关系代数</title>
+    <title>数据库笔记（五）关系演算</title>
     <link href="/2021/01/25/databaseNote-5/"/>
     <id>/2021/01/25/databaseNote-5/</id>
     <published>2021-01-25T09:32:40.659Z</published>
-    <updated>2021-01-26T11:40:20.283Z</updated>
+    <updated>2021-01-27T01:54:30.189Z</updated>
     
     <summary type="html">
     
@@ -135,7 +195,7 @@
     <link href="/2021/01/25/DLFromScratch-7/"/>
     <id>/2021/01/25/DLFromScratch-7/</id>
     <published>2021-01-25T01:20:06.615Z</published>
-    <updated>2021-01-26T09:26:17.801Z</updated>
+    <updated>2021-01-27T02:04:10.539Z</updated>
     
     <summary type="html">
     
@@ -547,71 +607,6 @@
       <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
     
       <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ipython的使用</title>
-    <link href="/2021/01/12/ipython/"/>
-    <id>/2021/01/12/ipython/</id>
-    <published>2021-01-12T02:50:47.911Z</published>
-    <updated>2021-01-15T14:34:16.564Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;安装-打开-关闭&quot;&gt;&lt;a href=&quot;#安装-打开-关闭&quot; class=&quot;headerlink&quot; title=&quot;安装/打开/关闭&quot;&gt;&lt;/a&gt;安装/打开/关闭&lt;/h1&gt;&lt;p&gt;pip安装&lt;/p&gt;
-&lt;pre&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-      <category term="pytorth" scheme="/categories/pytorth/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="排序" scheme="/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 116 三角形最短路径</title>
-    <link href="/2020/12/26/leetcode120/"/>
-    <id>/2020/12/26/leetcode120/</id>
-    <published>2020-12-26T02:56:55.059Z</published>
-    <updated>2020-12-26T03:08:39.578Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;class Solution {
-public:
-    int solu_sum;
-    int solu_ans;
-    int
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
-    
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="c++" scheme="/tags/c/"/>
-    
-      <category term="树" scheme="/tags/%E6%A0%91/"/>
     
   </entry>
   
