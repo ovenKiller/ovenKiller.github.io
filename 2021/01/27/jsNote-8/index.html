@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">JS笔记（八） math对象/随机数相关 | DayDream</title>
+  <title itemprop="name">JS笔记（八） math/一些语法 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -294,7 +294,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      JS笔记（八） math对象/随机数相关</h1>
+      JS笔记（八） math/一些语法</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -352,7 +352,33 @@
 <li>sqrt(x)     返回 x 的平方根</li>
 <li>tan(x)     返回角的正切</li>
 </ul>
-<h1 id="产生随机数的方法"><a href="#产生随机数的方法" class="headerlink" title="产生随机数的方法"></a>产生随机数的方法</h1>
+<h1 id="js支持-表达式"><a href="#js支持-表达式" class="headerlink" title="js支持 ?:表达式"></a>js支持 ?:表达式</h1><pre><code class="lang-javascript">var voteable = (age &lt; 18) ? &quot;太年轻&quot;:&quot;足够成熟&quot;;
+</code></pre>
+<h1 id="js的条件分支-循环与C语言相同"><a href="#js的条件分支-循环与C语言相同" class="headerlink" title="js的条件分支/循环与C语言相同"></a>js的条件分支/循环与C语言相同</h1><h1 id="提升-hoisting"><a href="#提升-hoisting" class="headerlink" title="提升(hoisting)"></a>提升(hoisting)</h1><p>js可以先使用变量后声明</p>
+<h1 id="let"><a href="#let" class="headerlink" title="let"></a>let</h1><p>let与var的区别：</p>
+<p>通过 var 关键词声明的变量没有块作用域。<br>在块 {} 内声明的变量可以从块之外进行访问。<br>而用let声明的关键词有块作用域。</p>
+<p>let更接近与c语言的声明。</p>
+<pre><code class="lang-javascript">var x = 10;
+// 此处 x 为 10
+{ 
+  var x = 6;
+  // 此处 x 为 6
+}
+// 此处 x 为 6
+</code></pre>
+<pre><code class="lang-javascript">var x = 10;
+// 此处 x 为 10
+{ 
+  let x = 6;
+  // 此处 x 为 6
+}
+// 此处 x 为 10
+</code></pre>
+<ul>
+<li>let不会发生“提升”，必须声明后使用</li>
+<li>var可以对var重新声明，但其他的重新声明需要自己尝试语法</li>
+</ul>
+
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>

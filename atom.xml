@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-01-27T10:17:12.976Z</updated>
+  <updated>2021-01-28T07:30:23.436Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,103 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>鱼书笔记 第八章 深度学习</title>
+    <link href="/2021/01/28/DLFromScratch-8/"/>
+    <id>/2021/01/28/DLFromScratch-8/</id>
+    <published>2021-01-28T06:08:48.494Z</published>
+    <updated>2021-01-28T07:30:23.436Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;8-1-加深网络&quot;&gt;&lt;a href=&quot;#8-1-加深网络&quot; class=&quot;headerlink&quot; title=&quot;8.1 加深网络&quot;&gt;&lt;/a&gt;8.1 加深网络&lt;/h1&gt;&lt;p&gt;创建一个图示中的网络，挑战MINIST数据集&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="深度学习" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="deeplearning" scheme="/tags/deeplearning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>974. 和可被 K 整除的子数组</title>
+    <link href="/2021/01/28/leetcode974/"/>
+    <id>/2021/01/28/leetcode974/</id>
+    <published>2021-01-28T05:56:46.787Z</published>
+    <updated>2021-01-28T06:07:23.395Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门：&lt;a href=&quot;https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《leetcode974. 和可被 K
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
+    
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
+    
+      <category term="前缀和" scheme="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>负数取模问题</title>
+    <link href="/2021/01/28/mod-for-nagative/"/>
+    <id>/2021/01/28/mod-for-nagative/</id>
+    <published>2021-01-28T05:28:24.313Z</published>
+    <updated>2021-01-28T05:38:38.452Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;先说结论:&lt;br&gt;c++中负数取模为负数&lt;br&gt;python中负数取模为正数&lt;br&gt;比如：-12 % 10&lt;br&gt;c++中结果为-2&lt;br&gt;python中结果为8&lt;/p&gt;
+&lt;h2 id=&quot;c-测试：&quot;&gt;&lt;a href=&quot;#c-测试：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="/categories/python/"/>
+    
+      <category term="c++" scheme="/categories/python/c/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="c++" scheme="/tags/c/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 1654. 到家的最少跳跃次数</title>
@@ -50,11 +147,11 @@
   </entry>
   
   <entry>
-    <title>JS笔记（八） math对象/随机数相关</title>
+    <title>JS笔记（八） math/一些语法</title>
     <link href="/2021/01/27/jsNote-8/"/>
     <id>/2021/01/27/jsNote-8/</id>
     <published>2021-01-27T02:04:36.223Z</published>
-    <updated>2021-01-27T02:57:36.866Z</updated>
+    <updated>2021-01-28T14:28:49.206Z</updated>
     
     <summary type="html">
     
@@ -501,7 +598,7 @@
     <link href="/2021/01/17/ListComprehensions/"/>
     <id>/2021/01/17/ListComprehensions/</id>
     <published>2021-01-17T03:56:07.618Z</published>
-    <updated>2021-01-17T04:00:38.706Z</updated>
+    <updated>2021-01-28T05:38:24.351Z</updated>
     
     <summary type="html">
     
@@ -519,94 +616,6 @@
     
     
       <category term="python" scheme="/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（一）</title>
-    <link href="/2021/01/16/databaseNote-1/"/>
-    <id>/2021/01/16/databaseNote-1/</id>
-    <published>2021-01-16T10:53:18.416Z</published>
-    <updated>2021-01-18T14:56:28.334Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、-什么是数据库？&quot;&gt;&lt;a href=&quot;#一、-什么是数据库？&quot; class=&quot;headerlink&quot; title=&quot;一、 什么是数据库？&quot;&gt;&lt;/a&gt;一、 什么是数据库？&lt;/h1&gt;&lt;h2 id=&quot;数据库是电子化信息的集合。&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="数据库" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch(1) 简单入门</title>
-    <link href="/2021/01/15/pytorchNote-1/"/>
-    <id>/2021/01/15/pytorchNote-1/</id>
-    <published>2021-01-15T06:00:14.663Z</published>
-    <updated>2021-01-16T09:41:17.156Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;1、Tensor&quot;&gt;&lt;a href=&quot;#1、Tensor&quot; class=&quot;headerlink&quot; title=&quot;1、Tensor&quot;&gt;&lt;/a&gt;1、Tensor&lt;/h1&gt;&lt;p&gt;实际上就是一个高维数组。类似与numpy&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记(一) 基础写法以及数据类型</title>
-    <link href="/2021/01/14/jsNote-1/"/>
-    <id>/2021/01/14/jsNote-1/</id>
-    <published>2021-01-14T06:45:23.499Z</published>
-    <updated>2021-01-24T11:16:57.442Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、js程序写在哪里？&quot;&gt;&lt;a href=&quot;#一、js程序写在哪里？&quot; class=&quot;headerlink&quot; title=&quot;一、js程序写在哪里？&quot;&gt;&lt;/a&gt;一、js程序写在哪里？&lt;/h1&gt;&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="/categories/JavaScript/"/>
-    
-    
-      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
     
   </entry>
   
