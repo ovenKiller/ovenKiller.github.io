@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-01-28T07:30:23.436Z</updated>
+  <updated>2021-01-29T15:07:37.911Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Flex布局</title>
+    <link href="/2021/01/29/flex/"/>
+    <id>/2021/01/29/flex/</id>
+    <published>2021-01-29T12:55:30.606Z</published>
+    <updated>2021-01-29T15:07:37.911Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本文总结自&lt;a href=&quot;https://www.runoob.com/w3cnote/flex-grammar.html&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="前端" scheme="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="CSS" scheme="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/"/>
+    
+    
+      <category term="CSS" scheme="/tags/CSS/"/>
+    
+      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>鱼书笔记 第八章 深度学习</title>
     <link href="/2021/01/28/DLFromScratch-8/"/>
     <id>/2021/01/28/DLFromScratch-8/</id>
     <published>2021-01-28T06:08:48.494Z</published>
-    <updated>2021-01-28T07:30:23.436Z</updated>
+    <updated>2021-01-29T03:33:28.376Z</updated>
     
     <summary type="html">
     
@@ -590,32 +622,6 @@
       <category term="python" scheme="/tags/python/"/>
     
       <category term="deeplearning" scheme="/tags/deeplearning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 列表生成器</title>
-    <link href="/2021/01/17/ListComprehensions/"/>
-    <id>/2021/01/17/ListComprehensions/</id>
-    <published>2021-01-17T03:56:07.618Z</published>
-    <updated>2021-01-28T05:38:24.351Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;基础版：&quot;&gt;&lt;a href=&quot;#基础版：&quot; class=&quot;headerlink&quot; title=&quot;基础版：&quot;&gt;&lt;/a&gt;基础版：&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;variable = [out_exp for item in
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="/categories/python/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
     
   </entry>
   
