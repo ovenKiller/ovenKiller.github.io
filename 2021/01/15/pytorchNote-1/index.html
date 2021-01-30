@@ -353,7 +353,58 @@ array([[1.0102060e-38, 9.0000075e-39, 9.6428910e-39, 1.0653069e-38],
     y = y.cuda()
     z = x + y
 </code></pre>
-<h1 id="Autograd-自动微分"><a href="#Autograd-自动微分" class="headerlink" title="Autograd 自动微分"></a>Autograd 自动微分</h1>
+<h1 id="2、Autograd-自动微分"><a href="#2、Autograd-自动微分" class="headerlink" title="2、Autograd 自动微分"></a>2、Autograd 自动微分</h1><p>pytorch的Autograd模块实现了自动求微分的功能。</p>
+<p>Autograd模块的核心类是autograd.Variable,他简单封装了Tensor,并支持几乎所有的tensor操作。</p>
+<p>autograd.Variable的数据结构包含三部分：<br>{<br>data: 存储着Variable所包含的Tensor。<br>grad：保存data对应的梯度，它也是一个Variable，而不是Tensor。<br>grad_fn：指向一个function对象，这个function用来反向传播求导数。<br>}</p>
+<p>在我的测试中，tensor和Variable是等同的。和书中所说不一样。<br>可能原因有：</p>
+<ul>
+<li>1、我安装的pytoch并不是cuda版本()不可以进行gpu运算</li>
+<li>2、仅仅是显示问题，实际上tensor和variable不同，只是我没有发现</li>
+<li>3、pytorch进行了更新，variable和tensor被改的一样了</li>
+</ul>
+<pre><code class="lang-python">from torch.autograd import Variable
+
+import torch as t
+
+x = Variable(t.ones(2,2),requires_grad = True)
+
+x
+
+# tensor([[1., 1.],
+#         [1., 1.]], requires_grad=True)
+
+y = x.sum()
+
+y
+
+# tensor(4., grad_fn=&lt;SumBackward0&gt;)
+
+# x.grad
+
+# tensor([[1., 1.],
+#         [1., 1.]])
+
+y.backward()
+
+x.grad
+
+# tensor([[2., 2.],
+#         [2., 2.]])
+</code></pre>
+<p>注意，grad在反向传播的过程中是累加的，反向传播之前需要把梯度清零。</p>
+<pre><code class="lang-python">x.grad.data.zero_()
+
+x
+
+# tensor([[1., 1.],
+#         [1., 1.]], requires_grad=True)
+
+x.grad
+
+# tensor([[0., 0.],
+#         [0., 0.]])
+</code></pre>
+
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
