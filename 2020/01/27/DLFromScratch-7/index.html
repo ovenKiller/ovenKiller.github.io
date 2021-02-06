@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">鱼书笔记 第七章 卷积神经网络 | DayDream</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "DayDream";
+  mashiro_option.author_name = "DayDream";
+  mashiro_option.site_url = "http://x-quest.xyz";
+  mashiro_option.v_appId = "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz";
+  mashiro_option.v_appKey = "AaDo6LOfCdsKQyWVT8bzUnml";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/cover/(3).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="http://x-quest.xyz">
+          <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>我脚踩着云朵迎着风</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="mailto:maxliu7@outlook.com" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/wechat.png">
+                  </div>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://du.163.com/share/user/caa5d60f49f44f4d96ede3dd669c91ec?user=caa5d60f49f44f4d96ede3dd669c91ec" target="_blank" class="social-github" title="snailreader">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/snailreader.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">DayDream</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/编程/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/英语新闻/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          英语
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/book">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      鱼书笔记 第七章 卷积神经网络</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-1-27<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>卷积神经网络(Convolutional Neural Network)简称为CNN。几乎所有的深度学习比赛中都在广泛使用卷积神经网络。</p>
+<h1 id="7-1-CNN的结构"><a href="#7-1-CNN的结构" class="headerlink" title="7.1 CNN的结构"></a>7.1 CNN的结构</h1><p>先回顾一下之前学习的神经网络。<br>相邻层的所有神经元之间都有连接，这称为<strong>全连接</strong></p>
+<p>前面我们用Affine层实现了全连接<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/1.png" alt="全连接"></p>
+<p>这是利用ReLU层和Affine层构建的一个四层神经网络</p>
+<p>而CNN的模式大概是这样的：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/2.png" alt="全连接"><br>也就是说，层与层之间有些用卷积层(Convolution)或池化层(Pooling)。</p>
+<h1 id="7-2-卷积层"><a href="#7-2-卷积层" class="headerlink" title="7.2 卷积层"></a>7.2 卷积层</h1><h2 id="7-2-1-全连接的问题"><a href="#7-2-1-全连接的问题" class="headerlink" title="7.2.1 全连接的问题"></a>7.2.1 全连接的问题</h2><p>全连接层的问题是：忽视了输入数据的形状</p>
+<p>比如处理一个10×10的输入图像，全连接层会把他处理成一个一维的100×1的数据。这个处理过程丢失了数据的形状。</p>
+<p>在图像处理过程中，这个形状所代表的信息有可能非常重要</p>
+<p>而在卷积神经网络中，可以将三维输入的数据按照三维来处理。</p>
+<p>在卷积神经网络中，会把输入输出数据称作<strong>特征图</strong><br>其中输入数据被称为<strong>输入特征图</strong><br>输出数据被称为<strong>输出特征图</strong></p>
+<h2 id="7-2-2-卷积运算"><a href="#7-2-2-卷积运算" class="headerlink" title="7.2.2 卷积运算"></a>7.2.2 卷积运算</h2><p>如图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/3.gif" alt="卷积运算的图示"><br>上图展示的是如下运算：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/4.png" alt="卷积运算"></p>
+<p>相当于一个窗口不停滑动的过程<br>其中滑动时进行的运算是点乘求和运算</p>
+<p>上面的大矩阵是输入数据<br>小矩阵是权重值（滤波器）</p>
+<p>一般在卷积运算之后还要加上偏置</p>
+<p>下面介绍填充幅度和步幅<br>上面的例子中，填充幅度为0，步幅为1；<br>步幅很容易理解：就是每次平移的格数。<br>所谓填充幅度，是指在原图周围填充上特定数值（比如0）<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/5.png" alt="填充幅度"></p>
+<p>思考：当输入数据为H×W，步幅为S，填充幅度为M,滤波器大小为(FH,FW)输出数据应该是？</p>
+<p>高为<script type="math/tex">\frac{H-FH+2M}{S}+1</script>,宽为<script type="math/tex">\frac{W-FW+2M}{S}+1</script></p>
+<h2 id="7-2-5-三维卷积运算"><a href="#7-2-5-三维卷积运算" class="headerlink" title="7.2.5 三维卷积运算"></a>7.2.5 三维卷积运算</h2><p>假如输入的是三维数据呢？<br>我们可以使用一个三维的滤波器。(之前的滤波器是二维的)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/6.png" alt="填充幅度"></p>
+<p>但这样运算会丢失维度（输入是三维，输出是二维）<br>所以采用下面的方法：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/7.png" alt="填充幅度"><br>这样得到的是三维数据。<br>可以看作：使用的是一个四维的滤波器</p>
+<h1 id="7-3-池化层"><a href="#7-3-池化层" class="headerlink" title="7.3 池化层"></a>7.3 池化层</h1><p>池化层的作用是缩小数据量。</p>
+<p>如图是一个执行max操作的池化层：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/8.png" alt="填充幅度"></p>
+<p>一般来说，池化层的窗口大小会设定成和步幅相同的值。</p>
+<p>池化层的特征</p>
+<ul>
+<li>没有需要学习的参数</li>
+<li>通道数不发生变化</li>
+<li>对数据的微小变化不敏感</li>
+</ul>
+<h1 id="7-4-池化层和卷积层的实现"><a href="#7-4-池化层和卷积层的实现" class="headerlink" title="7.4 池化层和卷积层的实现"></a>7.4 池化层和卷积层的实现</h1><p>CNN中传递的是四维数据<br>(batch_num, channel,width,height)</p>
+<h2 id="7-4-1-生成四维数组"><a href="#7-4-1-生成四维数组" class="headerlink" title="7.4.1 生成四维数组"></a>7.4.1 生成四维数组</h2><pre><code class="lang-python">import numpy as np 
+x = np.random.rand(10,1,28,28)
+</code></pre>
+<p>生成的是一个10×1×28×28的四维数据</p>
+<h2 id="基于im2col的展开"><a href="#基于im2col的展开" class="headerlink" title="基于im2col的展开"></a>基于im2col的展开</h2><p>卷积运算由于牵扯到较高维度，需要嵌套for循环。这在运算起来比较麻烦。<br>im2col可以将高维数据转换成二维矩阵，也能再将运算过的矩阵恢复为高维数据。</p>
+<p>具体实现不表。</p>
+<p>当转换成矩阵后，就可以高效的进行卷积运算。</p>
+<h2 id="卷积层具体实现"><a href="#卷积层具体实现" class="headerlink" title="卷积层具体实现"></a>卷积层具体实现</h2><pre><code class="lang-python">
+class Convolution:
+    def __init__(self, W, b, stride=1, pad=0):
+        self.W = W #滤波器（权重）
+        self.b = b
+        self.stride = stride #步幅
+        self.pad = pad#填充
+
+        # 保存的中间变量（反向传播时用到）
+        self.x = None   
+        self.col = None
+        self.col_W = None
+
+        # 重み・バイアスパラメータの勾配
+        self.dW = None
+        self.db = None
+
+    def forward(self, x):
+        FN, C, FH, FW = self.W.shape #滤波器的形状
+        N, C, H, W = x.shape
+        out_h = 1 + int((H + 2*self.pad - FH) / self.stride)
+        out_w = 1 + int((W + 2*self.pad - FW) / self.stride)
+
+        col = im2col(x, FH, FW, self.stride, self.pad)#输入数据展开
+        col_W = self.W.reshape(FN, -1).T #滤波器展开
+
+        out = np.dot(col, col_W) + self.b#卷积运算
+        out = out.reshape(N, out_h, out_w, -1).transpose(0, 3, 1, 2)#恢复数据的形状
+
+        self.x = x
+        self.col = col
+        self.col_W = col_W
+
+        return out
+
+    def backward(self, dout):
+        FN, C, FH, FW = self.W.shape
+        dout = dout.transpose(0,2,3,1).reshape(-1, FN)
+
+        self.db = np.sum(dout, axis=0)
+        self.dW = np.dot(self.col.T, dout)
+        self.dW = self.dW.transpose(1, 0).reshape(FN, C, FH, FW)
+
+        dcol = np.dot(dout, self.col_W.T)
+        dx = col2im(dcol, self.x.shape, FH, FW, self.stride, self.pad)
+
+        return dx
+</code></pre>
+<h2 id="池化层的实现"><a href="#池化层的实现" class="headerlink" title="池化层的实现"></a>池化层的实现</h2><p>与卷积层不同，池化层对每个通道会单独处理。</p>
+<pre><code class="lang-python">class Pooling:
+    def __init__(self, pool_h, pool_w, stride=2, pad=0):
+        self.pool_h = pool_h
+        self.pool_w = pool_w
+        self.stride = stride
+        self.pad = pad
+
+        self.x = None
+        self.arg_max = None
+
+    def forward(self, x):
+        N, C, H, W = x.shape
+        out_h = int(1 + (H - self.pool_h) / self.stride)
+        out_w = int(1 + (W - self.pool_w) / self.stride)
+
+        col = im2col(x, self.pool_h, self.pool_w, self.stride, self.pad)
+        col = col.reshape(-1, self.pool_h*self.pool_w)
+
+        arg_max = np.argmax(col, axis=1)
+        out = np.max(col, axis=1)
+        out = out.reshape(N, out_h, out_w, C).transpose(0, 3, 1, 2)
+
+        self.x = x
+        self.arg_max = arg_max
+
+        return out
+
+    def backward(self, dout):
+        dout = dout.transpose(0, 2, 3, 1)
+
+        pool_size = self.pool_h * self.pool_w
+        dmax = np.zeros((dout.size, pool_size))
+        dmax[np.arange(self.arg_max.size), self.arg_max.flatten()] = dout.flatten()
+        dmax = dmax.reshape(dout.shape + (pool_size,)) 
+
+        dcol = dmax.reshape(dmax.shape[0] * dmax.shape[1] * dmax.shape[2], -1)
+        dx = col2im(dcol, self.x.shape, self.pool_h, self.pool_w, self.stride, self.pad)
+
+        return dx
+</code></pre>
+<h1 id="CNN层的实现"><a href="#CNN层的实现" class="headerlink" title="CNN层的实现"></a>CNN层的实现</h1><p>我们要实现的是这样的一个CNN：<br>conv - relu - pool - affine - relu - affine - softmax</p>
+<pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir)  
+import pickle
+import numpy as np
+from collections import OrderedDict
+from common.layers import *
+from common.gradient import numerical_gradient
+
+
+class SimpleConvNet:
+    &quot;&quot;&quot;単純なConvNet
+
+    conv - relu - pool - affine - relu - affine - softmax
+
+    Parameters
+    ----------
+    input_size : 输入大小（对于MINIST来说为784）
+    hidden_size_list : 隐藏层的层数
+    output_size : 输出（使用MNIST时为10）
+    activation : &#39;relu&#39; or &#39;sigmoid&#39;
+    weight_init_std : 权重的标准差设定（比如0.01）
+        &#39;relu&#39;下使用He值
+        &#39;sigmoid&#39;下使用Xavier值
+    &quot;&quot;&quot;
+    def __init__(self, input_dim=(1, 28, 28), 
+                 conv_param={&#39;filter_num&#39;:30, &#39;filter_size&#39;:5, &#39;pad&#39;:0, &#39;stride&#39;:1},
+                 hidden_size=100, output_size=10, weight_init_std=0.01):
+        filter_num = conv_param[&#39;filter_num&#39;]#滤波器数量
+        filter_size = conv_param[&#39;filter_size&#39;]#滤波器大小
+        filter_pad = conv_param[&#39;pad&#39;]#填充
+        filter_stride = conv_param[&#39;stride&#39;]#步幅
+        input_size = input_dim[1]#输入大小，input_dim保存着输入数据的形状
+        conv_output_size = (input_size - filter_size + 2*filter_pad) / filter_stride + 1
+        pool_output_size = int(filter_num * (conv_output_size/2) * (conv_output_size/2))
+
+        # 重みの初期化
+        self.params = {}
+        self.params[&#39;W1&#39;] = weight_init_std * \
+                            np.random.randn(filter_num, input_dim[0], filter_size, filter_size)
+        self.params[&#39;b1&#39;] = np.zeros(filter_num)
+        self.params[&#39;W2&#39;] = weight_init_std * \
+                            np.random.randn(pool_output_size, hidden_size)
+        self.params[&#39;b2&#39;] = np.zeros(hidden_size)
+        self.params[&#39;W3&#39;] = weight_init_std * \
+                            np.random.randn(hidden_size, output_size)
+        self.params[&#39;b3&#39;] = np.zeros(output_size)
+
+        # レイヤの生成
+        self.layers = OrderedDict()
+        self.layers[&#39;Conv1&#39;] = Convolution(self.params[&#39;W1&#39;], self.params[&#39;b1&#39;],
+                                           conv_param[&#39;stride&#39;], conv_param[&#39;pad&#39;])
+        self.layers[&#39;Relu1&#39;] = Relu()
+        self.layers[&#39;Pool1&#39;] = Pooling(pool_h=2, pool_w=2, stride=2)
+        self.layers[&#39;Affine1&#39;] = Affine(self.params[&#39;W2&#39;], self.params[&#39;b2&#39;])
+        self.layers[&#39;Relu2&#39;] = Relu()
+        self.layers[&#39;Affine2&#39;] = Affine(self.params[&#39;W3&#39;], self.params[&#39;b3&#39;])
+
+        self.last_layer = SoftmaxWithLoss()
+
+    def predict(self, x):
+        for layer in self.layers.values():
+            x = layer.forward(x)
+
+        return x
+
+    def loss(self, x, t):
+        &quot;&quot;&quot;損失関数を求める
+        引数のxは入力データ、tは教師ラベル
+        &quot;&quot;&quot;
+        y = self.predict(x)
+        return self.last_layer.forward(y, t)
+
+    def accuracy(self, x, t, batch_size=100):
+        if t.ndim != 1 : t = np.argmax(t, axis=1)
+
+        acc = 0.0
+
+        for i in range(int(x.shape[0] / batch_size)):
+            tx = x[i*batch_size:(i+1)*batch_size]
+            tt = t[i*batch_size:(i+1)*batch_size]
+            y = self.predict(tx)
+            y = np.argmax(y, axis=1)
+            acc += np.sum(y == tt) 
+
+        return acc / x.shape[0]
+
+    def numerical_gradient(self, x, t):
+        &quot;&quot;&quot;勾配を求める（数値微分）
+
+        Parameters
+        ----------
+        x : 入力データ
+        t : 教師ラベル
+
+        Returns
+        -------
+        各層の勾配を持ったディクショナリ変数
+            grads[&#39;W1&#39;]、grads[&#39;W2&#39;]、...は各層の重み
+            grads[&#39;b1&#39;]、grads[&#39;b2&#39;]、...は各層のバイアス
+        &quot;&quot;&quot;
+        loss_w = lambda w: self.loss(x, t)
+
+        grads = {}
+        for idx in (1, 2, 3):
+            grads[&#39;W&#39; + str(idx)] = numerical_gradient(loss_w, self.params[&#39;W&#39; + str(idx)])
+            grads[&#39;b&#39; + str(idx)] = numerical_gradient(loss_w, self.params[&#39;b&#39; + str(idx)])
+
+        return grads
+
+    def gradient(self, x, t):
+        &quot;&quot;&quot;勾配を求める（誤差逆伝搬法）
+
+        Parameters
+        ----------
+        x : 入力データ
+        t : 教師ラベル
+
+        Returns
+        -------
+        各層の勾配を持ったディクショナリ変数
+            grads[&#39;W1&#39;]、grads[&#39;W2&#39;]、...は各層の重み
+            grads[&#39;b1&#39;]、grads[&#39;b2&#39;]、...は各層のバイアス
+        &quot;&quot;&quot;
+        # forward
+        self.loss(x, t)
+
+        # backward
+        dout = 1
+        dout = self.last_layer.backward(dout)
+
+        layers = list(self.layers.values())
+        layers.reverse()
+        for layer in layers:
+            dout = layer.backward(dout)
+
+        # 設定
+        grads = {}
+        grads[&#39;W1&#39;], grads[&#39;b1&#39;] = self.layers[&#39;Conv1&#39;].dW, self.layers[&#39;Conv1&#39;].db
+        grads[&#39;W2&#39;], grads[&#39;b2&#39;] = self.layers[&#39;Affine1&#39;].dW, self.layers[&#39;Affine1&#39;].db
+        grads[&#39;W3&#39;], grads[&#39;b3&#39;] = self.layers[&#39;Affine2&#39;].dW, self.layers[&#39;Affine2&#39;].db
+
+        return grads
+
+    def save_params(self, file_name=&quot;params.pkl&quot;):
+        params = {}
+        for key, val in self.params.items():
+            params[key] = val
+        with open(file_name, &#39;wb&#39;) as f:
+            pickle.dump(params, f)
+
+    def load_params(self, file_name=&quot;params.pkl&quot;):
+        with open(file_name, &#39;rb&#39;) as f:
+            params = pickle.load(f)
+        for key, val in params.items():
+            self.params[key] = val
+
+        for i, key in enumerate([&#39;Conv1&#39;, &#39;Affine1&#39;, &#39;Affine2&#39;]):
+            self.layers[key].W = self.params[&#39;W&#39; + str(i+1)]
+            self.layers[key].b = self.params[&#39;b&#39; + str(i+1)]
+</code></pre>
+<p>用于测试的源码如下：</p>
+<pre><code class="lang-python"># coding: utf-8
+import sys, os
+sys.path.append(os.pardir)  # 親ディレクトリのファイルをインポートするための設定
+import numpy as np
+import matplotlib.pyplot as plt
+from dataset.mnist import load_mnist
+from simple_convnet import SimpleConvNet
+from common.trainer import Trainer
+
+# データの読み込み
+(x_train, t_train), (x_test, t_test) = load_mnist(flatten=False)
+
+# 処理に時間のかかる場合はデータを削減 
+#x_train, t_train = x_train[:5000], t_train[:5000]
+#x_test, t_test = x_test[:1000], t_test[:1000]
+
+max_epochs = 20
+
+network = SimpleConvNet(input_dim=(1,28,28), 
+                        conv_param = {&#39;filter_num&#39;: 30, &#39;filter_size&#39;: 5, &#39;pad&#39;: 0, &#39;stride&#39;: 1},
+                        hidden_size=100, output_size=10, weight_init_std=0.01)
+
+trainer = Trainer(network, x_train, t_train, x_test, t_test,
+                  epochs=max_epochs, mini_batch_size=100,
+                  optimizer=&#39;Adam&#39;, optimizer_param={&#39;lr&#39;: 0.001},
+                  evaluate_sample_num_per_epoch=1000)
+trainer.train()
+
+# パラメータの保存
+network.save_params(&quot;params.pkl&quot;)
+print(&quot;Saved Network Parameters!&quot;)
+
+# グラフの描画
+markers = {&#39;train&#39;: &#39;o&#39;, &#39;test&#39;: &#39;s&#39;}
+x = np.arange(max_epochs)
+plt.plot(x, trainer.train_acc_list, marker=&#39;o&#39;, label=&#39;train&#39;, markevery=2)
+plt.plot(x, trainer.test_acc_list, marker=&#39;s&#39;, label=&#39;test&#39;, markevery=2)
+plt.xlabel(&quot;epochs&quot;)
+plt.ylabel(&quot;accuracy&quot;)
+plt.ylim(0, 1.0)
+plt.legend(loc=&#39;lower right&#39;)
+plt.show()
+</code></pre>
+<h1 id="7-6-CNN可视化"><a href="#7-6-CNN可视化" class="headerlink" title="7.6 CNN可视化"></a>7.6 CNN可视化</h1><h2 id="7-6-1-CNN的卷积层究竟在“观察”什么呢？"><a href="#7-6-1-CNN的卷积层究竟在“观察”什么呢？" class="headerlink" title="7.6.1 CNN的卷积层究竟在“观察”什么呢？"></a>7.6.1 CNN的卷积层究竟在“观察”什么呢？</h2><p>我们将CNN的滤波器可视化，将权重显示为颜色，可以发现在学习前后，滤波器有了明显变化：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/9.png" alt="CNN可视化"></p>
+<p>滤波器在“观察”什么，答案就是它在观察边缘（颜色变化的分界线）和斑块（局部的块状区域）等。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/10.png" alt="CNN可视化"><br>由此可知，卷积层的滤波器会提取边缘或斑块等原始信息。而刚才实现的CNN会将这些原始信息传递给后面的层。</p>
+<h2 id="7-6-2-基于分层结构的信息提取"><a href="#7-6-2-基于分层结构的信息提取" class="headerlink" title="7.6.2 基于分层结构的信息提取"></a>7.6.2 基于分层结构的信息提取</h2><p>上面观察的仅仅是CNN中的一层，下面以AlexNet为例，介绍多层CNN的工作过程。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/11.png" alt="CNN可视化"></p>
+<p>上面的图像可以概括为：</p>
+<ul>
+<li>CNN的卷积层中提取的信息。</li>
+<li>第1层的神经元对边缘或斑块有响应</li>
+<li>第3层对纹理有响应</li>
+<li>第5层对物体部件有响应</li>
+<li>最后的全连接层对物体的类别（狗或车）有响应</li>
+</ul>
+<p>这是一个由简单到复杂、逐步加深的过程</p>
+<h1 id="7-7-具有代表性的CNN"><a href="#7-7-具有代表性的CNN" class="headerlink" title="7.7 具有代表性的CNN"></a>7.7 具有代表性的CNN</h1><h2 id="7-7-1-LeNet"><a href="#7-7-1-LeNet" class="headerlink" title="7.7.1 LeNet"></a>7.7.1 LeNet</h2><p>1998年被提出的CNN网络，可以说是CNN的鼻祖<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/12.png" alt="LeNet"><br>与当前CNN的区别主要是:<br>1、池化层采用随机采样(现在更多采用Max操作)<br>2、激活函数为sigmoid(现在更多采用ReLU)</p>
+<h2 id="7-7-2-AlexNet"><a href="#7-7-2-AlexNet" class="headerlink" title="7.7.2 AlexNet"></a>7.7.2 AlexNet</h2><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/12.png" alt="LeNet"></p>
+<p>AlexNet的特点是：<br>• 激活函数使用ReLU。<br>• 使用进行局部正规化的LRN（Local Response Normalization）层。<br>• 使用Dropout。</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/01/29/flex/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                Flex布局</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/01/19/databaseNote-2/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                数据库笔记（二）</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 断梦三生<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2019 Max L ♥</p>
+    </div>
+    <div class="footer-device">
+
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">DayDream</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://qm.qq.com/cgi-bin/qm/qr?k=OKbDbzqI5VkiSEunPQoWG9F2yxDGaYQD&noverify=0" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+        <a href="http://music.163.com/m/user/home?id=67715923" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+        <a href="https://du.163.com/share/user/caa5d60f49f44f4d96ede3dd669c91ec?user=caa5d60f49f44f4d96ede3dd669c91ec" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/编程/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/英语新闻/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  英语
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/book">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="5297427227"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="list"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+  <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/piao.js"></script>
+</body>
+</html>

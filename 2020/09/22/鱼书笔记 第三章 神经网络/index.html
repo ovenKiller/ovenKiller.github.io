@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">鱼书笔记 第三章 神经网络 | DayDream</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "DayDream";
+  mashiro_option.author_name = "DayDream";
+  mashiro_option.site_url = "http://x-quest.xyz";
+  mashiro_option.v_appId = "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz";
+  mashiro_option.v_appKey = "AaDo6LOfCdsKQyWVT8bzUnml";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/cover/(3).jpg.webp".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+</head>
+</html>
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dot">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a href="http://x-quest.xyz">
+          <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/avatar.jpg">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>我脚踩着云朵迎着风</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="mailto:maxliu7@outlook.com" target="_blank" class="social-github" title="email">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/email.svg">
+                  </a>
+                </li>
+              
+            
+              
+                <li class="wechat">
+                  <a href="/#">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/wechat.png">
+                  </a>
+                  <div class="wechatInner">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/wechat.png">
+                  </div>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://du.163.com/share/user/caa5d60f49f44f4d96ede3dd669c91ec?user=caa5d60f49f44f4d96ede3dd669c91ec" target="_blank" class="social-github" title="snailreader">
+                    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/social/snailreader.svg">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono"></span>
+            <span class="shironeko">DayDream</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首页
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    归档
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/categories/编程/">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          技术
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/随想/">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                          随想
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/categories/英语新闻/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          英语
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="javascript:;">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+                    清单
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/book">
+                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                          书单
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/music/">
+                          <i class="fa fa-headphones" aria-hidden="true"></i>
+                          歌单
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/comment/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+                    留言板
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    关于
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a href="/theme-sakura/">
+                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                          主题
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/3.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/3.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      鱼书笔记 第三章 神经网络</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-9-22<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>上一章谈到感知机。理论上感知机能表示任意的复杂函数，但是它有很明显的缺点：权重必须手动设定。<br>而本章介绍的神经网络，它的一个重要性质就是可以自动地从数据中学习到合适的权重参数。<br></p>
+<h1 id="一、从感知机到神经网络"><a href="#一、从感知机到神经网络" class="headerlink" title="一、从感知机到神经网络"></a>一、从感知机到神经网络</h1><h2 id="1-神经网络的例子"><a href="#1-神经网络的例子" class="headerlink" title="1)神经网络的例子"></a>1)神经网络的例子</h2><p>神经网络分为三层：分别为输入层、中间层、输出层。由于中间层是不可见的，也被称为“隐藏层”。本书把这三层依次称为第0层、第一层、第二层。<br>在连接方式上，神经网络与感知机没有区别。</p>
+<h2 id="2-再论感知机"><a href="#2-再论感知机" class="headerlink" title="2)再论感知机"></a>2)再论感知机</h2><p>感知机的函数可以表达为<script type="math/tex">z = \begin{cases}1, ux + vy + b > 0 \\0, ux + vy + b \leq 0\end{cases}</script></p>
+<p>其中x、y为输入,b为偏置。这样的感知机在实现时便需要对x、 y、 b分开处理。<br><br>其实我们可以将x、y、b 统一处理。假设b也是一个输出、并且它的值恒为b，权重恒为1。<br>另外，我们可以引入函数h(x),<script type="math/tex">h(x) = \begin{cases}1, x > 0 \\ 0, x \leq 0 \end{cases}</script>, 这样，上面的函数可以表示为$h(ux + vy + b)$.</p>
+<h2 id="3-激活函数登场"><a href="#3-激活函数登场" class="headerlink" title="3)激活函数登场"></a>3)激活函数登场</h2><p>上面提到的$h(x)$,它可以将输入信号的总和处理成输出信号，这个函数便称为<strong>激活函数</strong>。<br>激活函数的计算过程也就可以拆分为：<br></p>
+<ul>
+<li>计算 c = ux + vy + b. c 计算所有输入信号的加权和</li>
+<li>计算 $h(c)$</li>
+</ul>
+<h1 id="二、激活函数"><a href="#二、激活函数" class="headerlink" title="二、激活函数"></a>二、激活函数</h1><p>前面介绍的激活函数，以某个阈值为界，当输入超过阈值后就改变输出，这种函数称为<strong>阶跃函数</strong>，激活函数还有其他的类型<br></p>
+<h2 id="1-sigmoid函数"><a href="#1-sigmoid函数" class="headerlink" title="1)sigmoid函数"></a>1)sigmoid函数</h2><p>神经网络中经常用到sigmiod函数</p>
+<script type="math/tex; mode=display">h(x) = \frac{1}{1+e^{-x}}</script><p>e即是自然对数的底数。感知机和神经元的主要区别就在于激活函数</p>
+<h2 id="2）阶跃函数的实现"><a href="#2）阶跃函数的实现" class="headerlink" title="2）阶跃函数的实现"></a>2）阶跃函数的实现</h2><p>前面的阶跃函数只能处理数组。下面我们写一个能处理矩阵的阶跃函数:</p>
+<pre><code class="lang-python">import numpy as np
+def step_function(x):
+    y = x &gt; 0
+    return y.astype(np.int)
+x = np.array([-1.0, 1.0, 2.0])
+print(step_function(x))
+</code></pre>
+<p>输出为</p>
+<pre><code class="lang-xml">[0 1 1]
+</code></pre>
+<p>astyped()的方法可以将矩阵元素转换为期望的类型。上面是将bool型转换为np.int型</p>
+<h2 id="3）阶跃函数的图像"><a href="#3）阶跃函数的图像" class="headerlink" title="3）阶跃函数的图像"></a>3）阶跃函数的图像</h2><p>运用matplotlib</p>
+<pre><code class="lang-python">import numpy as np
+import matplotlib.pylab as plt
+def step_function(x):
+    return np.array(x &gt; 0, dtype=np.int)
+x = np.array([-1.0, 1.0, 2.0])
+
+x = np.arange(-5.0,5.0,0.1)
+y = step_function(x)
+plt.plot(x, y)
+plt.ylim(-0.1, 1.1) # 指定y轴范围
+plt.show()
+</code></pre>
+<p>得到的图像如图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/1.png"></p>
+<p>它的函数值呈阶梯形变化，故称阶跃函数</p>
+<h2 id="4-sigmoid函数的实现"><a href="#4-sigmoid函数的实现" class="headerlink" title="4) sigmoid函数的实现"></a>4) sigmoid函数的实现</h2><pre><code class="lang-python">import numpy as np
+import matplotlib.pylab as plt
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x)) 
+x = np.arange(-5.0,5.0,0.1)
+y = sigmoid(x)
+plt.plot(x, y)
+plt.ylim(-0.1, 1.1) # 指定y轴范围
+plt.show()
+</code></pre>
+<p>函数图像如图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/2.png"></p>
+<h2 id="5）sigmoid函数和阶跃函数的比较"><a href="#5）sigmoid函数和阶跃函数的比较" class="headerlink" title="5）sigmoid函数和阶跃函数的比较"></a>5）sigmoid函数和阶跃函数的比较</h2><ul>
+<li>不同点：阶跃函数是“间断”的，sigmoid函数是连续变化的。</li>
+<li>相同点：两者的函数值均在0和1之间</li>
+</ul>
+<h2 id="6）线性函数与非线性函数"><a href="#6）线性函数与非线性函数" class="headerlink" title="6）线性函数与非线性函数"></a>6）线性函数与非线性函数</h2><p>阶跃函数和sigmoid函数还有一个共同点：两者均是非线性函数。神经网络的激活函数必须是非线性函数。否则，加深神经网络的层数就没有意义了。线性函数无论如何叠加，其效果均为线性</p>
+<h2 id="7-ReLU函数"><a href="#7-ReLU函数" class="headerlink" title="7) ReLU函数"></a>7) ReLU函数</h2><p>ReLU函数最近被广泛用作激活函数，其表达式为：</p>
+<script type="math/tex; mode=display">h(x) =  \begin{cases} x, (x > 0) \\0, ( x \leq 0)\end{cases}</script><p>其代码实现：</p>
+<pre><code class="lang-python">def relu(x):
+    return np.maximum(0,x)
+</code></pre>
+<h1 id="三、多维数组的运算"><a href="#三、多维数组的运算" class="headerlink" title="三、多维数组的运算"></a>三、多维数组的运算</h1><h2 id="1-多维数组"><a href="#1-多维数组" class="headerlink" title="1)多维数组"></a>1)多维数组</h2><pre><code class="lang-python">import numpy as np
+A = np.array([[1,2],[1,4],[8,9]])
+print(A)
+print(np.ndim(A)) # A的维数
+print(A.shape) # A的形状
+</code></pre>
+<p>输出结果：</p>
+<pre><code class="lang-xml">[[1 2]
+ [1 4]
+ [8 9]]
+2
+(3, 2)
+</code></pre>
+<h2 id="2）矩阵的点积（内积）运算："><a href="#2）矩阵的点积（内积）运算：" class="headerlink" title="2）矩阵的点积（内积）运算："></a>2）矩阵的点积（内积）运算：</h2><pre><code class="lang-python">import numpy as np
+A = np.array([[1,2],[1,4],[8,9]])
+B = np.array([[1,2,3],[1,3,4]])
+print(np.dot(A,B))
+</code></pre>
+<p>输出为：</p>
+<pre><code class="lang-xml">[[ 3  8 11]
+ [ 5 14 19]
+ [17 43 60]]
+</code></pre>
+<p>而矩阵运算在神经网络中有什么意义？<br>以上面这段代码为例：A 相当于输入信号， B相当于权重<br><br>A 有三组输入数据，每组分别有两个量（即为x, y）<br>B 有三个神经元，第一个神经元的权重分别为1、1第二个神经元的权重分别为 2、3。<br>而最后得到的是三个神经元的三次数据。</p>
+<p>矩阵运算可以简洁地表示多个神经元、多组输入数据的结果</p>
+<h1 id="四、3层神经网络的实现"><a href="#四、3层神经网络的实现" class="headerlink" title="四、3层神经网络的实现"></a>四、3层神经网络的实现</h1><p>我们要实现下图中的三层神经网络：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/3.png"></p>
+<h2 id="1-符号确认"><a href="#1-符号确认" class="headerlink" title="1) 符号确认"></a>1) 符号确认</h2><p>我们先导入<script type="math/tex">w_{12}^{(1)}  、 a_{1}^{(1)}</script> 等符号。这些符号仅在本节中使用右上角的(1)表示这是第1层的神经元、第一层的权重<script type="math/tex">w_{12}^{(3)}</script> 表示从第2层（即第3层的前一层）第1个神经元到第(3)层第2个神经元的权重.<script type="math/tex">a_{2}^{(1)}</script>表示第1层第2个神经元</p>
+<h2 id="2-各层间信号传递的实现"><a href="#2-各层间信号传递的实现" class="headerlink" title="2)各层间信号传递的实现"></a>2)各层间信号传递的实现</h2><h3 id="输入层到第一层"><a href="#输入层到第一层" class="headerlink" title="输入层到第一层"></a>输入层到第一层</h3><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/4.png"><br>其中注意偏置神经元“1”，而表示偏置的b右下角的索引号只有一个数字。此时</p>
+<script type="math/tex; mode=display">a_{1}^{(1)} = w_{11}^{(1)}x_1+w_{12}^{(1)}x_2+b_{1}^{(1)}</script><p>表示成矩阵运算则为：</p>
+<script type="math/tex; mode=display">A^{(1)}=XW^{(1)}+B^{(1)}</script><p>其中：<script type="math/tex">A^{(1)}=\begin{pmatrix} a_{1}^{(1)} & a_{2}^{(1)} & a_{3}^{(1)}\end{pmatrix}\quad</script>,<script type="math/tex">X^=\begin{pmatrix} x_{1} & x_{2} & x_{3}\end{pmatrix}\quad</script>,<script type="math/tex">B^{(1)}=\begin{pmatrix} b_{1}^{(1)} & b_{2}^{(1)} & b_{3}^{(1)} \end{pmatrix}\quad</script>,<script type="math/tex">W^{(1)}=\begin{pmatrix} w_{11}^{(1)} & w_{21}^{(1)} & w_{31}^{(1)} \\  w_{12}^{(1)} & w_{22}^{(1)} & w_{32}^{(1)}\end{pmatrix}\quad</script></p>
+<p>下面我们用Numpy数组来实现</p>
+<pre><code class="lang-python">import numpy as np
+
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x)) 
+
+X = np.array([1.0, 0.5])
+W1 = np.array([[0.1,0.3,0.5],[0.2,0.4,0.6]])
+B1 = np.array([0.1, 0.2, 0.3])
+A1 = np.dot(X, W1) + B1
+print(A1)
+print(sigmoid(A1))
+</code></pre>
+<p>输出：</p>
+<ul>
+<li>[0.3 0.7 1.1]</li>
+<li>[0.57444252 0.66818777 0.75026011]</li>
+</ul>
+<p>上面的代码中用到了先前的激活函数，实际上代码的过程如下图：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/5.png"></p>
+<h3 id="第1层到第2层"><a href="#第1层到第2层" class="headerlink" title="第1层到第2层"></a>第1层到第2层</h3><pre><code class="lang-python"># 继续使用前面的代码
+W2 = np.array([[0.1, 0.4],[0.2, 0.5], [0.3, 0.6]])
+B2 = np.array([0.1,0.2])
+A2 = np.dot(Z1,W2) + B2
+Z2 = sigmoid(A2)
+print(Z2)
+</code></pre>
+<p>输出：</p>
+<ul>
+<li>[0.3 0.7 1.1]</li>
+</ul>
+<h3 id="第2层到输出层"><a href="#第2层到输出层" class="headerlink" title="第2层到输出层"></a>第2层到输出层</h3><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/6.png"></p>
+<pre><code class="lang-python">def identity_function(x):
+    return x
+W3 = np.array([[0.1, 0.3],[0.2, 0.4]])
+B3 = np.array([0.1, 0.2])
+A3 = np.dot(Z2, W3) + B3
+Y = identity_function(A3)
+</code></pre>
+<p>这里用到了船新的激活函数：identity_function，它其实啥也不干，单纯为了和前面格式统一<br>另外，输出层的激活函数用 <script type="math/tex">\sigma</script>表示，而不是<script type="math/tex">h</script></p>
+<h2 id="3-代码小结"><a href="#3-代码小结" class="headerlink" title="3)代码小结"></a>3)代码小结</h2><pre><code class="lang-python">import numpy as np
+
+def identity_function(x):
+    return x
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+def init_network():
+    network = {}
+    network[&#39;W1&#39;] = np.array([[0.1, 0.3, 0.5], [0.2, 0.4, 0.6]])
+    network[&#39;b1&#39;] = np.array([0.1, 0.2, 0.3])
+    #W1是第一层权重，b1是第一层偏置，可以看出第一层共有三个神经元，每个神经元接受两个输入信号
+    network[&#39;W2&#39;] = np.array([[0.1, 0.4],[0.2, 0.5], [0.3, 0.6]])
+    network[&#39;b2&#39;] = np.array([0.1, 0.2])
+    network[&#39;W3&#39;] = np.array([[0.1, 0.3], [0.2, 0.4]])
+    network[&#39;b3&#39;] = np.array([0.1, 0.2])
+    return network
+def forward(network, x):
+    W1, W2, W3 = network[&#39;W1&#39;], network[&#39;W2&#39;], network[&#39;W3&#39;]
+    b1, b2, b3 = network[&#39;b1&#39;], network[&#39;b2&#39;], network[&#39;b3&#39;]
+
+    a1 = np.dot(x,W1) + b1
+    z1 = sigmoid(a1)
+    a2 = np.dot(z1,W2) + b2
+    z2 = sigmoid(a2)
+    a3 = np.dot(z2,W3) + b3
+    y = identity_function(a3)
+
+    return y
+
+network = init_network()
+x = np.array([1.0, 0.5])
+y = forward(network, x)
+print(y)
+</code></pre>
+<ul>
+<li>输出结果为：[0.31682708 0.69627909]</li>
+</ul>
+<p>这里出现了“forward”函数，它表示从输入到输出方向的传递处理。之后会介绍后向（backward,从输出到输入方向的处理）</p>
+<h1 id="五、输出层的设计"><a href="#五、输出层的设计" class="headerlink" title="五、输出层的设计"></a>五、输出层的设计</h1><p>神经网络可以用在分类和回归问题上。一般而言，回归问题用恒等函数，分类问题用softmax函数。</p>
+<blockquote>
+<p>补充：机器学习大致分为分类问题和回归问题<br>分类问题举例：给一张图像，区分图像中的人是男性还是女性<br>回归问题举例：给一张图像，估测图像中人的体重</p>
+</blockquote>
+<h2 id="1-恒等函数和softmax函数"><a href="#1-恒等函数和softmax函数" class="headerlink" title="1)恒等函数和softmax函数"></a>1)恒等函数和softmax函数</h2><p>恒等函数前面已经接触到了，就是上面的identity_function函数。</p>
+<p>softmax函数可以如下式这样表示</p>
+<script type="math/tex; mode=display">y_{k}=\frac{e^{(a_{k})}}{\sum_{i=1}^ne^{(a_{i})}}</script><p>e是自然对数的底数。假设有n个神经元，计算第k个神经元的输出<script type="math/tex">y_{k}</script>.<br>注意式子里面的a均为输入信号。softmax函数与之前的激活函数最大的不同在于它的输出受到所有输入信号的影响。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-22-1/7.png"></p>
+<h2 id="2-softmax函数的实现"><a href="#2-softmax函数的实现" class="headerlink" title="2)softmax函数的实现"></a>2)softmax函数的实现</h2><p>下面用python对softmax函数进行实现：</p>
+<pre><code class="lang-python">import numpy as np
+
+def softmax(a):
+    exp_a = np.exp(a)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+
+    return y
+</code></pre>
+<p>不过，当使用指数运算时会面临数据溢出的问题。上面的的函数，尽管最后的返回值y数字不会太大，但运算过程中的中间量sum_exp_a可能会非常非常大，比如输入中某个值为1000……这样很容易不能正确得到结果，所有需要改进<br>可以证明：</p>
+<script type="math/tex; mode=display">\frac{e^{(a_{k})}}{\sum_{i=1}^ne^{(a_{i})}}=\frac{e^{(a_{k}+C)}}{\sum_{i=1}^ne^{(a_{i}+C)}}</script><p>所以，输入矩阵中所有元素加/减某一常数，不影响最后的结果</p>
+<p>改进如下：</p>
+<pre><code class="lang-python">import numpy as np
+
+def softmax(a):
+    c = np.max(a)
+    exp_a = np.exp(a - c)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+
+    return y
+</code></pre>
+<h2 id="3）softmax函数的特征"><a href="#3）softmax函数的特征" class="headerlink" title="3）softmax函数的特征"></a>3）softmax函数的特征</h2><pre><code class="lang-python">import numpy as np
+
+def softmax(a):
+    exp_a = np.exp(a)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+
+    return y
+
+a = np.array([0.3, 2.9, 4.0])
+y = softmax(a)
+print(y)#输出：[0.01821127 0.24519181 0.73659691]
+print(np.sum(y))#输出： 1.0
+</code></pre>
+<p>我直观的感觉：softmax是统计概率的函数，只不过这里面的概率利用了指数运算。<br>依照上面函数的输出结果，可以认为y[2]的概率最大（达到了0.73）</p>
+<h1 id="六、手写数字识别"><a href="#六、手写数字识别" class="headerlink" title="六、手写数字识别"></a>六、手写数字识别</h1><p>假设学习工作已经全部完成，我们通过得到的参数实现神经网络的“推理处理”，推理处理也被称为神经网络的“前向传播”(forward propagation)。</p>
+<h2 id="1）MINIST数据集"><a href="#1）MINIST数据集" class="headerlink" title="1）MINIST数据集"></a>1）MINIST数据集</h2><p>关于MINIST数据集的介绍，请移步<a href="https://www.baidu.com/s?ie=UTF-8&wd=MINIST%E6%95%B0%E6%8D%AE%E9%9B%86" target="_blank" rel="noopener">百度</a></p>
+<h3 id="加载："><a href="#加载：" class="headerlink" title="加载："></a>加载：</h3><p>这里需要用到书中的源码。仅需要理解加载的结果是：60000张训练图，10000张测试图</p>
+<pre><code class="lang-python">import sys, os
+sys.path.append(os.pardir)
+from dataset.mnist import load_mnist
+(x_train, t_train),(x_test, t_test) = load_mnist(flatten=True,normalize=False，one_hot_label=False)
+print(x_train.shape) #(60000, 784) 60000张28×28像素的训练图
+print(t_train.shape) #(60000,)训练图的标签
+print(x_test.shape) #(10000, 784)10000张测试图
+print(t_test.shape) #(10000,)测试图的标签
+</code></pre>
+<p>load_minist的参数：</p>
+<ul>
+<li>flatten：是否将图像表示为一维数组。若flatten=False,则图像是1×28×28的三维数组，flatten=True,图像是784个元素的一维数组</li>
+<li>normalize：是否将图像正规化。若normalize=False，则数据的值为0~225，若normalize=True，则数据的值为0~1.0</li>
+<li>one_hot_label: 当one_hot_label=True时，会将正确解的标签设为1，错误解设为0。</li>
+</ul>
+<h3 id="图像显示"><a href="#图像显示" class="headerlink" title="图像显示"></a>图像显示</h3><pre><code class="lang-python">import sys, os
+sys.path.append(os.pardir)
+import numpy as np
+from dataset.mnist import load_mnist
+
+from PIL import Image
+
+
+def img_show(img):
+    pil_img = Image.fromarray(np.uint8(img))
+    pil_img.show()
+
+(x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+
+img = x_train[0]
+label = t_train[0]
+print(label)  # 5
+
+print(img.shape)  # (784,)
+img = img.reshape(28, 28)  # 把图像恢复为原来的尺寸
+print(img.shape)  # (28, 28)
+
+img_show(img)
+</code></pre>
+<p>这里用到PIL库。它的作用是将矩阵显示为图像<br>可以看到，x_train[0]保存的是图像“5”，t_train[0]保存的是整数5</p>
+<h2 id="2-神经网络的推理处理"><a href="#2-神经网络的推理处理" class="headerlink" title="2) 神经网络的推理处理"></a>2) 神经网络的推理处理</h2><p>任务分析：我们要将MINIST数据集中的照片进行分类工作。<br>神经网络的输入层有784个单元（28×28像素的图片），输出层有10个单元（数字共有0到9，10个类别）。</p>
+<p>而神经网络的很多参数是通过训练得到的。这里直接使用训练完的参数:</p>
+<pre><code class="lang-python">import sys, os
+sys.path.append(os.pardir)
+import numpy as np
+import pickle
+from dataset.mnist import load_mnist
+from common.functions import sigmoid, softmax
+def get_data():
+    (x_train, t_train), (x_test, t_test) = load_mnist(normalize=True, flatten=True, one_hot_label=False)
+    return x_test, t_test
+
+
+def init_network():
+    with open(&quot;sample_weight.pkl&quot;, &#39;rb&#39;) as f:
+        network = pickle.load(f)
+    return network
+
+
+def predict(network, x):
+    W1, W2, W3 = network[&#39;W1&#39;], network[&#39;W2&#39;], network[&#39;W3&#39;]
+    b1, b2, b3 = network[&#39;b1&#39;], network[&#39;b2&#39;], network[&#39;b3&#39;]
+
+    a1 = np.dot(x, W1) + b1
+    z1 = sigmoid(a1)
+    a2 = np.dot(z1, W2) + b2
+    z2 = sigmoid(a2)
+    a3 = np.dot(z2, W3) + b3
+    y = softmax(a3)
+
+    return y
+
+
+x, t = get_data()
+network = init_network() # 建立神经网络
+accuracy_cnt = 0
+for i in range(len(x)):
+    y = predict(network, x[i]) #进行预测
+    p= np.argmax(y) # 获得概率最高的元素的索引，完成预测
+    if p == t[i]:
+        accuracy_cnt += 1 #统计有多少张图片分类正确
+
+print(&quot;Accuracy:&quot; + str(float(accuracy_cnt) / len(x))) # 0.9352 即该神经网络的精度是93.52%
+</code></pre>
+<h2 id="3-批处理"><a href="#3-批处理" class="headerlink" title="3)批处理"></a>3)批处理</h2><p>前面的代码进行了10000张784像素图片的分类工作。每张图片是逐个处理的。实际上完全可以把输入数据处理成10000×784的矩阵，这样就可以一次处理得到全部结果。<br>这种打包式的输入数据称为<strong>批</strong>(batch)<br>批处理可以节约计算机的运算成本<br>批处理的代码：</p>
+<pre><code class="lang-python">#x, t = get_data()
+#network = init_network() # 建立神经网络
+#accuracy_cnt = 0
+#for i in range(len(x)):
+#    y = predict(network, x[i]) #进行预测
+#    p= np.argmax(y) # 获得概率最高的元素的索引，完成预测
+#    if p == t[i]:
+#        accuracy_cnt += 1 #统计有多少张图片分类正确
+x, t = get_data()
+network = init_network() # 建立神经网络
+accuracy_cnt = 0
+batch_size = 100 #设定批的大小
+
+for i in range(0,len(x),batcg_size):
+    x_batch = x[i : i + batch_size]
+    y_batch = predict(network, x_batch)
+    p = np.argmax(y_batch, axis=1)
+    accuracy_cnt += np.sum(p == t[i:i+batch_size])
+</code></pre>
+<p>书中源码把批的大小设定为100。</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/09/23/leetcode90/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/code.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                leetcode 90 Subsets II 求所有子集</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/09/20/鱼书笔记 第一章 NumPy库和Matplotlib库的使用/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-20-1/2.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-9-20-1/2.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                鱼书笔记 第一章 NumPy和Matplotlib的使用</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 断梦三生<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2019 Max L ♥</p>
+    </div>
+    <div class="footer-device">
+
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "https://cdn.jsdelivr.net/gh/honjun/hojun@1.2","name":"Unbroken.mp4","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/custom/avatar.jpg">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">DayDream</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="https://qm.qq.com/cgi-bin/qm/qr?k=OKbDbzqI5VkiSEunPQoWG9F2yxDGaYQD&noverify=0" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+        <a href="http://music.163.com/m/user/home?id=67715923" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+        <a href="https://du.163.com/share/user/caa5d60f49f44f4d96ede3dd669c91ec?user=caa5d60f49f44f4d96ede3dd669c91ec" class="fa " target="_blank" style="color: #; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首页
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            归档
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/categories/编程/">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  技术
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/随想/">
+                  <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                  随想
+                </a>
+              </li>
+            
+              <li>
+                <a href="/categories/英语新闻/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  英语
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="javascript:;">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
+            清单
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/book">
+                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
+                  书单
+                </a>
+              </li>
+            
+              <li>
+                <a href="/music/">
+                  <i class="fa fa-headphones" aria-hidden="true"></i>
+                  歌单
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/comment/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-pencil-square-o faa-tada" aria-hidden="true"></i>
+            留言板
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            关于
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+              <li>
+                <a href="/theme-sakura/">
+                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
+                  主题
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="5297427227"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="list"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+  <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/piao.js"></script>
+</body>
+</html>

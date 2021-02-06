@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-01-30T09:00:50.765Z</updated>
+  <updated>2021-02-06T04:05:07.354Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>小程序笔记（一）开发环境介绍</title>
-    <link href="/2021/01/30/mini-program-2/"/>
-    <id>/2021/01/30/mini-program-2/</id>
-    <published>2021-01-30T08:48:15.974Z</published>
-    <updated>2021-01-30T09:00:50.765Z</updated>
+    <title>leetcode 518 零钱兑换</title>
+    <link href="/2021/02/06/leetcode518/"/>
+    <id>/2021/02/06/leetcode518/</id>
+    <published>2021-02-06T03:40:24.000Z</published>
+    <updated>2021-02-06T04:05:07.354Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;h1 id=&quot;一、文档组成&quot;&gt;&lt;a href=&quot;#一、文档组成&quot; class=&quot;headerlink&quot; title=&quot;一、文档组成&quot;&gt;&lt;/a&gt;一、文档组成&lt;/h1&gt;&lt;p&gt;&lt;img
+          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/coin-change-2/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;518. 零钱兑换
         
       
     
@@ -37,14 +37,110 @@
     
       <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="小程序" scheme="/categories/%E7%BC%96%E7%A8%8B/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="leetcode" scheme="/categories/%E7%BC%96%E7%A8%8B/leetcode/"/>
     
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="python" scheme="/tags/python/"/>
     
-      <category term="css" scheme="/tags/css/"/>
+      <category term="leetcode" scheme="/tags/leetcode/"/>
     
-      <category term="小程序" scheme="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库笔记（六）SQL语言概览</title>
+    <link href="/2021/02/05/databaseNote-6/"/>
+    <id>/2021/02/05/databaseNote-6/</id>
+    <published>2021-02-05T03:40:24.000Z</published>
+    <updated>2021-02-06T03:54:35.923Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="数据库" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch： Tensor的创建与调整</title>
+    <link href="/2021/02/05/pytorch-note-2/"/>
+    <id>/2021/02/05/pytorch-note-2/</id>
+    <published>2021-02-05T02:10:00.000Z</published>
+    <updated>2021-02-06T04:31:29.761Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Tensor是pytorch中的“张量”，可以看作是类似numpy的矩阵&lt;br&gt;本文介绍如何创建与调整Tensor&lt;/p&gt;
+&lt;p&gt;首先引用torch:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;import torch as
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
+    
+      <category term="pytorch" scheme="/categories/%E7%BC%96%E7%A8%8B/python/pytorch/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch(1) 简单入门</title>
+    <link href="/2021/02/04/pytorchNote-1/"/>
+    <id>/2021/02/04/pytorchNote-1/</id>
+    <published>2021-02-04T03:40:24.000Z</published>
+    <updated>2021-02-06T04:08:34.702Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、Tensor&quot;&gt;&lt;a href=&quot;#1、Tensor&quot; class=&quot;headerlink&quot; title=&quot;1、Tensor&quot;&gt;&lt;/a&gt;1、Tensor&lt;/h1&gt;&lt;p&gt;实际上就是一个高维数组。类似与numpy&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="python" scheme="/categories/%E7%BC%96%E7%A8%8B/python/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
     
   </entry>
   
@@ -52,8 +148,8 @@
     <title>小程序笔记（一）基础储备</title>
     <link href="/2021/01/30/mini-program-1/"/>
     <id>/2021/01/30/mini-program-1/</id>
-    <published>2021-01-30T07:36:12.331Z</published>
-    <updated>2021-01-30T08:47:55.145Z</updated>
+    <published>2021-01-30T03:40:24.000Z</published>
+    <updated>2021-02-06T04:06:05.144Z</updated>
     
     <summary type="html">
     
@@ -81,11 +177,11 @@
   </entry>
   
   <entry>
-    <title>C++ 将int变量存储在string中</title>
-    <link href="/2021/01/30/save_num_in_str/"/>
-    <id>/2021/01/30/save_num_in_str/</id>
-    <published>2021-01-30T04:15:10.517Z</published>
-    <updated>2021-01-30T07:30:34.830Z</updated>
+    <title>python 列表生成器</title>
+    <link href="/2021/01/28/ListComprehensions/"/>
+    <id>/2021/01/28/ListComprehensions/</id>
+    <published>2021-01-28T03:40:24.000Z</published>
+    <updated>2021-02-06T04:05:47.527Z</updated>
     
     <summary type="html">
     
@@ -93,86 +189,16 @@
       
         
         
-          &lt;p&gt;原理：&lt;br&gt;一个char型占用1Byte&lt;br&gt;一个int型占用4Byte&lt;br&gt;此方法使用四个字符存储一个整型&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;#include&amp;lt;string&amp;gt;
-string code(int n) {  
+          &lt;h1 id=&quot;基础版：&quot;&gt;&lt;a href=&quot;#基础版：&quot; class=&quot;headerlink&quot; title=&quot;基础版：&quot;&gt;&lt;/a&gt;基础版：&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;variable = [out_exp for item in
         
       
     
     </summary>
     
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="python" scheme="/categories/python/"/>
     
-      <category term="C++" scheme="/categories/%E7%BC%96%E7%A8%8B/C/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flex布局</title>
-    <link href="/2021/01/29/flex/"/>
-    <id>/2021/01/29/flex/</id>
-    <published>2021-01-29T12:55:30.606Z</published>
-    <updated>2021-01-29T15:07:37.911Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本文总结自&lt;a href=&quot;https://www.runoob.com/w3cnote/flex-grammar.html&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="前端" scheme="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="CSS" scheme="/categories/%E7%BC%96%E7%A8%8B/%E5%89%8D%E7%AB%AF/CSS/"/>
-    
-    
-      <category term="CSS" scheme="/tags/CSS/"/>
-    
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>鱼书笔记 第八章 深度学习</title>
-    <link href="/2021/01/28/DLFromScratch-8/"/>
-    <id>/2021/01/28/DLFromScratch-8/</id>
-    <published>2021-01-28T06:08:48.494Z</published>
-    <updated>2021-01-29T15:28:05.983Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;8-1-加深网络&quot;&gt;&lt;a href=&quot;#8-1-加深网络&quot; class=&quot;headerlink&quot; title=&quot;8.1 加深网络&quot;&gt;&lt;/a&gt;8.1 加深网络&lt;/h1&gt;&lt;p&gt;创建一个图示中的网络，挑战MINIST数据集&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="深度学习" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="python" scheme="/tags/python/"/>
-    
-      <category term="deeplearning" scheme="/tags/deeplearning/"/>
     
   </entry>
   
@@ -180,8 +206,8 @@ string code(int n) {
     <title>974. 和可被 K 整除的子数组</title>
     <link href="/2021/01/28/leetcode974/"/>
     <id>/2021/01/28/leetcode974/</id>
-    <published>2021-01-28T05:56:46.787Z</published>
-    <updated>2021-01-28T06:07:23.395Z</updated>
+    <published>2021-01-28T03:40:24.000Z</published>
+    <updated>2021-02-06T04:05:19.770Z</updated>
     
     <summary type="html">
     
@@ -212,8 +238,8 @@ string code(int n) {
     <title>负数取模问题</title>
     <link href="/2021/01/28/mod-for-nagative/"/>
     <id>/2021/01/28/mod-for-nagative/</id>
-    <published>2021-01-28T05:28:24.313Z</published>
-    <updated>2021-01-28T05:38:38.452Z</updated>
+    <published>2021-01-28T03:40:24.000Z</published>
+    <updated>2021-02-06T04:06:18.417Z</updated>
     
     <summary type="html">
     
@@ -243,8 +269,8 @@ string code(int n) {
     <title>leetcode 1654. 到家的最少跳跃次数</title>
     <link href="/2021/01/27/leetcode1654/"/>
     <id>/2021/01/27/leetcode1654/</id>
-    <published>2021-01-27T09:53:25.920Z</published>
-    <updated>2021-01-27T10:17:12.976Z</updated>
+    <published>2021-01-27T03:40:24.000Z</published>
+    <updated>2021-02-06T04:05:32.823Z</updated>
     
     <summary type="html">
     
@@ -273,11 +299,11 @@ string code(int n) {
   </entry>
   
   <entry>
-    <title>JS笔记（八） math/一些语法</title>
-    <link href="/2021/01/27/jsNote-8/"/>
-    <id>/2021/01/27/jsNote-8/</id>
-    <published>2021-01-27T02:04:36.223Z</published>
-    <updated>2021-01-28T14:28:49.206Z</updated>
+    <title>JS笔记（六） 数组及其方法</title>
+    <link href="/2021/01/26/jsNote-6/"/>
+    <id>/2021/01/26/jsNote-6/</id>
+    <published>2021-01-26T03:40:24.000Z</published>
+    <updated>2021-02-06T04:00:31.284Z</updated>
     
     <summary type="html">
     
@@ -285,8 +311,7 @@ string code(int n) {
       
         
         
-          &lt;h1 id=&quot;math属性&quot;&gt;&lt;a href=&quot;#math属性&quot; class=&quot;headerlink&quot; title=&quot;math属性&quot;&gt;&lt;/a&gt;math属性&lt;/h1&gt;&lt;p&gt;Math 属性（常量）&lt;/p&gt;
-&lt;p&gt;JavaScript 提供了可由 Math 对象访问的 8
+          &lt;h1 id=&quot;数组的定义&quot;&gt;&lt;a href=&quot;#数组的定义&quot; class=&quot;headerlink&quot;
         
       
     
@@ -300,41 +325,11 @@ string code(int n) {
   </entry>
   
   <entry>
-    <title>数据库笔记（六）SQL语言概览</title>
-    <link href="/2021/01/26/databaseNote-6/"/>
-    <id>/2021/01/26/databaseNote-6/</id>
-    <published>2021-01-26T11:39:32.474Z</published>
-    <updated>2021-01-27T07:16:03.733Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="数据库" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JS笔记（七） 时间</title>
     <link href="/2021/01/26/jsNote-7/"/>
     <id>/2021/01/26/jsNote-7/</id>
-    <published>2021-01-26T09:53:32.676Z</published>
-    <updated>2021-01-26T10:54:26.810Z</updated>
+    <published>2021-01-26T03:40:24.000Z</published>
+    <updated>2021-02-06T04:00:41.571Z</updated>
     
     <summary type="html">
     
@@ -358,11 +353,207 @@ string code(int n) {
   </entry>
   
   <entry>
+    <title>JS笔记（八） math/一些语法</title>
+    <link href="/2021/01/26/jsNote-8/"/>
+    <id>/2021/01/26/jsNote-8/</id>
+    <published>2021-01-26T03:40:24.000Z</published>
+    <updated>2021-02-06T04:00:53.550Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;math属性&quot;&gt;&lt;a href=&quot;#math属性&quot; class=&quot;headerlink&quot; title=&quot;math属性&quot;&gt;&lt;/a&gt;math属性&lt;/h1&gt;&lt;p&gt;Math 属性（常量）&lt;/p&gt;
+&lt;p&gt;JavaScript 提供了可由 Math 对象访问的 8
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>鱼书笔记 第六章 与学习有关的技巧</title>
+    <link href="/2021/01/24/DLFromScratch-6/"/>
+    <id>/2021/01/24/DLFromScratch-6/</id>
+    <published>2021-01-24T03:40:24.000Z</published>
+    <updated>2021-02-06T03:56:10.373Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;6-1-参数的更新&quot;&gt;&lt;a href=&quot;#6-1-参数的更新&quot; class=&quot;headerlink&quot; title=&quot;6.1 参数的更新&quot;&gt;&lt;/a&gt;6.1
+        
+      
+    
+    </summary>
+    
+      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="深度学习" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="deeplearning" scheme="/tags/deeplearning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记(一) 基础写法以及数据类型</title>
+    <link href="/2021/01/24/jsNote-1/"/>
+    <id>/2021/01/24/jsNote-1/</id>
+    <published>2021-01-24T03:40:24.000Z</published>
+    <updated>2021-02-06T03:59:04.603Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、js程序写在哪里？&quot;&gt;&lt;a href=&quot;#一、js程序写在哪里？&quot; class=&quot;headerlink&quot; title=&quot;一、js程序写在哪里？&quot;&gt;&lt;/a&gt;一、js程序写在哪里？&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记（二） 函数与对象方法</title>
+    <link href="/2021/01/24/jsNote-2/"/>
+    <id>/2021/01/24/jsNote-2/</id>
+    <published>2021-01-24T03:40:24.000Z</published>
+    <updated>2021-02-06T03:59:31.160Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;对象方法&quot;&gt;&lt;a href=&quot;#对象方法&quot; class=&quot;headerlink&quot; title=&quot;对象方法&quot;&gt;&lt;/a&gt;对象方法&lt;/h1&gt;&lt;p&gt;类似：类的成员函数。&lt;/p&gt;
+&lt;p&gt;格式：&lt;br&gt;&amp;lt;函数名&amp;gt; :
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记（三）</title>
+    <link href="/2021/01/24/jsNote-3/"/>
+    <id>/2021/01/24/jsNote-3/</id>
+    <published>2021-01-24T03:40:24.000Z</published>
+    <updated>2021-02-06T03:59:44.017Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;基本运算符&quot;&gt;&lt;a href=&quot;#基本运算符&quot; class=&quot;headerlink&quot; title=&quot;基本运算符&quot;&gt;&lt;/a&gt;基本运算符&lt;/h1&gt;&lt;h2 id=&quot;加法&quot;&gt;&lt;a href=&quot;#加法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记（四） 字符串的方法</title>
+    <link href="/2021/01/24/jsNote-4/"/>
+    <id>/2021/01/24/jsNote-4/</id>
+    <published>2021-01-24T03:40:24.000Z</published>
+    <updated>2021-02-06T03:59:56.745Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;访问&quot;&gt;&lt;a href=&quot;#访问&quot; class=&quot;headerlink&quot; title=&quot;访问&quot;&gt;&lt;/a&gt;访问&lt;/h2&gt;&lt;h3 id=&quot;charAt-方法&quot;&gt;&lt;a href=&quot;#charAt-方法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS笔记（五） 数字的方法</title>
+    <link href="/2021/01/24/jsNote-5/"/>
+    <id>/2021/01/24/jsNote-5/</id>
+    <published>2021-01-24T03:40:24.000Z</published>
+    <updated>2021-02-06T04:00:16.908Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原始值（比如 3.14 或 2016），无法拥有属性和方法（因为它们不是对象）。&lt;/p&gt;
+&lt;p&gt;但是通过 JavaScript，方法和属性也可用于原始值，因为 JavaScript 在执行方法和属性时将原始值视作对象。&lt;/p&gt;
+&lt;h1 id=&quot;转换为字符串&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据库笔记（五）关系演算</title>
-    <link href="/2021/01/25/databaseNote-5/"/>
-    <id>/2021/01/25/databaseNote-5/</id>
-    <published>2021-01-25T09:32:40.659Z</published>
-    <updated>2021-01-27T01:54:30.189Z</updated>
+    <link href="/2021/01/22/databaseNote-5/"/>
+    <id>/2021/01/22/databaseNote-5/</id>
+    <published>2021-01-22T03:40:24.000Z</published>
+    <updated>2021-02-06T03:54:19.838Z</updated>
     
     <summary type="html">
     
@@ -388,179 +579,11 @@ string code(int n) {
   </entry>
   
   <entry>
-    <title>JS笔记（六） 数组及其方法</title>
-    <link href="/2021/01/25/jsNote-6/"/>
-    <id>/2021/01/25/jsNote-6/</id>
-    <published>2021-01-25T05:57:34.811Z</published>
-    <updated>2021-01-26T09:54:03.572Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;数组的定义&quot;&gt;&lt;a href=&quot;#数组的定义&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>鱼书笔记 第七章 卷积神经网络</title>
-    <link href="/2021/01/25/DLFromScratch-7/"/>
-    <id>/2021/01/25/DLFromScratch-7/</id>
-    <published>2021-01-25T01:20:06.615Z</published>
-    <updated>2021-01-27T02:04:10.539Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;卷积神经网络(Convolutional Neural Network)简称为CNN。几乎所有的深度学习比赛中都在广泛使用卷积神经网络。&lt;/p&gt;
-&lt;h1 id=&quot;7-1-CNN的结构&quot;&gt;&lt;a href=&quot;#7-1-CNN的结构&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="编程" scheme="/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="深度学习" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="鱼书笔记" scheme="/categories/%E7%BC%96%E7%A8%8B/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="deeplearning" scheme="/tags/deeplearning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记（五） 数字的方法</title>
-    <link href="/2021/01/24/jsNote-5/"/>
-    <id>/2021/01/24/jsNote-5/</id>
-    <published>2021-01-24T11:36:29.556Z</published>
-    <updated>2021-01-24T12:08:34.582Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原始值（比如 3.14 或 2016），无法拥有属性和方法（因为它们不是对象）。&lt;/p&gt;
-&lt;p&gt;但是通过 JavaScript，方法和属性也可用于原始值，因为 JavaScript 在执行方法和属性时将原始值视作对象。&lt;/p&gt;
-&lt;h1 id=&quot;转换为字符串&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记（四） 字符串的方法</title>
-    <link href="/2021/01/24/jsNote-4/"/>
-    <id>/2021/01/24/jsNote-4/</id>
-    <published>2021-01-24T10:42:13.597Z</published>
-    <updated>2021-01-24T11:36:12.584Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;访问&quot;&gt;&lt;a href=&quot;#访问&quot; class=&quot;headerlink&quot; title=&quot;访问&quot;&gt;&lt;/a&gt;访问&lt;/h2&gt;&lt;h3 id=&quot;charAt-方法&quot;&gt;&lt;a href=&quot;#charAt-方法&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记（三）</title>
-    <link href="/2021/01/23/jsNote-3/"/>
-    <id>/2021/01/23/jsNote-3/</id>
-    <published>2021-01-23T11:46:46.897Z</published>
-    <updated>2021-01-24T11:15:33.059Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;基本运算符&quot;&gt;&lt;a href=&quot;#基本运算符&quot; class=&quot;headerlink&quot; title=&quot;基本运算符&quot;&gt;&lt;/a&gt;基本运算符&lt;/h1&gt;&lt;h2 id=&quot;加法&quot;&gt;&lt;a href=&quot;#加法&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记（二） 函数与对象方法</title>
-    <link href="/2021/01/23/jsNote-2/"/>
-    <id>/2021/01/23/jsNote-2/</id>
-    <published>2021-01-23T09:20:46.861Z</published>
-    <updated>2021-01-23T13:51:42.045Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;对象方法&quot;&gt;&lt;a href=&quot;#对象方法&quot; class=&quot;headerlink&quot; title=&quot;对象方法&quot;&gt;&lt;/a&gt;对象方法&lt;/h1&gt;&lt;p&gt;类似：类的成员函数。&lt;/p&gt;
-&lt;p&gt;格式：&lt;br&gt;&amp;lt;函数名&amp;gt; :
-        
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>数据库笔记（四）关系代数</title>
     <link href="/2021/01/22/databaseNote-4/"/>
     <id>/2021/01/22/databaseNote-4/</id>
-    <published>2021-01-22T10:23:16.421Z</published>
-    <updated>2021-01-25T09:31:38.706Z</updated>
+    <published>2021-01-22T03:40:00.000Z</published>
+    <updated>2021-02-06T03:53:59.687Z</updated>
     
     <summary type="html">
     
@@ -574,36 +597,6 @@ string code(int n) {
 &lt;li&gt;纯关系操作：投影、选择、连接、除。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&quot;并相容性&quot;&gt;&lt;a href=&quot;#并相容性&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="数据库" scheme="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（三）关系模型</title>
-    <link href="/2021/01/20/databaseNote-3/"/>
-    <id>/2021/01/20/databaseNote-3/</id>
-    <published>2021-01-20T12:00:37.110Z</published>
-    <updated>2021-01-20T13:36:46.910Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;关系模型的三要素&quot;&gt;&lt;a href=&quot;#关系模型的三要素&quot; class=&quot;headerlink&quot;
         
       
     
