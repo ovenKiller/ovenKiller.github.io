@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-07T03:26:39.612Z</updated>
+  <updated>2021-02-07T15:22:39.958Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,100 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库笔记（七）SQL的查询操作</title>
+    <link href="/2021/02/07/databaseNote-7/"/>
+    <id>/2021/02/07/databaseNote-7/</id>
+    <published>2021-02-07T12:07:00.000Z</published>
+    <updated>2021-02-07T15:22:39.958Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;先建立完整的表：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;create database SCT1
+use SCT1
+create table Student  (S# char(8), Sname char(10), Ssex char(2),
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 279 完全平方数</title>
+    <link href="/2021/02/07/leetcode279/"/>
+    <id>/2021/02/07/leetcode279/</id>
+    <published>2021-02-07T05:40:24.000Z</published>
+    <updated>2021-02-07T06:03:38.067Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;给定正整数 n，找到若干个完全平方数（比如 1, 4, 9, 16, …）使得它们的和等于 n。你需要让组成和的完全平方数的个数最少。&lt;/p&gt;
+&lt;p&gt;给你一个整数 n ，返回和为 n 的完全平方数的最少数量
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="DFS" scheme="/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch(4)： Tensor的线性代数运算/ 实践</title>
+    <link href="/2021/02/07/pytorch-note-4/"/>
+    <id>/2021/02/07/pytorch-note-4/</id>
+    <published>2021-02-07T02:10:00.000Z</published>
+    <updated>2021-02-07T11:57:55.128Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、线性代数&quot;&gt;&lt;a href=&quot;#一、线性代数&quot; class=&quot;headerlink&quot; title=&quot;一、线性代数&quot;&gt;&lt;/a&gt;一、线性代数&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;import torch as
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 518 零钱兑换</title>
@@ -342,6 +436,33 @@ a
   </entry>
   
   <entry>
+    <title>JS笔记（八） math/一些语法</title>
+    <link href="/2021/01/26/jsNote-8/"/>
+    <id>/2021/01/26/jsNote-8/</id>
+    <published>2021-01-26T03:40:24.000Z</published>
+    <updated>2021-02-07T03:24:15.698Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;math属性&quot;&gt;&lt;a href=&quot;#math属性&quot; class=&quot;headerlink&quot; title=&quot;math属性&quot;&gt;&lt;/a&gt;math属性&lt;/h1&gt;&lt;p&gt;Math 属性（常量）&lt;/p&gt;
+&lt;p&gt;JavaScript 提供了可由 Math 对象访问的 8
+        
+      
+    
+    </summary>
+    
+      <category term="Web前端" scheme="/categories/Web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="JavaScript" scheme="/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS笔记（七） 时间</title>
     <link href="/2021/01/26/jsNote-7/"/>
     <id>/2021/01/26/jsNote-7/</id>
@@ -357,33 +478,6 @@ a
           &lt;h1 id=&quot;创建日期对象&quot;&gt;&lt;a href=&quot;#创建日期对象&quot; class=&quot;headerlink&quot; title=&quot;创建日期对象&quot;&gt;&lt;/a&gt;创建日期对象&lt;/h1&gt;&lt;p&gt;有以下四种方法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;new Date()
-        
-      
-    
-    </summary>
-    
-      <category term="Web前端" scheme="/categories/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记（八） math/一些语法</title>
-    <link href="/2021/01/26/jsNote-8/"/>
-    <id>/2021/01/26/jsNote-8/</id>
-    <published>2021-01-26T03:40:24.000Z</published>
-    <updated>2021-02-07T03:24:15.698Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;math属性&quot;&gt;&lt;a href=&quot;#math属性&quot; class=&quot;headerlink&quot; title=&quot;math属性&quot;&gt;&lt;/a&gt;math属性&lt;/h1&gt;&lt;p&gt;Math 属性（常量）&lt;/p&gt;
-&lt;p&gt;JavaScript 提供了可由 Math 对象访问的 8
         
       
     
@@ -455,32 +549,6 @@ a
   </entry>
   
   <entry>
-    <title>JS笔记（三）</title>
-    <link href="/2021/01/24/jsNote-3/"/>
-    <id>/2021/01/24/jsNote-3/</id>
-    <published>2021-01-24T03:40:24.000Z</published>
-    <updated>2021-02-07T03:23:46.285Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;基本运算符&quot;&gt;&lt;a href=&quot;#基本运算符&quot; class=&quot;headerlink&quot; title=&quot;基本运算符&quot;&gt;&lt;/a&gt;基本运算符&lt;/h1&gt;&lt;h2 id=&quot;加法&quot;&gt;&lt;a href=&quot;#加法&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Web前端" scheme="/categories/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JS笔记（二） 函数与对象方法</title>
     <link href="/2021/01/24/jsNote-2/"/>
     <id>/2021/01/24/jsNote-2/</id>
@@ -508,11 +576,11 @@ a
   </entry>
   
   <entry>
-    <title>JS笔记（四） 字符串的方法</title>
-    <link href="/2021/01/24/jsNote-4/"/>
-    <id>/2021/01/24/jsNote-4/</id>
+    <title>JS笔记（三）</title>
+    <link href="/2021/01/24/jsNote-3/"/>
+    <id>/2021/01/24/jsNote-3/</id>
     <published>2021-01-24T03:40:24.000Z</published>
-    <updated>2021-02-07T03:23:54.803Z</updated>
+    <updated>2021-02-07T03:23:46.285Z</updated>
     
     <summary type="html">
     
@@ -520,7 +588,7 @@ a
       
         
         
-          &lt;h2 id=&quot;访问&quot;&gt;&lt;a href=&quot;#访问&quot; class=&quot;headerlink&quot; title=&quot;访问&quot;&gt;&lt;/a&gt;访问&lt;/h2&gt;&lt;h3 id=&quot;charAt-方法&quot;&gt;&lt;a href=&quot;#charAt-方法&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;基本运算符&quot;&gt;&lt;a href=&quot;#基本运算符&quot; class=&quot;headerlink&quot; title=&quot;基本运算符&quot;&gt;&lt;/a&gt;基本运算符&lt;/h1&gt;&lt;h2 id=&quot;加法&quot;&gt;&lt;a href=&quot;#加法&quot; class=&quot;headerlink&quot;
         
       
     
@@ -530,62 +598,6 @@ a
     
     
       <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记（五） 数字的方法</title>
-    <link href="/2021/01/24/jsNote-5/"/>
-    <id>/2021/01/24/jsNote-5/</id>
-    <published>2021-01-24T03:40:24.000Z</published>
-    <updated>2021-02-07T03:24:00.435Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原始值（比如 3.14 或 2016），无法拥有属性和方法（因为它们不是对象）。&lt;/p&gt;
-&lt;p&gt;但是通过 JavaScript，方法和属性也可用于原始值，因为 JavaScript 在执行方法和属性时将原始值视作对象。&lt;/p&gt;
-&lt;h1 id=&quot;转换为字符串&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="Web前端" scheme="/categories/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（五）关系演算</title>
-    <link href="/2021/01/22/databaseNote-5/"/>
-    <id>/2021/01/22/databaseNote-5/</id>
-    <published>2021-01-22T03:40:24.000Z</published>
-    <updated>2021-02-07T03:19:54.047Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;元组公式&quot;&gt;&lt;a href=&quot;#元组公式&quot; class=&quot;headerlink&quot; title=&quot;元组公式&quot;&gt;&lt;/a&gt;元组公式&lt;/h1&gt;&lt;h2 id=&quot;三种原子公式：&quot;&gt;&lt;a href=&quot;#三种原子公式：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-      <category term="笔记" scheme="/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
