@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">数据库笔记（二） | DayDream</title>
+  <title itemprop="name">python3 自定义sort | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -180,7 +180,7 @@
                 <a href="/categories">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-sitemap" aria-hidden="true"></i>
-                    文章分类
+                    分类
                   </span>
                 </a>
                 
@@ -224,7 +224,7 @@
                       <li>
                         <a href="/categories">
                           <i class="fa " aria-hidden="true"></i>
-                          Show all
+                          more
                         </a>
                       </li>
                     
@@ -331,11 +331,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      数据库笔记（二）</h1>
+      python3 自定义sort</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -347,7 +347,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-1-19<span class="bull">
+        2021-1-31<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -361,38 +361,38 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="一、数据库系统的标准结构"><a href="#一、数据库系统的标准结构" class="headerlink" title="一、数据库系统的标准结构"></a>一、数据库系统的标准结构</h1><h2 id="1、三个层次"><a href="#1、三个层次" class="headerlink" title="1、三个层次"></a>1、三个层次</h2><ul>
-<li>用户层（User level）/ 外部层（External level）</li>
-<li>概念层(Conceptual level)/逻辑层（Logic level）</li>
-<li>内部层（Internal level）</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png" alt="数据库系统的三层次"></p>
-<h2 id="2、模式"><a href="#2、模式" class="headerlink" title="2、模式"></a>2、模式</h2><p>•模式(Schema)<br>对数据库中数据所进行的一种结构性的描述<br>所观察到数据的结构信息<br>•视图(View)/数据(Data)<br>某一种表现形式下表现出来的数据库中的数据</p>
-<p>如：模式可以是:<br>学生登记表( 学号 char(8), 姓名 char(10),性别 Char(2), 出生年月datetime, 入学日期 Datetime, 家庭住址 Char(40) )</p>
-<p>而视图就是那一张表：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/2.png" alt="视图"></p>
-<h2 id="3、三级模式两层映像"><a href="#3、三级模式两层映像" class="headerlink" title="3、三级模式两层映像"></a>3、三级模式两层映像</h2><p>三级模式/三级视图</p>
-<ul>
-<li>外部模式 External Schema   —— (External) View<br>某一用户能够看到与处理的数据的结构描述</li>
-<li>全局模式(Conceptual) Schema     —— Conceptual View<br>从全局角度理解/管理的数据的结构描述, 含相应的关联约束<br>体现在数据之间的内在本质联系</li>
-<li>Internal Schema     —— Internal  View<br>存储在介质上的数据的结构描述，含存储路径、存储方式 、索引方式等</li>
-</ul>
-<p>模式一般指全局模式</p>
-<p>视图一般指外部视图</p>
-<p>两层映像：</p>
-<p>E-C Mapping：External Schema-Conceptual Schema Mapping<br>——将外模式映射为概念模式，从而支持实现数据概念视图向外部视图的转换<br>——便于用户观察和使用<br>C-I Mapping：Conceptual Schema-Internal Schema Mapping<br>——将概念模式映射为内模式，从而支持实现数据概念视图向内部视图的转换<br>——便于计算机进行存储和处理</p>
-<p>DBMS的功能在于，让用户确定三级模式，系统自动生成两层映像</p>
-<h2 id="4、两个独立性"><a href="#4、两个独立性" class="headerlink" title="4、两个独立性"></a>4、两个独立性</h2><ul>
-<li>逻辑数据独立性<br>当概念模式变化时，可以不改变外部模式(只需改变E-C Mapping)，从而无需<br>改变应用程序</li>
-<li>物理数据独立性<br>当内部模式变化时，可以不改变概念模式(只需改变C-I Mapping) ，从而不改<br>变外部模式</li>
-</ul>
-<h1 id="二、数据模型"><a href="#二、数据模型" class="headerlink" title="二、数据模型"></a>二、数据模型</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>模式是对<strong>数据</strong>本身结构形式的抽象，数据模型是对<strong>模式</strong>本身结构的抽象。</p>
-<p>数据模型是：数据结构的结构</p>
-<h2 id="数据模型举例："><a href="#数据模型举例：" class="headerlink" title="数据模型举例："></a>数据模型举例：</h2><ul>
-<li>关系模型：表的形式组织数据</li>
-<li>层次模型：树的形式组织数据</li>
-<li>网状模型：图的形式组织数据</li>
-</ul>
-<p>关系模型举例：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/3.png" alt="关系模型"></p>
+          <h1 id="欲实现以下功能："><a href="#欲实现以下功能：" class="headerlink" title="欲实现以下功能："></a>欲实现以下功能：</h1><p>a是一个二维数组<br>a = [[1,2],[4,5],[1,6],[5,3],[3,8],[12,34],[12,33],[0,12]]<br>现在要对这个二维数组排序，规则是：<br>首先按a[i][0]升序排序<br>如果a[i][0]值相同，按a[i][1]升序排序</p>
+<p>list自带的sort函数是用key来实现的（有点儿类似哈希），需要将每个元素映射为可比较的值。</p>
+<p>我的映射思路: key = a[i][0]*1000+a[i][1],也就是映射为整数</p>
+<pre><code class="lang-python">a = [[1,2],[4,5],[1,6],[5,3],[3,8],[12,34],[12,33],[0,12]]
+a.sort(key=lambda x:x[0]*1000+x[1])
+print(a)
+# 输出：
+# [[0, 12], [1, 2], [1, 6], [3, 8], [4, 5], [5, 3], [12, 33], [12, 34]]
+</code></pre>
+<p>lambda表达式不是必须的，一下两种写法等同:</p>
+<pre><code class="lang-python"># 写法1
+def key_exp(x):
+    return x[0]*1000 +x[1]
+a.sort(key=key_exp)
+
+# 写法2
+a.sort(key=lambda x:x[0]*1000+x[1])
+</code></pre>
+<p>复习一下lambda表达式：</p>
+<pre><code class="lang-python">def sum(arg1, arg2):
+   total = arg1 + arg2
+   return total
+# 使用lambda表达式的写法：
+
+lambda arg1, arg2: arg1 + arg2  # arg1, arg2可以传入默认值
+</code></pre>
+<p>如：</p>
+<pre><code class="lang-python">x = 1
+y = 2
+add = lambda a,b:a+b
+print(add(x,y))
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -412,22 +412,39 @@
       <section class="post-squares nextprev">
         
           
-            <div class="post-nepre full previous">
+            <div class="post-nepre half previous">
           
-            <a href="/2020/01/29/flex/" rel="prev">
+            <a href="/2021/02/04/pytorch-note-1/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/4.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/4.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/10.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/10.png">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                Flex布局</h3>
+                pytorch(1) 简单入门</h3>
                 <hr>
               </div>
             </a>
           </div>
         
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2021/01/30/mini-program-1/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/12.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/12.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                小程序笔记（一）基础储备</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
         
       </section>
       
@@ -623,7 +640,7 @@ $(document).ready(function() {
         <a href="/categories">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-sitemap" aria-hidden="true"></i>
-            文章分类
+            分类
           </span>
         </a>
         
@@ -667,7 +684,7 @@ $(document).ready(function() {
               <li>
                 <a href="/categories">
                   <i class="fa " aria-hidden="true"></i>
-                  Show all
+                  more
                 </a>
               </li>
             

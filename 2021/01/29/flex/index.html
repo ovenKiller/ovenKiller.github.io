@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">python3 自定义sort | DayDream</title>
+  <title itemprop="name">Flex布局 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -180,7 +180,7 @@
                 <a href="/categories">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-sitemap" aria-hidden="true"></i>
-                    文章分类
+                    分类
                   </span>
                 </a>
                 
@@ -224,7 +224,7 @@
                       <li>
                         <a href="/categories">
                           <i class="fa " aria-hidden="true"></i>
-                          Show all
+                          more
                         </a>
                       </li>
                     
@@ -331,11 +331,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/4.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/4.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      python3 自定义sort</h1>
+      Flex布局</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -347,7 +347,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-1-31<span class="bull">
+        2021-1-29<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -361,37 +361,112 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="欲实现以下功能："><a href="#欲实现以下功能：" class="headerlink" title="欲实现以下功能："></a>欲实现以下功能：</h1><p>a是一个二维数组<br>a = [[1,2],[4,5],[1,6],[5,3],[3,8],[12,34],[12,33],[0,12]]<br>现在要对这个二维数组排序，规则是：<br>首先按a[i][0]升序排序<br>如果a[i][0]值相同，按a[i][1]升序排序</p>
-<p>list自带的sort函数是用key来实现的（有点儿类似哈希），需要将每个元素映射为可比较的值。</p>
-<p>我的映射思路: key = a[i][0]*1000+a[i][1],也就是映射为整数</p>
-<pre><code class="lang-python">a = [[1,2],[4,5],[1,6],[5,3],[3,8],[12,34],[12,33],[0,12]]
-a.sort(key=lambda x:x[0]*1000+x[1])
-print(a)
-# 输出：
-# [[0, 12], [1, 2], [1, 6], [3, 8], [4, 5], [5, 3], [12, 33], [12, 34]]
-</code></pre>
-<p>lambda表达式不是必须的，一下两种写法等同:</p>
-<pre><code class="lang-python"># 写法1
-def key_exp(x):
-    return x[0]*1000 +x[1]
-a.sort(key=key_exp)
+          <p>本文总结自<a href="https://www.runoob.com/w3cnote/flex-grammar.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<p>flex布局是css中的一种布局模式：</p>
+<h1 id="一、使用flex布局："><a href="#一、使用flex布局：" class="headerlink" title="一、使用flex布局："></a>一、使用flex布局：</h1><pre><code class="lang-css">/*任何一个容器都可以指定为Flex布局。*/
+.box{
+  display: flex;
+}
 
-# 写法2
-a.sort(key=lambda x:x[0]*1000+x[1])
-</code></pre>
-<p>复习一下lambda表达式：</p>
-<pre><code class="lang-python">def sum(arg1, arg2):
-   total = arg1 + arg2
-   return total
-# 使用lambda表达式的写法：
 
-lambda arg1, arg2: arg1 + arg2  # arg1, arg2可以传入默认值
+/*行内元素也可以使用Flex布局。*/
+.box{
+  display: inline-flex;
+}
+
+
+/*Webkit内核的浏览器，必须加上-webkit前缀。*/
+.box{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+}
 </code></pre>
-<p>如：</p>
-<pre><code class="lang-python">x = 1
-y = 2
-add = lambda a,b:a+b
-print(add(x,y))
+<p><strong>注意：</strong>设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
+<h1 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h1><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/1.png" alt="flex模型"></p>
+<ul>
+<li>flex container:采用Flex布局的元素，称为Flex容器(Flex container)</li>
+<li>flex item: flex container的所有子元素称为flex成员(flex item)</li>
+<li>main axis: 主轴(水平的)</li>
+<li>cross axis:交叉轴(竖直的)</li>
+<li>main start/end: 主轴的 开始/结束 位置</li>
+<li>cross start/end: 交叉轴的 开始/结束 位置</li>
+<li>main size: 单个item在主轴上占用的空间</li>
+<li>cross size: 单个item在交叉轴上占用的空间</li>
+</ul>
+<h1 id="三、容器属性"><a href="#三、容器属性" class="headerlink" title="三、容器属性"></a>三、容器属性</h1><h2 id="3-1-flex-direction属性"><a href="#3-1-flex-direction属性" class="headerlink" title="3.1 flex-direction属性"></a>3.1 flex-direction属性</h2><pre><code class="lang-css">.box {
+  flex-direction: row | row-reverse | column | column-reverse;
+}
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/2.png" alt="flex模型"><br>这几张图依次是： column-reverse \ column \ row \ row-reverse</p>
+<ul>
+<li>row（默认值）：主轴为水平方向，起点在左端。</li>
+<li>row-reverse：主轴为水平方向，起点在右端。</li>
+<li>column：主轴为垂直方向，起点在上沿。</li>
+<li>column-reverse：主轴为垂直方向，起点在下沿。</li>
+</ul>
+<h2 id="3-2-flex-wrap属性"><a href="#3-2-flex-wrap属性" class="headerlink" title="3.2 flex-wrap属性"></a>3.2 flex-wrap属性</h2><p>flex-wrap用来定义这个问题：当item在一行中排不开的时候，如何布局呢？</p>
+<pre><code class="lang-css">.box{
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}
+</code></pre>
+<p>1、nowrap(不换行)<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/3.png" alt="flex模型"><br>2、wrap(换行)<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/4.jpg" alt="flex模型"><br>3、wrap-reverse(换行，且第一行放在下面)<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/5.jpg" alt="flex模型"></p>
+<h2 id="3-3-flex-flow"><a href="#3-3-flex-flow" class="headerlink" title="3.3 flex-flow"></a>3.3 flex-flow</h2><p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</p>
+<pre><code class="lang-css">.box {
+  justify-content: flex-start | flex-end | center | space-between | space-around;
+}
+</code></pre>
+<h2 id="3-4-justify-content属性"><a href="#3-4-justify-content属性" class="headerlink" title="3.4 justify-content属性"></a>3.4 justify-content属性</h2><p>justify-content属性定义了项目在主轴上的对齐方式。</p>
+<pre><code class="lang-css">.box {
+  justify-content: flex-start | flex-end | center | space-between | space-around;
+}
+</code></pre>
+<p>参数说明：</p>
+<ul>
+<li>flex-start（默认值）：左对齐</li>
+<li>flex-end：右对齐</li>
+<li>center： 居中</li>
+<li>space-between：两端对齐，项目之间的间隔都相等。</li>
+<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+</ul>
+<p>图示：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/6.png" alt="flex模型"></p>
+<h1 id="3-5-align-items属性"><a href="#3-5-align-items属性" class="headerlink" title="3.5 align-items属性"></a>3.5 align-items属性</h1><p>align-items属性定义项目在交叉轴上如何对齐。</p>
+<pre><code class="lang-css">.box {
+  align-items: flex-start | flex-end | center | baseline | stretch;
+}
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/7.png" alt="flex模型"></p>
+<ul>
+<li>flex-start：交叉轴的起点对齐。</li>
+<li>flex-end：交叉轴的终点对齐。</li>
+<li>center：交叉轴的中点对齐。</li>
+<li>baseline: 项目的第一行文字的基线对齐。</li>
+<li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+<h2 id="3-6-align-content属性"><a href="#3-6-align-content属性" class="headerlink" title="3.6 align-content属性"></a>3.6 align-content属性</h2><p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+<p>.box {<br>  align-content: flex-start | flex-end | center | space-between | space-around | stretch;<br>}</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/8.png" alt="flex模型"></p>
+<h1 id="四、项目的属性"><a href="#四、项目的属性" class="headerlink" title="四、项目的属性"></a>四、项目的属性</h1><h2 id="4-1-order属性"><a href="#4-1-order属性" class="headerlink" title="4.1 order属性"></a>4.1 order属性</h2><p>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+<pre><code class="lang-css">.item {
+  order: &lt;integer&gt;;
+}
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/9.png" alt="order"></p>
+<h2 id="4-2-flex-grow属性"><a href="#4-2-flex-grow属性" class="headerlink" title="4.2 flex-grow属性"></a>4.2 flex-grow属性</h2><p>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
+<p>.item {<br>  flex-grow: <number>; /<em> default 0 </em>/<br>}<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/10.png" alt="order"></number></p>
+<h2 id="4-3-flex-shrink属性"><a href="#4-3-flex-shrink属性" class="headerlink" title="4.3 flex-shrink属性"></a>4.3 flex-shrink属性</h2><p>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<p>.item {<br>  flex-shrink: <number>; /<em> default 1 </em>/<br>}<br>布局类似flex-grow</number></p>
+<h2 id="4-4-flex-basis"><a href="#4-4-flex-basis" class="headerlink" title="4.4 flex-basis"></a>4.4 flex-basis</h2><p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+<p>.item {<br>  flex-basis: <length> | auto; /<em> default auto </em>/<br>}<br>它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</length></p>
+<h2 id="4-5-flex属性"><a href="#4-5-flex属性" class="headerlink" title="4.5 flex属性"></a>4.5 flex属性</h2><p>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+<pre><code class="lang-css">.item {
+  flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]
+}
+</code></pre>
+<p>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。<br>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+<h2 id="4-6-align-self属性"><a href="#4-6-align-self属性" class="headerlink" title="4.6 align-self属性"></a>4.6 align-self属性</h2><p>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+<pre><code class="lang-css">.item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
 </code></pre>
 
         </div>
@@ -414,15 +489,15 @@ print(add(x,y))
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/07/09/第二类斯特林数/" rel="prev">
+            <a href="/2021/01/29/DLFromScratch-8/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/math.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/math.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                第二类Stirling数</h3>
+                鱼书笔记 第八章 深度学习</h3>
                 <hr>
               </div>
             </a>
@@ -432,15 +507,15 @@ print(add(x,y))
           
             <div class="post-nepre half next">
           
-            <a href="/2020/01/29/flex/" rel="next">
+            <a href="/2021/01/28/ListComprehensions/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/4.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/4.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/11.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/11.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                Flex布局</h3>
+                python 列表生成器</h3>
                 <hr>
               </div>
             </a>
@@ -640,7 +715,7 @@ $(document).ready(function() {
         <a href="/categories">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-sitemap" aria-hidden="true"></i>
-            文章分类
+            分类
           </span>
         </a>
         
@@ -684,7 +759,7 @@ $(document).ready(function() {
               <li>
                 <a href="/categories">
                   <i class="fa " aria-hidden="true"></i>
-                  Show all
+                  more
                 </a>
               </li>
             

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Flex布局 | DayDream</title>
+  <title itemprop="name">数据库笔记（二） | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -180,7 +180,7 @@
                 <a href="/categories">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-sitemap" aria-hidden="true"></i>
-                    文章分类
+                    分类
                   </span>
                 </a>
                 
@@ -224,7 +224,7 @@
                       <li>
                         <a href="/categories">
                           <i class="fa " aria-hidden="true"></i>
-                          Show all
+                          more
                         </a>
                       </li>
                     
@@ -331,11 +331,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/4.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/4.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Flex布局</h1>
+      数据库笔记（二）</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -347,7 +347,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-1-29<span class="bull">
+        2021-1-19<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -361,113 +361,38 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>本文总结自<a href="https://www.runoob.com/w3cnote/flex-grammar.html" target="_blank" rel="noopener">菜鸟教程</a></p>
-<p>flex布局是css中的一种布局模式：</p>
-<h1 id="一、使用flex布局："><a href="#一、使用flex布局：" class="headerlink" title="一、使用flex布局："></a>一、使用flex布局：</h1><pre><code class="lang-css">/*任何一个容器都可以指定为Flex布局。*/
-.box{
-  display: flex;
-}
-
-
-/*行内元素也可以使用Flex布局。*/
-.box{
-  display: inline-flex;
-}
-
-
-/*Webkit内核的浏览器，必须加上-webkit前缀。*/
-.box{
-  display: -webkit-flex; /* Safari */
-  display: flex;
-}
-</code></pre>
-<p><strong>注意：</strong>设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
-<h1 id="二、基本概念"><a href="#二、基本概念" class="headerlink" title="二、基本概念"></a>二、基本概念</h1><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/1.png" alt="flex模型"></p>
-<ul>
-<li>flex container:采用Flex布局的元素，称为Flex容器(Flex container)</li>
-<li>flex item: flex container的所有子元素称为flex成员(flex item)</li>
-<li>main axis: 主轴(水平的)</li>
-<li>cross axis:交叉轴(竖直的)</li>
-<li>main start/end: 主轴的 开始/结束 位置</li>
-<li>cross start/end: 交叉轴的 开始/结束 位置</li>
-<li>main size: 单个item在主轴上占用的空间</li>
-<li>cross size: 单个item在交叉轴上占用的空间</li>
+          <h1 id="一、数据库系统的标准结构"><a href="#一、数据库系统的标准结构" class="headerlink" title="一、数据库系统的标准结构"></a>一、数据库系统的标准结构</h1><h2 id="1、三个层次"><a href="#1、三个层次" class="headerlink" title="1、三个层次"></a>1、三个层次</h2><ul>
+<li>用户层（User level）/ 外部层（External level）</li>
+<li>概念层(Conceptual level)/逻辑层（Logic level）</li>
+<li>内部层（Internal level）</li>
 </ul>
-<h1 id="三、容器属性"><a href="#三、容器属性" class="headerlink" title="三、容器属性"></a>三、容器属性</h1><h2 id="3-1-flex-direction属性"><a href="#3-1-flex-direction属性" class="headerlink" title="3.1 flex-direction属性"></a>3.1 flex-direction属性</h2><pre><code class="lang-css">.box {
-  flex-direction: row | row-reverse | column | column-reverse;
-}
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/2.png" alt="flex模型"><br>这几张图依次是： column-reverse \ column \ row \ row-reverse</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png" alt="数据库系统的三层次"></p>
+<h2 id="2、模式"><a href="#2、模式" class="headerlink" title="2、模式"></a>2、模式</h2><p>•模式(Schema)<br>对数据库中数据所进行的一种结构性的描述<br>所观察到数据的结构信息<br>•视图(View)/数据(Data)<br>某一种表现形式下表现出来的数据库中的数据</p>
+<p>如：模式可以是:<br>学生登记表( 学号 char(8), 姓名 char(10),性别 Char(2), 出生年月datetime, 入学日期 Datetime, 家庭住址 Char(40) )</p>
+<p>而视图就是那一张表：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/2.png" alt="视图"></p>
+<h2 id="3、三级模式两层映像"><a href="#3、三级模式两层映像" class="headerlink" title="3、三级模式两层映像"></a>3、三级模式两层映像</h2><p>三级模式/三级视图</p>
 <ul>
-<li>row（默认值）：主轴为水平方向，起点在左端。</li>
-<li>row-reverse：主轴为水平方向，起点在右端。</li>
-<li>column：主轴为垂直方向，起点在上沿。</li>
-<li>column-reverse：主轴为垂直方向，起点在下沿。</li>
+<li>外部模式 External Schema   —— (External) View<br>某一用户能够看到与处理的数据的结构描述</li>
+<li>全局模式(Conceptual) Schema     —— Conceptual View<br>从全局角度理解/管理的数据的结构描述, 含相应的关联约束<br>体现在数据之间的内在本质联系</li>
+<li>Internal Schema     —— Internal  View<br>存储在介质上的数据的结构描述，含存储路径、存储方式 、索引方式等</li>
 </ul>
-<h2 id="3-2-flex-wrap属性"><a href="#3-2-flex-wrap属性" class="headerlink" title="3.2 flex-wrap属性"></a>3.2 flex-wrap属性</h2><p>flex-wrap用来定义这个问题：当item在一行中排不开的时候，如何布局呢？</p>
-<pre><code class="lang-css">.box{
-  flex-wrap: nowrap | wrap | wrap-reverse;
-}
-</code></pre>
-<p>1、nowrap(不换行)<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/3.png" alt="flex模型"><br>2、wrap(换行)<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/4.jpg" alt="flex模型"><br>3、wrap-reverse(换行，且第一行放在下面)<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/5.jpg" alt="flex模型"></p>
-<h2 id="3-3-flex-flow"><a href="#3-3-flex-flow" class="headerlink" title="3.3 flex-flow"></a>3.3 flex-flow</h2><p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</p>
-<pre><code class="lang-css">.box {
-  justify-content: flex-start | flex-end | center | space-between | space-around;
-}
-</code></pre>
-<h2 id="3-4-justify-content属性"><a href="#3-4-justify-content属性" class="headerlink" title="3.4 justify-content属性"></a>3.4 justify-content属性</h2><p>justify-content属性定义了项目在主轴上的对齐方式。</p>
-<pre><code class="lang-css">.box {
-  justify-content: flex-start | flex-end | center | space-between | space-around;
-}
-</code></pre>
-<p>参数说明：</p>
-<ul>
-<li>flex-start（默认值）：左对齐</li>
-<li>flex-end：右对齐</li>
-<li>center： 居中</li>
-<li>space-between：两端对齐，项目之间的间隔都相等。</li>
-<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+<p>模式一般指全局模式</p>
+<p>视图一般指外部视图</p>
+<p>两层映像：</p>
+<p>E-C Mapping：External Schema-Conceptual Schema Mapping<br>——将外模式映射为概念模式，从而支持实现数据概念视图向外部视图的转换<br>——便于用户观察和使用<br>C-I Mapping：Conceptual Schema-Internal Schema Mapping<br>——将概念模式映射为内模式，从而支持实现数据概念视图向内部视图的转换<br>——便于计算机进行存储和处理</p>
+<p>DBMS的功能在于，让用户确定三级模式，系统自动生成两层映像</p>
+<h2 id="4、两个独立性"><a href="#4、两个独立性" class="headerlink" title="4、两个独立性"></a>4、两个独立性</h2><ul>
+<li>逻辑数据独立性<br>当概念模式变化时，可以不改变外部模式(只需改变E-C Mapping)，从而无需<br>改变应用程序</li>
+<li>物理数据独立性<br>当内部模式变化时，可以不改变概念模式(只需改变C-I Mapping) ，从而不改<br>变外部模式</li>
 </ul>
-<p>图示：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/6.png" alt="flex模型"></p>
-<h1 id="3-5-align-items属性"><a href="#3-5-align-items属性" class="headerlink" title="3.5 align-items属性"></a>3.5 align-items属性</h1><p>align-items属性定义项目在交叉轴上如何对齐。</p>
-<pre><code class="lang-css">.box {
-  align-items: flex-start | flex-end | center | baseline | stretch;
-}
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/7.png" alt="flex模型"></p>
-<ul>
-<li>flex-start：交叉轴的起点对齐。</li>
-<li>flex-end：交叉轴的终点对齐。</li>
-<li>center：交叉轴的中点对齐。</li>
-<li>baseline: 项目的第一行文字的基线对齐。</li>
-<li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+<h1 id="二、数据模型"><a href="#二、数据模型" class="headerlink" title="二、数据模型"></a>二、数据模型</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>模式是对<strong>数据</strong>本身结构形式的抽象，数据模型是对<strong>模式</strong>本身结构的抽象。</p>
+<p>数据模型是：数据结构的结构</p>
+<h2 id="数据模型举例："><a href="#数据模型举例：" class="headerlink" title="数据模型举例："></a>数据模型举例：</h2><ul>
+<li>关系模型：表的形式组织数据</li>
+<li>层次模型：树的形式组织数据</li>
+<li>网状模型：图的形式组织数据</li>
 </ul>
-<h2 id="3-6-align-content属性"><a href="#3-6-align-content属性" class="headerlink" title="3.6 align-content属性"></a>3.6 align-content属性</h2><p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
-<p>.box {<br>  align-content: flex-start | flex-end | center | space-between | space-around | stretch;<br>}</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/8.png" alt="flex模型"></p>
-<h1 id="四、项目的属性"><a href="#四、项目的属性" class="headerlink" title="四、项目的属性"></a>四、项目的属性</h1><h2 id="4-1-order属性"><a href="#4-1-order属性" class="headerlink" title="4.1 order属性"></a>4.1 order属性</h2><p>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
-<pre><code class="lang-css">.item {
-  order: &lt;integer&gt;;
-}
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/9.png" alt="order"></p>
-<h2 id="4-2-flex-grow属性"><a href="#4-2-flex-grow属性" class="headerlink" title="4.2 flex-grow属性"></a>4.2 flex-grow属性</h2><p>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
-<p>.item {<br>  flex-grow: <number>; /<em> default 0 </em>/<br>}<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-29-1/10.png" alt="order"></number></p>
-<h2 id="4-3-flex-shrink属性"><a href="#4-3-flex-shrink属性" class="headerlink" title="4.3 flex-shrink属性"></a>4.3 flex-shrink属性</h2><p>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
-<p>.item {<br>  flex-shrink: <number>; /<em> default 1 </em>/<br>}<br>布局类似flex-grow</number></p>
-<h2 id="4-4-flex-basis"><a href="#4-4-flex-basis" class="headerlink" title="4.4 flex-basis"></a>4.4 flex-basis</h2><p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
-<p>.item {<br>  flex-basis: <length> | auto; /<em> default auto </em>/<br>}<br>它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</length></p>
-<h2 id="4-5-flex属性"><a href="#4-5-flex属性" class="headerlink" title="4.5 flex属性"></a>4.5 flex属性</h2><p>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
-<pre><code class="lang-css">.item {
-  flex: none | [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? || &lt;&#39;flex-basis&#39;&gt; ]
-}
-</code></pre>
-<p>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。<br>建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
-<h2 id="4-6-align-self属性"><a href="#4-6-align-self属性" class="headerlink" title="4.6 align-self属性"></a>4.6 align-self属性</h2><p>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
-<pre><code class="lang-css">.item {
-  align-self: auto | flex-start | flex-end | center | baseline | stretch;
-}
-</code></pre>
+<p>关系模型举例：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/3.png" alt="关系模型"></p>
 
         </div>
         <!-- .entry-content -->
@@ -489,15 +414,15 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/01/31/python3-sort/" rel="prev">
+            <a href="/2021/01/22/databaseNote-4/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                python3 自定义sort</h3>
+                数据库笔记（四）关系代数</h3>
                 <hr>
               </div>
             </a>
@@ -507,15 +432,15 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2020/01/19/databaseNote-2/" rel="next">
+            <a href="/2021/01/18/databaseNote-1/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-19-1/1.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-16-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-16-1/1.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                数据库笔记（二）</h3>
+                数据库笔记（一）</h3>
                 <hr>
               </div>
             </a>
@@ -715,7 +640,7 @@ $(document).ready(function() {
         <a href="/categories">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-sitemap" aria-hidden="true"></i>
-            文章分类
+            分类
           </span>
         </a>
         
@@ -759,7 +684,7 @@ $(document).ready(function() {
               <li>
                 <a href="/categories">
                   <i class="fa " aria-hidden="true"></i>
-                  Show all
+                  more
                 </a>
               </li>
             
