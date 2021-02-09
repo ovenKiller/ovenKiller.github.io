@@ -392,7 +392,7 @@
 <p>ResNet可以加深到100多层。</p>
 <h1 id="8-3-深度学习的高速化"><a href="#8-3-深度学习的高速化" class="headerlink" title="8.3 深度学习的高速化"></a>8.3 深度学习的高速化</h1><p>本节介绍如何加速学习</p>
 <h2 id="8-3-1"><a href="#8-3-1" class="headerlink" title="8.3.1"></a>8.3.1</h2><p>先看AlexNet在推理时各层占用的时间</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-28-1/4.png" alt="时间比例"><br>(fc指的是全连接层)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-28-1/4.jpg" alt="时间比例"><br>(fc指的是全连接层)</p>
 <p>从图中可知，AlexNex中，大多数时间都被耗费在卷积层上。实际上，卷积层的处理时间加起来占GPU整体的95%，占CPU整体的89%。</p>
 <h2 id="8-3-2-基于GPU的高速化"><a href="#8-3-2-基于GPU的高速化" class="headerlink" title="8.3.2 基于GPU的高速化"></a>8.3.2 基于GPU的高速化</h2><p>GPU擅长并行运算<br>CPU擅长连续串行的运算。</p>
 <p>在矩阵处理时，需要大量并行运算，此时使用GPU能大大加速学习过程。</p>
@@ -405,7 +405,7 @@
 <p>计算机中表示小数时，有32位的单精度浮点数和64位的双精度浮点数等格式。根据以往的实验结果，在深度学习中，即便是16位的半精度浮点数（half float），也可以顺利地进行学习。</p>
 <p>另外，使用16位半精度浮点数应该也会缩短运算时间（书中没提，也许是影响不大，但肯定会有影响）</p>
 <p>实际上，NVIDIA的下一代GPU框架Pascal也支持半精度浮点数的运算，由此可以认为今后半精度浮点数将<br>被作为标准使用。</p>
-<h1 id="8-5-深度学习的未来"><a href="#8-5-深度学习的未来" class="headerlink" title="8.5 深度学习的未来"></a>8.5 深度学习的未来</h1><h2 id="8-5-2-无监督学习"><a href="#8-5-2-无监督学习" class="headerlink" title="8.5.2 无监督学习"></a>8.5.2 无监督学习</h2><p>DCGAN（Deep Convolutional Generative Adversarial Network）方法生成的卧室图像的例子。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-28-1/5.png" alt="生成卧室图像"></p>
+<h1 id="8-5-深度学习的未来"><a href="#8-5-深度学习的未来" class="headerlink" title="8.5 深度学习的未来"></a>8.5 深度学习的未来</h1><h2 id="8-5-2-无监督学习"><a href="#8-5-2-无监督学习" class="headerlink" title="8.5.2 无监督学习"></a>8.5.2 无监督学习</h2><p>DCGAN（Deep Convolutional Generative Adversarial Network）方法生成的卧室图像的例子。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-28-1/5.jpg" alt="生成卧室图像"></p>
 <p>这些并不是照片，而是由深度学习网络自动生成的。<br>DCGAN的要点在于，它同时使用了两个神经网络。<br>Generator生成近似真品的图像，Discriminator判别它是不是真图像（是Generator生成的图像还是实际拍摄的图像）。像这样，通过让两者以竞争的方式学习，Generator会学习到更加精妙的图像作假技术，Discriminator则会成长为能以更高精度辨别真假的鉴定师。两者互相切磋、共同成长</p>
 <p>有监督的学习:所有的训练数据都有正确解标签<br>与有监督学习对应的就是无监督的学习。<br>DCGAN就是无监督的学习。</p>
 <h2 id="8-5-3-强化学习"><a href="#8-5-3-强化学习" class="headerlink" title="8.5.3 强化学习"></a>8.5.3 强化学习</h2><p>设想这样一个问题：如何训练一个模型来玩《超级马里奥》</p>

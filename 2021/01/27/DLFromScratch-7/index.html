@@ -331,7 +331,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-20-1/1.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/1.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -695,8 +695,8 @@ plt.show()
 </code></pre>
 <h1 id="7-6-CNN可视化"><a href="#7-6-CNN可视化" class="headerlink" title="7.6 CNN可视化"></a>7.6 CNN可视化</h1><h2 id="7-6-1-CNN的卷积层究竟在“观察”什么呢？"><a href="#7-6-1-CNN的卷积层究竟在“观察”什么呢？" class="headerlink" title="7.6.1 CNN的卷积层究竟在“观察”什么呢？"></a>7.6.1 CNN的卷积层究竟在“观察”什么呢？</h2><p>我们将CNN的滤波器可视化，将权重显示为颜色，可以发现在学习前后，滤波器有了明显变化：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/9.png" alt="CNN可视化"></p>
 <p>滤波器在“观察”什么，答案就是它在观察边缘（颜色变化的分界线）和斑块（局部的块状区域）等。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/10.png" alt="CNN可视化"><br>由此可知，卷积层的滤波器会提取边缘或斑块等原始信息。而刚才实现的CNN会将这些原始信息传递给后面的层。</p>
-<h2 id="7-6-2-基于分层结构的信息提取"><a href="#7-6-2-基于分层结构的信息提取" class="headerlink" title="7.6.2 基于分层结构的信息提取"></a>7.6.2 基于分层结构的信息提取</h2><p>上面观察的仅仅是CNN中的一层，下面以AlexNet为例，介绍多层CNN的工作过程。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/11.png" alt="CNN可视化"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/10.jpg" alt="CNN可视化"><br>由此可知，卷积层的滤波器会提取边缘或斑块等原始信息。而刚才实现的CNN会将这些原始信息传递给后面的层。</p>
+<h2 id="7-6-2-基于分层结构的信息提取"><a href="#7-6-2-基于分层结构的信息提取" class="headerlink" title="7.6.2 基于分层结构的信息提取"></a>7.6.2 基于分层结构的信息提取</h2><p>上面观察的仅仅是CNN中的一层，下面以AlexNet为例，介绍多层CNN的工作过程。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/11.jpg" alt="CNN可视化"></p>
 <p>上面的图像可以概括为：</p>
 <ul>
 <li>CNN的卷积层中提取的信息。</li>
@@ -706,8 +706,8 @@ plt.show()
 <li>最后的全连接层对物体的类别（狗或车）有响应</li>
 </ul>
 <p>这是一个由简单到复杂、逐步加深的过程</p>
-<h1 id="7-7-具有代表性的CNN"><a href="#7-7-具有代表性的CNN" class="headerlink" title="7.7 具有代表性的CNN"></a>7.7 具有代表性的CNN</h1><h2 id="7-7-1-LeNet"><a href="#7-7-1-LeNet" class="headerlink" title="7.7.1 LeNet"></a>7.7.1 LeNet</h2><p>1998年被提出的CNN网络，可以说是CNN的鼻祖<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/12.png" alt="LeNet"><br>与当前CNN的区别主要是:<br>1、池化层采用随机采样(现在更多采用Max操作)<br>2、激活函数为sigmoid(现在更多采用ReLU)</p>
-<h2 id="7-7-2-AlexNet"><a href="#7-7-2-AlexNet" class="headerlink" title="7.7.2 AlexNet"></a>7.7.2 AlexNet</h2><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/12.png" alt="LeNet"></p>
+<h1 id="7-7-具有代表性的CNN"><a href="#7-7-具有代表性的CNN" class="headerlink" title="7.7 具有代表性的CNN"></a>7.7 具有代表性的CNN</h1><h2 id="7-7-1-LeNet"><a href="#7-7-1-LeNet" class="headerlink" title="7.7.1 LeNet"></a>7.7.1 LeNet</h2><p>1998年被提出的CNN网络，可以说是CNN的鼻祖<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/12.jpg" alt="LeNet"><br>与当前CNN的区别主要是:<br>1、池化层采用随机采样(现在更多采用Max操作)<br>2、激活函数为sigmoid(现在更多采用ReLU)</p>
+<h2 id="7-7-2-AlexNet"><a href="#7-7-2-AlexNet" class="headerlink" title="7.7.2 AlexNet"></a>7.7.2 AlexNet</h2><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-25-1/13.png" alt="LeNet"></p>
 <p>AlexNet的特点是：<br>• 激活函数使用ReLU。<br>• 使用进行局部正规化的LRN（Local Response Normalization）层。<br>• 使用Dropout。</p>
 
         </div>
