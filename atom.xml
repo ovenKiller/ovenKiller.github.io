@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-08T02:09:11.331Z</updated>
+  <updated>2021-02-10T06:11:31.687Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python(3) staticmethod &amp; classmethod</title>
+    <link href="/2021/02/10/python-note-3/"/>
+    <id>/2021/02/10/python-note-3/</id>
+    <published>2021-02-10T04:06:00.000Z</published>
+    <updated>2021-02-10T06:11:31.687Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;测试环境&quot;&gt;&lt;a href=&quot;#测试环境&quot; class=&quot;headerlink&quot; title=&quot;测试环境:&quot;&gt;&lt;/a&gt;测试环境:&lt;/h2&gt;&lt;p&gt;python3.7.9&lt;br&gt;vscode + Pylance&lt;/p&gt;
+&lt;h1 id=&quot;一、类变量与实例变量&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="/categories/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库笔记（七）SQL的查询操作</title>
@@ -523,11 +550,11 @@ a =
   </entry>
   
   <entry>
-    <title>JS笔记（七） 时间</title>
-    <link href="/2021/01/26/jsNote-7/"/>
-    <id>/2021/01/26/jsNote-7/</id>
+    <title>JS笔记（六） 数组及其方法</title>
+    <link href="/2021/01/26/jsNote-6/"/>
+    <id>/2021/01/26/jsNote-6/</id>
     <published>2021-01-26T03:40:24.000Z</published>
-    <updated>2021-02-08T04:41:46.108Z</updated>
+    <updated>2021-02-08T04:41:36.616Z</updated>
     
     <summary type="html">
     
@@ -535,9 +562,7 @@ a =
       
         
         
-          &lt;h1 id=&quot;创建日期对象&quot;&gt;&lt;a href=&quot;#创建日期对象&quot; class=&quot;headerlink&quot; title=&quot;创建日期对象&quot;&gt;&lt;/a&gt;创建日期对象&lt;/h1&gt;&lt;p&gt;有以下四种方法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;new Date()
+          &lt;h1 id=&quot;数组的定义&quot;&gt;&lt;a href=&quot;#数组的定义&quot; class=&quot;headerlink&quot;
         
       
     
@@ -565,32 +590,6 @@ a =
         
           &lt;h1 id=&quot;math属性&quot;&gt;&lt;a href=&quot;#math属性&quot; class=&quot;headerlink&quot; title=&quot;math属性&quot;&gt;&lt;/a&gt;math属性&lt;/h1&gt;&lt;p&gt;Math 属性（常量）&lt;/p&gt;
 &lt;p&gt;JavaScript 提供了可由 Math 对象访问的 8
-        
-      
-    
-    </summary>
-    
-      <category term="Web前端" scheme="/categories/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="JavaScript" scheme="/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS笔记（六） 数组及其方法</title>
-    <link href="/2021/01/26/jsNote-6/"/>
-    <id>/2021/01/26/jsNote-6/</id>
-    <published>2021-01-26T03:40:24.000Z</published>
-    <updated>2021-02-08T04:41:36.616Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;数组的定义&quot;&gt;&lt;a href=&quot;#数组的定义&quot; class=&quot;headerlink&quot;
         
       
     
