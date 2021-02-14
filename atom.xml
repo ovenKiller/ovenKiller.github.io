@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-11T09:15:20.151Z</updated>
+  <updated>2021-02-14T05:06:18.982Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,97 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode 452. 132 Pattern</title>
+    <link href="/2021/02/14/leetcode452/"/>
+    <id>/2021/02/14/leetcode452/</id>
+    <published>2021-02-14T04:29:00.000Z</published>
+    <updated>2021-02-14T05:06:18.982Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门:-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/132-pattern&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;132 Pattern&lt;/a&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="单调栈" scheme="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 752. Open the Lock</title>
+    <link href="/2021/02/13/leetcode752/"/>
+    <id>/2021/02/13/leetcode752/</id>
+    <published>2021-02-13T08:00:00.000Z</published>
+    <updated>2021-02-14T05:07:53.704Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/open-the-lock/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;leetcode152 Open the
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="BFS" scheme="/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch(5)： torch.tensor与torch.Tensor的区别</title>
+    <link href="/2021/02/12/pytorch-note-6/"/>
+    <id>/2021/02/12/pytorch-note-6/</id>
+    <published>2021-02-12T06:20:00.000Z</published>
+    <updated>2021-02-12T06:32:23.870Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;内容来自于pytorch官方文档：&lt;a href=&quot;https://pytorch.org/docs/stable/generated/torch.tensor.html?highlight=tensor#torch.tensor&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
+    
+  </entry>
   
   <entry>
     <title>回望一眼 / 2020</title>
@@ -288,7 +379,7 @@ a =
     <link href="/2021/02/05/pytorch-note-2/"/>
     <id>/2021/02/05/pytorch-note-2/</id>
     <published>2021-02-05T02:10:00.000Z</published>
-    <updated>2021-02-08T13:38:43.645Z</updated>
+    <updated>2021-02-12T06:10:53.082Z</updated>
     
     <summary type="html">
     
@@ -513,97 +604,6 @@ a =
       <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="前缀和" scheme="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>负数取模问题</title>
-    <link href="/2021/01/28/mod-for-nagative/"/>
-    <id>/2021/01/28/mod-for-nagative/</id>
-    <published>2021-01-28T03:40:24.000Z</published>
-    <updated>2021-02-08T04:46:04.935Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;先说结论:&lt;br&gt;c++中负数取模为负数&lt;br&gt;python中负数取模为正数&lt;br&gt;比如：-12 % 10&lt;br&gt;c++中结果为-2&lt;br&gt;python中结果为8&lt;/p&gt;
-&lt;h2 id=&quot;c-测试：&quot;&gt;&lt;a href=&quot;#c-测试：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="/categories/python/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>鱼书笔记 第七章 卷积神经网络</title>
-    <link href="/2021/01/27/DLFromScratch-7/"/>
-    <id>/2021/01/27/DLFromScratch-7/</id>
-    <published>2021-01-27T03:40:24.000Z</published>
-    <updated>2021-02-09T14:06:33.386Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;卷积神经网络(Convolutional Neural Network)简称为CNN。几乎所有的深度学习比赛中都在广泛使用卷积神经网络。&lt;/p&gt;
-&lt;h1 id=&quot;7-1-CNN的结构&quot;&gt;&lt;a href=&quot;#7-1-CNN的结构&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 1654. 到家的最少跳跃次数</title>
-    <link href="/2021/01/27/leetcode1654/"/>
-    <id>/2021/01/27/leetcode1654/</id>
-    <published>2021-01-27T03:40:24.000Z</published>
-    <updated>2021-02-08T04:45:43.206Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门—&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-jumps-to-reach-home&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;leetcode&lt;/a&gt;&lt;/p&gt;
-&lt;h1
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="BFS" scheme="/tags/BFS/"/>
     
   </entry>
   
