@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-14T05:06:18.982Z</updated>
+  <updated>2021-02-14T14:28:12.503Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode 剑指 Offer 59 - II. 队列的最大值</title>
+    <link href="/2021/02/14/leetcodejz59/"/>
+    <id>/2021/02/14/leetcodejz59/</id>
+    <published>2021-02-14T14:28:00.000Z</published>
+    <updated>2021-02-14T14:28:12.503Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;描述：&quot;&gt;&lt;a href=&quot;#描述：&quot; class=&quot;headerlink&quot; title=&quot;描述：&quot;&gt;&lt;/a&gt;描述：&lt;/h2&gt;&lt;p&gt;请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数max_value、push_back 和
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="单调队列" scheme="/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 452. 132 Pattern</title>
@@ -572,38 +602,6 @@ a =
     
     
       <category term="python" scheme="/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>974. 和可被 K 整除的子数组</title>
-    <link href="/2021/01/28/leetcode974/"/>
-    <id>/2021/01/28/leetcode974/</id>
-    <published>2021-01-28T03:40:24.000Z</published>
-    <updated>2021-02-08T04:45:32.318Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门：&lt;a href=&quot;https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;《leetcode974. 和可被 K
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="前缀和" scheme="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
     
   </entry>
   
