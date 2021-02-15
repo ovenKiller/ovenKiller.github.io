@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-14T14:28:12.503Z</updated>
+  <updated>2021-02-15T12:40:09.828Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,96 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库笔记（八）update / 带量词的查询</title>
+    <link href="/2021/02/15/databaseNote-8/"/>
+    <id>/2021/02/15/databaseNote-8/</id>
+    <published>2021-02-15T12:00:00.000Z</published>
+    <updated>2021-02-15T12:40:09.828Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;实操环境:SQL Server Management Studio 15.0.18369.0&lt;/p&gt;
+&lt;p&gt;查询所用数据库可在上一篇&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch(5)： nn工具箱</title>
+    <link href="/2021/02/15/pytorch-note-7/"/>
+    <id>/2021/02/15/pytorch-note-7/</id>
+    <published>2021-02-15T07:20:00.000Z</published>
+    <updated>2021-02-15T12:59:09.659Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;测试版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
+&lt;p&gt;nn是在autograd上构建的神经网络模块。&lt;br&gt;&lt;br&gt;torch.mm的核心数据结构是Module&lt;br&gt;&lt;/p&gt;
+&lt;h1 id=&quot;一、构建神经网络的层&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 695. 岛屿的最大面积</title>
+    <link href="/2021/02/15/leetcode695/"/>
+    <id>/2021/02/15/leetcode695/</id>
+    <published>2021-02-15T04:40:00.000Z</published>
+    <updated>2021-02-15T04:47:20.060Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot; title=&quot;问题描述：&quot;&gt;&lt;/a&gt;问题描述：&lt;/h2&gt;&lt;p&gt;给定一个包含了一些 0 和 1 的非空二维数组 grid 。&lt;/p&gt;
+&lt;p&gt;一个 岛屿 是由一些相邻的 1
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="dfs" scheme="/tags/dfs/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 剑指 Offer 59 - II. 队列的最大值</title>
@@ -227,7 +317,7 @@
     <link href="/2021/02/07/databaseNote-7/"/>
     <id>/2021/02/07/databaseNote-7/</id>
     <published>2021-02-07T12:07:00.000Z</published>
-    <updated>2021-02-08T02:09:11.331Z</updated>
+    <updated>2021-02-15T10:39:05.373Z</updated>
     
     <summary type="html">
     
@@ -235,10 +325,11 @@
       
         
         
-          &lt;p&gt;先建立完整的表：&lt;/p&gt;
+          &lt;p&gt;实操环境:SQL Server Management Studio 15.0.18369.0&lt;/p&gt;
+&lt;p&gt;先建立完整的表：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;create database SCT1
 use SCT1
-create table Student  (S# char(8), Sname char(10), Ssex char(2),
+create
         
       
     
@@ -383,7 +474,7 @@ a =
     <link href="/2021/02/05/databaseNote-6/"/>
     <id>/2021/02/05/databaseNote-6/</id>
     <published>2021-02-05T03:40:24.000Z</published>
-    <updated>2021-02-08T02:09:10.786Z</updated>
+    <updated>2021-02-15T10:15:15.662Z</updated>
     
     <summary type="html">
     
@@ -518,90 +609,6 @@ a =
       <category term="css" scheme="/tags/css/"/>
     
       <category term="小程序" scheme="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>鱼书笔记 第八章 深度学习</title>
-    <link href="/2021/01/29/DLFromScratch-8/"/>
-    <id>/2021/01/29/DLFromScratch-8/</id>
-    <published>2021-01-29T03:40:24.000Z</published>
-    <updated>2021-02-09T14:02:40.246Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;8-1-加深网络&quot;&gt;&lt;a href=&quot;#8-1-加深网络&quot; class=&quot;headerlink&quot; title=&quot;8.1 加深网络&quot;&gt;&lt;/a&gt;8.1 加深网络&lt;/h1&gt;&lt;p&gt;创建一个图示中的网络，挑战MINIST数据集&lt;br&gt;&lt;img
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="鱼书笔记" scheme="/tags/%E9%B1%BC%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Flex布局</title>
-    <link href="/2021/01/29/flex/"/>
-    <id>/2021/01/29/flex/</id>
-    <published>2021-01-29T03:40:24.000Z</published>
-    <updated>2021-02-08T06:01:20.956Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本文总结自&lt;a href=&quot;https://www.runoob.com/w3cnote/flex-grammar.html&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Web前端" scheme="/categories/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="CSS" scheme="/tags/CSS/"/>
-    
-      <category term="Web前端" scheme="/tags/Web%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 列表生成器</title>
-    <link href="/2021/01/28/ListComprehensions/"/>
-    <id>/2021/01/28/ListComprehensions/</id>
-    <published>2021-01-28T03:40:24.000Z</published>
-    <updated>2021-02-08T04:45:50.312Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;基础版：&quot;&gt;&lt;a href=&quot;#基础版：&quot; class=&quot;headerlink&quot; title=&quot;基础版：&quot;&gt;&lt;/a&gt;基础版：&lt;/h1&gt;&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;variable = [out_exp for item in
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="/categories/python/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
     
   </entry>
   
