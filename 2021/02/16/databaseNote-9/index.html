@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">leetcode105 从前序与中序遍历序列构造二叉树 | DayDream</title>
+  <title itemprop="name">数据库笔记（八）查询结果的计算/Group by的使用 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -331,11 +331,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/1.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-2-16-1/1.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-2-16-1/1.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      leetcode105 从前序与中序遍历序列构造二叉树</h1>
+      数据库笔记（八）查询结果的计算/Group by的使用</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -347,7 +347,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-11-14<span class="bull">
+        2021-2-16<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -361,54 +361,69 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>原题传送门<a href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" target="_blank" rel="noopener">—&gt;&gt;</a></p>
-<h2 id="Given-preorder-and-inorder-traversal-of-a-tree-construct-the-binary-tree"><a href="#Given-preorder-and-inorder-traversal-of-a-tree-construct-the-binary-tree" class="headerlink" title="Given preorder and inorder traversal of a tree, construct the binary tree."></a>Given preorder and inorder traversal of a tree, construct the binary tree.</h2><h2 id="Note"><a href="#Note" class="headerlink" title="Note:"></a>Note:</h2><p>You may assume that duplicates do not exist in the tree.</p>
-<p>For example, given</p>
-<ul>
-<li>preorder = [3,9,20,15,7]</li>
-<li>inorder = [9,3,15,20,7]</li>
-<li><p>Return the following binary tree:</p>
-</li>
-<li><p>3</p>
-</li>
-<li>/ \</li>
-<li>9  20</li>
-<li>/  \</li>
-<li>15   7</li>
-</ul>
-<pre><code class="lang-cpp">/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution {
-public:
-    TreeNode* buildTree(vector&lt;int&gt;&amp; preorder, vector&lt;int&gt;&amp; inorder) {
-     //1 根据先序遍历确定根节点，再在中序遍历中找到该节点
-        if(preorder.empty())
-            return NULL;
-        int leftSize = find(inorder.begin(), inorder.end(), preorder.front()) - inorder.begin();//左子树长度
-        TreeNode* base = new TreeNode(preorder.front());
-        vector&lt;int&gt; leftPreorder(preorder.begin()+1, preorder.begin()+1+leftSize);//左子树的先序遍历序列
-        vector&lt;int&gt; leftInorder(inorder.begin(), inorder.begin()+leftSize);//左子树的中序遍历序列
-        vector&lt;int&gt; rightPreorder(preorder.begin()+1+leftSize, preorder.end());//右子树的先序遍历序列
-        vector&lt;int&gt; rightInorder(inorder.begin()+1+leftSize, inorder.end());//右子树的中序遍历序列
-        base-&gt;left = buildTree(leftPreorder,leftInorder);
-        base-&gt;right = buildTree(rightPreorder, rightInorder);
-        return base;
-    }
-};
+          <p>实操环境:SQL Server Management Studio 15.0.18369.0</p>
+<p>查询所用数据库可在<a href="/2021/02/07/databaseNote-7/">《数据库笔记（八）SQL的查询操作》</a>中查看</p>
+<h1 id="一、结果计算"><a href="#一、结果计算" class="headerlink" title="一、结果计算"></a>一、结果计算</h1><p>前面的select都是选出列名，但其实还有其他用法:</p>
+<p>直接上例子：</p>
+<h2 id="例：求有差额-差额-gt-0-的任意两位教师的薪水差额"><a href="#例：求有差额-差额-gt-0-的任意两位教师的薪水差额" class="headerlink" title="例：求有差额(差额&gt;0)的任意两位教师的薪水差额"></a>例：求有差额(差额&gt;0)的任意两位教师的薪水差额</h2><p>这里被select的内容是表达式</p>
+<pre><code class="lang-sql">Select T1.Tname as TR1, T2.Tname as TR2, T1.Salary-T2.Salary
+From Teacher T1, Teacher T2
+Where T1.Salary &gt; T2.Salary;
 </code></pre>
-<p>tip: 临时变量不可作为引用类型参数的实参。<br> 比如这句代码：</p>
-<ul>
-<li>base-&gt;left = buildTree(leftPreorder,leftInorder);<br>我一开始其实是写成</li>
-<li>base-&gt;left = buildTree(vector<int>(preorder.begin()+1, preorder.begin()+1+leftSize),leftInorder(inorder.begin(), inorder.begin()+leftSize));</int></li>
-</ul>
-<p>这样是会报错的。</p>
+<p>注意:不同条目用逗号隔开<br>输出结果：<br><a href="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-2-16-1/1.png" target="_blank" rel="noopener">输出结果</a></p>
+<h2 id="例：-依据学生年龄求学生的出生年份，当前是2021年"><a href="#例：-依据学生年龄求学生的出生年份，当前是2021年" class="headerlink" title="例： 依据学生年龄求学生的出生年份，当前是2021年"></a>例： 依据学生年龄求学生的出生年份，当前是2021年</h2><pre><code class="lang-sql">select Sname,2021-Sage as birthday from Student
+</code></pre>
+<h1 id="二、聚集计算"><a href="#二、聚集计算" class="headerlink" title="二、聚集计算"></a>二、聚集计算</h1><h2 id="SUM求和："><a href="#SUM求和：" class="headerlink" title="SUM求和："></a>SUM求和：</h2><p>例：求教师的工资总额</p>
+<pre><code class="lang-sql">Select Sum(Salary) From Teacher;
+</code></pre>
+<p>例：求计算机系教师的工资总额</p>
+<pre><code class="lang-sql">Select SUM(Salary)
+from Dept, Teacher
+where Dept.Dname=&#39;计算机&#39; and Teacher.D#=Dept.D#
+</code></pre>
+<h2 id="AVG求平均数"><a href="#AVG求平均数" class="headerlink" title="AVG求平均数"></a>AVG求平均数</h2><p>例：求数据库课程的平均成绩</p>
+<pre><code class="lang-sql">Select AVG(Score)
+from Course, SC
+where Course.Cname=&#39;数据库&#39; and SC.C# = Course.C#
+</code></pre>
+<h1 id="三、分组查询与分组过滤"><a href="#三、分组查询与分组过滤" class="headerlink" title="三、分组查询与分组过滤"></a>三、分组查询与分组过滤</h1><p>分组的基本语法：</p>
+<pre><code class="lang-sql">Select Select 列名 | expr | agfunc(列名) [[, 列名 | expr | agfunc(列名) ] … ]
+From 表名1 [, 表名2 … ]
+[ Where Where 检索条件 ]
+[ Group by Group by 分组条件 ] ;
+</code></pre>
+<p>示例： 求每一个学生的平均成绩</p>
+<pre><code class="lang-sql">Select S#, AVG(Score) From SC
+Group by S#;
+</code></pre>
+<p>示例：求每一门课程的平均成绩</p>
+<pre><code class="lang-sql">Select C#, AVG(Score) From SC
+Group by C#;
+</code></pre>
+<p>示例：求不及格课程超过1门的同学的学号<br>错误示范:</p>
+<pre><code class="lang-sql">Select S# From SC
+Where Score &lt; 60 and Count(*)&gt;2
+Group by S#;
+</code></pre>
+<p>注:Count是用于计数的聚集函数。<br>错误原因:where语句仅能对元组进行条件过滤。<br>而这个例子中需要过滤的是一个集合。<br>这里需要引入<strong>Having子句</strong><br>Having子句，又称分组过滤子句。若要对集合(即分组)进行条件过滤，即满足条件的集合/分组留下，不满足条件的集合/分组剔除。<br>需要有Groupby子句支持，换句话说，没有Groupby子句，便不能有Having子句。</p>
+<p>上面问题的正解:</p>
+<pre><code class="lang-sql">Select S# From SC
+Where Score &lt; 60
+Group by S# Having Count(*)&gt;1;
+</code></pre>
+<p>例：求有1人以上不及格的课程号</p>
+<pre><code class="lang-sql">select C# from SC
+WHERE Score &lt; 60
+Group by C# Having Count(*)&gt;1;
+</code></pre>
+<p>例：求有一门以上不及格课程同学的学号及其平均成绩</p>
+<pre><code class="lang-sql">SELECT S#,AVG(Score) from SC
+WHERE S# in(SELECT SC1.S# from SC SC1 //筛选出有一门以上不及格课程同学的学号
+        WHERE Score &lt; 60
+        GROUP BY SC1.S# Having COUNT(*)&gt;1)
+GROUP BY S#
+</code></pre>
+<p>（看了课件答案，其实子查询里不起别名也可以）</p>
 
         </div>
         <!-- .entry-content -->
@@ -427,36 +442,19 @@ public:
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/11/14/leetcode106/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/2.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/2.png">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                leetcode 106 由中序和后序遍历序列建立树</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/11/13/leetcode116/" rel="next">
+            <a href="/2021/02/16/leetcode547/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/3.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/3.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                leetcode 116 填充树中每个节点的next指针</h3>
+                leetcode 547. 省份数量</h3>
                 <hr>
               </div>
             </a>

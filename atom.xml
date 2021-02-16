@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-15T12:40:09.828Z</updated>
+  <updated>2021-02-16T12:38:52.797Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库笔记（八）查询结果的计算/Group by的使用</title>
+    <link href="/2021/02/16/databaseNote-9/"/>
+    <id>/2021/02/16/databaseNote-9/</id>
+    <published>2021-02-16T12:10:00.000Z</published>
+    <updated>2021-02-16T12:38:52.797Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;实操环境:SQL Server Management Studio 15.0.18369.0&lt;/p&gt;
+&lt;p&gt;查询所用数据库可在&lt;a href=&quot;/2021/02/07/databaseNote-7/&quot;&gt;《数据库笔记（八）SQL的查询操作》&lt;/a&gt;中查看&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 547. 省份数量</title>
+    <link href="/2021/02/16/leetcode547/"/>
+    <id>/2021/02/16/leetcode547/</id>
+    <published>2021-02-16T02:46:00.000Z</published>
+    <updated>2021-02-16T03:06:01.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/number-of-provinces&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;省份数量&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="并查集" scheme="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库笔记（八）update / 带量词的查询</title>
@@ -44,11 +103,11 @@
   </entry>
   
   <entry>
-    <title>pytorch(5)： nn工具箱</title>
+    <title>pytorch(7)： nn工具箱:常用层和激活函数</title>
     <link href="/2021/02/15/pytorch-note-7/"/>
     <id>/2021/02/15/pytorch-note-7/</id>
     <published>2021-02-15T07:20:00.000Z</published>
-    <updated>2021-02-15T12:59:09.659Z</updated>
+    <updated>2021-02-16T08:47:18.153Z</updated>
     
     <summary type="html">
     
@@ -553,62 +612,6 @@ a =
       <category term="python" scheme="/tags/python/"/>
     
       <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python3 自定义sort</title>
-    <link href="/2021/01/31/python3-sort/"/>
-    <id>/2021/01/31/python3-sort/</id>
-    <published>2021-01-31T03:40:24.000Z</published>
-    <updated>2021-02-08T06:01:24.735Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;欲实现以下功能：&quot;&gt;&lt;a href=&quot;#欲实现以下功能：&quot; class=&quot;headerlink&quot; title=&quot;欲实现以下功能：&quot;&gt;&lt;/a&gt;欲实现以下功能：&lt;/h1&gt;&lt;p&gt;a是一个二维数组&lt;br&gt;a =
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="/categories/python/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小程序笔记（一）基础储备</title>
-    <link href="/2021/01/30/mini-program-1/"/>
-    <id>/2021/01/30/mini-program-1/</id>
-    <published>2021-01-30T03:40:24.000Z</published>
-    <updated>2021-02-08T04:45:57.242Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、像素相关&quot;&gt;&lt;a href=&quot;#一、像素相关&quot; class=&quot;headerlink&quot; title=&quot;一、像素相关&quot;&gt;&lt;/a&gt;一、像素相关&lt;/h1&gt;&lt;h2 id=&quot;1-1-物理像素&quot;&gt;&lt;a href=&quot;#1-1-物理像素&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="Web前端" scheme="/categories/Web%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="Web前端" scheme="/tags/Web%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="css" scheme="/tags/css/"/>
-    
-      <category term="小程序" scheme="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
