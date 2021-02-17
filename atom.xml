@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-16T12:38:52.797Z</updated>
+  <updated>2021-02-17T13:07:27.526Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>数据库笔记（八）查询结果的计算/Group by的使用</title>
-    <link href="/2021/02/16/databaseNote-9/"/>
-    <id>/2021/02/16/databaseNote-9/</id>
-    <published>2021-02-16T12:10:00.000Z</published>
-    <updated>2021-02-16T12:38:52.797Z</updated>
+    <title>pytorch(8)： nn工具箱:损失函数/优化器/functional</title>
+    <link href="/2021/02/17/pytorch-note-8/"/>
+    <id>/2021/02/17/pytorch-note-8/</id>
+    <published>2021-02-17T13:00:00.000Z</published>
+    <updated>2021-02-17T13:07:27.526Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;测试版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
+&lt;h2 id=&quot;1、损失函数&quot;&gt;&lt;a href=&quot;#1、损失函数&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库笔记（十）交并差运算/空值处理</title>
+    <link href="/2021/02/17/databaseNote-10/"/>
+    <id>/2021/02/17/databaseNote-10/</id>
+    <published>2021-02-17T12:50:00.000Z</published>
+    <updated>2021-02-17T12:53:13.326Z</updated>
     
     <summary type="html">
     
@@ -30,7 +61,35 @@
         
         
           &lt;p&gt;实操环境:SQL Server Management Studio 15.0.18369.0&lt;/p&gt;
-&lt;p&gt;查询所用数据库可在&lt;a href=&quot;/2021/02/07/databaseNote-7/&quot;&gt;《数据库笔记（八）SQL的查询操作》&lt;/a&gt;中查看&lt;/p&gt;
+&lt;p&gt;查询所用数据库可在&lt;a href=&quot;/2021/02/07/databaseNote-7/&quot;&gt;《数据库笔记（七）SQL的查询操作》&lt;/a&gt;中查看&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库笔记（九）查询结果的计算/Group by的使用</title>
+    <link href="/2021/02/16/databaseNote-9/"/>
+    <id>/2021/02/16/databaseNote-9/</id>
+    <published>2021-02-16T12:10:00.000Z</published>
+    <updated>2021-02-16T12:49:20.369Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;实操环境:SQL Server Management Studio 15.0.18369.0&lt;/p&gt;
+&lt;p&gt;查询所用数据库可在&lt;a href=&quot;/2021/02/07/databaseNote-7/&quot;&gt;《数据库笔记（七）SQL的查询操作》&lt;/a&gt;中查看&lt;/p&gt;
 &lt;h1
         
       
@@ -80,7 +139,7 @@
     <link href="/2021/02/15/databaseNote-8/"/>
     <id>/2021/02/15/databaseNote-8/</id>
     <published>2021-02-15T12:00:00.000Z</published>
-    <updated>2021-02-15T12:40:09.828Z</updated>
+    <updated>2021-02-16T12:49:15.703Z</updated>
     
     <summary type="html">
     
@@ -551,67 +610,6 @@ a =
     
     
       <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch(2)： Tensor的创建与调整</title>
-    <link href="/2021/02/05/pytorch-note-2/"/>
-    <id>/2021/02/05/pytorch-note-2/</id>
-    <published>2021-02-05T02:10:00.000Z</published>
-    <updated>2021-02-12T06:10:53.082Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;测试环境版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch(1) 简单入门</title>
-    <link href="/2021/02/04/pytorch-note-1/"/>
-    <id>/2021/02/04/pytorch-note-1/</id>
-    <published>2021-02-04T03:40:24.000Z</published>
-    <updated>2021-02-08T13:38:55.335Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;测试环境版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
-&lt;h1 id=&quot;1、Tensor&quot;&gt;&lt;a href=&quot;#1、Tensor&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
     
   </entry>
   
