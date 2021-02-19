@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-17T13:07:27.526Z</updated>
+  <updated>2021-02-19T14:07:21.903Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,106 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数据库笔记（十一）数据库的完整性</title>
+    <link href="/2021/02/19/databaseNote-11/"/>
+    <id>/2021/02/19/databaseNote-11/</id>
+    <published>2021-02-19T14:50:00.000Z</published>
+    <updated>2021-02-19T14:07:21.903Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;说白了就是保证数据安全、合法。&lt;/p&gt;
+&lt;p&gt;比如列”Sex”，其值只能是”male”或”female”。&lt;br&gt;比如主键必须不为空且不能重复&lt;br&gt;外键也有一些约束&lt;br&gt;数据库必须有一套机制来保证数据合法。&lt;/p&gt;
+&lt;p&gt;完整性约束条件(或称完整性约束规则)的一般形式&lt;
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch(9)： nn.Module深入理解</title>
+    <link href="/2021/02/19/pytorch-note-9/"/>
+    <id>/2021/02/19/pytorch-note-9/</id>
+    <published>2021-02-19T13:00:00.000Z</published>
+    <updated>2021-02-19T14:08:38.543Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;测试版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
+&lt;p&gt;nn.Module的构造函数的源代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;def __init__(self):
+   
+        
+      
+    
+    </summary>
+    
+      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="pytorch" scheme="/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 209. Minimum Size Subarray Sum</title>
+    <link href="/2021/02/19/leetcode209/"/>
+    <id>/2021/02/19/leetcode209/</id>
+    <published>2021-02-19T03:40:00.000Z</published>
+    <updated>2021-02-19T14:08:07.714Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-size-subarray-sum&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;209. Minimum Size Subarray
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="前缀和" scheme="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+      <category term="二分查找" scheme="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>pytorch(8)： nn工具箱:损失函数/优化器/functional</title>
     <link href="/2021/02/17/pytorch-note-8/"/>
     <id>/2021/02/17/pytorch-note-8/</id>
     <published>2021-02-17T13:00:00.000Z</published>
-    <updated>2021-02-17T13:07:27.526Z</updated>
+    <updated>2021-02-19T14:04:22.784Z</updated>
     
     <summary type="html">
     
@@ -521,95 +616,6 @@ create
       <category term="python" scheme="/tags/python/"/>
     
       <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 518 零钱兑换</title>
-    <link href="/2021/02/06/leetcode518/"/>
-    <id>/2021/02/06/leetcode518/</id>
-    <published>2021-02-06T03:40:24.000Z</published>
-    <updated>2021-02-08T04:45:23.743Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/coin-change-2/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;518. 零钱兑换
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch(3)： Tensor的元素访问/常用方法</title>
-    <link href="/2021/02/06/pytorch-note-3/"/>
-    <id>/2021/02/06/pytorch-note-3/</id>
-    <published>2021-02-06T02:10:00.000Z</published>
-    <updated>2021-02-08T13:38:39.223Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;测试环境版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;import torch as t
-
-a =
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（六）SQL语言概览</title>
-    <link href="/2021/02/05/databaseNote-6/"/>
-    <id>/2021/02/05/databaseNote-6/</id>
-    <published>2021-02-05T03:40:24.000Z</published>
-    <updated>2021-02-15T10:15:15.662Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
