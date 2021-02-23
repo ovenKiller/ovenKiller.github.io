@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-20T10:12:18.818Z</updated>
+  <updated>2021-02-23T14:18:34.556Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,126 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode 剑指 Offer 13. 机器人的运动范围</title>
+    <link href="/2021/02/23/leetcodejz13/"/>
+    <id>/2021/02/23/leetcodejz13/</id>
+    <published>2021-02-23T14:10:00.000Z</published>
+    <updated>2021-02-23T14:18:34.556Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer Offer
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="DFS" scheme="/tags/DFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 189. Rotate Array</title>
+    <link href="/2021/02/23/leetcode189/"/>
+    <id>/2021/02/23/leetcode189/</id>
+    <published>2021-02-23T05:14:00.000Z</published>
+    <updated>2021-02-23T05:16:33.985Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/rotate-array/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;189. Rotate Array&lt;/a&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 994. Rotting Oranges</title>
+    <link href="/2021/02/23/leetcode994/"/>
+    <id>/2021/02/23/leetcode994/</id>
+    <published>2021-02-23T04:40:00.000Z</published>
+    <updated>2021-02-23T04:48:29.696Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/rotting-oranges/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;994. Rotting Oranges&lt;/a&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="BFS" scheme="/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode 剑指 Offer 04. 二维数组中的查找</title>
+    <link href="/2021/02/21/leetcodejz04/"/>
+    <id>/2021/02/21/leetcodejz04/</id>
+    <published>2021-02-21T03:40:00.000Z</published>
+    <updated>2021-02-21T03:26:51.109Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 04.
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库笔记（十二）触发器</title>
@@ -409,6 +529,37 @@ CREATE
   </entry>
   
   <entry>
+    <title>leetcode 322. Coin Change</title>
+    <link href="/2021/02/14/leetcode322/"/>
+    <id>/2021/02/14/leetcode322/</id>
+    <published>2021-02-14T04:29:00.000Z</published>
+    <updated>2021-02-22T11:02:14.499Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门:-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/coin-change/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;322. Coin Change&lt;/a&gt;&lt;/p&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode 452. 132 Pattern</title>
     <link href="/2021/02/14/leetcode452/"/>
     <id>/2021/02/14/leetcode452/</id>
@@ -466,151 +617,6 @@ CREATE
       <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="BFS" scheme="/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch(5)： torch.tensor与torch.Tensor的区别</title>
-    <link href="/2021/02/12/pytorch-note-6/"/>
-    <id>/2021/02/12/pytorch-note-6/</id>
-    <published>2021-02-12T06:20:00.000Z</published>
-    <updated>2021-02-12T06:32:23.870Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;内容来自于pytorch官方文档：&lt;a href=&quot;https://pytorch.org/docs/stable/generated/torch.tensor.html?highlight=tensor#torch.tensor&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>回望一眼 / 2020</title>
-    <link href="/2021/02/10/2020/"/>
-    <id>/2021/02/10/2020/</id>
-    <published>2021-02-10T14:40:00.000Z</published>
-    <updated>2021-02-11T09:15:20.151Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;i&gt;&lt;font color=&quot;#9f9f9f&quot; size=&quot;4&quot;&gt;/不管过程如何，我们不可能经历第二个2020&lt;/font&gt;&lt;/i&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;part
-        
-      
-    
-    </summary>
-    
-      <category term="随想" scheme="/categories/%E9%9A%8F%E6%83%B3/"/>
-    
-    
-      <category term="随想" scheme="/tags/%E9%9A%8F%E6%83%B3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch(5)： Autograd</title>
-    <link href="/2021/02/10/pytorch-note-5/"/>
-    <id>/2021/02/10/pytorch-note-5/</id>
-    <published>2021-02-10T13:20:00.000Z</published>
-    <updated>2021-02-10T13:20:55.863Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;测试版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
-&lt;h1 id=&quot;一、自动求导过程&quot;&gt;&lt;a href=&quot;#一、自动求导过程&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python(3) staticmethod &amp; classmethod</title>
-    <link href="/2021/02/10/python-note-3/"/>
-    <id>/2021/02/10/python-note-3/</id>
-    <published>2021-02-10T04:06:00.000Z</published>
-    <updated>2021-02-10T06:24:44.157Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;测试环境&quot;&gt;&lt;a href=&quot;#测试环境&quot; class=&quot;headerlink&quot; title=&quot;测试环境:&quot;&gt;&lt;/a&gt;测试环境:&lt;/h2&gt;&lt;p&gt;python3.7.9&lt;br&gt;vscode + Pylance&lt;/p&gt;
-&lt;h1 id=&quot;一、类变量与实例变量&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="/categories/python/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（七）SQL的查询操作</title>
-    <link href="/2021/02/07/databaseNote-7/"/>
-    <id>/2021/02/07/databaseNote-7/</id>
-    <published>2021-02-07T12:07:00.000Z</published>
-    <updated>2021-02-15T10:39:05.373Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;实操环境:SQL Server Management Studio 15.0.18369.0&lt;/p&gt;
-&lt;p&gt;先建立完整的表：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;create database SCT1
-use SCT1
-create
-        
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
