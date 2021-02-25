@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-02-23T14:18:34.556Z</updated>
+  <updated>2021-02-25T14:56:44.936Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode 134 Gas Station</title>
+    <link href="/2021/02/25/leetcode134/"/>
+    <id>/2021/02/25/leetcode134/</id>
+    <published>2021-02-25T14:26:00.000Z</published>
+    <updated>2021-02-25T14:56:44.936Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/gas-station/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;134. Gas Station&lt;/a&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 剑指 Offer 13. 机器人的运动范围</title>
@@ -499,6 +530,36 @@ CREATE
   </entry>
   
   <entry>
+    <title>洛谷P1005 [NOIP2007 提高组] 矩阵取数游戏</title>
+    <link href="/2021/02/14/luoguP1005/"/>
+    <id>/2021/02/14/luoguP1005/</id>
+    <published>2021-02-14T14:28:00.000Z</published>
+    <updated>2021-02-24T04:54:21.014Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h2&gt;&lt;p&gt;帅帅经常跟同学玩一个矩阵取数游戏：对于一个给定的&lt;script type=&quot;math/tex&quot;&gt;n \times
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+      <category term="洛谷" scheme="/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode 剑指 Offer 59 - II. 队列的最大值</title>
     <link href="/2021/02/14/leetcodejz59/"/>
     <id>/2021/02/14/leetcodejz59/</id>
@@ -556,67 +617,6 @@ CREATE
       <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 452. 132 Pattern</title>
-    <link href="/2021/02/14/leetcode452/"/>
-    <id>/2021/02/14/leetcode452/</id>
-    <published>2021-02-14T04:29:00.000Z</published>
-    <updated>2021-02-14T05:06:18.982Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门:-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/132-pattern&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;132 Pattern&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="单调栈" scheme="/tags/%E5%8D%95%E8%B0%83%E6%A0%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 752. Open the Lock</title>
-    <link href="/2021/02/13/leetcode752/"/>
-    <id>/2021/02/13/leetcode752/</id>
-    <published>2021-02-13T08:00:00.000Z</published>
-    <updated>2021-02-14T05:07:53.704Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/open-the-lock/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;leetcode152 Open the
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="BFS" scheme="/tags/BFS/"/>
     
   </entry>
   
