@@ -366,7 +366,8 @@
 <h2 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h2><p>输入: 2<br>输出: 1<br>解释: 2 = 1 + 1, 1 × 1 = 1</p>
 <h2 id="示例-2"><a href="#示例-2" class="headerlink" title="示例 2:"></a>示例 2:</h2><p>输入: 10<br>输出: 36<br>解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36<br>提示：</p>
 <p>2 &lt;= n &lt;= 58</p>
-<p>动归版本1</p>
+<h2 id="动归版本1-复杂度较高"><a href="#动归版本1-复杂度较高" class="headerlink" title="动归版本1(复杂度较高):"></a>动归版本1(复杂度较高):</h2><p>定义<script type="math/tex">dp[i][j]</script>表示把长度为i的绳子分成j段的最大值。<br>状态转移方程:</p>
+<p><script type="math/tex">dp[i][j]=max(dp[i][j],dp[i-k][j-1]*k)</script>k为小于i的整数。</p>
 <pre><code class="lang-cpp">class Solution {
 public:
     int** dp;
@@ -407,7 +408,28 @@ public:
 };
 </code></pre>
 <p>复杂度O(N^3).<br>数据量太小了，这样用时居然也是100%kill</p>
-<p>不过二维数组的dp很是问题，一做就脑仁疼</p>
+<p>不过二维数组的dp很是问题，一做就脑仁疼。</p>
+<h2 id="动归版本2"><a href="#动归版本2" class="headerlink" title="动归版本2:"></a>动归版本2:</h2><p>做的时候并没想过改进，但后来刷到了几乎一模一样的题:<br>这个版本复杂度更低。O(N^2)<br>leetcode -&gt;<a href="https://leetcode-cn.com/problems/integer-break/" target="_blank" rel="noopener">343. Integer Break</a><br>这次的方法更好一点儿。</p>
+<p>定义:<script type="math/tex">dp[i]</script>为长度为i的绳子经过分割后的最小乘积。<br>状态转移方程:</p>
+<p><script type="math/tex">dp[i]=max(max(dp[j],j)*max(dp[i-j],i-j))</script>,其中1&lt;j&lt;=i/2</p>
+<pre><code class="lang-cpp">class Solution {
+public:
+    int integerBreak(int n) {
+        vector&lt;int&gt; dp(n+1);
+        dp[1] = 1;
+        for(int i = 2; i &lt;= n; ++i){
+            int tmp = 0;
+            for(int j = 1; j &lt;= i/2; ++j){
+                int num1 = max(dp[j],j);
+                int num2 = max(dp[i-j],i-j);
+                tmp = max(tmp,num1*num2);
+            }
+            dp[i] = tmp;
+        }
+        return dp[n];
+    }
+};
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -429,15 +451,15 @@ public:
           
             <div class="post-nepre half previous">
           
-            <a href="/2021/02/20/leetcodejz56/" rel="prev">
+            <a href="/2021/02/20/databaseNote-12/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/10.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/10.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/9.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/9.png">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                leetcode 剑指 Offer 56-I. 数组中数字出现的次数</h3>
+                数据库笔记（十二）触发器</h3>
                 <hr>
               </div>
             </a>
@@ -447,15 +469,15 @@ public:
           
             <div class="post-nepre half next">
           
-            <a href="/2021/02/19/databaseNote-11/" rel="next">
+            <a href="/2021/02/20/leetcodejz56/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/7.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/7.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/10.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/10.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                数据库笔记（十一）静态约束</h3>
+                leetcode 剑指 Offer 56-I. 数组中数字出现的次数</h3>
                 <hr>
               </div>
             </a>

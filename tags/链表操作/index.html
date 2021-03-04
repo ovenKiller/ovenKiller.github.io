@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">leetcode 215. Kth Largest Element in an Array | DayDream</title>
+  <title itemprop="name">Tag: 链表操作 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -325,140 +325,64 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+      
 <div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/11.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/11.png">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      leetcode 215. Kth Largest Element in an Array</h1>
-      <p class="entry-census">
-        <span>
-          <a href="">
-            <img src="">
-          </a>
-        </span>
-        <span>
-          <a href=""></a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2020-2-17<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
+<div class="pattern-center ">
+  <div class="pattern-attachment-img">
+    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="链表操作.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
   </div>
-
+  <header class="pattern-header ">
+    <h1 class="cat-title">链表操作</h1>
+  </header>
+</div>
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <p>原题传送门 -&gt;<a href="https://leetcode-cn.com/problems/kth-largest-element-in-an-array" target="_blank" rel="noopener">Kth Largest Element in an Array</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.</p>
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h2><p>Input: [3,2,1,5,6,4] and k = 2<br>Output: 5</p>
-<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h2><p>Input: [3,2,3,1,2,4,5,5,6] and k = 4<br>Output: 4</p>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note:"></a>Note:</h2><p>You may assume k is always valid, 1 ≤ k ≤ array’s length.</p>
-<p>标准的快排思想题。<br>只是我的快排还要写多少遍能熟练呢😭</p>
-<pre><code class="lang-cpp">class Solution {
-public:
-    int findKthLargest(vector&lt;int&gt;&amp; nums, int k) {
-        return findKth(nums,0,nums.size()-1,nums.size()-k);
-    }
-    int findKth(vector&lt;int&gt;&amp; nums, int left, int right,int k){
-        int l = left, r = right;//错点
-        while(l &lt; r){
-            while((nums[r] &gt;= nums[left])&amp;&amp;(l &lt; r)) --r;
-            while((nums[l] &lt;= nums[left])&amp;&amp;(l &lt; r)) ++l;
-            if(l &lt; r)
-            swap(nums[l],nums[r]);
-        }
-        swap(nums[left],nums[l]);
-        if(l == k) return nums[l];
-        if(l &lt; k) return findKth(nums,l+1,right,k);
-        else return findKth(nums,left,l-1,k);
-    }
-};
-</code></pre>
-<p>一开始我把l初始化为left+1就一直错。<br>原因是当left=right时会出问题。</p>
-
-        </div>
-        <!-- .entry-content -->
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre full previous">
-          
-            <a href="/2020/02/17/leetcode213/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/5.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/5.png">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                213. House Robber II</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-      </section>
       
-<div id="vcomments"></div>
-<script>
-  window.onload = function(){
-      var valine = new Valine();
-      valine.init({
-        el: '#vcomments',
-        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
-        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
-        path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ..."
-      })
-  }
-</script>
-
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
-            </h3>
-          </div>
+  <!-- 首页默认取最最新文章集 -->
+  
+    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
+  <div class="post-entry">
+    <div class="feature">
+      <a href="/2021/02/27/leetcode328/">
+        <div class="overlay">
+          <i class="iconfont icon-text">
+          </i>
         </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i></p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/9.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
+      </a>
+    </div>
+    <h1 class="entry-title">
+    <a href="/2021/02/27/leetcode328/">
+    leetcode 328. Odd Even Linked List</a>
+    </h1>
+    <div class="p-time">
+      <i class="iconfont icon-time">
+      </i>
+    2021-2-27</div>
+    <p>
+    </p>
+    <footer class="entry-footer">
+      <div class="post-more">
+        <a href="/2021/02/27/leetcode328/">
+          <i class="iconfont icon-caidan">
+          </i>
+        </a>
+      </div>
+    </footer>
+  </div>
+  <hr>
+</article>
+  
+
+
+      <div class="clearer">
+      </div>
+    </main>
+    <!--  -->
+    
+  </div>
 </div>
-
-
-
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
