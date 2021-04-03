@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-03-04T03:30:33.895Z</updated>
+  <updated>2021-04-03T11:02:38.279Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算方法 (一) 误差</title>
+    <link href="/2021/04/03/ComputingMethod1/"/>
+    <id>/2021/04/03/ComputingMethod1/</id>
+    <published>2021-04-03T04:00:00.000Z</published>
+    <updated>2021-04-03T11:02:38.279Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、数值的浮点表示&quot;&gt;&lt;a href=&quot;#一、数值的浮点表示&quot; class=&quot;headerlink&quot; title=&quot;一、数值的浮点表示&quot;&gt;&lt;/a&gt;一、数值的浮点表示&lt;/h1&gt;&lt;p&gt;数值是由 &lt;strong&gt;数符+尾数+阶码&lt;/strong&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="数学" scheme="/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode 338. Counting Bits</title>
@@ -317,6 +345,36 @@ CREATE
   </entry>
   
   <entry>
+    <title>leetcode 剑指 Offer 56-I. 数组中数字出现的次数</title>
+    <link href="/2021/02/20/leetcodejz56/"/>
+    <id>/2021/02/20/leetcodejz56/</id>
+    <published>2021-02-20T02:56:00.000Z</published>
+    <updated>2021-02-26T03:18:39.327Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="位运算" scheme="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode 剑指 Offer 14- I. 剪绳子</title>
     <link href="/2021/02/20/leetcodejz14/"/>
     <id>/2021/02/20/leetcodejz14/</id>
@@ -344,36 +402,6 @@ CREATE
       <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 剑指 Offer 56-I. 数组中数字出现的次数</title>
-    <link href="/2021/02/20/leetcodejz56/"/>
-    <id>/2021/02/20/leetcodejz56/</id>
-    <published>2021-02-20T02:56:00.000Z</published>
-    <updated>2021-02-26T03:18:39.327Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="位运算" scheme="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
   </entry>
   
@@ -593,34 +621,6 @@ CREATE
       <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="快速排序" scheme="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（九）查询结果的计算/Group by的使用</title>
-    <link href="/2021/02/16/databaseNote-9/"/>
-    <id>/2021/02/16/databaseNote-9/</id>
-    <published>2021-02-16T12:10:00.000Z</published>
-    <updated>2021-02-16T12:49:20.369Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;实操环境:SQL Server Management Studio 15.0.18369.0&lt;/p&gt;
-&lt;p&gt;查询所用数据库可在&lt;a href=&quot;/2021/02/07/databaseNote-7/&quot;&gt;《数据库笔记（七）SQL的查询操作》&lt;/a&gt;中查看&lt;/p&gt;
-&lt;h1
-        
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
