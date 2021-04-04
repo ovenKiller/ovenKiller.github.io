@@ -74,7 +74,7 @@
     <link href="/2021/04/03/javaNote-3/"/>
     <id>/2021/04/03/javaNote-3/</id>
     <published>2021-04-03T12:40:00.000Z</published>
-    <updated>2021-04-04T11:47:23.679Z</updated>
+    <updated>2021-04-04T15:02:06.365Z</updated>
     
     <summary type="html">
     
@@ -97,11 +97,11 @@
   </entry>
   
   <entry>
-    <title>Java笔记(二) java的特性</title>
+    <title>Java笔记(二) 数据类型</title>
     <link href="/2021/04/03/javaNote-2/"/>
     <id>/2021/04/03/javaNote-2/</id>
     <published>2021-04-03T12:40:00.000Z</published>
-    <updated>2021-04-04T05:26:04.224Z</updated>
+    <updated>2021-04-04T15:01:49.710Z</updated>
     
     <summary type="html">
     
@@ -123,11 +123,11 @@
   </entry>
   
   <entry>
-    <title>计算方法 (二) 误差</title>
-    <link href="/2021/04/03/ComputingMethod2/"/>
-    <id>/2021/04/03/ComputingMethod2/</id>
+    <title>计算方法 (一) 误差</title>
+    <link href="/2021/04/03/ComputingMethod1/"/>
+    <id>/2021/04/03/ComputingMethod1/</id>
     <published>2021-04-03T04:00:00.000Z</published>
-    <updated>2021-04-04T10:25:59.138Z</updated>
+    <updated>2021-04-04T00:59:02.506Z</updated>
     
     <summary type="html">
     
@@ -135,7 +135,7 @@
       
         
         
-          &lt;h1 id=&quot;奇异矩阵-amp-非奇异矩阵&quot;&gt;&lt;a href=&quot;#奇异矩阵-amp-非奇异矩阵&quot; class=&quot;headerlink&quot; title=&quot;奇异矩阵&amp;amp;非奇异矩阵&quot;&gt;&lt;/a&gt;奇异矩阵&amp;amp;非奇异矩阵&lt;/h1&gt;&lt;script type=&quot;math/tex;
+          &lt;h1 id=&quot;一、数值的浮点表示&quot;&gt;&lt;a href=&quot;#一、数值的浮点表示&quot; class=&quot;headerlink&quot; title=&quot;一、数值的浮点表示&quot;&gt;&lt;/a&gt;一、数值的浮点表示&lt;/h1&gt;&lt;p&gt;数值是由 &lt;strong&gt;数符+尾数+阶码&lt;/strong&gt;
         
       
     
@@ -151,11 +151,11 @@
   </entry>
   
   <entry>
-    <title>计算方法 (一) 误差</title>
-    <link href="/2021/04/03/ComputingMethod1/"/>
-    <id>/2021/04/03/ComputingMethod1/</id>
+    <title>计算方法 (二) 矩阵解线性方程组</title>
+    <link href="/2021/04/03/ComputingMethod2/"/>
+    <id>/2021/04/03/ComputingMethod2/</id>
     <published>2021-04-03T04:00:00.000Z</published>
-    <updated>2021-04-04T00:59:02.506Z</updated>
+    <updated>2021-04-04T15:02:50.844Z</updated>
     
     <summary type="html">
     
@@ -163,7 +163,7 @@
       
         
         
-          &lt;h1 id=&quot;一、数值的浮点表示&quot;&gt;&lt;a href=&quot;#一、数值的浮点表示&quot; class=&quot;headerlink&quot; title=&quot;一、数值的浮点表示&quot;&gt;&lt;/a&gt;一、数值的浮点表示&lt;/h1&gt;&lt;p&gt;数值是由 &lt;strong&gt;数符+尾数+阶码&lt;/strong&gt;
+          &lt;h1 id=&quot;奇异矩阵-amp-非奇异矩阵&quot;&gt;&lt;a href=&quot;#奇异矩阵-amp-非奇异矩阵&quot; class=&quot;headerlink&quot; title=&quot;奇异矩阵&amp;amp;非奇异矩阵&quot;&gt;&lt;/a&gt;奇异矩阵&amp;amp;非奇异矩阵&lt;/h1&gt;&lt;script type=&quot;math/tex;
         
       
     
