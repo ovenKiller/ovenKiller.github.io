@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-04-03T11:02:38.279Z</updated>
+  <updated>2021-04-04T14:43:38.790Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,145 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Valar Morghulis</title>
+    <link href="/2021/04/04/valarMorghulis/"/>
+    <id>/2021/04/04/valarMorghulis/</id>
+    <published>2021-04-04T14:40:00.000Z</published>
+    <updated>2021-04-04T14:43:38.790Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;2021/4/4&lt;br&gt;清明。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-4-3/1.jpg&quot; alt=&quot;1&quot;&gt;&lt;br&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="随想" scheme="/categories/%E9%9A%8F%E6%83%B3/"/>
+    
+    
+      <category term="随想" scheme="/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(一) java的特性</title>
+    <link href="/2021/04/03/javaNote-1/"/>
+    <id>/2021/04/03/javaNote-1/</id>
+    <published>2021-04-03T12:40:00.000Z</published>
+    <updated>2021-04-04T01:38:16.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;java是C-—&quot;&gt;&lt;a href=&quot;#java是C-—&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(三) 类</title>
+    <link href="/2021/04/03/javaNote-3/"/>
+    <id>/2021/04/03/javaNote-3/</id>
+    <published>2021-04-03T12:40:00.000Z</published>
+    <updated>2021-04-04T11:47:23.679Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、类&quot;&gt;&lt;a href=&quot;#一、类&quot; class=&quot;headerlink&quot; title=&quot;一、类&quot;&gt;&lt;/a&gt;一、类&lt;/h1&gt;&lt;p&gt;和c++基本相同&lt;br&gt;仅列出不同点：&lt;/p&gt;
+&lt;h2 id=&quot;this&quot;&gt;&lt;a href=&quot;#this&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(二) java的特性</title>
+    <link href="/2021/04/03/javaNote-2/"/>
+    <id>/2021/04/03/javaNote-2/</id>
+    <published>2021-04-03T12:40:00.000Z</published>
+    <updated>2021-04-04T05:26:04.224Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、标志符、数据类型&quot;&gt;&lt;a href=&quot;#一、标志符、数据类型&quot; class=&quot;headerlink&quot; title=&quot;一、标志符、数据类型&quot;&gt;&lt;/a&gt;一、标志符、数据类型&lt;/h1&gt;&lt;h2 id=&quot;1、标志符-Identifier&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算方法 (二) 误差</title>
+    <link href="/2021/04/03/ComputingMethod2/"/>
+    <id>/2021/04/03/ComputingMethod2/</id>
+    <published>2021-04-03T04:00:00.000Z</published>
+    <updated>2021-04-04T10:25:59.138Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;奇异矩阵-amp-非奇异矩阵&quot;&gt;&lt;a href=&quot;#奇异矩阵-amp-非奇异矩阵&quot; class=&quot;headerlink&quot; title=&quot;奇异矩阵&amp;amp;非奇异矩阵&quot;&gt;&lt;/a&gt;奇异矩阵&amp;amp;非奇异矩阵&lt;/h1&gt;&lt;script type=&quot;math/tex;
+        
+      
+    
+    </summary>
+    
+      <category term="数学" scheme="/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算方法 (一) 误差</title>
     <link href="/2021/04/03/ComputingMethod1/"/>
     <id>/2021/04/03/ComputingMethod1/</id>
     <published>2021-04-03T04:00:00.000Z</published>
-    <updated>2021-04-03T11:02:38.279Z</updated>
+    <updated>2021-04-04T00:59:02.506Z</updated>
     
     <summary type="html">
     
@@ -463,164 +597,6 @@ CREATE
       <category term="python" scheme="/tags/python/"/>
     
       <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 209. Minimum Size Subarray Sum</title>
-    <link href="/2021/02/19/leetcode209/"/>
-    <id>/2021/02/19/leetcode209/</id>
-    <published>2021-02-19T03:40:00.000Z</published>
-    <updated>2021-02-19T14:08:07.714Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/minimum-size-subarray-sum&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;209. Minimum Size Subarray
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="前缀和" scheme="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
-    
-      <category term="二分查找" scheme="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch(8)： nn工具箱:损失函数/优化器/functional</title>
-    <link href="/2021/02/17/pytorch-note-8/"/>
-    <id>/2021/02/17/pytorch-note-8/</id>
-    <published>2021-02-17T13:00:00.000Z</published>
-    <updated>2021-02-19T14:04:22.784Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;测试版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
-&lt;h2 id=&quot;1、损失函数&quot;&gt;&lt;a href=&quot;#1、损失函数&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（十）交并差运算/空值处理</title>
-    <link href="/2021/02/17/databaseNote-10/"/>
-    <id>/2021/02/17/databaseNote-10/</id>
-    <published>2021-02-17T12:50:00.000Z</published>
-    <updated>2021-02-17T12:53:13.326Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;实操环境:SQL Server Management Studio 15.0.18369.0&lt;/p&gt;
-&lt;p&gt;查询所用数据库可在&lt;a href=&quot;/2021/02/07/databaseNote-7/&quot;&gt;《数据库笔记（七）SQL的查询操作》&lt;/a&gt;中查看&lt;/p&gt;
-&lt;h1
-        
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 213. House Robber II</title>
-    <link href="/2021/02/17/leetcode213/"/>
-    <id>/2021/02/17/leetcode213/</id>
-    <published>2021-02-17T05:40:00.000Z</published>
-    <updated>2021-03-04T14:51:41.396Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门 —&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/house-robber-ii/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;213. House Robber II&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 215. Kth Largest Element in an Array</title>
-    <link href="/2021/02/17/leetcode215/"/>
-    <id>/2021/02/17/leetcode215/</id>
-    <published>2021-02-17T05:40:00.000Z</published>
-    <updated>2021-03-04T14:52:03.045Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/kth-largest-element-in-an-array&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Kth Largest Element
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="快速排序" scheme="/tags/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
