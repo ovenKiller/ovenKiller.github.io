@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Java笔记(三) 类 | DayDream</title>
+  <title itemprop="name">ipdb的使用 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -331,11 +331,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/7.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/7.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/9.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/9.png">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Java笔记(三) 类</h1>
+      ipdb的使用</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -347,7 +347,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-4-3<span class="bull">
+        2021-4-5<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -361,68 +361,51 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="一、类"><a href="#一、类" class="headerlink" title="一、类"></a>一、类</h1><p>和c++基本相同<br>仅列出不同点：</p>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>c++中调用成员函数可以是: this-&gt;function();<br>java中调用方法应该是: this.method()，类似python中的self</p>
-<p>特殊使用:<br>在构造方法中嵌套构造方法：this(<em>params);<br>但这一句调用语句<em>*必须放在第一句</em></em></p>
-<pre><code class="lang-java">public class HelloWorld {
-    HelloWorld(){
-    System.out.println(&quot;constructor is called\n&quot;);
-    }
-
-    public static void main(String []args) {
-    TestClass TestClassTmp = new TestClass(1);
-    }
-}
-
-class TestClass{
-    TestClass(){
-        System.out.println(&quot;constructor 1 is called\n&quot;);
-    }
-    TestClass(int n){
-        this();
-        System.out.println(&quot;constructor 2 is called\n&quot;);
-    }
-}
+          <p>ipdb是ipthon配套的debug工具。</p>
+<h2 id="进入ipdb模式的方法"><a href="#进入ipdb模式的方法" class="headerlink" title="进入ipdb模式的方法:"></a>进入ipdb模式的方法:</h2><p>1、入侵式：<br>在代码文件头”import ipdb”<br>然后在代码中加上ipdb.set_trace()就可以设置断点。<br>2、非入侵式<br>命令： </p>
+<pre><code class="lang-dos">ipython -m ipdb test.py
 </code></pre>
-<p>输出：<br>constructor 1 is called</p>
-<p>constructor 2 is called</p>
-<h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2><p>java中，一个类仅能继承一个父类</p>
-<p>继承的关键字：extends</p>
-<p>如果没有extends,则该类默认为java.lang.Object的子类</p>
-<blockquote>
-<p>所有的类都是直接或间接继承java.lang.Object得到的</p>
-</blockquote>
-<p><strong>构造方法不能继承！</strong>C++也一样</p>
-<h2 id="super与this"><a href="#super与this" class="headerlink" title="super与this"></a>super与this</h2><p>super与this用法相似，但访问的是父类的字段和方法。</p>
-<p>当子类重写父类的字段或方法时，super和this指向的内容就不同了。</p>
-<pre><code class="lang-java">public class HelloWorld {
-    public static void main(String []args) {
-    TestClass2 TestClassTmp = new TestClass2();
-    TestClassTmp.test();
-    }
-}
-
-class TestClass1{
-    int a = 1;
-}
-class TestClass2 extends TestClass1{
-    int a = 2;
-    int test() {
-        System.out.printf(&quot;%d\n&quot;,super.a);
-        System.out.printf(&quot;%d\n&quot;,this.a);
-        return 0;
-    }
-}
-</code></pre>
-<p>输出: </p>
-<p>1<br>2</p>
-<p>子类在构造时，可以用super调用父类的构造方法。<br>同this，super(*params)必须放在构造方法的第一句</p>
-<h1 id="二、包"><a href="#二、包" class="headerlink" title="二、包"></a>二、包</h1><p>两个作用：</p>
-<ul>
-<li>名字空间：区分同名的类</li>
-<li>可访问性：同一个包中的 各个类在默认情况下可以相互访问</li>
+<p>h(help)查看所有的调试命令<br>h &lt;调试命令&gt; 查看调试命令的作用的作用</p>
+<p>下面是命令详解</p>
+<h2 id="b-reak"><a href="#b-reak" class="headerlink" title="b(reak)"></a>b(reak)</h2><ul>
+<li>b   查看所有断点的状态</li>
+<li>b &lt;lineno&gt; 在代码的第lineno行设置断点</li>
+<li>b &lt;filename&gt;:&lt;lineno&gt; 会在某个文件（filename）的对应行（lineno）添加断点</li>
+<li>b &lt;functionname&gt; 会在某个函数(functionname)的第一行设置断点</li>
 </ul>
-<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2>
+<p>另外还有tbreak命令，与break基本相同，但是被执行一次后自动被清除</p>
+<h2 id="cl-ear"><a href="#cl-ear" class="headerlink" title="cl(ear)"></a>cl(ear)</h2><p>cl(ear) filename:lineno<br>cl(ear) [bpnumber [bpnumber…]] With a space separated list of breakpoint numbers, clear those breakpoints.  Without argument, clear all breaks (but first ask confirmation).  With a filename:lineno argument, clear all breaks at that line in that file.</p>
+<p>使用的时候，先查看(b)，再删除(cl)</p>
+<pre><code class="lang-dos">ipdb&gt; b
+Num Type         Disp Enb   Where
+1   breakpoint   keep yes   at d:\hexo\source\code\test.py:4
+        breakpoint already hit 1 time
+2   breakpoint   keep yes   at d:\hexo\source\code\test.py:1
+ipdb&gt; cl 1 2
+Deleted breakpoint 1 at d:\hexo\source\code\test.py:4
+Deleted breakpoint 2 at d:\hexo\source\code\test.py:1
+</code></pre>
+<p>clear后的断点不可以恢复<br>如果需要恢复应该使用 disable和enable,用法和clear相同</p>
+<h2 id="执行控制"><a href="#执行控制" class="headerlink" title="执行控制:"></a>执行控制:</h2><ul>
+<li>c(otinue) 执行到下一个断点(断点这句不会执行)</li>
+<li>n(ext) 单步执行，遇到函数不会跳入</li>
+<li>s(tep) 单步执行，遇到函数会跳入</li>
+<li>r(eture) 执行到 return语句</li>
+<li>j(ump) lineno 去执行第lineno行(感觉像是goto一样)</li>
+</ul>
+<h2 id="查看命令"><a href="#查看命令" class="headerlink" title="查看命令"></a>查看命令</h2><p>可以直接输入变量名直接查看变量的值<br>如果变量名和pdb命令重复，需要在前面加一个!</p>
+<p>推荐使用display来查看变量。<br>display variable 监视variable的值<br>display的变量在每步调试之后都会显示其值<br>如果取消display,需要使用undisplay命令</p>
+<p>其他类的查看命令：<br>l:查看当前块的11行代码(一般是前5行以及后5行)<br>ll: 查看当前块的全部代码<br>w: 当前执行代码的位置</p>
+<h2 id="interact"><a href="#interact" class="headerlink" title="interact"></a>interact</h2><p>进入交互式解释器中对当前内存中的数据进行各种操作。<br>在 interact 状态下修改内存中的数据并不会对程序产生实质的影响，所有修改在退出 interact 状态后将被清除。<br>（相当于开辟了一个新的函数，你可以任意操作，但不会改变形参的值）</p>
+<pre><code class="lang-dos">ipdb&gt; interact
+*interactive*
+In : d = a +1
+In : print(d)
+2    
+In :
+</code></pre>
+<p>ctrl + Z退出interact模式</p>
+
         </div>
         <!-- .entry-content -->
         <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
@@ -440,36 +423,19 @@ class TestClass2 extends TestClass1{
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2021/04/03/javaNote-1/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/3.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/3.png">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                Java笔记(一) java的特性</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2021/04/03/javaNote-2/" rel="next">
+            <a href="/2021/04/04/valarMorghulis/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-4-3/1.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-4-3/1.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                Java笔记(二) 数据类型</h3>
+                Valar Morghulis</h3>
                 <hr>
               </div>
             </a>

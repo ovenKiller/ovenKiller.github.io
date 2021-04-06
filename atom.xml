@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-04-04T14:43:38.790Z</updated>
+  <updated>2021-04-06T10:38:59.458Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Valar Morghulis</title>
-    <link href="/2021/04/04/valarMorghulis/"/>
-    <id>/2021/04/04/valarMorghulis/</id>
-    <published>2021-04-04T14:40:00.000Z</published>
-    <updated>2021-04-04T14:43:38.790Z</updated>
+    <title>ipdb的使用</title>
+    <link href="/2021/04/05/ipdb/"/>
+    <id>/2021/04/05/ipdb/</id>
+    <published>2021-04-05T15:00:00.000Z</published>
+    <updated>2021-04-06T10:38:59.458Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,35 @@
       
         
         
-          &lt;p&gt;2021/4/4&lt;br&gt;清明。&lt;/p&gt;
+          &lt;p&gt;ipdb是ipthon配套的debug工具。&lt;/p&gt;
+&lt;h2 id=&quot;进入ipdb模式的方法&quot;&gt;&lt;a href=&quot;#进入ipdb模式的方法&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="/categories/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Valar Morghulis</title>
+    <link href="/2021/04/04/valarMorghulis/"/>
+    <id>/2021/04/04/valarMorghulis/</id>
+    <published>2021-04-04T14:40:00.000Z</published>
+    <updated>2021-04-06T10:37:06.392Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;2021/4/4&lt;/p&gt;
+&lt;p&gt;清明。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-4-3/1.jpg&quot; alt=&quot;1&quot;&gt;&lt;br&gt;&lt;img
         
       
@@ -40,6 +68,33 @@
     
     
       <category term="随想" scheme="/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(三) 类</title>
+    <link href="/2021/04/04/javaNote-3/"/>
+    <id>/2021/04/04/javaNote-3/</id>
+    <published>2021-04-04T12:00:00.000Z</published>
+    <updated>2021-04-05T02:44:44.343Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、类&quot;&gt;&lt;a href=&quot;#一、类&quot; class=&quot;headerlink&quot; title=&quot;一、类&quot;&gt;&lt;/a&gt;一、类&lt;/h1&gt;&lt;p&gt;和c++基本相同&lt;br&gt;仅列出不同点：&lt;/p&gt;
+&lt;h2 id=&quot;this&quot;&gt;&lt;a href=&quot;#this&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
     
   </entry>
   
@@ -70,38 +125,11 @@
   </entry>
   
   <entry>
-    <title>Java笔记(三) 类</title>
-    <link href="/2021/04/03/javaNote-3/"/>
-    <id>/2021/04/03/javaNote-3/</id>
-    <published>2021-04-03T12:40:00.000Z</published>
-    <updated>2021-04-04T15:02:06.365Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、类&quot;&gt;&lt;a href=&quot;#一、类&quot; class=&quot;headerlink&quot; title=&quot;一、类&quot;&gt;&lt;/a&gt;一、类&lt;/h1&gt;&lt;p&gt;和c++基本相同&lt;br&gt;仅列出不同点：&lt;/p&gt;
-&lt;h2 id=&quot;this&quot;&gt;&lt;a href=&quot;#this&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="java" scheme="/categories/java/"/>
-    
-    
-      <category term="java" scheme="/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java笔记(二) 数据类型</title>
     <link href="/2021/04/03/javaNote-2/"/>
     <id>/2021/04/03/javaNote-2/</id>
     <published>2021-04-03T12:40:00.000Z</published>
-    <updated>2021-04-04T15:01:49.710Z</updated>
+    <updated>2021-04-05T02:54:40.884Z</updated>
     
     <summary type="html">
     
@@ -479,36 +507,6 @@ CREATE
   </entry>
   
   <entry>
-    <title>leetcode 剑指 Offer 56-I. 数组中数字出现的次数</title>
-    <link href="/2021/02/20/leetcodejz56/"/>
-    <id>/2021/02/20/leetcodejz56/</id>
-    <published>2021-02-20T02:56:00.000Z</published>
-    <updated>2021-02-26T03:18:39.327Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="位运算" scheme="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
     <title>leetcode 剑指 Offer 14- I. 剪绳子</title>
     <link href="/2021/02/20/leetcodejz14/"/>
     <id>/2021/02/20/leetcodejz14/</id>
@@ -540,6 +538,36 @@ CREATE
   </entry>
   
   <entry>
+    <title>leetcode 剑指 Offer 56-I. 数组中数字出现的次数</title>
+    <link href="/2021/02/20/leetcodejz56/"/>
+    <id>/2021/02/20/leetcodejz56/</id>
+    <published>2021-02-20T02:56:00.000Z</published>
+    <updated>2021-02-26T03:18:39.327Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指
+        
+      
+    
+    </summary>
+    
+      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="leetcode" scheme="/tags/leetcode/"/>
+    
+      <category term="位运算" scheme="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据库笔记（十一）静态约束</title>
     <link href="/2021/02/19/databaseNote-11/"/>
     <id>/2021/02/19/databaseNote-11/</id>
@@ -564,39 +592,6 @@ CREATE
     
     
       <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch(9)： nn.Module深入理解</title>
-    <link href="/2021/02/19/pytorch-note-9/"/>
-    <id>/2021/02/19/pytorch-note-9/</id>
-    <published>2021-02-19T13:00:00.000Z</published>
-    <updated>2021-02-19T14:08:38.543Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;测试版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
-&lt;p&gt;nn.Module的构造函数的源代码：&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;def __init__(self):
-   
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
     
   </entry>
   
