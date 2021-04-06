@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: git&amp;github | DayDream</title>
+  <title itemprop="name">argparse库 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -325,229 +325,192 @@
   </div>
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="git&amp;github.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/10.png);" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/10.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      argparse库</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-4-6<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">git&amp;github</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <p>参考文章:<a href="https://zhuanlan.zhihu.com/p/56922793" target="_blank" rel="noopener">《argparse模块用法实例详解》</a></p>
+<p>argparse是python的命令行解析的标准模块，内置于python，不需要安装。这个库可以让我们直接在命令行中就可以<strong>向程序中传入参数</strong>并让程序运行。</p>
+<p>应用场景举例:<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-6-1/1.png" alt="举例"></p>
+<p>红线所示，这里的”—gpu 0 —test_epoch 20”其实已经传入了python程序中，并可以被解析。这就是用argparse实现的。</p>
+<h2 id="实验1-传入一个参数"><a href="#实验1-传入一个参数" class="headerlink" title="实验1: 传入一个参数"></a>实验1: 传入一个参数</h2><p>我们先在桌面新建“learnArg”的文件夹，在该文件夹中新建demo.py文件，来看一个最简单的argparse库的使用的例子。</p>
+<pre><code class="lang-python">import argparse
+
+parser = argparse.ArgumentParser(description=&#39;命令行中传入一个数字&#39;)
+#type是要传入的参数的数据类型  help是该参数的提示信息
+parser.add_argument(&#39;integers&#39;, type=str, help=&#39;传入的数字&#39;)
+
+args = parser.parse_args()
+
+#获得传入的参数
+print(args)
+</code></pre>
+<p>在demo.py所在目录打开cmd:</p>
+<pre><code class="lang-dos">python demo.py -h
+</code></pre>
+<p>该命令可以查看帮助信息。也就是告诉我们，这个demo.py程序后面可以添加的参数。</p>
+<p>运行结果:</p>
+<pre><code class="lang-dos">usage: demo.py [-h] integers//这是输入格式
+
+命令行中传入数字//这是py程序中设置的description
+
+positional arguments:
+  integers    传入的数字//“integers”是参数的key值(具体在后面讲)，“传入的数字”是help信息
+
+optional arguments://可选参数-h
+  -h, --help  show this help message and exit
+</code></pre>
+<p>下面根据帮助信息，传入一个参数</p>
+<pre><code class="lang-dos">输入：D:\projectTodo\learnArg&gt;python demo.py 5
+输出：Namespace(integers=&#39;5&#39;)
+</code></pre>
+<p>这一部分说明了: 参数已经传入了demo.py程序中</p>
+<h2 id="实验2：操作args字典"><a href="#实验2：操作args字典" class="headerlink" title="实验2：操作args字典"></a>实验2：操作args字典</h2><p>其实得到的这个结果Namespace(integers=’5’)是一种类似于python字典的数据类型。<br>intergers 对应字典的key<br>‘5’对应字典的value</p>
+<p>使用arg.key可以提取这个参数。</p>
+<p>修改demo.py：</p>
+<pre><code class="lang-dos">import argparse
+
+parser = argparse.ArgumentParser(description=&#39;命令行中传入数字&#39;)
+#type是要传入的参数的数据类型  help是该参数的提示信息
+parser.add_argument(&#39;integer1&#39;, type=str, help=&#39;传入的数字1&#39;)
+parser.add_argument(&#39;integer2&#39;, type=str, help=&#39;传入的数字2&#39;)
+parser.add_argument(&#39;integer3&#39;, type=str, help=&#39;传入的数字3&#39;)
+
+args = parser.parse_args()
+print(args.integer1)
+print(args.integer2)
+print(args.integer3)
+#获得传入的参数
+</code></pre>
+<p>测试:</p>
+<pre><code class="lang-dos">D:\projectTodo\learnArg&gt;python demo.py 1 2 3
+1
+2
+3
+</code></pre>
+<h2 id="补充-可选参数"><a href="#补充-可选参数" class="headerlink" title="补充:可选参数"></a>补充:可选参数</h2><p>可选参数的作用类似变量名传参<br>需要加上’—‘</p>
+<p>举例:</p>
+<pre><code class="lang-python">import argparse
+
+parser = argparse.ArgumentParser(description=&#39;姓名&#39;)
+parser.add_argument(&#39;--family&#39;, type=str,help=&#39;姓&#39;)
+parser.add_argument(&#39;--name&#39;, type=str,help=&#39;名&#39;)
+args = parser.parse_args()
+
+#打印姓名
+print(args.family+args.name)
+</code></pre>
+<p>命令行中输入:</p>
+<pre><code class="lang-dos">输入:python demo.py --family=张 --name=三
+输出:张三
+</code></pre>
+<p>可选参数避免了传入参数顺序错误造成的数据错乱</p>
+<h2 id="补充：默认值、必须参数"><a href="#补充：默认值、必须参数" class="headerlink" title="补充：默认值、必须参数"></a>补充：默认值、必须参数</h2><pre><code class="lang-python">parser.add_argument(&#39;--name&#39;, type=str, required=True, default=&#39;&#39;, help=&#39;名&#39;)
+</code></pre>
+<p>默认值就是defult字段<br>required用于标识该参数是不是必需的，</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2021/04/05/ipdb/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/9.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/9.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                ipdb的使用</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/12/15/git-note-1/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-3-1/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/12/15/git-note-1/">
-    Git&amp;Github (一)基本介绍及初始化git</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-12-15</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/12/15/git-note-1/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/12/14/git-note-2/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-5-2/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/12/14/git-note-2/">
-    Git&amp;Github (二)基本的添加提交操作</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-12-14</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/12/14/git-note-2/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/12/11/git-note-6/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-11-1/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/12/11/git-note-6/">
-    Git&amp;Github (六) 远程库的操作 &amp;&amp; 团队协作</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-12-11</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/12/11/git-note-6/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/12/10/git-note-5/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-10-2/1.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/12/10/git-note-5/">
-    Git&amp;Github (五) git 的部分底层机理</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-12-10</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/12/10/git-note-5/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/12/10/git-note-4/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-10-1/2.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/12/10/git-note-4/">
-    Git&amp;Github (四) 分支</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-12-10</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/12/10/git-note-4/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="https://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/12/10/git-note-3/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2020-12-7-1/4.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/12/10/git-note-3/">
-    Git&amp;Github (三)版本穿梭</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-12-10</div>
-    <p>
-    </p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/12/10/git-note-3/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "JuIYR9hj83G0JnrHR4X9BA3L-gzGzoHsz",
+        appKey: "AaDo6LOfCdsKQyWVT8bzUnml",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

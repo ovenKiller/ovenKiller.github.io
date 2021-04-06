@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-04-06T10:38:59.458Z</updated>
+  <updated>2021-04-06T15:14:46.941Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>argparse库</title>
+    <link href="/2021/04/06/argparse/"/>
+    <id>/2021/04/06/argparse/</id>
+    <published>2021-04-06T14:00:00.000Z</published>
+    <updated>2021-04-06T15:14:46.941Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;参考文章:&lt;a href=&quot;https://zhuanlan.zhihu.com/p/56922793&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="/categories/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>ipdb的使用</title>
@@ -99,32 +125,6 @@
   </entry>
   
   <entry>
-    <title>Java笔记(一) java的特性</title>
-    <link href="/2021/04/03/javaNote-1/"/>
-    <id>/2021/04/03/javaNote-1/</id>
-    <published>2021-04-03T12:40:00.000Z</published>
-    <updated>2021-04-04T01:38:16.229Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;java是C-—&quot;&gt;&lt;a href=&quot;#java是C-—&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="java" scheme="/categories/java/"/>
-    
-    
-      <category term="java" scheme="/tags/java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java笔记(二) 数据类型</title>
     <link href="/2021/04/03/javaNote-2/"/>
     <id>/2021/04/03/javaNote-2/</id>
@@ -138,6 +138,32 @@
         
         
           &lt;h1 id=&quot;一、标志符、数据类型&quot;&gt;&lt;a href=&quot;#一、标志符、数据类型&quot; class=&quot;headerlink&quot; title=&quot;一、标志符、数据类型&quot;&gt;&lt;/a&gt;一、标志符、数据类型&lt;/h1&gt;&lt;h2 id=&quot;1、标志符-Identifier&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(一) java的特性</title>
+    <link href="/2021/04/03/javaNote-1/"/>
+    <id>/2021/04/03/javaNote-1/</id>
+    <published>2021-04-03T12:40:00.000Z</published>
+    <updated>2021-04-04T01:38:16.229Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;java是C-—&quot;&gt;&lt;a href=&quot;#java是C-—&quot; class=&quot;headerlink&quot;
         
       
     
@@ -564,34 +590,6 @@ CREATE
       <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="位运算" scheme="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（十一）静态约束</title>
-    <link href="/2021/02/19/databaseNote-11/"/>
-    <id>/2021/02/19/databaseNote-11/</id>
-    <published>2021-02-19T14:50:00.000Z</published>
-    <updated>2021-02-20T09:31:18.039Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;说白了就是保证数据安全、合法。&lt;/p&gt;
-&lt;p&gt;比如列”Sex”，其值只能是”male”或”female”。&lt;br&gt;比如主键必须不为空且不能重复&lt;br&gt;外键也有一些约束&lt;br&gt;数据库必须有一套机制来保证数据合法。&lt;/p&gt;
-&lt;p&gt;完整性约束条件(或称完整性约束规则)的一般形式&lt;
-        
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
