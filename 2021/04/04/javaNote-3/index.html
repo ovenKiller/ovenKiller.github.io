@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Java笔记(三) 类 | DayDream</title>
+  <title itemprop="name">Java笔记(三) 类/包 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -335,7 +335,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Java笔记(三) 类</h1>
+      Java笔记(三) 类/包</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -417,16 +417,26 @@ class TestClass2 extends TestClass1{
 <p>输出: </p>
 <p>1<br>2</p>
 <p>子类在构造时，可以用super调用父类的构造方法。<br>同this，super(*params)必须放在构造方法的第一句</p>
-<h1 id="finalize"><a href="#finalize" class="headerlink" title="finalize()"></a>finalize()</h1><p>类的生命周期结束后执行。但不是用于回收java的内存的(java会自动管理内存)</p>
+<h2 id="finalize"><a href="#finalize" class="headerlink" title="finalize()"></a>finalize()</h2><p>类的生命周期结束后执行。但不是用于回收java的内存的(java会自动管理内存)</p>
 <h1 id="二、包"><a href="#二、包" class="headerlink" title="二、包"></a>二、包</h1><p>两个作用：</p>
 <ul>
 <li>名字空间：区分同名的类</li>
 <li>可访问性：同一个包中的 各个类在默认情况下可以相互访问</li>
 </ul>
+<h2 id="package语句"><a href="#package语句" class="headerlink" title="package语句"></a>package语句</h2><p>package 语句作为Java源文件的第一条语句，指明该源文件定义的类所在的包。package语句的一般格式为：<br>package  包名;<br>如果有如下语句:</p>
+<p>package tom.jiafei;<br>那么目录结构必须包含有如下的结构 xxx\tom\jiafei</p>
+<p>其中xxx必须是环境变量的目录。</p>
 <h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><p>如<br>import java.util.Date<br>此时导入了java-&gt;util包-&gt;Date类</p>
 <p>与c语言中的include区别：<br>import即使不导入也是可以使用的，只是需要注明java.util.Date.method()<br>导入后可以直接使用Date.method</p>
 <p>星号:<br>import java.util.*<br>这样就导入了本层次的所有类。但不包括子层次下的类。</p>
 <p>java编译器自动导入java.lang.*(很多系统自带的类都在里面)</p>
+<p>导入后注意<strong>避免命名冲突</strong>：</p>
+<pre><code class="lang-java">import java.util.*;
+import access.mypackage.Vector;
+Vector v = new Vector(); // Error
+java.util.Vector v = new java.util.Vector();
+</code></pre>
+<h1 id="访问控制符"><a href="#访问控制符" class="headerlink" title="访问控制符"></a>访问控制符</h1><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-9-1/1.png" alt="访问控制符"></p>
 
         </div>
         <!-- .entry-content -->

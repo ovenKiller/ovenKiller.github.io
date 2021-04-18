@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-04-06T15:14:46.941Z</updated>
+  <updated>2021-04-18T14:05:41.811Z</updated>
   <id>/</id>
   
   <author>
@@ -17,11 +17,124 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>STL 自定义比较方法建立set&amp;map</title>
+    <link href="/2021/04/18/STL-self-defined-map-set/"/>
+    <id>/2021/04/18/STL-self-defined-map-set/</id>
+    <published>2021-04-18T12:30:00.000Z</published>
+    <updated>2021-04-18T14:05:41.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;问题提出:&lt;br&gt;set和map都是有序容器。&lt;br&gt;以下问题以set为例，map同理。&lt;/p&gt;
+&lt;p&gt;以下情况如何建立set？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1 自定义的结构体(或者类)（没有自带的比较方法）&lt;/li&gt;
+&lt;li&gt;2
+        
+      
+    
+    </summary>
+    
+      <category term="C++" scheme="/categories/C/"/>
+    
+    
+      <category term="C++" scheme="/tags/C/"/>
+    
+      <category term="STL" scheme="/tags/STL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(五) 接口</title>
+    <link href="/2021/04/17/javaNote-5/"/>
+    <id>/2021/04/17/javaNote-5/</id>
+    <published>2021-04-17T12:00:00.000Z</published>
+    <updated>2021-04-17T06:53:57.622Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;接口是抽象得不能再抽象的类。其中只包含常量和方法的定义，而不包含方法的实现。&lt;br&gt;接口中的方法默认是abstract、public的。（但接口默认是default）&lt;/p&gt;
+&lt;p&gt;接口的extends和类不同，接口可以有多个父接口。&lt;br&gt;接口中可以定义常量/枚举&lt;/p&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(五) 多态 虚函数调用</title>
+    <link href="/2021/04/17/javaNote-6/"/>
+    <id>/2021/04/17/javaNote-6/</id>
+    <published>2021-04-17T12:00:00.000Z</published>
+    <updated>2021-04-17T12:38:36.813Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;多态: 相同的名字表达不同的方法。&lt;/p&gt;
+&lt;p&gt;实现方式1： 重载(overload)&lt;br&gt;实现方式2： 覆盖(override):
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(四) 变量及其传递</title>
+    <link href="/2021/04/09/javaNote-4/"/>
+    <id>/2021/04/09/javaNote-4/</id>
+    <published>2021-04-09T12:00:00.000Z</published>
+    <updated>2021-04-09T08:52:47.840Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;引用与实例&quot;&gt;&lt;a href=&quot;#引用与实例&quot; class=&quot;headerlink&quot; title=&quot;引用与实例&quot;&gt;&lt;/a&gt;引用与实例&lt;/h2&gt;&lt;p&gt;实例只能由new来创建。&lt;/p&gt;
+&lt;h2 id=&quot;字段变量与局部变量&quot;&gt;&lt;a href=&quot;#字段变量与局部变量&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>argparse库</title>
     <link href="/2021/04/06/argparse/"/>
     <id>/2021/04/06/argparse/</id>
     <published>2021-04-06T14:00:00.000Z</published>
-    <updated>2021-04-06T15:14:46.941Z</updated>
+    <updated>2021-04-07T07:23:11.548Z</updated>
     
     <summary type="html">
     
@@ -98,11 +211,11 @@
   </entry>
   
   <entry>
-    <title>Java笔记(三) 类</title>
+    <title>Java笔记(三) 类/包</title>
     <link href="/2021/04/04/javaNote-3/"/>
     <id>/2021/04/04/javaNote-3/</id>
     <published>2021-04-04T12:00:00.000Z</published>
-    <updated>2021-04-05T02:44:44.343Z</updated>
+    <updated>2021-04-09T07:35:47.135Z</updated>
     
     <summary type="html">
     
@@ -473,123 +586,6 @@
       <category term="leetcode" scheme="/tags/leetcode/"/>
     
       <category term="BFS" scheme="/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 剑指 Offer 04. 二维数组中的查找</title>
-    <link href="/2021/02/21/leetcodejz04/"/>
-    <id>/2021/02/21/leetcodejz04/</id>
-    <published>2021-02-21T03:40:00.000Z</published>
-    <updated>2021-02-21T03:26:51.109Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 04.
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库笔记（十二）触发器</title>
-    <link href="/2021/02/20/databaseNote-12/"/>
-    <id>/2021/02/20/databaseNote-12/</id>
-    <published>2021-02-20T10:10:00.000Z</published>
-    <updated>2021-02-20T10:12:18.818Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;触发器就是一段程序，会在条件满足时执行&lt;/p&gt;
-&lt;h2 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;lang-sql&quot;&gt;
-CREATE
-        
-      
-    
-    </summary>
-    
-      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 剑指 Offer 14- I. 剪绳子</title>
-    <link href="/2021/02/20/leetcodejz14/"/>
-    <id>/2021/02/20/leetcodejz14/</id>
-    <published>2021-02-20T02:56:00.000Z</published>
-    <updated>2021-02-27T03:05:52.044Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/jian-sheng-zi-lcof&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer 14- I. 剪绳子&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="动态规划" scheme="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 剑指 Offer 56-I. 数组中数字出现的次数</title>
-    <link href="/2021/02/20/leetcodejz56/"/>
-    <id>/2021/02/20/leetcodejz56/</id>
-    <published>2021-02-20T02:56:00.000Z</published>
-    <updated>2021-02-26T03:18:39.327Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门 -&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="位运算" scheme="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
   </entry>
   

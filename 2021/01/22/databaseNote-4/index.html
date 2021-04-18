@@ -375,7 +375,7 @@
 <h1 id="广义笛卡尔积操作"><a href="#广义笛卡尔积操作" class="headerlink" title="广义笛卡尔积操作"></a>广义笛卡尔积操作</h1><p>形象地讲就是“拼接”。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/1.png" alt="笛卡尔积"></p>
 <h1 id="选择操作"><a href="#选择操作" class="headerlink" title="选择操作"></a>选择操作</h1><p>基本写法：<script type="math/tex">\sigma_{con}(R)=\left\{t|t\in R\wedge con(t)=true\right\}</script><br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/2.png" alt="笛卡尔积"></p>
 <h1 id="投影"><a href="#投影" class="headerlink" title="投影"></a>投影</h1><p>符号：<script type="math/tex">\prod</script><br>即把某些属性单独拎出来。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/3.png" alt="笛卡尔积"><br>投影后的相同元素注意去重。</p>
-<h1 id="theta-连接操作"><a href="#theta-连接操作" class="headerlink" title="\theta-连接操作"></a><script type="math/tex">\theta</script>-连接操作</h1><p>查询数据结构成绩在90分以上的学生姓名(涉及Student, Course, SC)：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/4.png" alt="题目信息"><br>这就需要<script type="math/tex">\theta</script>-连接操作<br>方法是：先进行笛卡尔积，再筛选。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/5.png" alt="连接"><br>(注：形成笛卡尔积是方便理解，实际上这种做法会耗费算力)</p>
+<h1 id="theta-连接操作"><a href="#theta-连接操作" class="headerlink" title="theta-连接操作"></a>theta-连接操作</h1><p>查询数据结构成绩在90分以上的学生姓名(涉及Student, Course, SC)：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/4.png" alt="题目信息"><br>这就需要<script type="math/tex">\theta</script>-连接操作<br>方法是：先进行笛卡尔积，再筛选。<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/5.png" alt="连接"><br>(注：形成笛卡尔积是方便理解，实际上这种做法会耗费算力)</p>
 <p>有时候，<script type="math/tex">\theta</script>-连接操作连接的是同一张表，为避免冲突，可以将表重命名（看成两张表）</p>
 <h2 id="等值连接："><a href="#等值连接：" class="headerlink" title="等值连接："></a>等值连接：</h2><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/6.png" alt="等值连接"></p>
 <p>举例：<br><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/7.png" alt="等值连接举例"></p>
@@ -394,6 +394,9 @@
 <p>外连接解决的就是这个问题：当两个表内无法匹配，会生成一个空值。而不是把信息直接丢掉。</p>
 <p>外连接= 自然连接(或<script type="math/tex">\theta</script>连接) + 失配的元组(与全空元组形成的连接)<br>外连接的形式：左外连接、右外连接、全外连接<br>左外连接= 自然连接(或<script type="math/tex">\theta</script>连接) + 左侧表中失配的元组<br>右外连接= 自然连接(或<script type="math/tex">\theta</script>连接) + 右侧表中失配的元组<br>全外连接= 自然连接(或<script type="math/tex">\theta</script>连接) + 两侧表中失配的元组</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-1-22-1/11.png" alt="外连接"></p>
+<p>例：<br><img src="https://images2015.cnblogs.com/blog/834545/201603/834545-20160330200427832-632323714.jpg" alt="题目"></p>
+<p><img src="https://images2015.cnblogs.com/blog/834545/201603/834545-20160330200618941-594864853.jpg" alt="答案"></p>
+<p>注意(2)中的减操作<br>(4)中的”包含”，和除操作的本质有什么联系呢?</p>
 
         </div>
         <!-- .entry-content -->
