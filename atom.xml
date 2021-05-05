@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-04-18T14:05:41.811Z</updated>
+  <updated>2021-05-05T15:18:32.557Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python 字典的浅拷贝/深拷贝</title>
+    <link href="/2021/05/05/python-deepcopy/"/>
+    <id>/2021/05/05/python-deepcopy/</id>
+    <published>2021-05-05T15:40:00.000Z</published>
+    <updated>2021-05-05T15:18:32.557Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;1、赋值&quot;&gt;&lt;a href=&quot;#1、赋值&quot; class=&quot;headerlink&quot; title=&quot;1、赋值&quot;&gt;&lt;/a&gt;1、赋值&lt;/h1&gt;&lt;p&gt;仅会传递字典的引用。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-python&quot;&gt;&amp;gt;&amp;gt;&amp;gt;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="/categories/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python 字典的fromkey方法</title>
+    <link href="/2021/05/05/python-fromkeys/"/>
+    <id>/2021/05/05/python-fromkeys/</id>
+    <published>2021-05-05T11:40:00.000Z</published>
+    <updated>2021-05-05T15:00:10.566Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;简介&lt;/p&gt;
+&lt;p&gt;Python 字典(Dictionary) fromkeys()
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="/categories/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算方法 (四) 迭代法</title>
+    <link href="/2021/04/20/ComputingMethod4/"/>
+    <id>/2021/04/20/ComputingMethod4/</id>
+    <published>2021-04-20T04:00:00.000Z</published>
+    <updated>2021-04-20T14:39:47.147Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;对角占优矩阵&quot;&gt;&lt;a href=&quot;#对角占优矩阵&quot; class=&quot;headerlink&quot; title=&quot;对角占优矩阵&quot;&gt;&lt;/a&gt;对角占优矩阵&lt;/h1&gt;&lt;p&gt;直观理解: 对角占优指的是&lt;strong&gt;主对角线元素绝对值大&lt;/strong&gt;&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="数学" scheme="/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>STL 自定义比较方法建立set&amp;map</title>
@@ -76,11 +159,11 @@
   </entry>
   
   <entry>
-    <title>Java笔记(五) 多态 虚函数调用</title>
+    <title>Java笔记(六) 类的复用</title>
     <link href="/2021/04/17/javaNote-6/"/>
     <id>/2021/04/17/javaNote-6/</id>
     <published>2021-04-17T12:00:00.000Z</published>
-    <updated>2021-04-17T12:38:36.813Z</updated>
+    <updated>2021-04-30T08:56:14.749Z</updated>
     
     <summary type="html">
     
@@ -88,8 +171,7 @@
       
         
         
-          &lt;p&gt;多态: 相同的名字表达不同的方法。&lt;/p&gt;
-&lt;p&gt;实现方式1： 重载(overload)&lt;br&gt;实现方式2： 覆盖(override):
+          &lt;h1 id=&quot;一、组合-Composition&quot;&gt;&lt;a href=&quot;#一、组合-Composition&quot; class=&quot;headerlink&quot;
         
       
     
@@ -215,7 +297,7 @@
     <link href="/2021/04/04/javaNote-3/"/>
     <id>/2021/04/04/javaNote-3/</id>
     <published>2021-04-04T12:00:00.000Z</published>
-    <updated>2021-04-09T07:35:47.135Z</updated>
+    <updated>2021-04-27T06:42:34.587Z</updated>
     
     <summary type="html">
     
@@ -225,6 +307,32 @@
         
           &lt;h1 id=&quot;一、类&quot;&gt;&lt;a href=&quot;#一、类&quot; class=&quot;headerlink&quot; title=&quot;一、类&quot;&gt;&lt;/a&gt;一、类&lt;/h1&gt;&lt;p&gt;和c++基本相同&lt;br&gt;仅列出不同点：&lt;/p&gt;
 &lt;h2 id=&quot;this&quot;&gt;&lt;a href=&quot;#this&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(一) java的特性</title>
+    <link href="/2021/04/03/javaNote-1/"/>
+    <id>/2021/04/03/javaNote-1/</id>
+    <published>2021-04-03T12:40:00.000Z</published>
+    <updated>2021-05-05T11:04:25.682Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;java是C-—&quot;&gt;&lt;a href=&quot;#java是C-—&quot; class=&quot;headerlink&quot;
         
       
     
@@ -264,11 +372,11 @@
   </entry>
   
   <entry>
-    <title>Java笔记(一) java的特性</title>
-    <link href="/2021/04/03/javaNote-1/"/>
-    <id>/2021/04/03/javaNote-1/</id>
-    <published>2021-04-03T12:40:00.000Z</published>
-    <updated>2021-04-04T01:38:16.229Z</updated>
+    <title>计算方法 (二) 矩阵解线性方程组</title>
+    <link href="/2021/04/03/ComputingMethod2/"/>
+    <id>/2021/04/03/ComputingMethod2/</id>
+    <published>2021-04-03T04:00:00.000Z</published>
+    <updated>2021-04-04T15:02:50.844Z</updated>
     
     <summary type="html">
     
@@ -276,16 +384,46 @@
       
         
         
-          &lt;h1 id=&quot;java是C-—&quot;&gt;&lt;a href=&quot;#java是C-—&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;奇异矩阵-amp-非奇异矩阵&quot;&gt;&lt;a href=&quot;#奇异矩阵-amp-非奇异矩阵&quot; class=&quot;headerlink&quot; title=&quot;奇异矩阵&amp;amp;非奇异矩阵&quot;&gt;&lt;/a&gt;奇异矩阵&amp;amp;非奇异矩阵&lt;/h1&gt;&lt;script type=&quot;math/tex;
         
       
     
     </summary>
     
-      <category term="java" scheme="/categories/java/"/>
+      <category term="数学" scheme="/categories/%E6%95%B0%E5%AD%A6/"/>
     
     
-      <category term="java" scheme="/tags/java/"/>
+      <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算方法 (三) 范数</title>
+    <link href="/2021/04/03/ComputingMethod3/"/>
+    <id>/2021/04/03/ComputingMethod3/</id>
+    <published>2021-04-03T04:00:00.000Z</published>
+    <updated>2021-04-20T05:59:31.336Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、向量范数&quot;&gt;&lt;a href=&quot;#一、向量范数&quot; class=&quot;headerlink&quot; title=&quot;一、向量范数&quot;&gt;&lt;/a&gt;一、向量范数&lt;/h1&gt;&lt;h2 id=&quot;“1-范数”&quot;&gt;&lt;a href=&quot;#“1-范数”&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="数学" scheme="/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -303,34 +441,6 @@
         
         
           &lt;h1 id=&quot;一、数值的浮点表示&quot;&gt;&lt;a href=&quot;#一、数值的浮点表示&quot; class=&quot;headerlink&quot; title=&quot;一、数值的浮点表示&quot;&gt;&lt;/a&gt;一、数值的浮点表示&lt;/h1&gt;&lt;p&gt;数值是由 &lt;strong&gt;数符+尾数+阶码&lt;/strong&gt;
-        
-      
-    
-    </summary>
-    
-      <category term="数学" scheme="/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算方法 (二) 矩阵解线性方程组</title>
-    <link href="/2021/04/03/ComputingMethod2/"/>
-    <id>/2021/04/03/ComputingMethod2/</id>
-    <published>2021-04-03T04:00:00.000Z</published>
-    <updated>2021-04-04T15:02:50.844Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;奇异矩阵-amp-非奇异矩阵&quot;&gt;&lt;a href=&quot;#奇异矩阵-amp-非奇异矩阵&quot; class=&quot;headerlink&quot; title=&quot;奇异矩阵&amp;amp;非奇异矩阵&quot;&gt;&lt;/a&gt;奇异矩阵&amp;amp;非奇异矩阵&lt;/h1&gt;&lt;script type=&quot;math/tex;
         
       
     
@@ -463,129 +573,6 @@
       <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
     
       <category term="python" scheme="/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 134 Gas Station</title>
-    <link href="/2021/02/25/leetcode134/"/>
-    <id>/2021/02/25/leetcode134/</id>
-    <published>2021-02-25T14:26:00.000Z</published>
-    <updated>2021-02-25T14:56:44.936Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/gas-station/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;134. Gas Station&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 剑指 Offer 13. 机器人的运动范围</title>
-    <link href="/2021/02/23/leetcodejz13/"/>
-    <id>/2021/02/23/leetcodejz13/</id>
-    <published>2021-02-23T14:10:00.000Z</published>
-    <updated>2021-02-23T14:18:34.556Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;剑指 Offer Offer
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="DFS" scheme="/tags/DFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 189. Rotate Array</title>
-    <link href="/2021/02/23/leetcode189/"/>
-    <id>/2021/02/23/leetcode189/</id>
-    <published>2021-02-23T05:14:00.000Z</published>
-    <updated>2021-02-23T05:16:33.985Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/rotate-array/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;189. Rotate Array&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="OJ题解" scheme="/tags/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 994. Rotting Oranges</title>
-    <link href="/2021/02/23/leetcode994/"/>
-    <id>/2021/02/23/leetcode994/</id>
-    <published>2021-02-23T04:40:00.000Z</published>
-    <updated>2021-02-23T04:48:29.696Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/rotting-oranges/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;994. Rotting Oranges&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="BFS" scheme="/tags/BFS/"/>
     
   </entry>
   

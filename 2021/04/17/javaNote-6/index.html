@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Java笔记(五) 多态 虚函数调用 | DayDream</title>
+  <title itemprop="name">Java笔记(六) 类的复用 | DayDream</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -335,7 +335,7 @@
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      Java笔记(五) 多态 虚函数调用</h1>
+      Java笔记(六) 类的复用</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -361,8 +361,19 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>多态: 相同的名字表达不同的方法。</p>
-<p>实现方式1： 重载(overload)<br>实现方式2： 覆盖(override): 主要是子类对父类</p>
+          <h1 id="一、组合-Composition"><a href="#一、组合-Composition" class="headerlink" title="一、组合(Composition)"></a>一、组合(Composition)</h1><p>也就是直接new一个已有类的对象，就能直接能调用它的方法呗。。。</p>
+<h1 id="二-继承-Inheritance"><a href="#二-继承-Inheritance" class="headerlink" title="二 继承(Inheritance)"></a>二 继承(Inheritance)</h1><p>注意，继承可能破坏类的封装性。</p>
+<p><strong>组合优于继承</strong></p>
+<h1 id="三、重载和覆盖-overload-override"><a href="#三、重载和覆盖-overload-override" class="headerlink" title="三、重载和覆盖(overload/ override)"></a>三、重载和覆盖(overload/ override)</h1><p>多态: 相同的名字表达不同的方法。</p>
+<p>实现方式1： 重载(overload)： 方法名相同、参数不同。发生于同一个类之间<br>实现方式2： 覆盖(override): 主要是子类对父类</p>
+<h1 id="四、抽象方法-抽象类-abstract-class-method"><a href="#四、抽象方法-抽象类-abstract-class-method" class="headerlink" title="四、抽象方法/抽象类(abstract class/ method)"></a>四、抽象方法/抽象类(abstract class/ method)</h1><h2 id="定义抽象类-抽象方法"><a href="#定义抽象类-抽象方法" class="headerlink" title="定义抽象类/抽象方法:"></a>定义抽象类/抽象方法:</h2><pre><code class="lang-java">abstract class test{
+public int v;
+abstract void test();
+}
+</code></pre>
+<p>抽象类是专门用作继承的，<strong>不可以被实例化</strong><br>抽象方法只能出现在抽象类中。</p>
+<p>也就是说，假如定义了一个非抽象的子类继承了抽象类，那么这个类必须将所有的抽象方法重载为普通方法才能不报错。</p>
+<h1 id="五：多态-Polymorphism"><a href="#五：多态-Polymorphism" class="headerlink" title="五：多态(Polymorphism)"></a>五：多态(Polymorphism)</h1><h2 id="1、向上转型-upcasting"><a href="#1、向上转型-upcasting" class="headerlink" title="1、向上转型(upcasting)"></a>1、向上转型(upcasting)</h2><p>也就是:子类将值赋给父类<br>李刚 aa = new 李刚();<br>李启铭 bb = new 李启铭();<br>李刚 cc = new 李启铭(); // Upcasting</p>
 
         </div>
         <!-- .entry-content -->

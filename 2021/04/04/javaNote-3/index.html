@@ -418,6 +418,7 @@ class TestClass2 extends TestClass1{
 <p>1<br>2</p>
 <p>子类在构造时，可以用super调用父类的构造方法。<br>同this，super(*params)必须放在构造方法的第一句</p>
 <h2 id="finalize"><a href="#finalize" class="headerlink" title="finalize()"></a>finalize()</h2><p>类的生命周期结束后执行。但不是用于回收java的内存的(java会自动管理内存)</p>
+<h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h2><p>强制类型转换函数。<br>默认情况下返回对象在内存中的地址<br>视情况可重载</p>
 <h1 id="二、包"><a href="#二、包" class="headerlink" title="二、包"></a>二、包</h1><p>两个作用：</p>
 <ul>
 <li>名字空间：区分同名的类</li>
@@ -437,6 +438,9 @@ Vector v = new Vector(); // Error
 java.util.Vector v = new java.util.Vector();
 </code></pre>
 <h1 id="访问控制符"><a href="#访问控制符" class="headerlink" title="访问控制符"></a>访问控制符</h1><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-9-1/1.png" alt="访问控制符"></p>
+<p>子类重载父类方法时，只能将修饰符权限“降级”。</p>
+<p>比如: 父类方法func()是protected,子类中的func()只能是protected / default / public</p>
+<p>权限高低顺序: private 、 protected 、 default 、 public</p>
 
         </div>
         <!-- .entry-content -->
@@ -476,15 +480,15 @@ java.util.Vector v = new java.util.Vector();
           
             <div class="post-nepre half next">
           
-            <a href="/2021/04/03/javaNote-2/" rel="next">
+            <a href="/2021/04/03/javaNote-1/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/3.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/3.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                Java笔记(二) 数据类型</h3>
+                Java笔记(一) java的特性</h3>
                 <hr>
               </div>
             </a>
