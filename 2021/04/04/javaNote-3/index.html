@@ -419,6 +419,52 @@ class TestClass2 extends TestClass1{
 <p>子类在构造时，可以用super调用父类的构造方法。<br>同this，super(*params)必须放在构造方法的第一句</p>
 <h2 id="finalize"><a href="#finalize" class="headerlink" title="finalize()"></a>finalize()</h2><p>类的生命周期结束后执行。但不是用于回收java的内存的(java会自动管理内存)</p>
 <h2 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h2><p>强制类型转换函数。<br>默认情况下返回对象在内存中的地址<br>视情况可重载</p>
+<h1 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h1><p>在类中再声明一个类</p>
+<h2 id="1-可以互相访问私有成员"><a href="#1-可以互相访问私有成员" class="headerlink" title="1) 可以互相访问私有成员"></a>1) 可以互相访问私有成员</h2><pre><code class="lang-java">class Outer{
+    private String str =&quot;外部类中的字符串&quot;;
+    class Inner{
+        private String inStr= &quot;内部类中的字符串&quot;;
+        public void print(){
+            System.out.println(str);
+        }
+    }
+    //************************** 
+    //在外部类中定义一个方法，该方法负责产生内部类对象并调用print()方法
+    public void fun(){
+        Inner in = new Inner();
+        in.print();
+        System.out.println(in.inStr);
+    }
+
+}
+public class Test{
+    public static void main(String[] args)
+    {
+        Outer out = new Outer();
+        //外部类方法
+        out.fun();
+    }
+}
+</code></pre>
+<p>输出结果：<br>外部类中的字符串<br>内部类中的字符串</p>
+<h2 id="2）静态内部类"><a href="#2）静态内部类" class="headerlink" title="2）静态内部类"></a>2）静态内部类</h2><ul>
+<li>静态内部类可以声明静态方法（普通内部类不可以）</li>
+<li>静态内部类<strong>只能访问外部类的静态成员/静态方法</strong></li>
+<li>内部类可以随意声明静态成员</li>
+<li>静态内部类的声明不依赖于父类<pre><code class="lang-java">Outer.Inner inner = new Outer.Inner();
+</code></pre>
+<h2 id="3-抽象内部类"><a href="#3-抽象内部类" class="headerlink" title="3) 抽象内部类"></a>3) 抽象内部类</h2></li>
+</ul>
+<p>抽象内部类可以<br>抽象内部类不影响外部类的实例化。<br>如果需要实例化抽象内部类，需要新建一个这样的类：</p>
+<pre><code class="lang-java">class Outer{
+    abstract class Inner{
+    }
+}
+class InsOutClass extends Outer{
+    class insInClass extends Inner{
+    }
+}
+</code></pre>
 <h1 id="二、包"><a href="#二、包" class="headerlink" title="二、包"></a>二、包</h1><p>两个作用：</p>
 <ul>
 <li>名字空间：区分同名的类</li>
@@ -480,15 +526,15 @@ java.util.Vector v = new java.util.Vector();
           
             <div class="post-nepre half next">
           
-            <a href="/2021/04/03/javaNote-1/" rel="next">
+            <a href="/2021/04/03/java-extends-super/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/3.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/3.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/7.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/7.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                Java笔记(一) java的特性</h3>
+                ？extends和？super</h3>
                 <hr>
               </div>
             </a>

@@ -391,6 +391,7 @@ endfor
 然后再$$回代</script><p>　for k = n: 1<br>　　 <script type="math/tex">x_k=(b_k^{k-1}-a_{kn}^{k-1}x_n-…-a_{kk+1}^{k-1}x_{k+1}/a_{kk}^{k-1}</script><br>　endfor</p>
 <h2 id="选主元的改进"><a href="#选主元的改进" class="headerlink" title="选主元的改进"></a>选主元的改进</h2><p>主元不能过小。主元需要做除数，过小会导致误差。</p>
 <p>可以选择绝对值最大的主元<br>在变换到第k步时，选择<script type="math/tex">a_{jk}^{(k)}</script>(i=k,k+1…,n)中绝对值最大者为主元，然后交换它与<script type="math/tex">a_{kk}^{(k)}</script>所在方程的位置</p>
+<p>这称作<strong>全选主元法</strong></p>
 <p>问题是确定主元时所需的比较次数过多。</p>
 <h2 id="回代时降低误差"><a href="#回代时降低误差" class="headerlink" title="回代时降低误差"></a>回代时降低误差</h2><p><img src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-4-1/3.png" alt="高斯消元"></p>
 <h1 id="LU分解"><a href="#LU分解" class="headerlink" title="LU分解"></a>LU分解</h1><p>gauss分解的本质是将A 分解为A = LU<br>其中L为单位下三角矩阵，U为上三角矩阵。<br>最后化简的结果是U</p>
@@ -419,15 +420,15 @@ endfor
           
             <div class="post-nepre half previous">
           
-            <a href="/2021/04/03/javaNote-2/" rel="prev">
+            <a href="/2021/04/03/ComputingMethod1/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/bg/6.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-3-1/1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/ovenKiller/CDN/img/post/2021-4-3-1/1.png">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                Java笔记(二) 数据类型</h3>
+                计算方法 (一) 误差</h3>
                 <hr>
               </div>
             </a>

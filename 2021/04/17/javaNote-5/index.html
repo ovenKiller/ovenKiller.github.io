@@ -361,28 +361,23 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>接口是抽象得不能再抽象的类。其中只包含常量和方法的定义，而不包含方法的实现。<br>接口中的方法默认是abstract、public的。（但接口默认是default）</p>
-<p>接口的extends和类不同，接口可以有多个父接口。<br>接口中可以定义常量/枚举</p>
+          <h1 id="一、接口相对普通类的特点："><a href="#一、接口相对普通类的特点：" class="headerlink" title="一、接口相对普通类的特点："></a>一、接口相对普通类的特点：</h1><p>接口是抽象得不能再抽象的类。其中只包含常量和方法的定义，而不包含方法的实现。</p>
+<p>接口必须是public static的。（默认也是如此）<br>接口中的方法必须是abstract、public的。<br>implements interface可以和extends class 同时使用</p>
+<p>接口中的变量(或者说常量)一定是public static final的。<br>接口的extends和类不同，接口可以有多个父接口。<br>接口中可以定义常量/枚举<br>接口可以多继承</p>
 <blockquote>
 <p>枚举距离：enum Light{red, green, yellow}</p>
+<h1 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h1><p>接口使用举例:<br>接口1：<br>```java<br>package fliabe;</p>
 </blockquote>
-<p>接口使用举例:<br>接口1：</p>
-<pre><code class="lang-java">package fliabe;
-
-public interface Bitable {
-    public int teethNum = 8;
-    void bit();
-}
-</code></pre>
-<p>接口2:</p>
-<pre><code class="lang-java">package fliabe;
+<p>public interface Bitable {<br>    public int teethNum = 8;<br>    void bit();<br>}</p>
+<pre><code>接口2:
+```java
+package fliabe;
 
 public interface Flyable {
     final int wingsNumber = 2;
     void fly();
 }
-</code></pre>
-<p>类继承两个接口:</p>
+</code></pre><p>类继承两个接口:</p>
 <pre><code class="lang-java">package fliabe;
 public class Bat implements Bitable,Flyable{
     public void fly() {
@@ -404,6 +399,15 @@ public class Test {
     }
 
 }
+</code></pre>
+<h1 id="三、接口的继承"><a href="#三、接口的继承" class="headerlink" title="三、接口的继承"></a>三、接口的继承</h1><pre><code class="lang-java">
+    [访问修饰符]    interface 接口名    [extends  父接口1,  父接口2 ···]    {
+
+    常量定义 ; 
+
+    方法定义 ; 
+
+    }
 </code></pre>
 
         </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2021-05-05T15:18:32.557Z</updated>
+  <updated>2021-06-14T01:23:25.277Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,134 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Latex 大括号</title>
+    <link href="/2021/06/24/latex_cases/"/>
+    <id>/2021/06/24/latex_cases/</id>
+    <published>2021-06-24T01:16:00.000Z</published>
+    <updated>2021-06-14T01:23:25.277Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    \(f(x) = \begin{cases}
+    \lambda e^{-\lambda x} ,&amp;amp; x &amp;gt; 0 \\
+    0, &amp;amp; x ≤ 0 \end{cases}
+        
+      
+    
+    </summary>
+    
+      <category term="Latex" scheme="/categories/Latex/"/>
+    
+    
+      <category term="Latex" scheme="/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(七) 并发&amp;多线程</title>
+    <link href="/2021/05/24/javaNote-8/"/>
+    <id>/2021/05/24/javaNote-8/</id>
+    <published>2021-05-24T08:00:00.000Z</published>
+    <updated>2021-05-24T12:28:03.638Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;一、创建方法1：extends-Thread&quot;&gt;&lt;a href=&quot;#一、创建方法1：extends-Thread&quot; class=&quot;headerlink&quot; title=&quot;一、创建方法1：extends Thread&quot;&gt;&lt;/a&gt;一、创建方法1：extends
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库笔记（十二）E-R模型</title>
+    <link href="/2021/05/13/databaseNote-13/"/>
+    <id>/2021/05/13/databaseNote-13/</id>
+    <published>2021-05-13T10:10:00.000Z</published>
+    <updated>2021-05-13T03:30:46.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;E-R 模型: Entity-Relationship Model: 实体集-联系模型&lt;/p&gt;
+&lt;h1 id=&quot;建模&quot;&gt;&lt;a href=&quot;#建模&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>numpy axis详解</title>
+    <link href="/2021/05/12/numpy-axis/"/>
+    <id>/2021/05/12/numpy-axis/</id>
+    <published>2021-05-12T02:45:00.000Z</published>
+    <updated>2021-05-13T03:19:15.723Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="python" scheme="/categories/python/"/>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+      <category term="numpy" scheme="/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java笔记(七) 错误处理</title>
+    <link href="/2021/05/08/javaNote-7/"/>
+    <id>/2021/05/08/javaNote-7/</id>
+    <published>2021-05-08T08:00:00.000Z</published>
+    <updated>2021-05-08T08:43:59.448Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;区分：-Exception-Error&quot;&gt;&lt;a href=&quot;#区分：-Exception-Error&quot; class=&quot;headerlink&quot; title=&quot;区分： Exception/Error&quot;&gt;&lt;/a&gt;区分：
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>python 字典的浅拷贝/深拷贝</title>
@@ -136,7 +264,7 @@
     <link href="/2021/04/17/javaNote-5/"/>
     <id>/2021/04/17/javaNote-5/</id>
     <published>2021-04-17T12:00:00.000Z</published>
-    <updated>2021-04-17T06:53:57.622Z</updated>
+    <updated>2021-05-08T02:26:10.447Z</updated>
     
     <summary type="html">
     
@@ -144,8 +272,7 @@
       
         
         
-          &lt;p&gt;接口是抽象得不能再抽象的类。其中只包含常量和方法的定义，而不包含方法的实现。&lt;br&gt;接口中的方法默认是abstract、public的。（但接口默认是default）&lt;/p&gt;
-&lt;p&gt;接口的extends和类不同，接口可以有多个父接口。&lt;br&gt;接口中可以定义常量/枚举&lt;/p&gt;
+          &lt;h1 id=&quot;一、接口相对普通类的特点：&quot;&gt;&lt;a href=&quot;#一、接口相对普通类的特点：&quot; class=&quot;headerlink&quot;
         
       
     
@@ -297,7 +424,7 @@
     <link href="/2021/04/04/javaNote-3/"/>
     <id>/2021/04/04/javaNote-3/</id>
     <published>2021-04-04T12:00:00.000Z</published>
-    <updated>2021-04-27T06:42:34.587Z</updated>
+    <updated>2021-05-08T02:10:22.421Z</updated>
     
     <summary type="html">
     
@@ -307,6 +434,35 @@
         
           &lt;h1 id=&quot;一、类&quot;&gt;&lt;a href=&quot;#一、类&quot; class=&quot;headerlink&quot; title=&quot;一、类&quot;&gt;&lt;/a&gt;一、类&lt;/h1&gt;&lt;p&gt;和c++基本相同&lt;br&gt;仅列出不同点：&lt;/p&gt;
 &lt;h2 id=&quot;this&quot;&gt;&lt;a href=&quot;#this&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="/categories/java/"/>
+    
+    
+      <category term="java" scheme="/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>？extends和？super</title>
+    <link href="/2021/04/03/java-extends-super/"/>
+    <id>/2021/04/03/java-extends-super/</id>
+    <published>2021-04-03T12:40:00.000Z</published>
+    <updated>2021-05-10T12:56:48.174Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;?extends 和 ?super出现在泛型之中。&lt;/p&gt;
+&lt;p&gt;简而言之，?extends T可以指代T的所有子类&lt;br&gt;?super T可以指代T的所有父类&lt;/p&gt;
+&lt;p&gt;比如：自定义容器:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-java&quot;&gt;class
         
       
     
@@ -372,62 +528,6 @@
   </entry>
   
   <entry>
-    <title>计算方法 (二) 矩阵解线性方程组</title>
-    <link href="/2021/04/03/ComputingMethod2/"/>
-    <id>/2021/04/03/ComputingMethod2/</id>
-    <published>2021-04-03T04:00:00.000Z</published>
-    <updated>2021-04-04T15:02:50.844Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;奇异矩阵-amp-非奇异矩阵&quot;&gt;&lt;a href=&quot;#奇异矩阵-amp-非奇异矩阵&quot; class=&quot;headerlink&quot; title=&quot;奇异矩阵&amp;amp;非奇异矩阵&quot;&gt;&lt;/a&gt;奇异矩阵&amp;amp;非奇异矩阵&lt;/h1&gt;&lt;script type=&quot;math/tex;
-        
-      
-    
-    </summary>
-    
-      <category term="数学" scheme="/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算方法 (三) 范数</title>
-    <link href="/2021/04/03/ComputingMethod3/"/>
-    <id>/2021/04/03/ComputingMethod3/</id>
-    <published>2021-04-03T04:00:00.000Z</published>
-    <updated>2021-04-20T05:59:31.336Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;一、向量范数&quot;&gt;&lt;a href=&quot;#一、向量范数&quot; class=&quot;headerlink&quot; title=&quot;一、向量范数&quot;&gt;&lt;/a&gt;一、向量范数&lt;/h1&gt;&lt;h2 id=&quot;“1-范数”&quot;&gt;&lt;a href=&quot;#“1-范数”&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="数学" scheme="/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-      <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>计算方法 (一) 误差</title>
     <link href="/2021/04/03/ComputingMethod1/"/>
     <id>/2021/04/03/ComputingMethod1/</id>
@@ -452,127 +552,6 @@
       <category term="计算方法" scheme="/tags/%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/"/>
     
       <category term="数学" scheme="/tags/%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 338. Counting Bits</title>
-    <link href="/2021/03/04/leetcode338/"/>
-    <id>/2021/03/04/leetcode338/</id>
-    <published>2021-03-04T03:19:00.000Z</published>
-    <updated>2021-03-04T03:30:33.895Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门:-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/132-pattern&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;132 Pattern&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pytorch：上下采样函数--interpolate</title>
-    <link href="/2021/02/28/pytorch-interpolate/"/>
-    <id>/2021/02/28/pytorch-interpolate/</id>
-    <published>2021-02-28T05:40:24.000Z</published>
-    <updated>2021-02-28T05:49:29.115Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;测试环境版本: &lt;br&gt;torch1.7.1 + CPU&lt;br&gt;&lt;br&gt;python 3.6&lt;/p&gt;
-&lt;p&gt;关于图像的采样，参考:&lt;a href=&quot;https://blog.csdn.net/stf1065716904/article/details/78450997&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="深度学习" scheme="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-      <category term="深度学习" scheme="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
-    
-      <category term="pytorch" scheme="/tags/pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode 328. Odd Even Linked List</title>
-    <link href="/2021/02/27/leetcode328/"/>
-    <id>/2021/02/27/leetcode328/</id>
-    <published>2021-02-27T12:49:00.000Z</published>
-    <updated>2021-02-27T12:55:05.714Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原题传送门:-&amp;gt;&lt;a href=&quot;https://leetcode-cn.com/problems/odd-even-linked-list&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;322. Coin Change&lt;/a&gt;&lt;/p&gt;
-&lt;h2
-        
-      
-    
-    </summary>
-    
-      <category term="OJ题解" scheme="/categories/OJ%E9%A2%98%E8%A7%A3/"/>
-    
-    
-      <category term="C++" scheme="/tags/C/"/>
-    
-      <category term="leetcode" scheme="/tags/leetcode/"/>
-    
-      <category term="链表操作" scheme="/tags/%E9%93%BE%E8%A1%A8%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python：深刻理解Python中的元类(metaclass)(转载)</title>
-    <link href="/2021/02/26/mateclass/"/>
-    <id>/2021/02/26/mateclass/</id>
-    <published>2021-02-26T14:00:00.000Z</published>
-    <updated>2021-02-26T14:35:34.443Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;原文地址:&lt;a href=&quot;https://www.cnblogs.com/Simon-xm/p/4034416.html&quot; target=&quot;_blank&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="/categories/python/"/>
-    
-    
-      <category term="转载" scheme="/tags/%E8%BD%AC%E8%BD%BD/"/>
-    
-      <category term="python" scheme="/tags/python/"/>
     
   </entry>
   
