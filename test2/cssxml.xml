@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 与css文件对应  -->
+<?xml-stylesheet type="text/css" href="cssformat.css"?>
+<students>
+ <student>
+ <sn>20040112</sn>
+ <name>张三</name> 
+ <sex>男</sex> 
+ <nation>汉族</nation>  
+ <add>山东</add>   
+ <pro>计算机</pro>
+ </student>
+ <student>
+ <sn>20040201</sn>
+ <name>李四</name> 
+ <sex>女</sex> 
+ <nation>汉族</nation>  
+ <add>山东</add>   
+ <pro>计算机</pro>
+ </student>
+ <student>
+ <sn>20031514</sn>
+ <name>王五</name> 
+ <sex>女</sex> 
+ <nation>汉族</nation>  
+ <add>山东</add>   
+ <pro>计算机</pro>
+ </student>
+ <student>
+ <sn>20031514</sn>
+ <name>赵六</name> 
+ <sex>女</sex> 
+ <nation>汉族</nation>  
+ <add>山东</add>   
+ <pro>计算机</pro>
+ </student>
+</students>
+
+//html代码：让xml文件的内容显示到html上，src的值与xml文件对应

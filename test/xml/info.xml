@@ -1,0 +1,50 @@
+<!--  Edited by XMLSpy®  -->
+<DATA>
+    <INFO>
+        <NAME>刘胜琦</NAME>
+        <SCHOOLID>55190124</SCHOOLID>
+        <CLASS>1班</CLASS>
+        <SCHOOL>吉林大学</SCHOOL>
+        <INTRODUCTION>
+            <p>
+        自我介绍一下. 我是来自吉林大学软件学院的刘胜琦,这是我的xml结课作业.
+            </p>
+            <p>
+        我爱好是打牌,喜欢斗地主,够级,保皇.扑克牌休闲益脑,老少咸益,为居家旅行、朋友团建、沟通感情的良好娱乐方式。
+            </p>
+            <p>打牌之余,我也喜欢编程,尤其喜欢写网页,最近学习了xml,发现这个应用在网页上真的太棒了,可以很方便地管理网页上的数据,所以这一个网站就是我通过这种方法建成的</p>
+            <p>学校的三年时间里,让我可以学到很多以前不懂的知识,,无论是在知识能力,还是在个人素质修养方面都是令我受益匪浅,让我知道了,技术的重要性.我一定会通自己的努力,来严格要求自己,向实际困难挑战,让我在挫折中成长</p>
+        </INTRODUCTION>
+
+    </INFO>
+
+    <SCENERY>
+        <LOCATION>
+            <NAME>微山湖</NAME>
+            <IMAGE>img/gallery/weishanhu1.jpg</IMAGE>
+            <IMAGE>img/gallery/weishanhu3.jpeg</IMAGE>
+            <IMAGE>img/gallery/weishanhu4.jpeg</IMAGE>
+            <IMAGE>img/gallery/weishanhu2.jfif</IMAGE>
+
+            <DESCRIPTION>微山湖旅游区位于山东省济宁市微山县境内，京杭大运河纵贯南北。依托北方较大的淡水湖微山湖，以优美的生态环境、丰富的人文资源蜚声海内外，先后荣获国家AAAA级旅游景区、水利风景区、生态旅游示范区等荣誉称号。
+旅游区主要包括红色渔乡微山岛、京杭大运河风情体验带以及列入“中国十大魅力湿地”的微山湖国家湿地公园，被誉为“中国荷都、北方水乡、铁道游击队故乡”。</DESCRIPTION>
+        </LOCATION>
+        <LOCATION>
+            <IMAGE>img/gallery/kongmiao.jpeg</IMAGE>
+            <IMAGE>img/gallery/kongmiao2.jpeg</IMAGE>
+            <IMAGE>img/gallery/kongmiao3.jpeg</IMAGE>
+            <NAME>三孔</NAME>
+            <DESCRIPTION>孔庙又称至圣庙，是祭祀孔子的庙宇。孔子所创立的儒家学说在封建社会里一直被奉为正统思想，并曾影响了朝鲜、日本、越南等许多国家。为表达对孔子的尊崇和对儒学的推重，历史上曾有12位皇帝亲临曲阜致祭，并将孔门弟子和历代儒学大师172人配祀孔庙。孔庙始建于春秋，历经两千多年历朝各代近百次增修扩建，至明清时形成现在的规模。三路布局，九进院落，左右对称排列，与故宫、承德避暑山庄并称为中国三大古建筑群。棂星门前，依次为万仞宫墙、“金声玉振”坊、泮水桥</DESCRIPTION>
+        </LOCATION>
+        <LOCATION>
+            <NAME>伪满皇宫</NAME>
+            <IMAGE>img/gallery/weimanhuanggong1.jpg</IMAGE>
+            <IMAGE>img/gallery/weimanhuanggong2.jpg</IMAGE>
+            <IMAGE>img/gallery/weimanhuanggong3.jpg</IMAGE>
+            <IMAGE>img/gallery/weimanhuanggong4.jpg</IMAGE>
+
+            <DESCRIPTION>伪满皇宫博物院，国家AAAAA级旅游景区， [1]  位于吉林省长春市宽城区光复北路5号，前身是民国时期管理吉林、黑龙江两省盐务的吉黑榷运局官署，总占地25.05万平方米，建筑面积13.7万平方米。
+伪满皇宫博物院现有包括缉熙楼、勤民楼、同德殿等伪满宫廷原状陈列50个，大型基本陈列2个，专题展览3个，举办临时展览33个，中国国内巡展17个，出国展览11个；收藏了大批伪满宫廷文物、日本近现代文物、东北近现代文物、民俗文物、近现代有代表性的书画、雕刻、非遗传承人作品等艺术精品。</DESCRIPTION>
+        </LOCATION>
+    </SCENERY>
+</DATA>

@@ -1,0 +1,38 @@
+<!--  Edited by XMLSpy®  -->
+<DATA>
+    <INFO>
+        <NAME>刘胜琦</NAME>
+        <SCHOOLID>55190124</SCHOOLID>
+        <CLASS>1班</CLASS>
+        <SCHOOL>吉林大学</SCHOOL>
+        <IMAGE>img/gallery/1.jpg</IMAGE>
+        <INTRODUCTION>
+大家好这是我的自我介绍
+        </INTRODUCTION>
+    </INFO>
+
+    <SCENERY>
+        <LOCATION>
+            <NAME>微山湖</NAME>
+            <IMAGE>img/gallery/1.jpg</IMAGE>
+            <IMAGE>img/gallery/1.jpg</IMAGE>
+            <IMAGE>img/gallery/1.jpg</IMAGE>
+
+            <DESCRIPTION>微山湖呀真是好</DESCRIPTION>
+        </LOCATION>
+        <LOCATION>
+            <IMAGE>img/gallery/1.jpg</IMAGE>
+            <IMAGE>img/gallery/1.jpg</IMAGE>
+            <NAME>孔府</NAME>
+            <DESCRIPTION>孔府呀真是好</DESCRIPTION>
+        </LOCATION>
+        <LOCATION>
+            <NAME>故宫</NAME>
+            <IMAGE>img/gallery/1.jpg</IMAGE>
+            <IMAGE>img/gallery/1.jpg</IMAGE>
+            <IMAGE>img/gallery/1.jpg</IMAGE>
+
+            <DESCRIPTION>故宫呀真是好</DESCRIPTION>
+        </LOCATION>
+    </SCENERY>
+</DATA>
